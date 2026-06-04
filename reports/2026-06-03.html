@@ -66,6 +66,13 @@ h3.ot-heading{color:#F0B429}
 .chart-wrap{background:#0A0A0F;border:1px solid #1A1A24;border-radius:4px;padding:1rem;position:relative;height:280px}
 .chart-wrap canvas{max-height:260px}
 
+/* Sort toolbar */
+.table-toolbar{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
+.sort-label{font-size:.7rem;color:#555;text-transform:uppercase;letter-spacing:.5px}
+.sort-btn{background:#1A1A24;border:1px solid #2A2A3A;color:#666;font-size:.75rem;padding:.3rem .75rem;border-radius:3px;cursor:pointer;transition:all .15s}
+.sort-btn:hover{border-color:#C9A84C;color:#C9A84C}
+.sort-btn.active{background:rgba(201,168,76,.12);border-color:#C9A84C;color:#C9A84C;font-weight:600}
+
 /* Footer */
 footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #1A1A24}
 
@@ -81,7 +88,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="rpt-header">
     <div class="rpt-title">Jeannine's Daily Report</div>
     <div class="rpt-date">2026-06-03</div>
-    <div class="rpt-ts">Generated Jun 4, 2026, 3:27 PM PT</div>
+    <div class="rpt-ts">Generated Jun 4, 2026, 3:30 PM PT</div>
   </div>
 
   
@@ -223,133 +230,45 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <h3>Top Sellers</h3>
     
-    <table class="data-table">
-      <thead><tr><th>#</th><th>Item</th><th>Qty</th><th>Revenue</th></tr></thead>
-      <tbody>
-    <tr class="even">
-      <td>1</td>
-      <td>Scone</td>
-      <td>87</td>
-      <td>$444.00</td>
-    </tr>
-    <tr class="">
-      <td>2</td>
-      <td>Drip Coffee</td>
-      <td>76</td>
-      <td>$479.75</td>
-    </tr>
-    <tr class="even">
-      <td>3</td>
-      <td>Orange Juice Small</td>
-      <td>73</td>
-      <td>$539.50</td>
-    </tr>
-    <tr class="">
-      <td>4</td>
-      <td>Latte</td>
-      <td>53</td>
-      <td>$361.15</td>
-    </tr>
-    <tr class="even">
-      <td>5</td>
-      <td>American Breakfast</td>
-      <td>40</td>
-      <td>$766.00</td>
-    </tr>
-    <tr class="">
-      <td>6</td>
-      <td>Cappuccino</td>
-      <td>29</td>
-      <td>$225.25</td>
-    </tr>
-    <tr class="even">
-      <td>7</td>
-      <td>Santa Barbara Scramble</td>
-      <td>23</td>
-      <td>$451.50</td>
-    </tr>
-    <tr class="">
-      <td>8</td>
-      <td>Waffle Breakfast</td>
-      <td>22</td>
-      <td>$432.00</td>
-    </tr>
-    <tr class="even">
-      <td>9</td>
-      <td>Classic Benedict</td>
-      <td>20</td>
-      <td>$440.00</td>
-    </tr>
-    <tr class="">
-      <td>10</td>
-      <td>Eduardo's Omelet</td>
-      <td>20</td>
-      <td>$352.50</td>
-    </tr>
-    <tr class="even">
-      <td>11</td>
-      <td>Challah French Toast Breakfast</td>
-      <td>19</td>
-      <td>$420.00</td>
-    </tr>
-    <tr class="">
-      <td>12</td>
-      <td>Breakfast Burrito</td>
-      <td>19</td>
-      <td>$348.00</td>
-    </tr>
-    <tr class="even">
-      <td>13</td>
-      <td>Norwegian Benedict</td>
-      <td>18</td>
-      <td>$363.50</td>
-    </tr>
-    <tr class="">
-      <td>14</td>
-      <td>Havana Latte</td>
-      <td>17</td>
-      <td>$162.25</td>
-    </tr>
-    <tr class="even">
-      <td>15</td>
-      <td>Banana French Toast</td>
-      <td>16</td>
-      <td>$324.00</td>
-    </tr>
-    <tr class="">
-      <td>16</td>
-      <td>Breakfast Quesadilla</td>
-      <td>15</td>
-      <td>$396.75</td>
-    </tr>
-    <tr class="even">
-      <td>17</td>
-      <td>Chai Latte</td>
-      <td>15</td>
-      <td>$105.00</td>
-    </tr>
-    <tr class="">
-      <td>18</td>
-      <td>California Omelet</td>
-      <td>15</td>
-      <td>$295.00</td>
-    </tr>
-    <tr class="even">
-      <td>19</td>
-      <td>Fruit Smoothie Express</td>
-      <td>15</td>
-      <td>$146.00</td>
-    </tr>
-    <tr class="">
-      <td>20</td>
-      <td>Side Bacon</td>
-      <td>13</td>
-      <td>$65.00</td>
-    </tr></tbody>
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-0">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody></tbody>
     </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":87,"revenue":444},{"name":"Drip Coffee","qty":76,"revenue":479.75},{"name":"Orange Juice Small","qty":73,"revenue":539.5},{"name":"Latte","qty":53,"revenue":361.15},{"name":"American Breakfast","qty":40,"revenue":766},{"name":"Cappuccino","qty":29,"revenue":225.25},{"name":"Santa Barbara Scramble","qty":23,"revenue":451.5},{"name":"Waffle Breakfast","qty":22,"revenue":432},{"name":"Classic Benedict","qty":20,"revenue":440},{"name":"Eduardo's Omelet","qty":20,"revenue":352.5},{"name":"Challah French Toast Breakfast","qty":19,"revenue":420},{"name":"Breakfast Burrito","qty":19,"revenue":348},{"name":"Norwegian Benedict","qty":18,"revenue":363.5},{"name":"Havana Latte","qty":17,"revenue":162.25},{"name":"Banana French Toast","qty":16,"revenue":324},{"name":"Breakfast Quesadilla","qty":15,"revenue":396.75},{"name":"Chai Latte","qty":15,"revenue":105},{"name":"California Omelet","qty":15,"revenue":295},{"name":"Fruit Smoothie Express","qty":15,"revenue":146},{"name":"Side Bacon","qty":13,"revenue":65}];
+      window['items-0'] = raw;
+      sortItems('items-0', 'qty');
+    })();
+    </script>
   </div>
 
   <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
 </div>
+<script>
+function sortItems(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const data = [...window[id]].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  table.querySelector('tbody').innerHTML = data.map((item, i) => `
+    <tr class="${i % 2 === 0 ? 'even' : ''}">
+      <td>${i + 1}</td>
+      <td>${item.name}</td>
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`).join('');
+  // Update active button
+  const toolbar = table.previousElementSibling;
+  toolbar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+</script>
 </body>
 </html>
