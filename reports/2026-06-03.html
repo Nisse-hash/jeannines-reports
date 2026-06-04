@@ -90,7 +90,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="rpt-header">
     <div class="rpt-title">Jeannine's Daily Report</div>
     <div class="rpt-date">2026-06-03</div>
-    <div class="rpt-ts">Generated Jun 4, 2026, 3:32 PM PT</div>
+    <div class="rpt-ts">Generated Jun 4, 2026, 3:47 PM PT</div>
   </div>
 
   
@@ -144,16 +144,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     
     <div class="alert-card break-card">
-      <div class="alert-title">Missed Breaks — 2 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td>Carmen Medina</td>
-      <td><strong>10.2h shift</strong></td>
-      <td class="missed">No break recorded</td>
-    </tr>
-    <tr class="">
       <td>Yamilcen Morin</td>
       <td><strong>8.5h shift</strong></td>
       <td class="missed">No break recorded</td>
@@ -258,20 +253,31 @@ function sortItems(id, by) {
   if (!table) return;
   const all = window[id];
   const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
-  const fmt = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
 
-  // Top 5 by the OTHER metric — these get highlighted
+  // Rank each item in the OTHER dimension (1 = best)
   const otherBy = by === 'qty' ? 'revenue' : 'qty';
-  const top5other = new Set(
-    [...all].sort((a, b) => b[otherBy] - a[otherBy]).slice(0, 5).map(x => x.name)
-  );
-  const otherLabel = by === 'qty' ? 'top revenue' : 'top qty';
+  const otherLabel = by === 'qty' ? 'rev' : 'qty';
+  const ranked = [...all].sort((a, b) => b[otherBy] - a[otherBy]);
+  const rankMap = {};
+  ranked.forEach((item, i) => { if (i < 5) rankMap[item.name] = i + 1; });
+
+  // Gradient: rank 1 most vivid → rank 5 faintest
+  const bgOpacity   = [0, 0.22, 0.15, 0.10, 0.06, 0.03];
+  const bdrOpacity  = [0, 1.00, 0.72, 0.50, 0.32, 0.18];
+  const tagOpacity  = [0, 1.00, 0.80, 0.62, 0.45, 0.30];
 
   table.querySelector('tbody').innerHTML = data.map((item, i) => {
-    const cross = top5other.has(item.name);
-    return `<tr class="${i % 2 === 0 ? 'even' : ''}${cross ? ' cross-highlight' : ''}">
+    const rank = rankMap[item.name];
+    const bg   = rank ? `rgba(78,205,196,${bgOpacity[rank]})`  : '';
+    const bdr  = rank ? `2px solid rgba(78,205,196,${bdrOpacity[rank]})` : '';
+    const rowStyle = rank ? `background:${bg}!important;border-left:${bdr}` : '';
+    const tag  = rank
+      ? `<span class="cross-tag" style="opacity:${tagOpacity[rank]}">#${rank} ${otherLabel}</span>`
+      : '';
+    return `<tr style="${rowStyle}">
       <td>${i + 1}</td>
-      <td>${item.name}${cross ? ` <span class="cross-tag">${otherLabel}</span>` : ''}</td>
+      <td>${item.name} ${tag}</td>
       <td>${item.qty}</td>
       <td>${fmt(item.revenue)}</td>
     </tr>`;
