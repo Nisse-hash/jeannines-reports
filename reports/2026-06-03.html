@@ -72,6 +72,8 @@ h3.ot-heading{color:#F0B429}
 .sort-btn{background:#1A1A24;border:1px solid #2A2A3A;color:#666;font-size:.75rem;padding:.3rem .75rem;border-radius:3px;cursor:pointer;transition:all .15s}
 .sort-btn:hover{border-color:#C9A84C;color:#C9A84C}
 .sort-btn.active{background:rgba(201,168,76,.12);border-color:#C9A84C;color:#C9A84C;font-weight:600}
+.cross-highlight td{background:rgba(78,205,196,.07)!important;border-left:2px solid #4ECDC4}
+.cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 
 /* Footer */
 footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #1A1A24}
@@ -88,7 +90,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="rpt-header">
     <div class="rpt-title">Jeannine's Daily Report</div>
     <div class="rpt-date">2026-06-03</div>
-    <div class="rpt-ts">Generated Jun 4, 2026, 3:30 PM PT</div>
+    <div class="rpt-ts">Generated Jun 4, 2026, 3:32 PM PT</div>
   </div>
 
   
@@ -254,16 +256,27 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 function sortItems(id, by) {
   const table = document.getElementById(id);
   if (!table) return;
-  const data = [...window[id]].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
-  const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  table.querySelector('tbody').innerHTML = data.map((item, i) => `
-    <tr class="${i % 2 === 0 ? 'even' : ''}">
+  const all = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+
+  // Top 5 by the OTHER metric — these get highlighted
+  const otherBy = by === 'qty' ? 'revenue' : 'qty';
+  const top5other = new Set(
+    [...all].sort((a, b) => b[otherBy] - a[otherBy]).slice(0, 5).map(x => x.name)
+  );
+  const otherLabel = by === 'qty' ? 'top revenue' : 'top qty';
+
+  table.querySelector('tbody').innerHTML = data.map((item, i) => {
+    const cross = top5other.has(item.name);
+    return `<tr class="${i % 2 === 0 ? 'even' : ''}${cross ? ' cross-highlight' : ''}">
       <td>${i + 1}</td>
-      <td>${item.name}</td>
+      <td>${item.name}${cross ? ` <span class="cross-tag">${otherLabel}</span>` : ''}</td>
       <td>${item.qty}</td>
       <td>${fmt(item.revenue)}</td>
-    </tr>`).join('');
-  // Update active button
+    </tr>`;
+  }).join('');
+
   const toolbar = table.previousElementSibling;
   toolbar.querySelectorAll('.sort-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
