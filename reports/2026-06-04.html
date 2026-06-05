@@ -79,6 +79,13 @@ h3.ot-heading{color:#F0B429}
 .cross-highlight td{background:rgba(78,205,196,.07)!important;border-left:2px solid #4ECDC4}
 .cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 
+/* Retail toggle */
+.retail-toggle{display:flex;align-items:center;gap:.375rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.rtgl-btn{background:transparent;border:1px solid rgba(78,205,196,.25);color:#4ECDC4;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500}
+.rtgl-btn:hover,.rtgl-btn.active{background:rgba(78,205,196,.1);border-color:#4ECDC4}
+.retail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:700px){.retail-grid{grid-template-columns:1fr}}
+
 /* Day navigation */
 .day-nav{display:flex;align-items:center;gap:.375rem;margin-top:1.1rem}
 .nav-btn{background:transparent;border:1px solid rgba(201,168,76,.25);color:#C9A84C;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500;letter-spacing:.2px}
@@ -102,7 +109,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-04</div>
-      <div class="rpt-ts">Generated Jun 5, 2026, 8:02 AM PT</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 8:10 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -114,6 +121,80 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
   
   
+  
+  <div class="location-block" style="border:1px solid rgba(78,205,196,.2)">
+    <h2 class="loc-name" style="color:#4ECDC4;border-bottom-color:rgba(78,205,196,.15)">Retail Top Sellers</h2>
+
+    <div class="retail-toggle">
+      <button class="rtgl-btn active" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
+      <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
+      <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
+      <button class="rtgl-btn" data-view="all" onclick="setRetailView('all')">All</button>
+    </div>
+
+    <div id="retail-cols" class="retail-grid">
+      <div id="retail-col-food">
+        <h3 style="color:#4ECDC4">Retail Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-0">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5}];
+      window['items-0'] = raw;
+      setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+      <div id="retail-col-nonfood">
+        <h3 style="color:#4ECDC4">Retail Non-Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-1','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-1','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-1">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Calypso Card","qty":1,"revenue":6}];
+      window['items-1'] = raw;
+      setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+    </div>
+
+    <div id="retail-all-view" style="display:none">
+      
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-2','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-2','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-2">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6}];
+      window['items-2'] = raw;
+      setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
+    })();
+    </script>
+    </div>
+  </div>
   
   <div class="location-block">
     <h2 class="loc-name">At the Shore</h2>
@@ -259,18 +340,18 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     <div class="table-toolbar">
       <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
+      <button class="sort-btn active" onclick="sortItems('items-3','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-3','revenue')">Revenue</button>
     </div>
-    <table class="data-table" id="items-0">
+    <table class="data-table" id="items-3">
       <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
       <tbody></tbody>
     </table>
     <script>
     (function(){
       const raw = [{"name":"Scone","qty":116,"revenue":872},{"name":"Drip Coffee","qty":66,"revenue":396.11},{"name":"Orange Juice Small","qty":58,"revenue":520},{"name":"Latte","qty":36,"revenue":254.21},{"name":"American Breakfast","qty":34,"revenue":689.5},{"name":"Challah French Toast Breakfast","qty":34,"revenue":683.75},{"name":"Santa Barbara Scramble","qty":31,"revenue":720.25},{"name":"Fruit Smoothie Express","qty":29,"revenue":262.03},{"name":"Breakfast Burrito","qty":26,"revenue":576},{"name":"Pancake Breakfast","qty":23,"revenue":463},{"name":"Single Large Cookie","qty":22,"revenue":199.5},{"name":"California Omelet","qty":21,"revenue":467.5},{"name":"Cappuccino","qty":18,"revenue":87.19},{"name":"Waffle Breakfast","qty":18,"revenue":360},{"name":"Avocado Toast","qty":16,"revenue":254.5},{"name":"Chilaquiles","qty":16,"revenue":307.5},{"name":"Havana Latte","qty":16,"revenue":119.53999999999999},{"name":"Steak & Eggs","qty":15,"revenue":450},{"name":"Banana French Toast","qty":14,"revenue":252},{"name":"Tri-Tip Benedict","qty":14,"revenue":294}];
-      window['items-0'] = raw;
-      setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
+      window['items-3'] = raw;
+      setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
     })();
     </script>
 
@@ -301,6 +382,20 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
 </div>
 <script>
+function setRetailView(view) {
+  const cols     = document.getElementById('retail-cols');
+  const allView  = document.getElementById('retail-all-view');
+  const foodCol  = document.getElementById('retail-col-food');
+  const nonfoodCol = document.getElementById('retail-col-nonfood');
+  if (!cols) return;
+  cols.style.display     = view === 'all' ? 'none' : '';
+  if (allView)    allView.style.display    = view === 'all'     ? ''     : 'none';
+  if (foodCol)    foodCol.style.display    = view === 'nonfood' ? 'none' : '';
+  if (nonfoodCol) nonfoodCol.style.display = view === 'food'    ? 'none' : '';
+  document.querySelectorAll('.rtgl-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === view)
+  );
+}
 const _reportDate = '2026-06-04';
 function goDay(delta) {
   const d = new Date(_reportDate + 'T12:00:00');
