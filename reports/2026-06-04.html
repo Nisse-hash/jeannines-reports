@@ -109,7 +109,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-04</div>
-      <div class="rpt-ts">Generated Jun 5, 2026, 8:34 AM PT</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 8:46 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -204,6 +204,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     const revenue  = [0,0,0,681.67,1159.31,1066,1320.58,1861.72,1478.67,1348.49,1315.45,1154.18,1258.4,1121.39,860.62,27.93,549.57,10.92,27.31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     const headcount= [2,6,8,12,15,16,16,16,16,16,16,16,16,16,14,14,11,11,10,6,4,3,1,1,1,1,1,1,1,1,1,1,1,1,0];
     const labor    = [9.4,54.37,73.32,89.54,122.76,149.79,149.95,149.95,149.95,149.95,149.95,149.95,149.95,133.23,133.05,116.9,107.15,99.54,67.1,44.41,37.76,5.66,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,3.76,0];
+    const staff    = [["Alejo Gastelum","Jose Martinez"],["Alejo Gastelum","Anazario Gallardo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Roberto Munoz"],["Alejo Gastelum","Anazario Gallardo","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Roberto Munoz"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Roberto Munoz","Roberto Rendon"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Juan Ortiz","Leidi Gantes","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Jorge Alba","Jose Martinez","Juan Ortiz","Leidi Gantes","Nanci Quinnear","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Juan Ortiz","Leidi Gantes","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Juan Ortiz","Leidi Gantes","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Alejo Gastelum","Cesar Chuluc Navichoc","Claudio Victoria","Javier Valenzo","Juan Ortiz","Leidi Gantes","Patricia Villalas","Roberto Munoz","Roberto Rendon","Yamilcen Morin"],["Cesar Chuluc Navichoc","Claudio Victoria","Leidi Gantes","Patricia Villalas","Roberto Rendon","Yamilcen Morin"],["Claudio Victoria","Patricia Villalas","Roberto Rendon","Yamilcen Morin"],["Alejandro Segoviano","Claudio Victoria","Patricia Villalas"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],[]];
     new Chart(document.getElementById('chart-0'), {
       data: {
         labels,
@@ -223,11 +224,21 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
         },
         plugins:{
           legend:{ labels:{ color:'#888', boxWidth:12, font:{size:11} } },
-          tooltip:{ backgroundColor:'#13131A', borderColor:'#2A2A3A', borderWidth:1, titleColor:'#fff', bodyColor:'#ccc',
-            callbacks:{ label: ctx => {
-              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
-              return ' $'+ctx.parsed.y.toFixed(2);
-            }}
+          tooltip:{
+            backgroundColor:'#13131A', borderColor:'#2A2A3A', borderWidth:1,
+            titleColor:'#fff', bodyColor:'#ccc',
+            callbacks:{
+              label: ctx => {
+                if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+                return ' $'+ctx.parsed.y.toFixed(2);
+              },
+              afterBody: items => {
+                const idx = items[0]?.dataIndex;
+                const names = idx !== undefined ? (staff[idx] || []) : [];
+                if (!names.length) return [];
+                return ['', '● On the floor:'].concat(names.map(n => '   ' + n));
+              },
+            }
           },
         }
       }
