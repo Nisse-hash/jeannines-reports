@@ -97,7 +97,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="rpt-header">
     <div class="rpt-title">Jeannine's Daily Report</div>
     <div class="rpt-date">2026-06-04</div>
-    <div class="rpt-ts">Generated Jun 5, 2026, 7:49 AM PT</div>
+    <div class="rpt-ts">Generated Jun 5, 2026, 7:55 AM PT</div>
     <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -301,10 +301,10 @@ function goDay(delta) {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');
-  window.location.href = '/reports/' + y + '-' + m + '-' + day + '.html';
+  window.location.href = '/api/report?date=' + y + '-' + m + '-' + day;
 }
 function goToDate(val) {
-  if (val) window.location.href = '/reports/' + val + '.html';
+  if (val) window.location.href = '/api/report?date=' + val;
 }
 function sortItems(id, by) {
   const table = document.getElementById(id);
