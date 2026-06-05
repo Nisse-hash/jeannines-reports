@@ -129,6 +129,6 @@ export default async function handler(req, res) {
   const html = render({ locations: [locationData], totals, eightySixedItems: [] }, date);
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+  res.setHeader('Cache-Control', 'no-store');
   res.send(html);
 }
