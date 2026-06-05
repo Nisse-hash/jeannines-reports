@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>Jeannine's Daily Report — 2026-06-04</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#0A0A0F;color:#fff;padding:2rem 1rem;min-height:100vh}
+.wrap{max-width:900px;margin:0 auto}
+
+/* Header */
+.rpt-header{border-bottom:2px solid #C9A84C;padding-bottom:1.5rem;margin-bottom:2rem}
+.rpt-title{font-size:2rem;font-weight:800;color:#C9A84C;letter-spacing:-0.5px}
+.rpt-date{font-size:1rem;color:#999;margin-top:.25rem}
+.rpt-ts{font-size:.7rem;color:#444;margin-top:.4rem}
+
+/* Totals banner */
+.totals-banner{background:#13131A;border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.5rem;margin-bottom:2rem}
+.banner-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#C9A84C;margin-bottom:1rem}
+
+/* Metric grid */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+.metric-card{background:#0A0A0F;border-radius:4px;padding:.875rem;text-align:center;border:1px solid #1A1A24}
+.metric-label{font-size:.65rem;color:#999;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem}
+.metric-value{font-size:1.2rem;font-weight:700}
+
+/* Location block */
+.location-block{background:#13131A;border-radius:4px;padding:1.5rem;margin-bottom:1.75rem}
+.loc-name{font-size:1.15rem;font-weight:700;color:#C9A84C;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid rgba(201,168,76,.15)}
+
+h3{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#666;margin:1.5rem 0 .75rem}
+h3.ot-heading{color:#F0B429}
+
+/* Tables */
+.data-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.data-table th{text-align:left;padding:.55rem .75rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;color:#666;border-bottom:1px solid #2A2A3A}
+.data-table td{padding:.55rem .75rem;color:#e0e0e0}
+.data-table tr.even td{background:#0D0D14}
+
+.ot{color:#F0B429;font-weight:600}
+.dt{color:#FF6B6B;font-weight:700}
+.missed{color:#FF6B6B;font-weight:600}
+.ot-pill{display:inline-block;padding:.15rem .5rem;border-radius:3px;font-size:.85rem;font-weight:700;vertical-align:middle}
+.ot .ot-pill{background:rgba(240,180,41,.15)}
+.dt .ot-pill{background:rgba(255,107,107,.15)}
+.wage-tag{font-size:.7rem;color:#666;margin-left:.4rem;font-weight:400}
+.extra-cost{font-size:.8rem;color:#FF6B6B;font-weight:600;margin-left:.5rem}
+
+/* Alert cards */
+.alert-card{border-radius:4px;padding:1.25rem;margin-bottom:1rem}
+.ot-card{background:rgba(240,180,41,.07);border:1px solid rgba(240,180,41,.3)}
+.break-card{background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.35)}
+.alert-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.875rem}
+.ot-card .alert-title{color:#F0B429}
+.break-card .alert-title{color:#FF6B6B}
+.legal-note{font-size:.7rem;font-weight:400;color:#999;text-transform:none;letter-spacing:0}
+.all-clear{font-size:.8rem;color:#4CAF50;padding:.75rem 0 1.25rem;letter-spacing:.3px}
+
+.ok{font-size:.875rem;color:#4CAF50;padding:.25rem 0}
+.empty{font-size:.875rem;color:#555;padding:.25rem 0}
+
+/* Chart */
+.chart-outer{margin-bottom:1.75rem}
+.chart-wrap{background:#0A0A0F;border:1px solid #1A1A24;border-radius:4px;padding:1rem;position:relative;height:280px}
+.chart-wrap canvas{max-height:260px}
+
+/* Sort toolbar */
+.table-toolbar{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
+.sort-label{font-size:.7rem;color:#555;text-transform:uppercase;letter-spacing:.5px}
+.sort-btn{background:#1A1A24;border:1px solid #2A2A3A;color:#666;font-size:.75rem;padding:.3rem .75rem;border-radius:3px;cursor:pointer;transition:all .15s}
+.sort-btn:hover{border-color:#C9A84C;color:#C9A84C}
+.sort-btn.active{background:rgba(201,168,76,.12);border-color:#C9A84C;color:#C9A84C;font-weight:600}
+.cross-highlight td{background:rgba(78,205,196,.07)!important;border-left:2px solid #4ECDC4}
+.cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+
+/* Footer */
+footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #1A1A24}
+
+@media(max-width:600px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .rpt-title{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="rpt-header">
+    <div class="rpt-title">Jeannine's Daily Report</div>
+    <div class="rpt-date">2026-06-04</div>
+    <div class="rpt-ts">Generated Jun 5, 2026, 7:40 AM PT</div>
+  </div>
+
+  
+  
+  
+  <div class="location-block">
+    <h2 class="loc-name">At the Shore</h2>
+
+    
+    
+    <div class="alert-card ot-card">
+      <div class="alert-title">Overtime — 8 employees</div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Leidi Gantes</span><br><span class="wage-tag">$17.00/h</span></td>
+      <td>9h &nbsp;<span class="ot ot-pill">+1.01h OT</span></td>
+      <td class="extra-cost">+$8.59</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Roberto Munoz</span><br><span class="wage-tag">$24.00/h</span></td>
+      <td>8.6h &nbsp;<span class="ot ot-pill">+36min OT</span></td>
+      <td class="extra-cost">+$7.20</td>
+    </tr>
+    <tr class="even">
+      <td><span class="emp-name">Alejo Gastelum</span><br><span class="wage-tag">$19.00/h</span></td>
+      <td>8.6h &nbsp;<span class="ot ot-pill">+37min OT</span></td>
+      <td class="extra-cost">+$5.89</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Roberto Rendon</span><br><span class="wage-tag">$17.00/h</span></td>
+      <td>8.5h &nbsp;<span class="ot ot-pill">+29min OT</span></td>
+      <td class="extra-cost">+$4.17</td>
+    </tr>
+    <tr class="even">
+      <td><span class="emp-name">Patricia Villalas</span><br><span class="wage-tag">$16.90/h</span></td>
+      <td>8.5h &nbsp;<span class="ot ot-pill">+31min OT</span></td>
+      <td class="extra-cost">+$4.31</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Claudio Victoria</span><br><span class="wage-tag">$17.00/h</span></td>
+      <td>8.5h &nbsp;<span class="ot ot-pill">+28min OT</span></td>
+      <td class="extra-cost">+$3.99</td>
+    </tr>
+    <tr class="even">
+      <td><span class="emp-name">Juan Ortiz</span><br><span class="wage-tag">$18.00/h</span></td>
+      <td>8.1h &nbsp;<span class="ot ot-pill">+6min OT</span></td>
+      <td class="extra-cost">+$0.90</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Anazario Gallardo</span><br><span class="wage-tag">$16.90/h</span></td>
+      <td>8h &nbsp;<span class="ot ot-pill">+3min OT</span></td>
+      <td class="extra-cost">+$0.42</td>
+    </tr></tbody>
+      </table>
+    </div>
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 2 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Yamilcen Morin</td>
+      <td><strong>7.9h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>Jorge Alba</td>
+      <td><strong>6.1h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap"><canvas id="chart-0"></canvas></div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM","7:30","8PM","8:30","9PM","9:30","10PM","10:30","11PM"];
+    const revenue  = [0,0,0,681.67,1159.31,1066,1320.58,1861.72,1478.67,1348.49,1315.45,1154.18,1258.4,1121.39,860.62,27.93,549.57,10.92,27.31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    const headcount= [2,6,8,12,15,16,16,16,16,16,16,16,16,16,14,14,11,11,10,6,4,3,1,1,1,1,1,1,1,1,1,1,1,1,0];
+    const labor    = [9.4,54.37,73.32,89.54,122.76,149.79,149.95,149.95,149.95,149.95,149.95,149.95,149.95,133.23,133.05,116.9,107.15,99.54,67.1,44.41,37.76,5.66,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,3.76,0];
+    new Chart(document.getElementById('chart-0'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(201,168,76,0.45)', borderColor:'#C9A84C', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#4ECDC4', backgroundColor:'rgba(78,205,196,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#FF6B6B', backgroundColor:'rgba(255,107,107,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#555', maxRotation:45, font:{size:10} }, grid:{ color:'#1A1A24' } },
+          yRev:{ position:'left',  ticks:{ color:'#C9A84C', callback:v=>'$'+v }, grid:{ color:'#1A1A24' } },
+          yPpl:{ position:'right', ticks:{ color:'#4ECDC4', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#888', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#13131A', borderColor:'#2A2A3A', borderWidth:1, titleColor:'#fff', bodyColor:'#ccc',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$15,242.21</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$14,170.90</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">298</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$47.55</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$1,344.70</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">127.3h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-0">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":116,"revenue":872},{"name":"Drip Coffee","qty":66,"revenue":396.11},{"name":"Orange Juice Small","qty":58,"revenue":520},{"name":"Latte","qty":36,"revenue":254.21},{"name":"American Breakfast","qty":34,"revenue":689.5},{"name":"Challah French Toast Breakfast","qty":34,"revenue":683.75},{"name":"Santa Barbara Scramble","qty":31,"revenue":720.25},{"name":"Fruit Smoothie Express","qty":29,"revenue":262.03},{"name":"Breakfast Burrito","qty":26,"revenue":576},{"name":"Pancake Breakfast","qty":23,"revenue":463},{"name":"Single Large Cookie","qty":22,"revenue":199.5},{"name":"California Omelet","qty":21,"revenue":467.5},{"name":"Cappuccino","qty":18,"revenue":87.19},{"name":"Waffle Breakfast","qty":18,"revenue":360},{"name":"Avocado Toast","qty":16,"revenue":254.5},{"name":"Chilaquiles","qty":16,"revenue":307.5},{"name":"Havana Latte","qty":16,"revenue":119.53999999999999},{"name":"Steak & Eggs","qty":15,"revenue":450},{"name":"Banana French Toast","qty":14,"revenue":252},{"name":"Tri-Tip Benedict","qty":14,"revenue":294}];
+      window['items-0'] = raw;
+      sortItems('items-0', 'qty');
+    })();
+    </script>
+
+    <h3>Discounts</h3>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Employee Discount</td>
+      <td style="text-align:center">4</td>
+      <td style="color:#FF6B6B;font-weight:600">$35.00</td>
+    </tr>
+    <tr class="">
+      <td>Cash Reward</td>
+      <td style="text-align:center">3</td>
+      <td style="color:#FF6B6B;font-weight:600">$27.20</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#FF6B6B;font-weight:700;padding:.5rem .75rem">$62.20</td>
+      </tr></tfoot>
+    </table>
+
+    <h3>Voids</h3>
+    
+    <div class="alert-card" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.35)">
+      <div class="alert-title" style="color:#FF6B6B">
+        Voided Orders — 1 order &nbsp;·&nbsp; $0.00 total
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Opened</th><th>Voided At</th><th>Voided By</th><th>Reason</th><th>Amount</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>7:24 AM</td>
+      <td>—</td>
+      <td><strong>Unknown</strong></td>
+      <td style="color:#999">—</td>
+      <td style="color:#FF6B6B;font-weight:600">$0.00</td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
+</div>
+<script>
+function sortItems(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const all = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+
+  // Rank each item in the OTHER dimension (1 = best)
+  const otherBy = by === 'qty' ? 'revenue' : 'qty';
+  const otherLabel = by === 'qty' ? 'rev' : 'qty';
+  const ranked = [...all].sort((a, b) => b[otherBy] - a[otherBy]);
+  const rankMap = {};
+  ranked.forEach((item, i) => { if (i < 5) rankMap[item.name] = i + 1; });
+
+  // Gradient: rank 1 most vivid → rank 5 faintest
+  const bgOpacity   = [0, 0.22, 0.15, 0.10, 0.06, 0.03];
+  const bdrOpacity  = [0, 1.00, 0.72, 0.50, 0.32, 0.18];
+  const tagOpacity  = [0, 1.00, 0.80, 0.62, 0.45, 0.30];
+
+  table.querySelector('tbody').innerHTML = data.map((item, i) => {
+    const rank = rankMap[item.name];
+    const bg   = rank ? `rgba(78,205,196,${bgOpacity[rank]})`  : '';
+    const bdr  = rank ? `2px solid rgba(78,205,196,${bdrOpacity[rank]})` : '';
+    const rowStyle = rank ? `background:${bg}!important;border-left:${bdr}` : '';
+    const tag  = rank
+      ? `<span class="cross-tag" style="opacity:${tagOpacity[rank]}">#${rank} ${otherLabel}</span>`
+      : '';
+    return `<tr style="${rowStyle}">
+      <td>${i + 1}</td>
+      <td>${item.name} ${tag}</td>
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`;
+  }).join('');
+
+  const toolbar = table.previousElementSibling;
+  toolbar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+</script>
+</body>
+</html>
