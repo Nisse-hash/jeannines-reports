@@ -11,10 +11,14 @@ body{font-family:-apple-system,'Inter',sans-serif;background:#0A0A0F;color:#fff;
 .wrap{max-width:900px;margin:0 auto}
 
 /* Header */
-.rpt-header{border-bottom:2px solid #C9A84C;padding-bottom:1.5rem;margin-bottom:2rem}
+.rpt-header{border-bottom:2px solid #C9A84C;padding-bottom:1.5rem;margin-bottom:2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.rpt-left{flex:1}
 .rpt-title{font-size:2rem;font-weight:800;color:#C9A84C;letter-spacing:-0.5px}
 .rpt-date{font-size:1rem;color:#999;margin-top:.25rem}
 .rpt-ts{font-size:.7rem;color:#444;margin-top:.4rem}
+.day-badge{flex-shrink:0;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.35rem .85rem;border-radius:9999px;margin-top:.25rem}
+.day-badge.weekend{color:#F0B429;background:rgba(240,180,41,.1);border:1px solid rgba(240,180,41,.25)}
+.day-badge.weekday{color:#555;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
 
 /* Totals banner */
 .totals-banner{background:#13131A;border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.5rem;margin-bottom:2rem}
@@ -95,14 +99,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 <div class="wrap">
 
   <div class="rpt-header">
-    <div class="rpt-title">Jeannine's Daily Report</div>
-    <div class="rpt-date">2026-06-04</div>
-    <div class="rpt-ts">Generated Jun 5, 2026, 7:58 AM PT</div>
-    <div class="day-nav">
+    <div class="rpt-left">
+      <div class="rpt-title">Jeannine's Daily Report</div>
+      <div class="rpt-date">2026-06-04</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 8:02 AM PT</div>
+      <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
       <button class="nav-btn" onclick="goDay(1)">Next →</button>
     </div>
+    </div>
+    <div class="day-badge weekday">Thursday</div>
   </div>
 
   
