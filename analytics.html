@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeannine's Hub</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:     #0A0A0F;
+  --card:   #13131A;
+  --border: #1E1E2E;
+  --gold:   #C9A84C;
+  --gold2:  #F0B429;
+  --text:   #FFFFFF;
+  --muted:  #666666;
+  --sub:    #999999;
+  --teal:   #4ECDC4;
+  --red:    #E74C3C;
+  --green:  #2ECC71;
+  --radius: 6px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
+
+/* ── Header ── */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 50; background: var(--bg);
+}
+.header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.3px; }
+.header h1 span { color: var(--gold); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+
+/* ── Sticky section nav ── */
+.section-nav {
+  display: flex; gap: 0; border-bottom: 1px solid var(--border);
+  position: sticky; top: 57px; z-index: 40; background: var(--bg);
+}
+.section-nav a {
+  padding: 10px 20px; font-size: 12px; font-weight: 500; color: var(--muted);
+  text-decoration: none; text-transform: uppercase; letter-spacing: .6px;
+  border-bottom: 2px solid transparent; transition: all .12s;
+}
+.section-nav a:hover { color: var(--gold); }
+.section-nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── Controls bar ── */
+.controls {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;
+  padding: 14px 28px; background: var(--card); border-bottom: 1px solid var(--border);
+}
+.ctrl-group { display: flex; flex-direction: column; gap: 4px; }
+.ctrl-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; font-weight: 500; }
+.seg { display: flex; }
+.seg button {
+  background: var(--bg); border: 1px solid var(--border); color: var(--sub);
+  font-size: 12px; font-family: inherit; padding: 6px 12px; cursor: pointer; transition: all .12s; white-space: nowrap;
+}
+.seg button:first-child { border-radius: 4px 0 0 4px; }
+.seg button:last-child  { border-radius: 0 4px 4px 0; }
+.seg button:not(:first-child) { border-left: none; }
+.seg button.active { background: var(--gold); border-color: var(--gold); color: #000; font-weight: 600; }
+.seg button:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+input[type=date] {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+  color: var(--text); font-size: 13px; padding: 6px 10px; cursor: pointer; font-family: inherit;
+}
+input[type=date]:focus { outline: 1px solid var(--gold); border-color: var(--gold); }
+.view-toggle { display: flex; }
+.view-toggle button {
+  background: var(--bg); border: 1px solid var(--border); color: var(--sub);
+  font-size: 13px; font-family: inherit; font-weight: 500; padding: 6px 14px;
+  cursor: pointer; transition: all .12s;
+}
+.view-toggle button:first-child { border-radius: 4px 0 0 4px; }
+.view-toggle button:last-child  { border-radius: 0 4px 4px 0; border-left: none; }
+.view-toggle button.active { background: var(--gold); border-color: var(--gold); color: #000; font-weight: 700; }
+
+/* ── Main layout ── */
+.main { max-width: 1440px; margin: 0 auto; padding: 24px 28px; }
+
+/* ── Section headings ── */
+.section { margin-bottom: 36px; scroll-margin-top: 120px; }
+.section-title {
+  font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700;
+  color: var(--gold); margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(201,168,76,.2);
+  display: flex; align-items: baseline; gap: 10px;
+}
+.section-title .sub { font-family: Inter, sans-serif; font-size: 11px; font-weight: 400; color: var(--muted); }
+
+/* ── Stat cards ── */
+.cards { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 18px; flex: 1; min-width: 120px;
+}
+.card-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 6px; }
+.card-value { font-size: 22px; font-weight: 700; color: var(--gold); line-height: 1; }
+.card-sub   { font-size: 11px; color: var(--sub); margin-top: 4px; }
+.card.accent { border-color: rgba(201,168,76,.3); }
+.report-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--gold); text-decoration: none;
+  border: 1px solid rgba(201,168,76,.35); border-radius: 4px;
+  padding: 6px 12px; margin-top: 8px; transition: all .12s;
+}
+.report-link:hover { background: rgba(201,168,76,.08); }
+
+/* ── Chart card ── */
+.chart-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+.chart-title { font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 14px; }
+.chart-wrap  { position: relative; height: 260px; }
+
+/* ── Two-column panels ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
+.panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.panel-title { font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: .6px; font-weight: 500; margin-bottom: 14px; }
+
+/* ── Tables ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { color: var(--muted); font-weight: 500; text-align: right; padding: 0 8px 10px; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; }
+.data-table th:first-child { text-align: left; }
+.data-table td { padding: 8px; border-top: 1px solid var(--border); text-align: right; }
+.data-table td:first-child { text-align: left; }
+.data-table tr:hover td { background: rgba(255,255,255,.02); }
+.hi { color: var(--green); font-weight: 600; }
+.lo { color: var(--sub); }
+.dt-badge { display: inline-block; font-size: 9px; padding: 1px 5px; border-radius: 3px; background: rgba(231,76,60,.2); color: var(--red); margin-left: 4px; vertical-align: middle; font-weight: 700; }
+
+/* ── OT leaderboard ── */
+.ot-rank { display: flex; align-items: center; gap: 6px; }
+.ot-rank-num { font-size: 10px; color: var(--muted); min-width: 18px; }
+.ot-bar-wrap { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
+.ot-bar { height: 100%; background: var(--red); border-radius: 2px; transition: width .3s; }
+
+/* ── Item bars ── */
+.item-bar-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid var(--border); font-size: 13px; }
+.item-bar-name { min-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-bar-wrap { flex: 1; height: 5px; background: var(--border); border-radius: 3px; }
+.item-bar-fill { height: 100%; border-radius: 3px; }
+.item-bar-val  { color: var(--sub); font-size: 12px; min-width: 48px; text-align: right; }
+.item-wd-we { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.wd-we-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 10px; font-weight: 500; }
+
+/* ── Comparison table ── */
+.badge { display: inline-block; font-size: 9px; padding: 2px 6px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
+.badge-wd { background: #1A2030; color: #5899DA; }
+.badge-we { background: #201A30; color: var(--gold); }
+
+/* ── Loader / error ── */
+.loader { position: fixed; inset: 0; background: rgba(10,10,15,.75); display: none; align-items: center; justify-content: center; z-index: 100; }
+.spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.err-bar { background: rgba(231,76,60,.12); border: 1px solid rgba(231,76,60,.35); border-radius: 4px; padding: 10px 14px; font-size: 13px; color: var(--red); margin-bottom: 16px; display: none; }
+.empty-msg { text-align: center; padding: 32px 0; color: var(--muted); font-size: 13px; }
+
+/* ── Settings modal ── */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; z-index: 200; }
+.overlay.show { display: flex; }
+.modal { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 32px; width: 420px; max-width: 95vw; }
+.modal h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.modal p  { color: var(--sub); font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+.field input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-size: 13px; padding: 8px 12px; font-family: monospace; }
+.btn-primary { background: var(--gold); color: #000; font-size: 14px; font-weight: 600; padding: 10px 24px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-family: inherit; }
+.btn-icon { background: none; border: 1px solid var(--border); color: var(--sub); width: 32px; height: 32px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: all .12s; }
+.btn-icon:hover { border-color: var(--gold); color: var(--gold); }
+.data-badge { font-size: 11px; color: var(--muted); background: var(--card); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; }
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="spinner"></div></div>
+
+<div class="overlay" id="settingsOverlay">
+  <div class="modal">
+    <h2>Connect Airtable</h2>
+    <p>Your Airtable token, stored only in your browser's localStorage.</p>
+    <div class="field"><label>API Token</label><input type="password" id="cfgToken" placeholder="pat..." autocomplete="off"></div>
+    <div class="field"><label>Base ID</label><input type="text" id="cfgBase"></div>
+    <div class="field"><label>Table ID</label><input type="text" id="cfgTable"></div>
+    <button class="btn-primary" onclick="saveConfig()">Connect & Load</button>
+  </div>
+</div>
+
+<div class="header">
+  <h1>Jeannine's <span>Hub</span></h1>
+  <div class="view-toggle">
+    <button id="vb-restaurant" class="active" onclick="setView('restaurant')">Restaurant</button>
+    <button id="vb-retail" onclick="setView('retail')">Retail</button>
+  </div>
+  <div class="header-right">
+    <span class="data-badge" id="dataBadge">loading...</span>
+    <button class="btn-icon" onclick="openSettings()" title="Settings">⚙</button>
+  </div>
+</div>
+
+<nav class="section-nav">
+  <a href="#today" class="active" onclick="setActive(this)">Today</a>
+  <a href="#revenue" onclick="setActive(this)">Revenue</a>
+  <a href="#labor" onclick="setActive(this)">Labor</a>
+  <a href="#items" onclick="setActive(this)">Items</a>
+</nav>
+
+<div class="controls">
+  <div class="ctrl-group">
+    <div class="ctrl-label">Quick Range</div>
+    <div class="seg">
+      <button onclick="setRange(7)">7d</button>
+      <button onclick="setRange(30)">30d</button>
+      <button onclick="setRange(90)" class="active">90d</button>
+      <button onclick="setRange(365)">1yr</button>
+      <button onclick="setRangeAll()">All</button>
+    </div>
+  </div>
+  <div class="ctrl-group">
+    <div class="ctrl-label">From</div>
+    <input type="date" id="dateFrom">
+  </div>
+  <div class="ctrl-group">
+    <div class="ctrl-label">To</div>
+    <input type="date" id="dateTo">
+  </div>
+  <div class="ctrl-group">
+    <div class="ctrl-label">Granularity</div>
+    <div class="seg">
+      <button id="gb-day"   onclick="setGran('day')">Day</button>
+      <button id="gb-week"  onclick="setGran('week')" class="active">Week</button>
+      <button id="gb-month" onclick="setGran('month')">Month</button>
+      <button id="gb-year"  onclick="setGran('year')">Year</button>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="err-bar" id="errBar"></div>
+
+  <!-- ── TODAY ── -->
+  <section class="section" id="today">
+    <div class="section-title">Today's Snapshot <span class="sub" id="todayDate"></span></div>
+    <div id="todayCards"><div class="empty-msg">Loading...</div></div>
+  </section>
+
+  <!-- ── REVENUE ── -->
+  <section class="section" id="revenue">
+    <div class="section-title">Revenue <span class="sub" id="revenueRange"></span></div>
+    <div class="chart-card">
+      <div class="chart-title">Net Sales over time</div>
+      <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
+    </div>
+    <div class="two-col">
+      <div class="panel">
+        <div class="panel-title">Weekday vs Weekend — avg per day</div>
+        <div id="wdWeTable"><div class="empty-msg">Loading...</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Period totals</div>
+        <div id="periodTotals"><div class="empty-msg">Loading...</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LABOR ── -->
+  <section class="section" id="labor">
+    <div class="section-title">Labor Intelligence <span class="sub" id="laborRange"></span></div>
+    <div class="two-col">
+      <div class="panel">
+        <div class="panel-title">OT Leaderboard — total OT hours in range</div>
+        <div id="otLeaderboard"><div class="empty-msg">No OT data.</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Labor cost trend</div>
+        <div class="chart-wrap" style="height:220px"><canvas id="laborChart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ITEMS ── -->
+  <section class="section" id="items">
+    <div class="section-title">Item Intelligence <span class="sub" id="itemsRange"></span></div>
+    <div class="two-col" style="margin-bottom:16px">
+      <div class="panel">
+        <div class="panel-title">Top sellers this period</div>
+        <div id="topItemBars"><div class="empty-msg">Loading...</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Weekday vs Weekend ranking</div>
+        <div class="item-wd-we">
+          <div>
+            <div class="wd-we-label">Weekday <span class="badge badge-wd" id="wdDays"></span></div>
+            <div id="itemWd"></div>
+          </div>
+          <div>
+            <div class="wd-we-label">Weekend <span class="badge badge-we" id="weDays"></span></div>
+            <div id="itemWe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Best seller evolution over time</div>
+      <div class="chart-wrap" style="height:240px"><canvas id="itemEvChart"></canvas></div>
+    </div>
+  </section>
+</div>
+
+<script>
+// ── Constants ──────────────────────────────────
+const DEFAULT_BASE  = 'appyOzCwkZl6kIWzn';
+const DEFAULT_TABLE = 'tblJs1gRz9loSSQ7H';
+const ITEM_COLORS   = ['#C9A84C','#4ECDC4','#9B59B6','#2ECC71','#E67E22'];
+
+// ── State ──────────────────────────────────────
+const state = { view: 'restaurant', gran: 'week', records: [], latestRec: null };
+let revenueChart = null, laborChart = null, itemEvChart = null;
+
+// ── Config ─────────────────────────────────────
+function cfg() {
+  return {
+    token:   localStorage.getItem('at_token')  || '',
+    baseId:  localStorage.getItem('at_base')   || DEFAULT_BASE,
+    tableId: localStorage.getItem('at_table')  || DEFAULT_TABLE,
+  };
+}
+function openSettings() {
+  const c = cfg();
+  document.getElementById('cfgToken').value = c.token;
+  document.getElementById('cfgBase').value  = c.baseId;
+  document.getElementById('cfgTable').value = c.tableId;
+  document.getElementById('settingsOverlay').classList.add('show');
+}
+function saveConfig() {
+  const token   = document.getElementById('cfgToken').value.trim();
+  const baseId  = document.getElementById('cfgBase').value.trim();
+  const tableId = document.getElementById('cfgTable').value.trim();
+  if (!token) { alert('Paste your Airtable token.'); return; }
+  localStorage.setItem('at_token', token);
+  localStorage.setItem('at_base',  baseId);
+  localStorage.setItem('at_table', tableId);
+  document.getElementById('settingsOverlay').classList.remove('show');
+  loadData();
+}
+
+// ── Date helpers ───────────────────────────────
+function isoOffset(days) { const d = new Date(); d.setDate(d.getDate() + days); return d.toISOString().slice(0, 10); }
+function isWeekend(ds) { const d = new Date(ds + 'T12:00:00Z').getUTCDay(); return d === 0 || d === 6; }
+function weekMonday(ds) {
+  const d = new Date(ds + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7);
+  return d.toISOString().slice(0, 10);
+}
+function groupKey(ds, g) {
+  if (g === 'year')  return ds.slice(0, 4);
+  if (g === 'month') return ds.slice(0, 7);
+  if (g === 'week')  return weekMonday(ds);
+  return ds;
+}
+function labelFor(k, g) {
+  if (g === 'year')  return k;
+  if (g === 'month') { const [y, m] = k.split('-'); return new Date(Date.UTC(+y, +m-1, 1)).toLocaleString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' }); }
+  const d = new Date(k + 'T12:00:00Z');
+  if (g === 'week') return 'Wk ' + d.toLocaleString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  return d.toLocaleString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+}
+function fmtD(n) { if (!Number.isFinite(n)) return '—'; return '$' + Math.round(n).toLocaleString('en-US'); }
+function fmtN(n) { if (!Number.isFinite(n)) return '—'; return Number.isInteger(n) ? n.toLocaleString() : n.toFixed(1); }
+function fmtH(n) { return Number.isFinite(n) ? n.toFixed(1) + 'h' : '—'; }
+
+// ── Airtable ───────────────────────────────────
+async function atFetch(params) {
+  const { token, baseId, tableId } = cfg();
+  let all = [], offset = null;
+  do {
+    const url = `https://api.airtable.com/v0/${baseId}/${tableId}?${params}` + (offset ? `&offset=${offset}` : '');
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+    if (!res.ok) { const b = await res.json().catch(() => ({})); throw new Error(b.error?.message || `Airtable ${res.status}`); }
+    const data = await res.json();
+    all.push(...(data.records || []));
+    offset = data.offset || null;
+  } while (offset);
+  return all;
+}
+
+const ALL_FIELDS = [
+  'Date','Location','Type','Net Sales','Gross Sales','Order Count','Avg Check',
+  'Total Tips','Labor Cost','Total Hours','OT Extra Cost','OT Employee Count',
+  'Missed Break Count','Top Item','Top Item Qty','Top Items JSON',
+  'Overtime','Report URL','Discount Total','Void Count',
+];
+
+async function fetchRecords(from, to) {
+  const typeClause = state.view === 'retail'
+    ? `{Type}='Retail'`
+    : `OR({Type}='Restaurant',{Type}='')`;
+  const formula = encodeURIComponent(`AND({Date}>='${from}',{Date}<='${to}',${typeClause})`);
+  const fp = ALL_FIELDS.map(f => 'fields[]=' + encodeURIComponent(f)).join('&');
+  return atFetch(`filterByFormula=${formula}&pageSize=100&${fp}`);
+}
+
+async function fetchLatestRecord() {
+  const typeClause = state.view === 'retail' ? `{Type}='Retail'` : `OR({Type}='Restaurant',{Type}='')`;
+  const formula = encodeURIComponent(typeClause);
+  const fp = ALL_FIELDS.map(f => 'fields[]=' + encodeURIComponent(f)).join('&');
+  const recs = await atFetch(`filterByFormula=${formula}&sort[0][field]=Date&sort[0][direction]=desc&maxRecords=1&${fp}`);
+  return recs[0] || null;
+}
+
+// ── Aggregation ────────────────────────────────
+function aggregate(records, gran) {
+  const groups = {};
+  for (const r of records) {
+    const d = r.fields.Date; if (!d) continue;
+    const k = groupKey(d, gran);
+    if (!groups[k]) groups[k] = { netSales: 0, grossSales: 0, orderCount: 0, tips: 0, laborCost: 0, totalHours: 0, otCost: 0, days: 0 };
+    const f = r.fields;
+    groups[k].netSales   += f['Net Sales']    || 0;
+    groups[k].grossSales += f['Gross Sales']  || 0;
+    groups[k].orderCount += f['Order Count']  || 0;
+    groups[k].tips       += f['Total Tips']   || 0;
+    groups[k].laborCost  += f['Labor Cost']   || 0;
+    groups[k].totalHours += f['Total Hours']  || 0;
+    groups[k].otCost     += f['OT Extra Cost']|| 0;
+    groups[k].days++;
+  }
+  const keys = Object.keys(groups).sort();
+  return { labels: keys.map(k => labelFor(k, gran)), data: keys.map(k => ({ ...groups[k], avgCheck: groups[k].orderCount > 0 ? groups[k].netSales / groups[k].orderCount : 0 })) };
+}
+
+function avgStats(recs) {
+  if (!recs.length) return null;
+  const n = recs.length;
+  const net = recs.reduce((s, r) => s + (r.fields['Net Sales']    || 0), 0);
+  const ord = recs.reduce((s, r) => s + (r.fields['Order Count']  || 0), 0);
+  return {
+    netSales:   net / n,
+    orderCount: ord / n,
+    avgCheck:   ord > 0 ? net / ord : 0,
+    tips:       recs.reduce((s, r) => s + (r.fields['Total Tips']  || 0), 0) / n,
+    laborCost:  recs.reduce((s, r) => s + (r.fields['Labor Cost']  || 0), 0) / n,
+  };
+}
+
+// ── OT parsing ─────────────────────────────────
+function parseOTLeaderboard(records) {
+  const emp = {};
+  for (const rec of records) {
+    const text = rec.fields['Overtime'];
+    if (!text || text === 'None') continue;
+    for (const line of text.split('\n')) {
+      const m = line.match(/^(.+?):\s*([\d.]+)h(\s*\(2×\))?$/);
+      if (!m) continue;
+      const name  = m[1].trim();
+      const total = parseFloat(m[2]);
+      const dt    = !!m[3];
+      if (!emp[name]) emp[name] = { name, days: 0, otHours: 0, maxHours: 0, dtDays: 0 };
+      emp[name].days++;
+      emp[name].otHours  = Math.round((emp[name].otHours + Math.max(0, total - 8)) * 100) / 100;
+      emp[name].maxHours  = Math.max(emp[name].maxHours, total);
+      if (dt) emp[name].dtDays++;
+    }
+  }
+  return Object.values(emp).sort((a, b) => b.otHours - a.otHours);
+}
+
+// ── Item aggregation ───────────────────────────
+function buildItemRankings(records) {
+  const map = {};
+  for (const r of records) {
+    const json = r.fields['Top Items JSON'];
+    if (json) {
+      try {
+        for (const item of JSON.parse(json)) {
+          if (!map[item.name]) map[item.name] = { name: item.name, qty: 0, revenue: 0 };
+          map[item.name].qty     += item.qty     || 0;
+          map[item.name].revenue += item.revenue || 0;
+        }
+        continue;
+      } catch {}
+    }
+    // fallback: top-1 only
+    const name = r.fields['Top Item'];
+    const qty  = r.fields['Top Item Qty'] || 0;
+    if (name) {
+      if (!map[name]) map[name] = { name, qty: 0, revenue: 0 };
+      map[name].qty += qty;
+    }
+  }
+  return Object.values(map).sort((a, b) => b.qty - a.qty);
+}
+
+function buildItemEvolution(records, gran) {
+  const groups = {};
+  for (const r of records) {
+    const d = r.fields.Date; if (!d) continue;
+    const k = groupKey(d, gran);
+    const json = r.fields['Top Items JSON'];
+    if (!json) continue;
+    try {
+      if (!groups[k]) groups[k] = {};
+      for (const item of JSON.parse(json)) {
+        groups[k][item.name] = (groups[k][item.name] || 0) + (item.qty || 0);
+      }
+    } catch {}
+  }
+  return groups;
+}
+
+// ── Render: Today ──────────────────────────────
+function renderToday(rec) {
+  if (!rec) { document.getElementById('todayCards').innerHTML = '<div class="empty-msg">No data found.</div>'; return; }
+  const f = rec.fields;
+  document.getElementById('todayDate').textContent = f.Date || '';
+  const isRet = state.view === 'retail';
+  const cards = [
+    { label: 'Net Sales',  value: fmtD(f['Net Sales']),   sub: `${f['Order Count'] || 0} orders` },
+    { label: 'Avg Check',  value: fmtD(f['Avg Check']),   sub: `Gross ${fmtD(f['Gross Sales'])}` },
+    { label: 'Tips',       value: fmtD(f['Total Tips']),  sub: 'collected' },
+    ...(isRet ? [] : [
+      { label: 'Labor',    value: fmtD(f['Labor Cost']),  sub: `${fmtH(f['Total Hours'])} worked` },
+      { label: 'OT Staff', value: f['OT Employee Count'] || 0, sub: `${fmtD(f['OT Extra Cost'])} extra` },
+    ]),
+    { label: 'Top Item',   value: f['Top Item'] || '—',   sub: `${f['Top Item Qty'] || 0} sold` },
+  ];
+  const html = cards.map(c => `
+    <div class="card${c.label==='OT Staff'&&(f['OT Employee Count']||0)>0?' accent':''}">
+      <div class="card-label">${c.label}</div>
+      <div class="card-value">${c.value}</div>
+      <div class="card-sub">${c.sub}</div>
+    </div>`).join('');
+  const link = f['Report URL'] ? `<a class="report-link" href="${f['Report URL']}" target="_blank">View full daily report →</a>` : '';
+  document.getElementById('todayCards').innerHTML = `<div class="cards">${html}</div>${link}`;
+}
+
+// ── Render: Revenue chart ──────────────────────
+function renderRevenueChart(records) {
+  const agg = aggregate(records, state.gran);
+  const vals = agg.data.map(d => d.netSales);
+  document.getElementById('revenueRange').textContent = `${records.length} days`;
+  const ctx = document.getElementById('revenueChart');
+  if (revenueChart) { revenueChart.destroy(); revenueChart = null; }
+  revenueChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: agg.labels,
+      datasets: [{
+        label: 'Net Sales', data: vals,
+        borderColor: '#C9A84C', backgroundColor: 'rgba(201,168,76,.12)',
+        fill: true, tension: 0.35, pointRadius: agg.labels.length > 60 ? 0 : 3, borderWidth: 2,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { display: false }, tooltip: {
+        backgroundColor: '#13131A', borderColor: '#1E1E2E', borderWidth: 1,
+        titleColor: '#999', bodyColor: '#fff',
+        callbacks: { label: ctx => ` Net Sales: $${Math.round(ctx.parsed.y).toLocaleString()}` },
+      }},
+      scales: {
+        x: { ticks: { color: '#555', maxTicksLimit: 16, font: { size: 11 } }, grid: { color: '#1A1A24' } },
+        y: { ticks: { color: '#C9A84C', callback: v => '$' + Math.round(v).toLocaleString() }, grid: { color: '#1A1A24' } },
+      },
+    },
+  });
+}
+
+// ── Render: Weekday vs Weekend table ───────────
+function renderWdWe(records) {
+  const wd = records.filter(r => r.fields.Date && !isWeekend(r.fields.Date));
+  const we = records.filter(r => r.fields.Date &&  isWeekend(r.fields.Date));
+  const wdS = avgStats(wd), weS = avgStats(we);
+  const rows = [
+    { label: 'Avg Revenue',  id: 'netSales',   fmt: fmtD },
+    { label: 'Avg Orders',   id: 'orderCount', fmt: fmtN },
+    { label: 'Avg Check',    id: 'avgCheck',   fmt: fmtD },
+    { label: 'Avg Tips',     id: 'tips',       fmt: fmtD },
+    ...(state.view !== 'retail' ? [{ label: 'Avg Labor', id: 'laborCost', fmt: fmtD }] : []),
+  ];
+  const tbody = rows.map(r => {
+    const w = wdS ? wdS[r.id] : null, e = weS ? weS[r.id] : null;
+    const wc = (w !== null && e !== null) ? (w >= e ? 'hi' : 'lo') : '';
+    const ec = (w !== null && e !== null) ? (e >= w ? 'hi' : 'lo') : '';
+    return `<tr><td>${r.label}</td><td class="${wc}">${w !== null ? r.fmt(w) : '—'}</td><td class="${ec}">${e !== null ? r.fmt(e) : '—'}</td></tr>`;
+  }).join('');
+  document.getElementById('wdWeTable').innerHTML = `<table class="data-table">
+    <thead><tr><th></th><th>Weekday <span class="badge badge-wd">${wd.length}d</span></th><th>Weekend <span class="badge badge-we">${we.length}d</span></th></tr></thead>
+    <tbody>${tbody}</tbody>
+  </table>`;
+}
+
+// ── Render: Period totals ──────────────────────
+function renderPeriodTotals(records) {
+  const t = records.reduce((a, r) => {
+    const f = r.fields;
+    a.net  += f['Net Sales']    || 0;
+    a.ord  += f['Order Count']  || 0;
+    a.tips += f['Total Tips']   || 0;
+    a.lab  += f['Labor Cost']   || 0;
+    a.disc += f['Discount Total'] || 0;
+    a.voids+= f['Void Count']   || 0;
+    a.days++;
+    return a;
+  }, { net: 0, ord: 0, tips: 0, lab: 0, disc: 0, voids: 0, days: 0 });
+  const rows = [
+    ['Total Net Sales', fmtD(t.net)],
+    ['Total Orders',    fmtN(t.ord)],
+    ['Avg / Day',       fmtD(t.net / Math.max(t.days, 1))],
+    ['Total Tips',      fmtD(t.tips)],
+    ...(state.view !== 'retail' ? [
+      ['Total Labor',   fmtD(t.lab)],
+      ['Total Discounts', fmtD(t.disc)],
+      ['Total Voids',   t.voids],
+    ] : []),
+  ];
+  const tbody = rows.map(([l, v]) => `<tr><td style="color:var(--sub)">${l}</td><td style="color:var(--text);font-weight:500">${v}</td></tr>`).join('');
+  document.getElementById('periodTotals').innerHTML = `<table class="data-table"><tbody>${tbody}</tbody></table>`;
+}
+
+// ── Render: OT Leaderboard ─────────────────────
+function renderOTLeaderboard(records) {
+  const board = parseOTLeaderboard(records);
+  document.getElementById('laborRange').textContent = `${records.length} days`;
+  if (!board.length) { document.getElementById('otLeaderboard').innerHTML = '<div class="empty-msg">No overtime in this period.</div>'; return; }
+  const maxH = board[0].otHours;
+  const rows = board.slice(0, 15).map((e, i) => `
+    <tr>
+      <td>
+        <div class="ot-rank">
+          <span class="ot-rank-num">${i + 1}</span>
+          <strong>${e.name}</strong>
+          ${e.dtDays ? `<span class="dt-badge">2× ×${e.dtDays}</span>` : ''}
+        </div>
+        <div style="margin-top:4px;padding-left:24px">
+          <div class="ot-bar-wrap"><div class="ot-bar" style="width:${Math.round(e.otHours/maxH*100)}%"></div></div>
+        </div>
+      </td>
+      <td>${e.days}</td>
+      <td>${fmtH(e.otHours)}</td>
+      <td>${fmtH(Math.round(e.otHours / e.days * 10) / 10)}</td>
+      <td style="color:${e.maxHours > 12 ? 'var(--red)' : 'var(--sub)'}">${fmtH(e.maxHours)}</td>
+    </tr>`).join('');
+  document.getElementById('otLeaderboard').innerHTML = `<table class="data-table">
+    <thead><tr><th>Employee</th><th>OT Days</th><th>Total OT</th><th>Avg/Day</th><th>Max Shift</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+// ── Render: Labor chart ────────────────────────
+function renderLaborChart(records) {
+  const agg = aggregate(records, state.gran);
+  const vals = agg.data.map(d => d.laborCost);
+  const ctx = document.getElementById('laborChart');
+  if (laborChart) { laborChart.destroy(); laborChart = null; }
+  laborChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: agg.labels,
+      datasets: [{ label: 'Labor Cost', data: vals, backgroundColor: 'rgba(231,76,60,.5)', borderColor: '#E74C3C', borderWidth: 1 }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        backgroundColor: '#13131A', borderColor: '#1E1E2E', borderWidth: 1,
+        callbacks: { label: ctx => ` Labor: $${Math.round(ctx.parsed.y).toLocaleString()}` },
+      }},
+      scales: {
+        x: { ticks: { color: '#555', maxTicksLimit: 14, font: { size: 10 } }, grid: { color: '#1A1A24' } },
+        y: { ticks: { color: '#E74C3C', callback: v => '$' + Math.round(v).toLocaleString() }, grid: { color: '#1A1A24' } },
+      },
+    },
+  });
+}
+
+// ── Render: Item bars ──────────────────────────
+function renderItemBars(records) {
+  const items = buildItemRankings(records).slice(0, 10);
+  document.getElementById('itemsRange').textContent = `${records.length} days`;
+  if (!items.length) { document.getElementById('topItemBars').innerHTML = '<div class="empty-msg">No item data.</div>'; return; }
+  const maxQ = items[0].qty;
+  document.getElementById('topItemBars').innerHTML = items.map((item, i) => `
+    <div class="item-bar-row">
+      <span class="item-bar-name" title="${item.name}">${item.name}</span>
+      <div class="item-bar-wrap"><div class="item-bar-fill" style="width:${Math.round(item.qty/maxQ*100)}%;background:${ITEM_COLORS[i % ITEM_COLORS.length]}"></div></div>
+      <span class="item-bar-val">${item.qty.toLocaleString()}</span>
+    </div>`).join('');
+}
+
+// ── Render: Weekday vs Weekend items ───────────
+function renderItemWdWe(records) {
+  const wd = records.filter(r => r.fields.Date && !isWeekend(r.fields.Date));
+  const we = records.filter(r => r.fields.Date &&  isWeekend(r.fields.Date));
+  document.getElementById('wdDays').textContent = wd.length + 'd';
+  document.getElementById('weDays').textContent = we.length + 'd';
+
+  function miniList(items, el) {
+    if (!items.length) { document.getElementById(el).innerHTML = '<div class="empty-msg" style="padding:12px 0">No data.</div>'; return; }
+    const maxQ = items[0].qty;
+    document.getElementById(el).innerHTML = items.slice(0, 8).map((item, i) => `
+      <div class="item-bar-row" style="padding:4px 0">
+        <span class="item-bar-name" style="min-width:110px;font-size:12px" title="${item.name}">${item.name}</span>
+        <div class="item-bar-wrap"><div class="item-bar-fill" style="width:${Math.round(item.qty/maxQ*100)}%;background:${ITEM_COLORS[i % ITEM_COLORS.length]}"></div></div>
+        <span class="item-bar-val" style="min-width:36px">${item.qty}</span>
+      </div>`).join('');
+  }
+  miniList(buildItemRankings(wd).slice(0, 8), 'itemWd');
+  miniList(buildItemRankings(we).slice(0, 8), 'itemWe');
+}
+
+// ── Render: Item evolution chart ───────────────
+function renderItemEvolution(records) {
+  const evo = buildItemEvolution(records, state.gran);
+  const ctx = document.getElementById('itemEvChart');
+  if (itemEvChart) { itemEvChart.destroy(); itemEvChart = null; }
+
+  const periods = Object.keys(evo).sort();
+  if (!periods.length) {
+    // No JSON data yet — show top-1 fallback
+    const agg = aggregate(records, state.gran);
+    itemEvChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: agg.labels,
+        datasets: [{ label: 'Top Item Qty', data: agg.data.map(() => 0), borderColor: '#555', borderDash: [4, 2] }],
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#555' } } } },
+    });
+    ctx.parentElement.insertAdjacentHTML('beforeend', '<p style="color:var(--muted);font-size:12px;margin-top:8px">Item-level evolution data is collected from today forward — check back after a few weeks.</p>');
+    return;
+  }
+
+  // Find top 5 items across all periods
+  const totals = {};
+  for (const p of periods) for (const [name, qty] of Object.entries(evo[p])) totals[name] = (totals[name] || 0) + qty;
+  const top5 = Object.entries(totals).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([n]) => n);
+
+  const labels = periods.map(k => labelFor(k, state.gran));
+  const datasets = top5.map((name, i) => ({
+    label: name,
+    data: periods.map(p => evo[p][name] || 0),
+    borderColor: ITEM_COLORS[i], backgroundColor: ITEM_COLORS[i] + '20',
+    tension: 0.35, pointRadius: periods.length > 60 ? 0 : 3, borderWidth: 2, fill: false,
+  }));
+
+  itemEvChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: '#888', boxWidth: 12, font: { size: 11 } } },
+        tooltip: { backgroundColor: '#13131A', borderColor: '#1E1E2E', borderWidth: 1, titleColor: '#999', bodyColor: '#fff' },
+      },
+      scales: {
+        x: { ticks: { color: '#555', maxTicksLimit: 16, font: { size: 11 } }, grid: { color: '#1A1A24' } },
+        y: { ticks: { color: '#888', stepSize: 1 }, grid: { color: '#1A1A24' } },
+      },
+    },
+  });
+}
+
+// ── Controls ───────────────────────────────────
+function setActive(el) {
+  document.querySelectorAll('.section-nav a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
+}
+function setRange(days) {
+  document.getElementById('dateFrom').value = isoOffset(-days);
+  document.getElementById('dateTo').value   = isoOffset(-1);
+  loadData();
+}
+function setRangeAll() {
+  document.getElementById('dateFrom').value = isoOffset(-730);
+  document.getElementById('dateTo').value   = isoOffset(-1);
+  setGran('month');
+  loadData();
+}
+function setGran(g) {
+  state.gran = g;
+  document.querySelectorAll('[id^="gb-"]').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('gb-' + g);
+  if (btn) btn.classList.add('active');
+  if (state.records.length) renderAll(state.records);
+}
+function setView(v) {
+  state.view = v;
+  document.querySelectorAll('[id^="vb-"]').forEach(b => b.classList.remove('active'));
+  document.getElementById('vb-' + v).classList.add('active');
+  loadData();
+}
+
+// ── Main render ────────────────────────────────
+function renderAll(records) {
+  renderRevenueChart(records);
+  renderWdWe(records);
+  renderPeriodTotals(records);
+  renderOTLeaderboard(records);
+  if (state.view !== 'retail') renderLaborChart(records);
+  renderItemBars(records);
+  renderItemWdWe(records);
+  renderItemEvolution(records);
+}
+
+// ── Load ───────────────────────────────────────
+async function loadData() {
+  const from = document.getElementById('dateFrom').value;
+  const to   = document.getElementById('dateTo').value;
+  if (!from || !to) return;
+
+  const loader = document.getElementById('loader');
+  const errBar = document.getElementById('errBar');
+  loader.style.display = 'flex';
+  errBar.style.display = 'none';
+
+  try {
+    const [records, latest] = await Promise.all([
+      fetchRecords(from, to),
+      fetchLatestRecord(),
+    ]);
+    state.records = records;
+    state.latestRec = latest;
+    document.getElementById('dataBadge').textContent = `${records.length} records`;
+    renderToday(latest);
+    renderAll(records);
+  } catch (err) {
+    errBar.style.display = 'block';
+    errBar.textContent   = 'Failed to load: ' + err.message;
+    document.getElementById('dataBadge').textContent = 'error';
+  } finally {
+    loader.style.display = 'none';
+  }
+}
+
+// ── Init ───────────────────────────────────────
+async function init() {
+  document.getElementById('dateTo').value   = isoOffset(-1);
+  document.getElementById('dateFrom').value = isoOffset(-91);
+  document.getElementById('cfgBase').value  = cfg().baseId;
+  document.getElementById('cfgTable').value = cfg().tableId;
+
+  try {
+    const res = await fetch('/api/config');
+    if (res.ok) {
+      const remote = await res.json();
+      if (remote.token)   localStorage.setItem('at_token',  remote.token);
+      if (remote.baseId)  localStorage.setItem('at_base',   remote.baseId);
+      if (remote.tableId) localStorage.setItem('at_table',  remote.tableId);
+    }
+  } catch {}
+
+  document.getElementById('dateFrom').addEventListener('change', loadData);
+  document.getElementById('dateTo').addEventListener('change',   loadData);
+
+  if (!cfg().token) {
+    document.getElementById('settingsOverlay').classList.add('show');
+  } else {
+    loadData();
+  }
+}
+
+init();
+</script>
+</body>
+</html>
