@@ -7,11 +7,13 @@
     "report:auto": "node index.js",
     "report:date": "node --env-file=\"C:/Users/nisse/Documents/Ulti CC/.env\" index.js --date=",
     "backfill": "node --env-file=\"C:/Users/nisse/Documents/Ulti CC/.env\" backfill.js",
-    "backfill:from":   "node --env-file=\"C:/Users/nisse/Documents/Ulti CC/.env\" backfill.js --from=",
-    "dashboard":       "node --env-file=\"C:/Users/nisse/Documents/Ulti CC/.env\" publish-dashboard.js"
+    "backfill:from": "node --env-file=\"C:/Users/nisse/Documents/Ulti CC/.env\" backfill.js --from=",
+    "dashboard": "node --env-file=\"C:/Users/nisse/Documents/Ulti CC/.env\" publish-dashboard.js"
   },
   "dependencies": {
     "@octokit/rest": "^21.0.2",
+    "canvas": "^2.11.2",
+    "gifencoder": "^2.0.1",
     "nodemailer": "^8.0.10",
     "resend": "^4.0.0",
     "twilio": "^5.0.0"
