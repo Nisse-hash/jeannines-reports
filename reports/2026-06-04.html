@@ -75,6 +75,13 @@ h3.ot-heading{color:#F0B429}
 .cross-highlight td{background:rgba(78,205,196,.07)!important;border-left:2px solid #4ECDC4}
 .cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 
+/* Day navigation */
+.day-nav{display:flex;align-items:center;gap:.5rem;margin-top:1rem}
+.nav-btn{background:#1A1A24;border:1px solid #2A2A3A;color:#C9A84C;font-size:.8rem;padding:.4rem .9rem;border-radius:3px;cursor:pointer;transition:all .15s;font-weight:600}
+.nav-btn:hover{background:rgba(201,168,76,.12);border-color:#C9A84C}
+.nav-date{background:#1A1A24;border:1px solid #2A2A3A;color:#e0e0e0;font-size:.8rem;padding:.4rem .6rem;border-radius:3px;cursor:pointer;outline:none;color-scheme:dark}
+.nav-date:focus{border-color:#C9A84C}
+
 /* Footer */
 footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #1A1A24}
 
@@ -90,7 +97,12 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="rpt-header">
     <div class="rpt-title">Jeannine's Daily Report</div>
     <div class="rpt-date">2026-06-04</div>
-    <div class="rpt-ts">Generated Jun 5, 2026, 7:48 AM PT</div>
+    <div class="rpt-ts">Generated Jun 5, 2026, 7:49 AM PT</div>
+    <div class="day-nav">
+      <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
+      <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
+      <button class="nav-btn" onclick="goDay(1)">Next →</button>
+    </div>
   </div>
 
   
@@ -282,6 +294,18 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
 </div>
 <script>
+const _reportDate = '2026-06-04';
+function goDay(delta) {
+  const d = new Date(_reportDate + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  window.location.href = '/reports/' + y + '-' + m + '-' + day + '.html';
+}
+function goToDate(val) {
+  if (val) window.location.href = '/reports/' + val + '.html';
+}
 function sortItems(id, by) {
   const table = document.getElementById(id);
   if (!table) return;
