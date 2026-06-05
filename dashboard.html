@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeannine's Analytics</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:     #0A0A0F;
+  --card:   #13131A;
+  --border: #1E1E2E;
+  --row:    #1A1A24;
+  --gold:   #C9A84C;
+  --gold2:  #F0B429;
+  --text:   #FFFFFF;
+  --muted:  #666666;
+  --sub:    #999999;
+  --teal:   #4ECDC4;
+  --red:    #E74C3C;
+  --radius: 6px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border);
+}
+.header h1 {
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+}
+.header h1 span { color: var(--gold); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.data-badge {
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* ── Layout ── */
+.main { padding: 22px 28px; max-width: 1440px; margin: 0 auto; }
+
+/* ── Controls ── */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.ctrl-group { display: flex; flex-direction: column; gap: 5px; }
+.ctrl-label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-weight: 500;
+}
+input[type=date] {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-family: inherit;
+}
+input[type=date]:focus { outline: 1px solid var(--gold); border-color: var(--gold); }
+
+.seg { display: flex; }
+.seg button {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--sub);
+  font-size: 12px;
+  font-family: inherit;
+  padding: 7px 13px;
+  cursor: pointer;
+  transition: all .12s;
+  white-space: nowrap;
+}
+.seg button:first-child { border-radius: 4px 0 0 4px; }
+.seg button:last-child  { border-radius: 0 4px 4px 0; }
+.seg button:not(:first-child) { border-left: none; }
+.seg button.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+  font-weight: 600;
+}
+.seg button:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+.metrics-wrap { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-left: auto; }
+.metric-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--sub);
+  transition: all .12s;
+  user-select: none;
+}
+.metric-chip input { display: none; }
+.metric-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.metric-chip.on { color: var(--text); }
+
+/* ── Summary row ── */
+.summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  flex: 1;
+  min-width: 130px;
+}
+.stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 6px; }
+.stat-value { font-size: 22px; font-weight: 700; color: var(--gold); line-height: 1; }
+.stat-sub   { font-size: 11px; color: var(--sub); margin-top: 4px; }
+
+/* ── Chart ── */
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.chart-wrap { height: 300px; position: relative; }
+
+/* ── Comparison ── */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (max-width: 800px) { .bottom-row { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.panel-title {
+  font-size: 11px;
+  color: var(--sub);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table th {
+  color: var(--muted);
+  font-weight: 500;
+  text-align: right;
+  padding: 0 8px 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.comp-table th:first-child { text-align: left; }
+.comp-table td { padding: 8px; border-top: 1px solid var(--border); text-align: right; }
+.comp-table td:first-child { text-align: left; color: var(--sub); }
+.comp-table .hi { color: #2ECC71; font-weight: 600; }
+.comp-table .lo { color: var(--sub); }
+.badge { display: inline-block; font-size: 9px; padding: 2px 6px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
+.badge-wd { background: #1A2030; color: #5899DA; }
+.badge-we { background: #201A30; color: var(--gold); }
+
+/* ── Top items ── */
+.top-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  gap: 8px;
+}
+.top-item-bar-wrap { flex: 1; height: 4px; background: var(--border); border-radius: 2px; margin: 0 10px; }
+.top-item-bar { height: 100%; background: var(--gold); border-radius: 2px; }
+.top-item-count { color: var(--sub); font-size: 12px; min-width: 50px; text-align: right; }
+
+/* ── Loader ── */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,15,.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  display: none;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Settings modal ── */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.overlay.show { display: flex; }
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 32px;
+  width: 440px;
+  max-width: 95vw;
+}
+.modal h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.modal p { color: var(--sub); font-size: 13px; line-height: 1.5; margin-bottom: 22px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+.field input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 9px 12px;
+  font-family: monospace;
+}
+.field input:focus { outline: 1px solid var(--gold); }
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+}
+.btn-primary:hover { background: #D4AF5C; }
+.btn-icon {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--sub);
+  width: 32px; height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all .12s;
+}
+.btn-icon:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── Error ── */
+.err-bar {
+  background: rgba(231,76,60,.12);
+  border: 1px solid rgba(231,76,60,.35);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: none;
+}
+
+.empty-msg { text-align: center; padding: 40px 0; color: var(--muted); font-size: 13px; }
+
+/* ── View toggle ── */
+.view-toggle { display: flex; align-items: center; gap: 0; }
+.view-toggle button {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--sub);
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: all .12s;
+  letter-spacing: .1px;
+}
+.view-toggle button:first-child { border-radius: 4px 0 0 4px; }
+.view-toggle button:last-child  { border-radius: 0 4px 4px 0; border-left: none; }
+.view-toggle button.active { background: var(--gold); border-color: var(--gold); color: #000; font-weight: 700; }
+.view-toggle button:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+.metric-chip.labor-hidden { opacity: .3; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="spinner"></div></div>
+
+<!-- Settings modal -->
+<div class="overlay" id="settingsOverlay">
+  <div class="modal">
+    <h2>Connect Airtable</h2>
+    <p>Enter your Airtable Personal Access Token. It lives only in your browser's localStorage — never sent anywhere else.</p>
+    <div class="field">
+      <label>API Token (Personal Access Token)</label>
+      <input type="password" id="cfgToken" placeholder="pat..." autocomplete="off">
+    </div>
+    <div class="field">
+      <label>Base ID</label>
+      <input type="text" id="cfgBase">
+    </div>
+    <div class="field">
+      <label>Table ID</label>
+      <input type="text" id="cfgTable">
+    </div>
+    <button class="btn-primary" onclick="saveConfig()">Connect &amp; Load Data</button>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1>Jeannine's <span>Analytics</span></h1>
+  <div class="view-toggle">
+    <button id="vb-restaurant" class="active" onclick="setView('restaurant')">Restaurant</button>
+    <button id="vb-retail" onclick="setView('retail')">Retail</button>
+  </div>
+  <div class="header-right">
+    <span class="data-badge" id="dataBadge">loading...</span>
+    <button class="btn-icon" onclick="openSettings()" title="Settings">⚙</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="err-bar" id="errBar"></div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="ctrl-group">
+      <div class="ctrl-label">Quick Range</div>
+      <div class="seg">
+        <button onclick="setRange(30)">30d</button>
+        <button onclick="setRange(90)">90d</button>
+        <button onclick="setRange(365)">1yr</button>
+        <button onclick="setRangeAll()">All</button>
+      </div>
+    </div>
+    <div class="ctrl-group">
+      <div class="ctrl-label">From</div>
+      <input type="date" id="dateFrom">
+    </div>
+    <div class="ctrl-group">
+      <div class="ctrl-label">To</div>
+      <input type="date" id="dateTo">
+    </div>
+    <div class="ctrl-group">
+      <div class="ctrl-label">View</div>
+      <div class="seg">
+        <button id="gb-day"   onclick="setGran('day')">Day</button>
+        <button id="gb-week"  onclick="setGran('week')" class="active">Week</button>
+        <button id="gb-month" onclick="setGran('month')">Month</button>
+        <button id="gb-year"  onclick="setGran('year')">Year</button>
+      </div>
+    </div>
+    <div class="ctrl-group">
+      <div class="ctrl-label">Days</div>
+      <div class="seg">
+        <button id="dt-all"     onclick="setDayType('all')" class="active">All</button>
+        <button id="dt-weekday" onclick="setDayType('weekday')">Weekday</button>
+        <button id="dt-weekend" onclick="setDayType('weekend')">Weekend</button>
+      </div>
+    </div>
+    <div class="ctrl-group" style="flex:1;min-width:200px;">
+      <div class="ctrl-label">Metrics (select any)</div>
+      <div class="metrics-wrap" id="metricChips"></div>
+    </div>
+  </div>
+
+  <!-- Summary cards -->
+  <div class="summary-row" id="summaryRow"></div>
+
+  <!-- Chart -->
+  <div class="chart-card">
+    <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
+  </div>
+
+  <!-- Comparison + Top Items -->
+  <div class="bottom-row">
+    <div class="panel">
+      <div class="panel-title">Weekday vs Weekend — avg per day</div>
+      <div id="compPanel"><div class="empty-msg">Load data to see comparison.</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Top items in range</div>
+      <div id="topItems"><div class="empty-msg">Load data to see top items.</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+//  Constants
+// ─────────────────────────────────────────────
+const DEFAULT_BASE  = 'appyOzCwkZl6kIWzn';
+const DEFAULT_TABLE = 'tblJs1gRz9loSSQ7H';
+
+const METRIC_DEFS = [
+  { id: 'netSales',   label: 'Net Sales',  color: '#C9A84C', axis: 'y',  fmt: '$', on: true },
+  { id: 'grossSales', label: 'Gross Sales',color: '#F0B429', axis: 'y',  fmt: '$', on: false },
+  { id: 'orderCount', label: 'Orders',     color: '#4ECDC4', axis: 'y2', fmt: '',  on: false },
+  { id: 'avgCheck',   label: 'Avg Check',  color: '#9B59B6', axis: 'y',  fmt: '$', on: false, computed: true },
+  { id: 'tips',       label: 'Tips',       color: '#2ECC71', axis: 'y',  fmt: '$', on: false },
+  { id: 'laborCost',  label: 'Labor',      color: '#E74C3C', axis: 'y',  fmt: '$', on: false, laborOnly: true },
+  { id: 'totalHours', label: 'Hours',      color: '#3498DB', axis: 'y2', fmt: 'h', on: false, laborOnly: true },
+  { id: 'otCost',     label: 'OT Cost',    color: '#E67E22', axis: 'y',  fmt: '$', on: false, laborOnly: true },
+];
+
+const COMP_ROWS = [
+  { id: 'netSales',   label: 'Avg Revenue',  fmt: '$' },
+  { id: 'orderCount', label: 'Avg Orders',   fmt: ''  },
+  { id: 'avgCheck',   label: 'Avg Check',    fmt: '$', computed: true },
+  { id: 'tips',       label: 'Avg Tips',     fmt: '$' },
+  { id: 'laborCost',  label: 'Avg Labor',    fmt: '$', laborOnly: true },
+];
+
+// ─────────────────────────────────────────────
+//  State
+// ─────────────────────────────────────────────
+const state = {
+  gran:    'week',
+  dayType: 'all',
+  view:    'restaurant',
+  active:  new Set(METRIC_DEFS.filter(m => m.on).map(m => m.id)),
+  records: [],
+};
+
+let chart = null;
+
+// ─────────────────────────────────────────────
+//  Config (localStorage)
+// ─────────────────────────────────────────────
+function cfg() {
+  return {
+    token:   localStorage.getItem('at_token')  || '',
+    baseId:  localStorage.getItem('at_base')   || DEFAULT_BASE,
+    tableId: localStorage.getItem('at_table')  || DEFAULT_TABLE,
+  };
+}
+
+function openSettings() {
+  const c = cfg();
+  document.getElementById('cfgToken').value = c.token;
+  document.getElementById('cfgBase').value  = c.baseId;
+  document.getElementById('cfgTable').value = c.tableId;
+  document.getElementById('settingsOverlay').classList.add('show');
+}
+
+function saveConfig() {
+  const token   = document.getElementById('cfgToken').value.trim();
+  const baseId  = document.getElementById('cfgBase').value.trim();
+  const tableId = document.getElementById('cfgTable').value.trim();
+  if (!token) { alert('Paste your Airtable Personal Access Token.'); return; }
+  localStorage.setItem('at_token',  token);
+  localStorage.setItem('at_base',   baseId);
+  localStorage.setItem('at_table',  tableId);
+  document.getElementById('settingsOverlay').classList.remove('show');
+  loadData();
+}
+
+// ─────────────────────────────────────────────
+//  Date helpers
+// ─────────────────────────────────────────────
+function isoToday() { return new Date().toISOString().slice(0, 10); }
+
+function isoOffset(days) {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+function isWeekend(dateStr) {
+  const dow = new Date(dateStr + 'T12:00:00Z').getUTCDay();
+  return dow === 0 || dow === 6;
+}
+
+function weekMonday(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00Z');
+  const daysFromMon = (d.getUTCDay() + 6) % 7;
+  d.setUTCDate(d.getUTCDate() - daysFromMon);
+  return d.toISOString().slice(0, 10);
+}
+
+function groupKey(dateStr, gran) {
+  if (gran === 'year')  return dateStr.slice(0, 4);
+  if (gran === 'month') return dateStr.slice(0, 7);
+  if (gran === 'week')  return weekMonday(dateStr);
+  return dateStr;
+}
+
+function labelFor(key, gran) {
+  if (gran === 'year')  return key;
+  if (gran === 'month') {
+    const [y, m] = key.split('-');
+    return new Date(Date.UTC(+y, +m - 1, 1))
+      .toLocaleString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+  }
+  const d = new Date(key + 'T12:00:00Z');
+  if (gran === 'week')
+    return 'Wk ' + d.toLocaleString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  return d.toLocaleString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+}
+
+// ─────────────────────────────────────────────
+//  Formatting
+// ─────────────────────────────────────────────
+function fmt(v, f) {
+  if (!Number.isFinite(v)) return '—';
+  if (f === '$') return '$' + Math.round(v).toLocaleString('en-US');
+  if (f === 'h') return v.toFixed(1) + 'h';
+  return Number.isInteger(v) ? v.toLocaleString() : v.toFixed(1);
+}
+
+// ─────────────────────────────────────────────
+//  Airtable fetch
+// ─────────────────────────────────────────────
+async function fetchRecords(from, to) {
+  const { token, baseId, tableId } = cfg();
+  const typeClause = state.view === 'retail'
+    ? `{Type}='Retail'`
+    : `OR({Type}='Restaurant',{Type}='')`;
+  const formula = encodeURIComponent(`AND({Date}>='${from}',{Date}<='${to}',${typeClause})`);
+  const fields  = [
+    'Date','Location','Type','Net Sales','Gross Sales','Order Count',
+    'Avg Check','Total Tips','Labor Cost','Total Hours','OT Extra Cost',
+    'OT Employee Count','Missed Break Count','Top Item','Top Item Qty',
+  ];
+  const fp = fields.map(f => 'fields[]=' + encodeURIComponent(f)).join('&');
+
+  let all = [], offset = null;
+  do {
+    const url = `https://api.airtable.com/v0/${baseId}/${tableId}?filterByFormula=${formula}&pageSize=100&${fp}`
+      + (offset ? `&offset=${offset}` : '');
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error(body.error?.message || `Airtable error ${res.status}`);
+    }
+    const data = await res.json();
+    all.push(...(data.records || []));
+    offset = data.offset || null;
+  } while (offset);
+
+  return all;
+}
+
+// ─────────────────────────────────────────────
+//  Aggregation
+// ─────────────────────────────────────────────
+function filterByDayType(records, dayType) {
+  if (dayType === 'weekday') return records.filter(r => r.fields.Date && !isWeekend(r.fields.Date));
+  if (dayType === 'weekend') return records.filter(r => r.fields.Date &&  isWeekend(r.fields.Date));
+  return records;
+}
+
+function aggregate(records, gran, dayType) {
+  const filtered = filterByDayType(records, dayType);
+  const groups   = {};
+
+  for (const r of filtered) {
+    const d = r.fields.Date;
+    if (!d) continue;
+    const key = groupKey(d, gran);
+    if (!groups[key]) groups[key] = {
+      netSales: 0, grossSales: 0, orderCount: 0,
+      tips: 0, laborCost: 0, totalHours: 0, otCost: 0, days: 0,
+    };
+    const f = r.fields;
+    groups[key].netSales   += f['Net Sales']    || 0;
+    groups[key].grossSales += f['Gross Sales']  || 0;
+    groups[key].orderCount += f['Order Count']  || 0;
+    groups[key].tips       += f['Total Tips']   || 0;
+    groups[key].laborCost  += f['Labor Cost']   || 0;
+    groups[key].totalHours += f['Total Hours']  || 0;
+    groups[key].otCost     += f['OT Extra Cost']|| 0;
+    groups[key].days++;
+  }
+
+  const keys = Object.keys(groups).sort();
+  return {
+    labels: keys.map(k => labelFor(k, gran)),
+    data:   keys.map(k => ({
+      ...groups[k],
+      avgCheck: groups[k].orderCount > 0 ? groups[k].netSales / groups[k].orderCount : 0,
+    })),
+  };
+}
+
+function getVal(d, id) {
+  if (id === 'avgCheck') return d.avgCheck;
+  return d[id] || 0;
+}
+
+// ─────────────────────────────────────────────
+//  Chart
+// ─────────────────────────────────────────────
+function buildDatasets(agg) {
+  const { labels, data } = agg;
+  const datasets = [];
+  let firstY = true;
+
+  for (const m of METRIC_DEFS) {
+    if (!state.active.has(m.id)) continue;
+    const values  = data.map(d => getVal(d, m.id));
+    const isFill  = m.axis === 'y' && firstY;
+    if (m.axis === 'y') firstY = false;
+
+    datasets.push({
+      label:           m.label,
+      data:            values,
+      borderColor:     m.color,
+      backgroundColor: isFill ? m.color + '20' : 'transparent',
+      fill:            isFill,
+      tension:         0.35,
+      pointRadius:     labels.length > 80 ? 0 : 3,
+      pointHoverRadius: 5,
+      borderWidth:     2,
+      yAxisID:         m.axis,
+    });
+  }
+  return { labels, datasets };
+}
+
+function scales() {
+  const hasY  = [...state.active].some(id => METRIC_DEFS.find(m=>m.id===id)?.axis==='y');
+  const hasY2 = [...state.active].some(id => METRIC_DEFS.find(m=>m.id===id)?.axis==='y2');
+  const yFmt  = METRIC_DEFS.find(m => state.active.has(m.id) && m.axis==='y')?.fmt  || '$';
+  const y2Fmt = METRIC_DEFS.find(m => state.active.has(m.id) && m.axis==='y2')?.fmt || '';
+  return {
+    x: {
+      ticks: { color: '#555', maxTicksLimit: 18, maxRotation: 40, font: { size: 11 } },
+      grid:  { color: '#1A1A24' },
+    },
+    y: {
+      display:  hasY,
+      position: 'left',
+      ticks: {
+        color: '#C9A84C',
+        font:  { size: 11 },
+        callback: v => yFmt === '$' ? '$' + Math.round(v).toLocaleString() : v.toFixed(1) + yFmt,
+      },
+      grid: { color: '#1A1A24' },
+    },
+    y2: {
+      display:  hasY2,
+      position: 'right',
+      ticks: {
+        color: '#4ECDC4',
+        font:  { size: 11 },
+        callback: v => y2Fmt ? v.toFixed(1) + y2Fmt : Math.round(v).toLocaleString(),
+      },
+      grid: { display: false },
+    },
+  };
+}
+
+function renderChart() {
+  const agg = aggregate(state.records, state.gran, state.dayType);
+  const { labels, datasets } = buildDatasets(agg);
+
+  if (chart) {
+    chart.data.labels   = labels;
+    chart.data.datasets = datasets;
+    chart.options.scales = scales();
+    chart.update('active');
+    return;
+  }
+
+  chart = new Chart(document.getElementById('mainChart'), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive:          true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#13131A',
+          borderColor:     '#1E1E2E',
+          borderWidth:     1,
+          titleColor:      '#999',
+          bodyColor:       '#fff',
+          padding:         12,
+          callbacks: {
+            label: ctx => {
+              const def = METRIC_DEFS.find(m => m.label === ctx.dataset.label);
+              return ` ${ctx.dataset.label}: ${fmt(ctx.parsed.y, def?.fmt || '')}`;
+            },
+          },
+        },
+      },
+      scales: scales(),
+    },
+  });
+}
+
+// ─────────────────────────────────────────────
+//  Summary cards
+// ─────────────────────────────────────────────
+function renderSummary(records) {
+  const filtered = filterByDayType(records, state.dayType);
+  const t = filtered.reduce((a, r) => {
+    const f = r.fields;
+    a.net  += f['Net Sales']    || 0;
+    a.ord  += f['Order Count']  || 0;
+    a.tips += f['Total Tips']   || 0;
+    a.lab  += f['Labor Cost']   || 0;
+    a.hrs  += f['Total Hours']  || 0;
+    a.ot   += f['OT Extra Cost']|| 0;
+    a.days++;
+    return a;
+  }, { net: 0, ord: 0, tips: 0, lab: 0, hrs: 0, ot: 0, days: 0 });
+
+  const avgChk = t.ord > 0 ? t.net / t.ord : 0;
+  const cards = [
+    { label: 'Net Sales',  value: fmt(t.net, '$'), sub: `${t.days} days · ${fmt(t.net/Math.max(t.days,1),'$')}/day` },
+    { label: 'Orders',     value: t.ord.toLocaleString(), sub: `Avg ${fmt(avgChk,'$')} per check` },
+    { label: 'Tips',       value: fmt(t.tips,'$'), sub: `${fmt(t.tips/Math.max(t.days,1),'$')}/day avg` },
+    ...(state.view !== 'retail' ? [
+      { label: 'Labor Cost', value: fmt(t.lab,'$'), sub: `${fmt(t.hrs,'h')} total · ${fmt(t.ot,'$')} OT extra` },
+    ] : [
+      { label: 'Top Item',   value: topItemInRange(), sub: 'most-sold item this period' },
+    ]),
+  ];
+
+  document.getElementById('summaryRow').innerHTML = cards.map(c => `
+    <div class="stat-card">
+      <div class="stat-label">${c.label}</div>
+      <div class="stat-value">${c.value}</div>
+      <div class="stat-sub">${c.sub}</div>
+    </div>`).join('');
+}
+
+function topItemInRange() {
+  const filtered = filterByDayType(state.records, state.dayType);
+  const counts = {};
+  for (const r of filtered) {
+    const name = r.fields['Top Item'];
+    const qty  = r.fields['Top Item Qty'] || 0;
+    if (name) counts[name] = (counts[name] || 0) + qty;
+  }
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  return sorted.length ? sorted[0][0] : '—';
+}
+
+// ─────────────────────────────────────────────
+//  Weekday / Weekend comparison
+// ─────────────────────────────────────────────
+function avgStats(recs) {
+  if (!recs.length) return null;
+  const n   = recs.length;
+  const net = recs.reduce((s, r) => s + (r.fields['Net Sales']   || 0), 0);
+  const ord = recs.reduce((s, r) => s + (r.fields['Order Count'] || 0), 0);
+  return {
+    netSales:   net / n,
+    orderCount: ord / n,
+    avgCheck:   ord > 0 ? net / ord : 0,
+    tips:       recs.reduce((s, r) => s + (r.fields['Total Tips']  || 0), 0) / n,
+    laborCost:  recs.reduce((s, r) => s + (r.fields['Labor Cost']  || 0), 0) / n,
+  };
+}
+
+function renderComparison(records) {
+  const wd = records.filter(r => r.fields.Date && !isWeekend(r.fields.Date));
+  const we = records.filter(r => r.fields.Date &&  isWeekend(r.fields.Date));
+  const wdS = avgStats(wd);
+  const weS = avgStats(we);
+  const panel = document.getElementById('compPanel');
+
+  if (!wdS && !weS) {
+    panel.innerHTML = '<div class="empty-msg">No data.</div>';
+    return;
+  }
+
+  const activeCompRows = COMP_ROWS.filter(r => !(r.laborOnly && state.view === 'retail'));
+  const rows = activeCompRows.map(r => {
+    const wv = wdS ? wdS[r.id] : null;
+    const ev = weS ? weS[r.id] : null;
+    const wdCls = (wv !== null && ev !== null) ? (wv >= ev ? 'hi' : 'lo') : '';
+    const weCls = (wv !== null && ev !== null) ? (ev >= wv ? 'hi' : 'lo') : '';
+    return `<tr>
+      <td>${r.label}</td>
+      <td class="${wdCls}">${wv !== null ? fmt(wv, r.fmt) : '—'}</td>
+      <td class="${weCls}">${ev !== null ? fmt(ev, r.fmt) : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  panel.innerHTML = `<table class="comp-table">
+    <thead><tr>
+      <th></th>
+      <th>Weekday <span class="badge badge-wd">${wd.length}d</span></th>
+      <th>Weekend <span class="badge badge-we">${we.length}d</span></th>
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+// ─────────────────────────────────────────────
+//  Top items
+// ─────────────────────────────────────────────
+function renderTopItems(records) {
+  const filtered = filterByDayType(records, state.dayType);
+  const counts = {};
+  for (const r of filtered) {
+    const name = r.fields['Top Item'];
+    const qty  = r.fields['Top Item Qty'] || 0;
+    if (name) counts[name] = (counts[name] || 0) + qty;
+  }
+
+  const sorted = Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+
+  const panel = document.getElementById('topItems');
+  if (!sorted.length) { panel.innerHTML = '<div class="empty-msg">No item data.</div>'; return; }
+
+  const max = sorted[0][1];
+  panel.innerHTML = sorted.map(([name, qty]) => `
+    <div class="top-item-row">
+      <span style="min-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${name}</span>
+      <div class="top-item-bar-wrap"><div class="top-item-bar" style="width:${Math.round(qty/max*100)}%"></div></div>
+      <span class="top-item-count">${qty.toLocaleString()}</span>
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────────
+//  Metric chips
+// ─────────────────────────────────────────────
+function buildChips() {
+  const wrap = document.getElementById('metricChips');
+  wrap.innerHTML = '';
+  for (const m of METRIC_DEFS) {
+    const hidden = m.laborOnly && state.view === 'retail';
+    const on  = state.active.has(m.id) && !hidden;
+    const lbl = document.createElement('label');
+    lbl.className = 'metric-chip' + (on ? ' on' : '') + (hidden ? ' labor-hidden' : '');
+    lbl.style.borderColor = on ? m.color + '88' : '';
+    lbl.style.color       = on ? m.color : '';
+    lbl.innerHTML = `
+      <input type="checkbox" ${on ? 'checked' : ''} data-id="${m.id}" ${hidden ? 'disabled' : ''}>
+      <span class="metric-dot" style="background:${m.color}"></span>
+      ${m.label}`;
+    if (!hidden) {
+      lbl.querySelector('input').addEventListener('change', e => {
+        const id = e.target.dataset.id;
+        if (e.target.checked) {
+          state.active.add(id);
+        } else {
+          if (state.active.size <= 1) { e.target.checked = true; return; }
+          state.active.delete(id);
+        }
+        buildChips();
+        renderChart();
+      });
+    }
+    wrap.appendChild(lbl);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  Controls
+// ─────────────────────────────────────────────
+function setGran(g) {
+  state.gran = g;
+  document.querySelectorAll('[id^="gb-"]').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('gb-' + g);
+  if (btn) btn.classList.add('active');
+  renderChart();
+}
+
+function setRange(days) {
+  document.getElementById('dateFrom').value = isoOffset(-days);
+  document.getElementById('dateTo').value   = isoOffset(-1);
+  loadData();
+}
+
+function setRangeAll() {
+  // 2 years back = earliest Toast data window
+  document.getElementById('dateFrom').value = isoOffset(-730);
+  document.getElementById('dateTo').value   = isoOffset(-1);
+  // Switch to year view for all-time
+  setGran('year');
+  loadData();
+}
+
+function setDayType(dt) {
+  state.dayType = dt;
+  document.querySelectorAll('[id^="dt-"]').forEach(b => b.classList.remove('active'));
+  document.getElementById('dt-' + dt).classList.add('active');
+  renderChart();
+  renderSummary(state.records);
+  renderComparison(state.records);
+  renderTopItems(state.records);
+}
+
+function setView(v) {
+  state.view = v;
+  document.querySelectorAll('[id^="vb-"]').forEach(b => b.classList.remove('active'));
+  document.getElementById('vb-' + v).classList.add('active');
+  // Remove labor metrics from active set when switching to retail
+  if (v === 'retail') {
+    METRIC_DEFS.filter(m => m.laborOnly).forEach(m => state.active.delete(m.id));
+    if (state.active.size === 0) state.active.add('netSales');
+  }
+  buildChips();
+  loadData();
+}
+
+// ─────────────────────────────────────────────
+//  Load
+// ─────────────────────────────────────────────
+async function loadData() {
+  const from = document.getElementById('dateFrom').value;
+  const to   = document.getElementById('dateTo').value;
+  if (!from || !to) return;
+
+  const loader = document.getElementById('loader');
+  const errBar = document.getElementById('errBar');
+  loader.style.display = 'flex';
+  errBar.style.display = 'none';
+
+  try {
+    state.records = await fetchRecords(from, to);
+    const badge = document.getElementById('dataBadge');
+    badge.textContent = `${state.records.length} records`;
+    renderChart();
+    renderSummary(state.records);
+    renderComparison(state.records);
+    renderTopItems(state.records);
+  } catch (err) {
+    errBar.style.display = 'block';
+    errBar.textContent   = 'Failed to load: ' + err.message;
+    document.getElementById('dataBadge').textContent = 'error';
+  } finally {
+    loader.style.display = 'none';
+  }
+}
+
+// ─────────────────────────────────────────────
+//  Init
+// ─────────────────────────────────────────────
+function init() {
+  document.getElementById('dateTo').value   = isoOffset(-1);
+  document.getElementById('dateFrom').value = isoOffset(-91);
+
+  buildChips();
+
+  document.getElementById('dateFrom').addEventListener('change', loadData);
+  document.getElementById('dateTo').addEventListener('change',   loadData);
+
+  // Pre-fill modal fields with defaults
+  document.getElementById('cfgBase').value  = cfg().baseId;
+  document.getElementById('cfgTable').value = cfg().tableId;
+  document.getElementById('cfgToken').value = cfg().token;
+
+  if (!cfg().token) {
+    document.getElementById('settingsOverlay').classList.add('show');
+  } else {
+    loadData();
+  }
+}
+
+init();
+</script>
+</body>
+</html>
