@@ -109,7 +109,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-04</div>
-      <div class="rpt-ts">Generated Jun 5, 2026, 8:24 AM PT</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 8:34 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -429,13 +429,13 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <h2 class="loc-name" style="color:#4ECDC4;border-bottom-color:rgba(78,205,196,.15)">Retail Top Sellers</h2>
 
     <div class="retail-toggle">
-      <button class="rtgl-btn active" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
+      <button class="rtgl-btn" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
       <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
       <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
-      <button class="rtgl-btn" data-view="all" onclick="setRetailView('all')">All</button>
+      <button class="rtgl-btn active" data-view="all" onclick="setRetailView('all')">All</button>
     </div>
 
-    <div id="retail-cols" class="retail-grid">
+    <div id="retail-cols" class="retail-grid" style="display:none">
       <div id="retail-col-food">
         <h3 style="color:#4ECDC4">Retail Food</h3>
         
@@ -616,143 +616,159 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       </div>
     </div>
 
-    <div id="retail-all-view" style="display:none">
+    <div id="retail-all-view">
       
     <div class="table-toolbar">
       <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortItems('items-3','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortItems('items-3','revenue')">Revenue</button>
+      <button class="sort-btn active" onclick="sortRetailAll('items-3','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortRetailAll('items-3','revenue')">Revenue</button>
     </div>
     <table class="data-table" id="items-3">
-      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <thead><tr><th>#</th><th>Item</th><th>Type</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
       <tbody>
     <tr class="even">
       <td>1</td>
       <td>Dog Bones (3)</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>6</td>
       <td>$108.00</td>
     </tr>
     <tr class="">
       <td>2</td>
       <td>Crooked Halo Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>4</td>
       <td>$24.00</td>
     </tr>
     <tr class="even">
       <td>3</td>
       <td>Jeannine's Granola Bag LG</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>3</td>
       <td>$46.50</td>
     </tr>
     <tr class="">
       <td>4</td>
       <td>Chocolate Malt Balls</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>2</td>
       <td>$10.00</td>
     </tr>
     <tr class="even">
       <td>5</td>
       <td>Side Mayo</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>2</td>
       <td>$3.00</td>
     </tr>
     <tr class="">
       <td>6</td>
       <td>CA Poppies Zippered Pouch</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>2</td>
       <td>$32.00</td>
     </tr>
     <tr class="even">
       <td>7</td>
       <td>Ojai Jam</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$18.00</td>
     </tr>
     <tr class="">
       <td>8</td>
       <td>Banana</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$2.00</td>
     </tr>
     <tr class="even">
       <td>9</td>
       <td>Torres Chips Smoked Paprika (50g bag)</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$4.50</td>
     </tr>
     <tr class="">
       <td>10</td>
       <td>Torres Chips Mediterranean Salt</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$4.50</td>
     </tr>
     <tr class="even">
       <td>11</td>
       <td>Jeannine's Buckwheat Honey 9 oz</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$20.00</td>
     </tr>
     <tr class="">
       <td>12</td>
       <td>High Protein Granola</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$15.50</td>
     </tr>
     <tr class="even">
       <td>13</td>
       <td>Trucker Hat - Navy</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$35.00</td>
     </tr>
     <tr class="">
       <td>14</td>
       <td>Monli Rope Tug Toy w/ Handle - Hemp</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$12.00</td>
     </tr>
     <tr class="even">
       <td>15</td>
       <td>BluGift Pink Delight</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$16.00</td>
     </tr>
     <tr class="">
       <td>16</td>
       <td>Katie Doodle Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even">
       <td>17</td>
       <td>Expression Design Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="">
       <td>18</td>
       <td>Lumia Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even">
       <td>19</td>
       <td>9 Bear Jumbo Tote</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$30.00</td>
     </tr>
     <tr class="">
       <td>20</td>
       <td>Katie Doodle Card - Sorry Crazy</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr></tbody>
     </table>
     <script>
-    (function(){
-      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6}];
-      window['items-3'] = raw;
-      setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
-    })();
+    (function(){ window['items-3'] = [{"name":"Dog Bones (3)","qty":6,"revenue":108,"category":"Food"},{"name":"Crooked Halo Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Chocolate Malt Balls","qty":2,"revenue":10,"category":"Food"},{"name":"Side Mayo","qty":2,"revenue":3,"category":"Food"},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32,"category":"Non-Food"},{"name":"Ojai Jam","qty":1,"revenue":18,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"High Protein Granola","qty":1,"revenue":15.5,"category":"Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12,"category":"Non-Food"},{"name":"BluGift Pink Delight","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Expression Design Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lumia Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
@@ -821,6 +837,32 @@ function sortItems(id, by) {
     </tr>`;
   }).join('');
 
+  const toolbar = table.previousElementSibling;
+  toolbar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+function sortRetailAll(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const all  = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+  const badge = cat => {
+    const isFd  = cat === 'Food';
+    const color = isFd ? '#4ECDC4' : '#C9A84C';
+    const bg    = isFd ? 'rgba(78,205,196,.1)'  : 'rgba(201,168,76,.1)';
+    const bdr   = isFd ? 'rgba(78,205,196,.25)' : 'rgba(201,168,76,.25)';
+    return `<span style="font-size:.65rem;font-weight:600;color:${color};background:${bg};border:1px solid ${bdr};padding:.1rem .4rem;border-radius:3px;white-space:nowrap">${cat}</span>`;
+  };
+  table.querySelector('tbody').innerHTML = data.map((item, i) => `
+    <tr class="${i % 2 === 0 ? 'even' : ''}">
+      <td>${i + 1}</td>
+      <td>${item.name}</td>
+      <td>${badge(item.category)}</td>
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`).join('');
   const toolbar = table.previousElementSibling;
   toolbar.querySelectorAll('.sort-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
