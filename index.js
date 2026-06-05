@@ -1,6 +1,7 @@
 import { authenticate, getRestaurantGuids, fetchRestaurantInfo, fetchOrders, fetchLaborEntries, fetchEmployees, fetchSalesCategories, fetchItemAvailabilities } from './lib/toast.js';
 import { crunchOrders, crunchLabor, crunchVoids, crunchRetailByCategory, buildTimeSeries } from './lib/process.js';
 import { render } from './lib/report.js';
+import { generateEmailHtml } from './lib/email-report.js';
 import { publishReport } from './lib/publish.js';
 import { writeReport } from './lib/airtable.js';
 import { sendEmail, sendSms } from './lib/notify.js';
@@ -98,7 +99,8 @@ async function main() {
   await writeReport(retailData, displayDate, reportUrl, 'Retail');
 
   console.log('Sending notifications...');
-  await sendEmail(html, displayDate);
+  const emailHtml = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl);
+  await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
   console.log(`\nDone. ${reportUrl}\n`);
