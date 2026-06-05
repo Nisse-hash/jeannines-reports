@@ -99,8 +99,8 @@ async function main() {
   await writeReport(retailData, displayDate, reportUrl, 'Retail');
 
   console.log('Sending notifications...');
-  const emailHtml = await generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl);
-  await sendEmail(emailHtml, displayDate);
+  const { html: emailHtml, attachments: emailAttachments } = await generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl);
+  await sendEmail(emailHtml, displayDate, emailAttachments);
   await sendSms(displayDate, reportUrl);
 
   console.log(`\nDone. ${reportUrl}\n`);
