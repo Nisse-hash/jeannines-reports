@@ -68,11 +68,11 @@ h3.ot-heading{color:#F0B429}
 /* Chart */
 .chart-outer{margin-bottom:1.75rem}
 .chart-wrap{background:#0A0A0F;border:1px solid #1A1A24;border-radius:4px;overflow:hidden;height:280px;display:flex;padding:0}
-.chart-canvas-col{flex:1;min-width:0;padding:1rem;position:relative}
+.chart-canvas-col{flex:1;min-width:0;padding:1rem;position:relative;height:280px}
+.chart-canvas-col canvas{max-height:248px}
 .staff-panel-col{width:180px;flex-shrink:0;border-left:1px solid #1A1A24;padding:.75rem;overflow-y:auto;display:flex;flex-direction:column;background:#0A0A0F}
 .sp-time{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#4ECDC4;padding-bottom:.35rem;margin-bottom:.4rem;border-bottom:1px solid #1A1A24}
 .sp-name{font-size:.78rem;color:#ccc;padding:.18rem 0;line-height:1.3}
-.sp-idle{font-size:.7rem;color:#333;margin:auto;text-align:center;line-height:1.6}
 
 /* Sort toolbar */
 .table-toolbar{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
@@ -115,7 +115,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-04</div>
-      <div class="rpt-ts">Generated Jun 5, 2026, 9:00 AM PT</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 9:03 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -204,9 +204,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <h3>Day at a Glance</h3>
     <div class="chart-wrap">
       <div class="chart-canvas-col"><canvas id="chart-0"></canvas></div>
-      <div id="sp-chart-0" class="staff-panel-col">
-        <div class="sp-idle">Hover chart<br>to see who's<br>on the floor</div>
-      </div>
+      <div id="sp-chart-0" class="staff-panel-col"></div>
     </div>
   </div>
   <script>
@@ -223,15 +221,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       if (idx === lastIdx) return;
       lastIdx = idx;
       if (!panel) return;
-      if (idx < 0) {
-        panel.innerHTML = '<div class="sp-idle">Hover chart<br>to see who's<br>on the floor</div>';
-        return;
-      }
+      if (idx < 0) { panel.innerHTML = ''; return; }
       const names = staff[idx] || [];
       panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
-        + (names.length
-          ? names.map(n => '<div class="sp-name">· ' + n + '</div>').join('')
-          : '<div class="sp-idle">No staff data</div>');
+        + names.map(n => '<div class="sp-name">· ' + n + '</div>').join('');
     }
 
     new Chart(document.getElementById('chart-0'), {
@@ -245,7 +238,6 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       },
       options: {
         responsive:true,
-        maintainAspectRatio:false,
         onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
         interaction:{ mode:'index', intersect:false },
         scales:{
@@ -598,13 +590,13 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>6</td>
-      <td>Expression Design Card</td>
+      <td>Katie Doodle Card</td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even">
       <td>7</td>
-      <td>Katie Doodle Card</td>
+      <td>Expression Design Card</td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
@@ -647,7 +639,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Calypso Card","qty":1,"revenue":6}];
+      const raw = [{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Calypso Card","qty":1,"revenue":6}];
       window['items-2'] = raw;
       setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
     })();
@@ -767,14 +759,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>16</td>
-      <td>Expression Design Card</td>
+      <td>Katie Doodle Card</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even">
       <td>17</td>
-      <td>Katie Doodle Card</td>
+      <td>Expression Design Card</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
@@ -802,7 +794,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr></tbody>
     </table>
     <script>
-    (function(){ window['items-3'] = [{"name":"Dog Bones (3)","qty":6,"revenue":108,"category":"Food"},{"name":"Crooked Halo Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Chocolate Malt Balls","qty":2,"revenue":10,"category":"Food"},{"name":"Side Mayo","qty":2,"revenue":3,"category":"Food"},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32,"category":"Non-Food"},{"name":"Ojai Jam","qty":1,"revenue":18,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"High Protein Granola","qty":1,"revenue":15.5,"category":"Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12,"category":"Non-Food"},{"name":"BluGift Pink Delight","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Expression Design Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lumia Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"}]; })();
+    (function(){ window['items-3'] = [{"name":"Dog Bones (3)","qty":6,"revenue":108,"category":"Food"},{"name":"Crooked Halo Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Chocolate Malt Balls","qty":2,"revenue":10,"category":"Food"},{"name":"Side Mayo","qty":2,"revenue":3,"category":"Food"},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32,"category":"Non-Food"},{"name":"Ojai Jam","qty":1,"revenue":18,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"High Protein Granola","qty":1,"revenue":15.5,"category":"Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12,"category":"Non-Food"},{"name":"BluGift Pink Delight","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Expression Design Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lumia Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
