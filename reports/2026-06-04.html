@@ -76,11 +76,11 @@ h3.ot-heading{color:#F0B429}
 .cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 
 /* Day navigation */
-.day-nav{display:flex;align-items:center;gap:.5rem;margin-top:1rem}
-.nav-btn{background:#1A1A24;border:1px solid #2A2A3A;color:#C9A84C;font-size:.8rem;padding:.4rem .9rem;border-radius:3px;cursor:pointer;transition:all .15s;font-weight:600}
-.nav-btn:hover{background:rgba(201,168,76,.12);border-color:#C9A84C}
-.nav-date{background:#1A1A24;border:1px solid #2A2A3A;color:#e0e0e0;font-size:.8rem;padding:.4rem .6rem;border-radius:3px;cursor:pointer;outline:none;color-scheme:dark}
-.nav-date:focus{border-color:#C9A84C}
+.day-nav{display:flex;align-items:center;gap:.375rem;margin-top:1.1rem}
+.nav-btn{background:transparent;border:1px solid rgba(201,168,76,.25);color:#C9A84C;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500;letter-spacing:.2px}
+.nav-btn:hover{background:rgba(201,168,76,.1);border-color:#C9A84C}
+.nav-date{background:transparent;border:1px solid rgba(201,168,76,.25);color:#888;font-size:.75rem;padding:.3rem .65rem;border-radius:9999px;cursor:pointer;outline:none;color-scheme:dark;transition:all .15s}
+.nav-date:hover,.nav-date:focus{border-color:#C9A84C;color:#e0e0e0}
 
 /* Footer */
 footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #1A1A24}
@@ -97,7 +97,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="rpt-header">
     <div class="rpt-title">Jeannine's Daily Report</div>
     <div class="rpt-date">2026-06-04</div>
-    <div class="rpt-ts">Generated Jun 5, 2026, 7:55 AM PT</div>
+    <div class="rpt-ts">Generated Jun 5, 2026, 7:58 AM PT</div>
     <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
