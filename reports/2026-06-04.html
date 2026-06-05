@@ -109,7 +109,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-04</div>
-      <div class="rpt-ts">Generated Jun 5, 2026, 8:10 AM PT</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 8:24 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -121,80 +121,6 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
   
   
-  
-  <div class="location-block" style="border:1px solid rgba(78,205,196,.2)">
-    <h2 class="loc-name" style="color:#4ECDC4;border-bottom-color:rgba(78,205,196,.15)">Retail Top Sellers</h2>
-
-    <div class="retail-toggle">
-      <button class="rtgl-btn active" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
-      <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
-      <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
-      <button class="rtgl-btn" data-view="all" onclick="setRetailView('all')">All</button>
-    </div>
-
-    <div id="retail-cols" class="retail-grid">
-      <div id="retail-col-food">
-        <h3 style="color:#4ECDC4">Retail Food</h3>
-        
-    <div class="table-toolbar">
-      <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
-    </div>
-    <table class="data-table" id="items-0">
-      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <script>
-    (function(){
-      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5}];
-      window['items-0'] = raw;
-      setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
-    })();
-    </script>
-      </div>
-      <div id="retail-col-nonfood">
-        <h3 style="color:#4ECDC4">Retail Non-Food</h3>
-        
-    <div class="table-toolbar">
-      <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortItems('items-1','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortItems('items-1','revenue')">Revenue</button>
-    </div>
-    <table class="data-table" id="items-1">
-      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <script>
-    (function(){
-      const raw = [{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Calypso Card","qty":1,"revenue":6}];
-      window['items-1'] = raw;
-      setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
-    })();
-    </script>
-      </div>
-    </div>
-
-    <div id="retail-all-view" style="display:none">
-      
-    <div class="table-toolbar">
-      <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortItems('items-2','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortItems('items-2','revenue')">Revenue</button>
-    </div>
-    <table class="data-table" id="items-2">
-      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <script>
-    (function(){
-      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6}];
-      window['items-2'] = raw;
-      setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
-    })();
-    </script>
-    </div>
-  </div>
   
   <div class="location-block">
     <h2 class="loc-name">At the Shore</h2>
@@ -340,18 +266,138 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     <div class="table-toolbar">
       <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortItems('items-3','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortItems('items-3','revenue')">Revenue</button>
+      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
     </div>
-    <table class="data-table" id="items-3">
+    <table class="data-table" id="items-0">
       <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
-      <tbody></tbody>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Scone</td>
+      <td>116</td>
+      <td>$872.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Drip Coffee</td>
+      <td>66</td>
+      <td>$396.11</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Orange Juice Small</td>
+      <td>58</td>
+      <td>$520.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Latte</td>
+      <td>36</td>
+      <td>$254.21</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>American Breakfast</td>
+      <td>34</td>
+      <td>$689.50</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Challah French Toast Breakfast</td>
+      <td>34</td>
+      <td>$683.75</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Santa Barbara Scramble</td>
+      <td>31</td>
+      <td>$720.25</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Fruit Smoothie Express</td>
+      <td>29</td>
+      <td>$262.03</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Breakfast Burrito</td>
+      <td>26</td>
+      <td>$576.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Pancake Breakfast</td>
+      <td>23</td>
+      <td>$463.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Single Large Cookie</td>
+      <td>22</td>
+      <td>$199.50</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>California Omelet</td>
+      <td>21</td>
+      <td>$467.50</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Cappuccino</td>
+      <td>18</td>
+      <td>$87.19</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Waffle Breakfast</td>
+      <td>18</td>
+      <td>$360.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Avocado Toast</td>
+      <td>16</td>
+      <td>$254.50</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Chilaquiles</td>
+      <td>16</td>
+      <td>$307.50</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Havana Latte</td>
+      <td>16</td>
+      <td>$119.54</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Steak & Eggs</td>
+      <td>15</td>
+      <td>$450.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Banana French Toast</td>
+      <td>14</td>
+      <td>$252.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Tri-Tip Benedict</td>
+      <td>14</td>
+      <td>$294.00</td>
+    </tr></tbody>
     </table>
     <script>
     (function(){
       const raw = [{"name":"Scone","qty":116,"revenue":872},{"name":"Drip Coffee","qty":66,"revenue":396.11},{"name":"Orange Juice Small","qty":58,"revenue":520},{"name":"Latte","qty":36,"revenue":254.21},{"name":"American Breakfast","qty":34,"revenue":689.5},{"name":"Challah French Toast Breakfast","qty":34,"revenue":683.75},{"name":"Santa Barbara Scramble","qty":31,"revenue":720.25},{"name":"Fruit Smoothie Express","qty":29,"revenue":262.03},{"name":"Breakfast Burrito","qty":26,"revenue":576},{"name":"Pancake Breakfast","qty":23,"revenue":463},{"name":"Single Large Cookie","qty":22,"revenue":199.5},{"name":"California Omelet","qty":21,"revenue":467.5},{"name":"Cappuccino","qty":18,"revenue":87.19},{"name":"Waffle Breakfast","qty":18,"revenue":360},{"name":"Avocado Toast","qty":16,"revenue":254.5},{"name":"Chilaquiles","qty":16,"revenue":307.5},{"name":"Havana Latte","qty":16,"revenue":119.53999999999999},{"name":"Steak & Eggs","qty":15,"revenue":450},{"name":"Banana French Toast","qty":14,"revenue":252},{"name":"Tri-Tip Benedict","qty":14,"revenue":294}];
-      window['items-3'] = raw;
-      setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
+      window['items-0'] = raw;
+      setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
     })();
     </script>
 
@@ -377,6 +423,338 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
 
     
+  </div>
+  
+  <div class="location-block" style="border:1px solid rgba(78,205,196,.2)">
+    <h2 class="loc-name" style="color:#4ECDC4;border-bottom-color:rgba(78,205,196,.15)">Retail Top Sellers</h2>
+
+    <div class="retail-toggle">
+      <button class="rtgl-btn active" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
+      <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
+      <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
+      <button class="rtgl-btn" data-view="all" onclick="setRetailView('all')">All</button>
+    </div>
+
+    <div id="retail-cols" class="retail-grid">
+      <div id="retail-col-food">
+        <h3 style="color:#4ECDC4">Retail Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-1','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-1','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-1">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Dog Bones (3)</td>
+      <td>6</td>
+      <td>$108.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Jeannine's Granola Bag LG</td>
+      <td>3</td>
+      <td>$46.50</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Chocolate Malt Balls</td>
+      <td>2</td>
+      <td>$10.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Side Mayo</td>
+      <td>2</td>
+      <td>$3.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Ojai Jam</td>
+      <td>1</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Banana</td>
+      <td>1</td>
+      <td>$2.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Torres Chips Smoked Paprika (50g bag)</td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Torres Chips Mediterranean Salt</td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Jeannine's Buckwheat Honey 9 oz</td>
+      <td>1</td>
+      <td>$20.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>High Protein Granola</td>
+      <td>1</td>
+      <td>$15.50</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5}];
+      window['items-1'] = raw;
+      setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+      <div id="retail-col-nonfood">
+        <h3 style="color:#4ECDC4">Retail Non-Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-2','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-2','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-2">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Crooked Halo Card</td>
+      <td>4</td>
+      <td>$24.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>CA Poppies Zippered Pouch</td>
+      <td>2</td>
+      <td>$32.00</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Trucker Hat - Navy</td>
+      <td>1</td>
+      <td>$35.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Monli Rope Tug Toy w/ Handle - Hemp</td>
+      <td>1</td>
+      <td>$12.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>BluGift Pink Delight</td>
+      <td>1</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Katie Doodle Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Expression Design Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Lumia Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>9 Bear Jumbo Tote</td>
+      <td>1</td>
+      <td>$30.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Katie Doodle Card - Sorry Crazy</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Santa Barbara Cap - Denim</td>
+      <td>1</td>
+      <td>$35.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Calypso FD Card - GOAT</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Calypso Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Calypso Card","qty":1,"revenue":6}];
+      window['items-2'] = raw;
+      setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+    </div>
+
+    <div id="retail-all-view" style="display:none">
+      
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-3','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-3','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-3">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Dog Bones (3)</td>
+      <td>6</td>
+      <td>$108.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Crooked Halo Card</td>
+      <td>4</td>
+      <td>$24.00</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Jeannine's Granola Bag LG</td>
+      <td>3</td>
+      <td>$46.50</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Chocolate Malt Balls</td>
+      <td>2</td>
+      <td>$10.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Side Mayo</td>
+      <td>2</td>
+      <td>$3.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>CA Poppies Zippered Pouch</td>
+      <td>2</td>
+      <td>$32.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Ojai Jam</td>
+      <td>1</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Banana</td>
+      <td>1</td>
+      <td>$2.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Torres Chips Smoked Paprika (50g bag)</td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Torres Chips Mediterranean Salt</td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Jeannine's Buckwheat Honey 9 oz</td>
+      <td>1</td>
+      <td>$20.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>High Protein Granola</td>
+      <td>1</td>
+      <td>$15.50</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Trucker Hat - Navy</td>
+      <td>1</td>
+      <td>$35.00</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Monli Rope Tug Toy w/ Handle - Hemp</td>
+      <td>1</td>
+      <td>$12.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>BluGift Pink Delight</td>
+      <td>1</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Katie Doodle Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Expression Design Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Lumia Card</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>9 Bear Jumbo Tote</td>
+      <td>1</td>
+      <td>$30.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Katie Doodle Card - Sorry Crazy</td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Crooked Halo Card","qty":4,"revenue":24},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12},{"name":"BluGift Pink Delight","qty":1,"revenue":16},{"name":"Katie Doodle Card","qty":1,"revenue":6},{"name":"Expression Design Card","qty":1,"revenue":6},{"name":"Lumia Card","qty":1,"revenue":6},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6}];
+      window['items-3'] = raw;
+      setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
+    })();
+    </script>
+    </div>
   </div>
 
   <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
