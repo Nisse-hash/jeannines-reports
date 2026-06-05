@@ -451,9 +451,12 @@ const METRIC_DEFS = [
   { id: 'orderCount', label: 'Orders',     color: '#4ECDC4', axis: 'y2', fmt: '',  on: false },
   { id: 'avgCheck',   label: 'Avg Check',  color: '#9B59B6', axis: 'y',  fmt: '$', on: false, computed: true },
   { id: 'tips',       label: 'Tips',       color: '#2ECC71', axis: 'y',  fmt: '$', on: false },
-  { id: 'laborCost',  label: 'Labor',      color: '#E74C3C', axis: 'y',  fmt: '$', on: false, laborOnly: true },
-  { id: 'totalHours', label: 'Hours',      color: '#3498DB', axis: 'y2', fmt: 'h', on: false, laborOnly: true },
-  { id: 'otCost',     label: 'OT Cost',    color: '#E67E22', axis: 'y',  fmt: '$', on: false, laborOnly: true },
+  { id: 'laborCost',     label: 'Labor',      color: '#E74C3C', axis: 'y',  fmt: '$', on: false, laborOnly: true },
+  { id: 'totalHours',   label: 'Hours',      color: '#3498DB', axis: 'y2', fmt: 'h', on: false, laborOnly: true },
+  { id: 'otCost',       label: 'OT Cost',    color: '#E67E22', axis: 'y',  fmt: '$', on: false, laborOnly: true },
+  { id: 'discountTotal',label: 'Discounts',  color: '#C0392B', axis: 'y',  fmt: '$', on: false, laborOnly: true },
+  { id: 'voidCount',    label: 'Voids',      color: '#F39C12', axis: 'y2', fmt: '',  on: false, laborOnly: true },
+  { id: 'voidTotal',    label: 'Void $',     color: '#8E44AD', axis: 'y',  fmt: '$', on: false, laborOnly: true },
 ];
 
 const COMP_ROWS = [
@@ -574,6 +577,7 @@ async function fetchRecords(from, to) {
     'Date','Location','Type','Net Sales','Gross Sales','Order Count',
     'Avg Check','Total Tips','Labor Cost','Total Hours','OT Extra Cost',
     'OT Employee Count','Missed Break Count','Top Item','Top Item Qty',
+    'Discount Total','Void Count','Void Total',
   ];
   const fp = fields.map(f => 'fields[]=' + encodeURIComponent(f)).join('&');
 
@@ -613,7 +617,8 @@ function aggregate(records, gran, dayType) {
     const key = groupKey(d, gran);
     if (!groups[key]) groups[key] = {
       netSales: 0, grossSales: 0, orderCount: 0,
-      tips: 0, laborCost: 0, totalHours: 0, otCost: 0, days: 0,
+      tips: 0, laborCost: 0, totalHours: 0, otCost: 0,
+      discountTotal: 0, voidCount: 0, voidTotal: 0, days: 0,
     };
     const f = r.fields;
     groups[key].netSales   += f['Net Sales']    || 0;
@@ -622,7 +627,10 @@ function aggregate(records, gran, dayType) {
     groups[key].tips       += f['Total Tips']   || 0;
     groups[key].laborCost  += f['Labor Cost']   || 0;
     groups[key].totalHours += f['Total Hours']  || 0;
-    groups[key].otCost     += f['OT Extra Cost']|| 0;
+    groups[key].otCost       += f['OT Extra Cost']  || 0;
+    groups[key].discountTotal += f['Discount Total'] || 0;
+    groups[key].voidCount     += f['Void Count']     || 0;
+    groups[key].voidTotal     += f['Void Total']     || 0;
     groups[key].days++;
   }
 
