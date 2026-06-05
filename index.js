@@ -2,7 +2,8 @@ import { authenticate, getRestaurantGuids, fetchRestaurantInfo, fetchOrders, fet
 import { crunchOrders, crunchLabor, crunchVoids, crunchRetailByCategory, buildTimeSeries } from './lib/process.js';
 import { render } from './lib/report.js';
 import { generateEmailHtml } from './lib/email-report.js';
-import { publishReport } from './lib/publish.js';
+import { generateChartGif } from './lib/chart-gif.js';
+import { publishReport, publishChartImage } from './lib/publish.js';
 import { writeReport } from './lib/airtable.js';
 import { sendEmail, sendSms } from './lib/notify.js';
 
@@ -99,8 +100,16 @@ async function main() {
   await writeReport(retailData, displayDate, reportUrl, 'Retail');
 
   console.log('Sending notifications...');
-  const { html: emailHtml, attachments: emailAttachments } = await generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl);
-  await sendEmail(emailHtml, displayDate, emailAttachments);
+  const timeSeries = locationData[0]?.timeSeries;
+  const chartBuffer = await generateChartGif(timeSeries);
+  let chartUrl = null;
+  if (chartBuffer) {
+    console.log('  Publishing chart image...');
+    chartUrl = await publishChartImage(chartBuffer, displayDate);
+    console.log(`  Chart URL: ${chartUrl}`);
+  }
+  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl);
+  await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
   console.log(`\nDone. ${reportUrl}\n`);
