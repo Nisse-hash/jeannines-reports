@@ -998,7 +998,7 @@ async function loadData() {
 // ─────────────────────────────────────────────
 //  Init
 // ─────────────────────────────────────────────
-function init() {
+async function init() {
   document.getElementById('dateTo').value   = isoOffset(-1);
   document.getElementById('dateFrom').value = isoOffset(-91);
 
@@ -1006,6 +1006,17 @@ function init() {
 
   document.getElementById('dateFrom').addEventListener('change', loadData);
   document.getElementById('dateTo').addEventListener('change',   loadData);
+
+  // Pull config from Vercel env via serverless endpoint (token never touches the repo)
+  try {
+    const res = await fetch('/api/config');
+    if (res.ok) {
+      const remote = await res.json();
+      if (remote.token)   localStorage.setItem('at_token',  remote.token);
+      if (remote.baseId)  localStorage.setItem('at_base',   remote.baseId);
+      if (remote.tableId) localStorage.setItem('at_table',  remote.tableId);
+    }
+  } catch { /* local dev or endpoint not deployed yet */ }
 
   // Pre-fill modal fields with defaults
   document.getElementById('cfgBase').value  = cfg().baseId;
