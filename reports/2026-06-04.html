@@ -79,10 +79,12 @@ h3.ot-heading{color:#F0B429}
 .cross-highlight td{background:rgba(78,205,196,.07)!important;border-left:2px solid #4ECDC4}
 .cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
 
-/* Retail toggle */
-.retail-toggle{display:flex;align-items:center;gap:.375rem;margin-bottom:1.25rem;flex-wrap:wrap}
+/* Retail controls */
+.retail-controls{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.retail-toggle{display:flex;align-items:center;gap:.375rem;flex-wrap:wrap}
 .rtgl-btn{background:transparent;border:1px solid rgba(78,205,196,.25);color:#4ECDC4;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500}
 .rtgl-btn:hover,.rtgl-btn.active{background:rgba(78,205,196,.1);border-color:#4ECDC4}
+.retail-sort-inline{display:flex;align-items:center;gap:.5rem}
 .retail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 @media(max-width:700px){.retail-grid{grid-template-columns:1fr}}
 
@@ -109,7 +111,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-04</div>
-      <div class="rpt-ts">Generated Jun 5, 2026, 8:46 AM PT</div>
+      <div class="rpt-ts">Generated Jun 5, 2026, 8:50 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-04" onchange="goToDate(this.value)">
@@ -439,11 +441,18 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="location-block" style="border:1px solid rgba(78,205,196,.2)">
     <h2 class="loc-name" style="color:#4ECDC4;border-bottom-color:rgba(78,205,196,.15)">Retail Top Sellers</h2>
 
-    <div class="retail-toggle">
-      <button class="rtgl-btn" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
-      <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
-      <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
-      <button class="rtgl-btn active" data-view="all" onclick="setRetailView('all')">All</button>
+    <div class="retail-controls">
+      <div class="retail-toggle">
+        <button class="rtgl-btn" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
+        <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
+        <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
+        <button class="rtgl-btn active" data-view="all" onclick="setRetailView('all')">All</button>
+      </div>
+      <div id="retail-sort-bar" class="retail-sort-inline">
+        <span class="sort-label">Sort by</span>
+        <button class="sort-btn active" onclick="sortRetailAll('items-3','qty')">Quantity</button>
+        <button class="sort-btn" onclick="sortRetailAll('items-3','revenue')">Revenue</button>
+      </div>
     </div>
 
     <div id="retail-cols" class="retail-grid" style="display:none">
@@ -496,13 +505,13 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>7</td>
-      <td>Torres Chips Smoked Paprika (50g bag)</td>
+      <td>Torres Chips Mediterranean Salt</td>
       <td>1</td>
       <td>$4.50</td>
     </tr>
     <tr class="">
       <td>8</td>
-      <td>Torres Chips Mediterranean Salt</td>
+      <td>Torres Chips Smoked Paprika (50g bag)</td>
       <td>1</td>
       <td>$4.50</td>
     </tr>
@@ -521,7 +530,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5}];
+      const raw = [{"name":"Dog Bones (3)","qty":6,"revenue":108},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Chocolate Malt Balls","qty":2,"revenue":10},{"name":"Side Mayo","qty":2,"revenue":3},{"name":"Ojai Jam","qty":1,"revenue":18},{"name":"Banana","qty":1,"revenue":2},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20},{"name":"High Protein Granola","qty":1,"revenue":15.5}];
       window['items-1'] = raw;
       setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
     })();
@@ -629,11 +638,6 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div id="retail-all-view">
       
-    <div class="table-toolbar">
-      <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" onclick="sortRetailAll('items-3','qty')">Quantity</button>
-      <button class="sort-btn" onclick="sortRetailAll('items-3','revenue')">Revenue</button>
-    </div>
     <table class="data-table" id="items-3">
       <thead><tr><th>#</th><th>Item</th><th>Type</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
       <tbody>
@@ -695,14 +699,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>9</td>
-      <td>Torres Chips Smoked Paprika (50g bag)</td>
+      <td>Torres Chips Mediterranean Salt</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$4.50</td>
     </tr>
     <tr class="">
       <td>10</td>
-      <td>Torres Chips Mediterranean Salt</td>
+      <td>Torres Chips Smoked Paprika (50g bag)</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$4.50</td>
@@ -779,7 +783,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr></tbody>
     </table>
     <script>
-    (function(){ window['items-3'] = [{"name":"Dog Bones (3)","qty":6,"revenue":108,"category":"Food"},{"name":"Crooked Halo Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Chocolate Malt Balls","qty":2,"revenue":10,"category":"Food"},{"name":"Side Mayo","qty":2,"revenue":3,"category":"Food"},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32,"category":"Non-Food"},{"name":"Ojai Jam","qty":1,"revenue":18,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"High Protein Granola","qty":1,"revenue":15.5,"category":"Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12,"category":"Non-Food"},{"name":"BluGift Pink Delight","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Expression Design Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lumia Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"}]; })();
+    (function(){ window['items-3'] = [{"name":"Dog Bones (3)","qty":6,"revenue":108,"category":"Food"},{"name":"Crooked Halo Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Chocolate Malt Balls","qty":2,"revenue":10,"category":"Food"},{"name":"Side Mayo","qty":2,"revenue":3,"category":"Food"},{"name":"CA Poppies Zippered Pouch","qty":2,"revenue":32,"category":"Non-Food"},{"name":"Ojai Jam","qty":1,"revenue":18,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"High Protein Granola","qty":1,"revenue":15.5,"category":"Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Monli Rope Tug Toy w/ Handle - Hemp","qty":1,"revenue":12,"category":"Non-Food"},{"name":"BluGift Pink Delight","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Expression Design Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lumia Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
@@ -792,11 +796,13 @@ function setRetailView(view) {
   const allView  = document.getElementById('retail-all-view');
   const foodCol  = document.getElementById('retail-col-food');
   const nonfoodCol = document.getElementById('retail-col-nonfood');
+  const sortBar  = document.getElementById('retail-sort-bar');
   if (!cols) return;
   cols.style.display     = view === 'all' ? 'none' : '';
-  if (allView)    allView.style.display    = view === 'all'     ? ''     : 'none';
-  if (foodCol)    foodCol.style.display    = view === 'nonfood' ? 'none' : '';
-  if (nonfoodCol) nonfoodCol.style.display = view === 'food'    ? 'none' : '';
+  if (allView)   allView.style.display   = view === 'all'     ? ''     : 'none';
+  if (foodCol)   foodCol.style.display   = view === 'nonfood' ? 'none' : '';
+  if (nonfoodCol) nonfoodCol.style.display = view === 'food'  ? 'none' : '';
+  if (sortBar)   sortBar.style.display   = view === 'all'     ? ''     : 'none';
   document.querySelectorAll('.rtgl-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.view === view)
   );
@@ -874,8 +880,8 @@ function sortRetailAll(id, by) {
       <td>${item.qty}</td>
       <td>${fmt(item.revenue)}</td>
     </tr>`).join('');
-  const toolbar = table.previousElementSibling;
-  toolbar.querySelectorAll('.sort-btn').forEach(btn => {
+  const sortBar = document.getElementById('retail-sort-bar');
+  if (sortBar) sortBar.querySelectorAll('.sort-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
   });
 }
