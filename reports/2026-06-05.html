@@ -25,10 +25,10 @@ body{font-family:-apple-system,'Inter',sans-serif;background:#0A0A0F;color:#fff;
 .banner-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#C9A84C;margin-bottom:1rem}
 
 /* Weather strip */
-.weather-strip{background:#13131A;border-radius:8px;padding:.875rem 1.25rem;margin-bottom:1.25rem;text-align:center}
-.weather-emoji{font-size:1.5rem;vertical-align:middle}
-.weather-desc{font-size:.95rem;font-weight:700;color:#fff;margin-left:.6rem;vertical-align:middle}
-.weather-temp{font-size:.85rem;color:#999;margin-left:.9rem;vertical-align:middle}
+.weather-strip{background:#13131A;border-radius:8px;padding:.75rem 1rem;margin-bottom:1.25rem}
+.weather-table{width:100%;border-collapse:collapse;text-align:center}
+.weather-table th{color:#888;font-size:.65rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:.4rem .2rem;white-space:nowrap}
+.weather-table td{font-size:1.4rem;padding:.2rem .2rem .5rem;line-height:1.2;cursor:default}
 
 /* Metric grid */
 .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
@@ -129,7 +129,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-05</div>
-      <div class="rpt-ts">Generated Jun 6, 2026, 4:43 PM PT</div>
+      <div class="rpt-ts">Generated Jun 6, 2026, 4:47 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-05" onchange="goToDate(this.value)">
@@ -324,9 +324,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </script>
 
     <div class="weather-strip">
-    <span class="weather-emoji">🌫️</span>
-    <span class="weather-desc">Foggy</span>
-    <span class="weather-temp">66°F high &nbsp;·&nbsp; 57°F low</span>
+    <table class="weather-table"><thead><tr><th title="Overcast 59°F">7am</th><th title="Overcast 60°F">8am</th><th title="Overcast 61°F">9am</th><th title="Overcast 62°F">10am</th><th title="Overcast 64°F">11am</th><th title="Partly Cloudy 65°F">12pm</th><th title="Overcast 66°F">1pm</th><th title="Overcast 66°F">2pm</th><th title="Partly Cloudy 66°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 59°F">☁️</td><td title="Overcast 60°F">☁️</td><td title="Overcast 61°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Partly Cloudy 65°F">🌥️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Partly Cloudy 66°F">🌥️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
@@ -693,14 +691,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>6</td>
-      <td>BluGift Wynn</td>
+      <td>BluGift Sloane</td>
       
       <td>1</td>
       <td>$16.00</td>
     </tr>
     <tr class="even">
       <td>7</td>
-      <td>BluGift Sloane</td>
+      <td>BluGift Wynn</td>
       
       <td>1</td>
       <td>$16.00</td>
@@ -799,7 +797,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Matchbox","qty":4,"revenue":32},{"name":"Sweet Bippy MD Card","qty":3,"revenue":18},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36},{"name":"Banana","qty":1,"revenue":1.83},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4},{"name":"BluGift Wynn","qty":1,"revenue":16},{"name":"BluGift Sloane","qty":1,"revenue":16},{"name":"BluGift Buttercup Blooms","qty":1,"revenue":16},{"name":"BluGift Giraffe","qty":1,"revenue":16},{"name":"BluGift Tropicana","qty":1,"revenue":16},{"name":"Snap Attack - T-Rex","qty":1,"revenue":8},{"name":"BluGift Icelandic Poppies Gold","qty":1,"revenue":16},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Jeannine's Hoodie - Faded Black M","qty":1,"revenue":55},{"name":"Jeannine's Quarter Zip - Carbon Blue M","qty":1,"revenue":65},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"Katie Doodle Card - Bad Influence","qty":1,"revenue":6},{"name":"CA Bear Hug Mug","qty":1,"revenue":24},{"name":"Toys N Treats - Dino the Dinosaur","qty":1,"revenue":12}];
+      const raw = [{"name":"Matchbox","qty":4,"revenue":32},{"name":"Sweet Bippy MD Card","qty":3,"revenue":18},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36},{"name":"Banana","qty":1,"revenue":1.83},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4},{"name":"BluGift Sloane","qty":1,"revenue":16},{"name":"BluGift Wynn","qty":1,"revenue":16},{"name":"BluGift Buttercup Blooms","qty":1,"revenue":16},{"name":"BluGift Giraffe","qty":1,"revenue":16},{"name":"BluGift Tropicana","qty":1,"revenue":16},{"name":"Snap Attack - T-Rex","qty":1,"revenue":8},{"name":"BluGift Icelandic Poppies Gold","qty":1,"revenue":16},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6},{"name":"Jeannine's Hoodie - Faded Black M","qty":1,"revenue":55},{"name":"Jeannine's Quarter Zip - Carbon Blue M","qty":1,"revenue":65},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"Katie Doodle Card - Bad Influence","qty":1,"revenue":6},{"name":"CA Bear Hug Mug","qty":1,"revenue":24},{"name":"Toys N Treats - Dino the Dinosaur","qty":1,"revenue":12}];
       window['items-2'] = raw;
       setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
     })();
@@ -891,14 +889,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>12</td>
-      <td>BluGift Wynn</td>
+      <td>BluGift Sloane</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$16.00</td>
     </tr>
     <tr class="even">
       <td>13</td>
-      <td>BluGift Sloane</td>
+      <td>BluGift Wynn</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$16.00</td>
@@ -954,7 +952,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr></tbody>
     </table>
     <script>
-    (function(){ window['items-3'] = [{"name":"Matchbox","qty":4,"revenue":32,"category":"Non-Food"},{"name":"Banana","qty":3,"revenue":5.83,"category":"Food"},{"name":"Sweet Bippy MD Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Ojai Jam","qty":2,"revenue":36,"category":"Food"},{"name":"High Protein Granola","qty":2,"revenue":31,"category":"Food"},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36,"category":"Non-Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"Dog Bones (3)","qty":1,"revenue":6,"category":"Food"},{"name":"Blue Shark Shiver Gummies","qty":1,"revenue":7.25,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":1,"revenue":15.5,"category":"Food"},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4,"category":"Non-Food"},{"name":"BluGift Wynn","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Sloane","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Buttercup Blooms","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Giraffe","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Tropicana","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Snap Attack - T-Rex","qty":1,"revenue":8,"category":"Non-Food"},{"name":"BluGift Icelandic Poppies Gold","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Jeannine's Hoodie - Faded Black M","qty":1,"revenue":55,"category":"Non-Food"}]; })();
+    (function(){ window['items-3'] = [{"name":"Matchbox","qty":4,"revenue":32,"category":"Non-Food"},{"name":"Banana","qty":3,"revenue":5.83,"category":"Food"},{"name":"Sweet Bippy MD Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Ojai Jam","qty":2,"revenue":36,"category":"Food"},{"name":"High Protein Granola","qty":2,"revenue":31,"category":"Food"},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36,"category":"Non-Food"},{"name":"Jeannine's Buckwheat Honey 9 oz","qty":1,"revenue":20,"category":"Food"},{"name":"Dog Bones (3)","qty":1,"revenue":6,"category":"Food"},{"name":"Blue Shark Shiver Gummies","qty":1,"revenue":7.25,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":1,"revenue":15.5,"category":"Food"},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4,"category":"Non-Food"},{"name":"BluGift Sloane","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Wynn","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Buttercup Blooms","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Giraffe","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Tropicana","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Snap Attack - T-Rex","qty":1,"revenue":8,"category":"Non-Food"},{"name":"BluGift Icelandic Poppies Gold","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Katie Doodle Card - Sorry Crazy","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Jeannine's Hoodie - Faded Black M","qty":1,"revenue":55,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
