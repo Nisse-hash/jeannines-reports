@@ -90,7 +90,7 @@ async function main() {
   totals.avgCheck = totals.orderCount > 0 ? totals.netSales / totals.orderCount : 0;
 
   const weather = await fetchWeather(displayDate);
-  if (weather) console.log(`  Weather: ${weather.emoji} ${weather.description} ${weather.tempHighF}°F / ${weather.tempLowF}°F`);
+  if (weather?.hourly?.length) console.log(`  Weather: ${weather.hourly.map(h => `${h.label}${h.emoji}`).join(' ')}`);
 
   console.log('\nBuilding report...');
   const html = render({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, weather);
@@ -112,7 +112,7 @@ async function main() {
     chartUrl = await publishChartImage(chartBuffer, displayDate);
     console.log(`  Chart URL: ${chartUrl}`);
   }
-  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl, weather);
+  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl, weather, process.env.SITE_PASSWORD || null);
   await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
