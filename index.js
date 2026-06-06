@@ -6,6 +6,7 @@ import { generateChartGif } from './lib/chart-gif.js';
 import { publishReport, publishChartImage } from './lib/publish.js';
 import { writeReport } from './lib/airtable.js';
 import { sendEmail, sendSms } from './lib/notify.js';
+import { fetchWeather } from './lib/weather.js';
 
 function parseDate() {
   const arg = process.argv.find(a => a.startsWith('--date='))?.slice(7);
@@ -88,8 +89,11 @@ async function main() {
   }, { grossSales: 0, netSales: 0, orderCount: 0, tipTotal: 0, totalHours: 0, avgCheck: 0 });
   totals.avgCheck = totals.orderCount > 0 ? totals.netSales / totals.orderCount : 0;
 
+  const weather = await fetchWeather(displayDate);
+  if (weather) console.log(`  Weather: ${weather.emoji} ${weather.description} ${weather.tempHighF}°F / ${weather.tempLowF}°F`);
+
   console.log('\nBuilding report...');
-  const html = render({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate);
+  const html = render({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, weather);
 
   console.log('Publishing to GitHub...');
   const reportUrl = await publishReport(html, displayDate);
@@ -108,7 +112,7 @@ async function main() {
     chartUrl = await publishChartImage(chartBuffer, displayDate);
     console.log(`  Chart URL: ${chartUrl}`);
   }
-  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl);
+  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl, weather);
   await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
