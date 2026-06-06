@@ -4,7 +4,8 @@ export default function middleware(req) {
   if (
     pathname === '/login.html' ||
     pathname === '/api/auth' ||
-    pathname.startsWith('/_vercel')
+    pathname.startsWith('/_vercel') ||
+    /^\/reports\/chart-.*\.png$/.test(pathname)
   ) return;
 
   const cookieHeader = req.headers.get('cookie') || '';
