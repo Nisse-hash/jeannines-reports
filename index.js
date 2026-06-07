@@ -6,7 +6,7 @@ import { generateChartGif } from './lib/chart-gif.js';
 import { publishReport, publishChartImage } from './lib/publish.js';
 import { writeReport } from './lib/airtable.js';
 import { sendEmail, sendSms } from './lib/notify.js';
-import { fetchWeather } from './lib/weather.js';
+import { fetchWeather, LOCATION_COORDS } from './lib/weather.js';
 
 function parseDate() {
   const arg = process.argv.find(a => a.startsWith('--date='))?.slice(7);
@@ -89,8 +89,18 @@ async function main() {
   }, { grossSales: 0, netSales: 0, orderCount: 0, tipTotal: 0, totalHours: 0, avgCheck: 0 });
   totals.avgCheck = totals.orderCount > 0 ? totals.netSales / totals.orderCount : 0;
 
-  const weather = await fetchWeather(displayDate);
-  if (weather?.hourly?.length) console.log(`  Weather: ${weather.hourly.map(h => `${h.label}${h.emoji}`).join(' ')}`);
+  // Fetch weather per location using pinned coordinates
+  for (const loc of locationData) {
+    const coords = LOCATION_COORDS[loc.guid];
+    if (coords) {
+      loc.weather = await fetchWeather(displayDate, coords.lat, coords.lon, coords.addr);
+      if (loc.weather?.hourly?.length) {
+        console.log(`  Weather ${coords.addr}: ${loc.weather.hourly.map(h => `${h.label}${h.emoji}`).join(' ')}`);
+      }
+    }
+  }
+  // Global weather = Shore's weather (used by HTML report and single-location fallback)
+  const weather = locationData[0]?.weather ?? null;
 
   console.log('\nBuilding report...');
   const html = render({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, weather);
