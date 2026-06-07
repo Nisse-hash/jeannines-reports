@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>Jeannine's Daily Report — 2026-06-07</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#0A0A0F;color:#fff;padding:2rem 1rem;min-height:100vh}
+.wrap{max-width:900px;margin:0 auto}
+
+/* Header */
+.rpt-header{border-bottom:2px solid #C9A84C;padding-bottom:1.5rem;margin-bottom:2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.rpt-left{flex:1}
+.rpt-title{font-size:2rem;font-weight:800;color:#C9A84C;letter-spacing:-0.5px}
+.rpt-date{font-size:1rem;color:#999;margin-top:.25rem}
+.rpt-ts{font-size:.7rem;color:#444;margin-top:.4rem}
+.day-badge{flex-shrink:0;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.35rem .85rem;border-radius:9999px;margin-top:.25rem}
+.day-badge.weekend{color:#F0B429;background:rgba(240,180,41,.1);border:1px solid rgba(240,180,41,.25)}
+.day-badge.weekday{color:#555;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+
+/* Totals banner */
+.totals-banner{background:#13131A;border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.5rem;margin-bottom:2rem}
+.banner-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#C9A84C;margin-bottom:1rem}
+
+/* Weather strip */
+.weather-strip{background:#13131A;border-radius:8px;padding:.75rem 1rem;margin-bottom:1.25rem}
+.weather-loc{font-size:.6rem;color:#555;text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:.35rem}
+.weather-table{width:100%;border-collapse:collapse;text-align:center}
+.weather-table th{color:#AAAAAA;font-size:.75rem;font-weight:700;padding:.4rem .2rem;white-space:nowrap}
+.weather-table td{font-size:1.4rem;padding:.2rem .2rem .5rem;line-height:1.2;cursor:default}
+
+/* Metric grid */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+.metric-card{background:#0A0A0F;border-radius:4px;padding:.875rem;text-align:center;border:1px solid #1A1A24}
+.metric-label{font-size:.65rem;color:#999;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem}
+.metric-value{font-size:1.2rem;font-weight:700}
+
+/* Location block */
+.location-block{background:#13131A;border-radius:4px;padding:1.5rem;margin-bottom:1.75rem}
+.loc-name{font-size:1.15rem;font-weight:700;color:#C9A84C;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid rgba(201,168,76,.15)}
+
+h3{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#666;margin:1.5rem 0 .75rem}
+h3.ot-heading{color:#F0B429}
+
+/* Tables */
+.data-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.data-table th{text-align:left;padding:.55rem .75rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;color:#666;border-bottom:1px solid #2A2A3A}
+.data-table td{padding:.55rem .75rem;color:#e0e0e0}
+.data-table tr.even td{background:#0D0D14}
+
+.ot{color:#F0B429;font-weight:600}
+.dt{color:#FF6B6B;font-weight:700}
+.missed{color:#FF6B6B;font-weight:600}
+.ot-pill{display:inline-block;padding:.15rem .5rem;border-radius:3px;font-size:.85rem;font-weight:700;vertical-align:middle}
+.ot .ot-pill{background:rgba(240,180,41,.15)}
+.dt .ot-pill{background:rgba(255,107,107,.15)}
+.wage-tag{font-size:.7rem;color:#666;margin-left:.4rem;font-weight:400}
+.extra-cost{font-size:.8rem;color:#FF6B6B;font-weight:600;margin-left:.5rem}
+
+/* Alert cards */
+.alert-card{border-radius:4px;padding:1.25rem;margin-bottom:1rem}
+.ot-card{background:rgba(240,180,41,.07);border:1px solid rgba(240,180,41,.3)}
+.break-card{background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.35)}
+.alert-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.875rem}
+.ot-card .alert-title{color:#F0B429}
+.break-card .alert-title{color:#FF6B6B}
+.legal-note{font-size:.7rem;font-weight:400;color:#999;text-transform:none;letter-spacing:0}
+.all-clear{font-size:.8rem;color:#4CAF50;padding:.75rem 0 1.25rem;letter-spacing:.3px}
+
+.ok{font-size:.875rem;color:#4CAF50;padding:.25rem 0}
+.empty{font-size:.875rem;color:#555;padding:.25rem 0}
+
+/* Chart */
+.chart-outer{margin-bottom:1.75rem}
+.chart-wrap{background:#0A0A0F;border:1px solid #1A1A24;border-radius:4px;overflow:hidden;height:280px;display:flex;padding:0}
+.chart-canvas-col{flex:1;min-width:0;padding:1rem;position:relative;height:280px}
+.chart-canvas-col canvas{max-height:248px}
+.staff-panel-col{width:180px;flex-shrink:0;border-left:1px solid #1A1A24;padding:.75rem;overflow:hidden;display:flex;flex-direction:column;background:#0A0A0F}
+.sp-time{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#4ECDC4;padding-bottom:.35rem;margin-bottom:.4rem;border-bottom:1px solid #1A1A24}
+.sp-name{font-size:.78rem;color:#ccc;padding:.18rem 0;line-height:1.3}
+
+/* Sort toolbar */
+.table-toolbar{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
+.sort-label{font-size:.7rem;color:#555;text-transform:uppercase;letter-spacing:.5px}
+.sort-btn{background:#1A1A24;border:1px solid #2A2A3A;color:#666;font-size:.75rem;padding:.3rem .75rem;border-radius:3px;cursor:pointer;transition:all .15s}
+.sort-btn:hover{border-color:#C9A84C;color:#C9A84C}
+.sort-btn.active{background:rgba(201,168,76,.12);border-color:#C9A84C;color:#C9A84C;font-weight:600}
+.cross-highlight td{background:rgba(78,205,196,.07)!important;border-left:2px solid #4ECDC4}
+.cross-tag{font-size:.65rem;color:#4ECDC4;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+
+/* Retail totals */
+.retail-totals{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem}
+.rt-card{background:#0A0A0F;border:1px solid rgba(78,205,196,.12);border-radius:4px;padding:.75rem;text-align:center}
+.rt-total{border-color:rgba(78,205,196,.35)}
+.rt-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;color:#666;margin-bottom:.3rem}
+.rt-value{font-size:1.1rem;font-weight:700;color:#4ECDC4}
+.rt-sub{font-size:.7rem;color:#555;margin-top:.2rem}
+
+/* Retail controls */
+.retail-controls{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.retail-toggle{display:flex;align-items:center;gap:.375rem;flex-wrap:wrap}
+.rtgl-btn{background:transparent;border:1px solid rgba(78,205,196,.25);color:#4ECDC4;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500}
+.rtgl-btn:hover,.rtgl-btn.active{background:rgba(78,205,196,.1);border-color:#4ECDC4}
+.retail-sort-inline{display:flex;align-items:center;gap:.5rem}
+.retail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:700px){.retail-grid{grid-template-columns:1fr}}
+
+/* Day navigation */
+.day-nav{display:flex;align-items:center;gap:.375rem;margin-top:1.1rem}
+.nav-btn{background:transparent;border:1px solid rgba(201,168,76,.25);color:#C9A84C;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500;letter-spacing:.2px}
+.nav-btn:hover{background:rgba(201,168,76,.1);border-color:#C9A84C}
+.nav-date{background:transparent;border:1px solid rgba(201,168,76,.25);color:#888;font-size:.75rem;padding:.3rem .65rem;border-radius:9999px;cursor:pointer;outline:none;color-scheme:dark;transition:all .15s}
+.nav-date:hover,.nav-date:focus{border-color:#C9A84C;color:#e0e0e0}
+
+/* Footer */
+footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #1A1A24}
+
+@media(max-width:600px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .rpt-title{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="rpt-header">
+    <div class="rpt-left">
+      <div class="rpt-title">Jeannine's Daily Report</div>
+      <div class="rpt-date">2026-06-07</div>
+      <div class="rpt-ts">Generated Jun 7, 2026, 7:06 AM PT</div>
+      <div class="day-nav">
+      <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
+      <input type="date" class="nav-date" value="2026-06-07" onchange="goToDate(this.value)">
+      <button class="nav-btn" onclick="goDay(1)">Next →</button>
+    </div>
+    </div>
+    <div class="day-badge weekend">Sunday</div>
+  </div>
+
+  
+  <div class="totals-banner">
+    <div class="banner-label">All Locations Combined</div>
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">0</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Total Hours</div>
+      <div class="metric-value">0h</div>
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="location-block">
+    <h2 class="loc-name">At the Shore</h2>
+
+    <div class="all-clear">✓ No overtime &nbsp;·&nbsp; ✓ All breaks taken</div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap">
+      <div class="chart-canvas-col"><canvas id="chart-0"></canvas></div>
+      <div id="sp-chart-0" class="staff-panel-col"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30"];
+    const revenue  = [0,0,0,0];
+    const headcount= [0,0,0,0];
+    const labor    = [0,0,0,0];
+    const staff    = [[],[],[],[]];
+    const panel    = document.getElementById('sp-chart-0');
+    let lastIdx    = -1;
+
+    function updatePanel(idx) {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+      if (!panel) return;
+      if (idx < 0) { panel.innerHTML = ''; return; }
+      const names = staff[idx] || [];
+      const panelH   = panel.clientHeight || 256;
+      const labelH   = 26;
+      const avail    = panelH - labelH - 8;
+      const raw      = names.length > 0 ? Math.floor(avail / names.length / 1.45) : 13;
+      const fs       = Math.min(13, Math.max(7, raw));
+      panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
+        + names.map(n => '<div class="sp-name" style="font-size:' + fs + 'px;padding:' + Math.max(1, fs * 0.12) + 'px 0">· ' + n + '</div>').join('');
+    }
+
+    new Chart(document.getElementById('chart-0'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(201,168,76,0.45)', borderColor:'#C9A84C', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#4ECDC4', backgroundColor:'rgba(78,205,196,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#FF6B6B', backgroundColor:'rgba(255,107,107,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#555', maxRotation:45, font:{size:10} }, grid:{ color:'#1A1A24' } },
+          yRev:{ position:'left',  ticks:{ color:'#C9A84C', callback:v=>'$'+v }, grid:{ color:'#1A1A24' } },
+          yPpl:{ position:'right', ticks:{ color:'#4ECDC4', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#888', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#13131A', borderColor:'#2A2A3A', borderWidth:1, titleColor:'#fff', bodyColor:'#ccc',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 61°F">7am</th><th title="Overcast 62°F">8am</th><th title="Overcast 63°F">9am</th><th title="Overcast 63°F">10am</th><th title="Overcast 66°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Partly Cloudy 67°F">1pm</th><th title="Clear 69°F">2pm</th><th title="Clear 69°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 61°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 67°F">☁️</td><td title="Partly Cloudy 67°F">🌥️</td><td title="Clear 69°F">☀️</td><td title="Clear 69°F">☀️</td></tr></tbody></table>
+  </div>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">0</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">0h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    <p class="empty">No item data available.</p>
+
+    <h3>Discounts</h3>
+    <p class="empty">No discounts applied.</p>
+
+    
+  </div>
+
+  <div class="location-block">
+    <h2 class="loc-name">Montecito</h2>
+
+    <div class="all-clear">✓ No overtime &nbsp;·&nbsp; ✓ All breaks taken</div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap">
+      <div class="chart-canvas-col"><canvas id="chart-1"></canvas></div>
+      <div id="sp-chart-1" class="staff-panel-col"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30"];
+    const revenue  = [0,0,0,0];
+    const headcount= [0,0,0,0];
+    const labor    = [0,0,0,0];
+    const staff    = [[],[],[],[]];
+    const panel    = document.getElementById('sp-chart-1');
+    let lastIdx    = -1;
+
+    function updatePanel(idx) {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+      if (!panel) return;
+      if (idx < 0) { panel.innerHTML = ''; return; }
+      const names = staff[idx] || [];
+      const panelH   = panel.clientHeight || 256;
+      const labelH   = 26;
+      const avail    = panelH - labelH - 8;
+      const raw      = names.length > 0 ? Math.floor(avail / names.length / 1.45) : 13;
+      const fs       = Math.min(13, Math.max(7, raw));
+      panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
+        + names.map(n => '<div class="sp-name" style="font-size:' + fs + 'px;padding:' + Math.max(1, fs * 0.12) + 'px 0">· ' + n + '</div>').join('');
+    }
+
+    new Chart(document.getElementById('chart-1'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(201,168,76,0.45)', borderColor:'#C9A84C', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#4ECDC4', backgroundColor:'rgba(78,205,196,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#FF6B6B', backgroundColor:'rgba(255,107,107,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#555', maxRotation:45, font:{size:10} }, grid:{ color:'#1A1A24' } },
+          yRev:{ position:'left',  ticks:{ color:'#C9A84C', callback:v=>'$'+v }, grid:{ color:'#1A1A24' } },
+          yPpl:{ position:'right', ticks:{ color:'#4ECDC4', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#888', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#13131A', borderColor:'#2A2A3A', borderWidth:1, titleColor:'#fff', bodyColor:'#ccc',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 61°F">7am</th><th title="Overcast 62°F">8am</th><th title="Overcast 63°F">9am</th><th title="Overcast 63°F">10am</th><th title="Overcast 66°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Partly Cloudy 67°F">1pm</th><th title="Clear 69°F">2pm</th><th title="Clear 69°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 61°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 67°F">☁️</td><td title="Partly Cloudy 67°F">🌥️</td><td title="Clear 69°F">☀️</td><td title="Clear 69°F">☀️</td></tr></tbody></table>
+  </div>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">0</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">0h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    <p class="empty">No item data available.</p>
+
+    <h3>Discounts</h3>
+    <p class="empty">No discounts applied.</p>
+
+    
+  </div>
+
+  <div class="location-block">
+    <h2 class="loc-name">Goleta</h2>
+
+    <div class="all-clear">✓ No overtime &nbsp;·&nbsp; ✓ All breaks taken</div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap">
+      <div class="chart-canvas-col"><canvas id="chart-2"></canvas></div>
+      <div id="sp-chart-2" class="staff-panel-col"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30"];
+    const revenue  = [0,0,0,0];
+    const headcount= [0,0,0,0];
+    const labor    = [0,0,0,0];
+    const staff    = [[],[],[],[]];
+    const panel    = document.getElementById('sp-chart-2');
+    let lastIdx    = -1;
+
+    function updatePanel(idx) {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+      if (!panel) return;
+      if (idx < 0) { panel.innerHTML = ''; return; }
+      const names = staff[idx] || [];
+      const panelH   = panel.clientHeight || 256;
+      const labelH   = 26;
+      const avail    = panelH - labelH - 8;
+      const raw      = names.length > 0 ? Math.floor(avail / names.length / 1.45) : 13;
+      const fs       = Math.min(13, Math.max(7, raw));
+      panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
+        + names.map(n => '<div class="sp-name" style="font-size:' + fs + 'px;padding:' + Math.max(1, fs * 0.12) + 'px 0">· ' + n + '</div>').join('');
+    }
+
+    new Chart(document.getElementById('chart-2'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(201,168,76,0.45)', borderColor:'#C9A84C', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#4ECDC4', backgroundColor:'rgba(78,205,196,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#FF6B6B', backgroundColor:'rgba(255,107,107,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#555', maxRotation:45, font:{size:10} }, grid:{ color:'#1A1A24' } },
+          yRev:{ position:'left',  ticks:{ color:'#C9A84C', callback:v=>'$'+v }, grid:{ color:'#1A1A24' } },
+          yPpl:{ position:'right', ticks:{ color:'#4ECDC4', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#888', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#13131A', borderColor:'#2A2A3A', borderWidth:1, titleColor:'#fff', bodyColor:'#ccc',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 61°F">7am</th><th title="Overcast 62°F">8am</th><th title="Overcast 63°F">9am</th><th title="Overcast 63°F">10am</th><th title="Overcast 66°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Partly Cloudy 67°F">1pm</th><th title="Clear 69°F">2pm</th><th title="Clear 69°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 61°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 67°F">☁️</td><td title="Partly Cloudy 67°F">🌥️</td><td title="Clear 69°F">☀️</td><td title="Clear 69°F">☀️</td></tr></tbody></table>
+  </div>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">0</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$0.00</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">0h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    <p class="empty">No item data available.</p>
+
+    <h3>Discounts</h3>
+    <p class="empty">No discounts applied.</p>
+
+    
+  </div>
+  
+
+  <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
+</div>
+<script>
+function setRetailView(view) {
+  const cols     = document.getElementById('retail-cols');
+  const allView  = document.getElementById('retail-all-view');
+  const foodCol  = document.getElementById('retail-col-food');
+  const nonfoodCol = document.getElementById('retail-col-nonfood');
+  const sortBar  = document.getElementById('retail-sort-bar');
+  if (!cols) return;
+  cols.style.display     = view === 'all' ? 'none' : '';
+  if (allView)   allView.style.display   = view === 'all'     ? ''     : 'none';
+  if (foodCol)   foodCol.style.display   = view === 'nonfood' ? 'none' : '';
+  if (nonfoodCol) nonfoodCol.style.display = view === 'food'  ? 'none' : '';
+  if (sortBar)   sortBar.style.display   = view === 'all'     ? ''     : 'none';
+  document.querySelectorAll('.rtgl-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === view)
+  );
+}
+const _reportDate = '2026-06-07';
+function goDay(delta) {
+  const d = new Date(_reportDate + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  window.location.href = '/api/report?date=' + y + '-' + m + '-' + day;
+}
+function goToDate(val) {
+  if (val) window.location.href = '/api/report?date=' + val;
+}
+function sortItems(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const all = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+
+  // Rank each item in the OTHER dimension (1 = best)
+  const otherBy = by === 'qty' ? 'revenue' : 'qty';
+  const otherLabel = by === 'qty' ? 'rev' : 'qty';
+  const ranked = [...all].sort((a, b) => b[otherBy] - a[otherBy]);
+  const rankMap = {};
+  ranked.forEach((item, i) => { if (i < 5) rankMap[item.name] = i + 1; });
+
+  // Gradient: rank 1 most vivid → rank 5 faintest
+  const bgOpacity   = [0, 0.22, 0.15, 0.10, 0.06, 0.03];
+  const bdrOpacity  = [0, 1.00, 0.72, 0.50, 0.32, 0.18];
+  const tagOpacity  = [0, 1.00, 0.80, 0.62, 0.45, 0.30];
+
+  const hasType = all.some(it => it.category);
+  function cpill(cat) {
+    if (!cat) return '';
+    const lower = cat.toLowerCase();
+    const color = lower.includes('non-food') || lower.includes('nonfood') ? '#C9A84C'
+                : lower.includes('food') ? '#4ECDC4' : '#666';
+    const bg = lower.includes('non-food') || lower.includes('nonfood') ? 'rgba(201,168,76,.12)'
+             : lower.includes('food') ? 'rgba(78,205,196,.12)' : 'rgba(255,255,255,.06)';
+    const label = cat.replace(/^Retails+/i, '');
+    return `<span style="display:inline-block;font-size:.65rem;font-weight:600;padding:.2rem .55rem;border-radius:4px;color:${color};background:${bg};border:1px solid ${color}33;white-space:nowrap">${label}</span>`;
+  }
+  table.querySelector('tbody').innerHTML = data.map((item, i) => {
+    const rank = rankMap[item.name];
+    const bg   = rank ? `rgba(78,205,196,${bgOpacity[rank]})`  : '';
+    const bdr  = rank ? `2px solid rgba(78,205,196,${bdrOpacity[rank]})` : '';
+    const rowStyle = rank ? `background:${bg}!important;border-left:${bdr}` : '';
+    const tag  = rank
+      ? `<span class="cross-tag" style="opacity:${tagOpacity[rank]}">#${rank} ${otherLabel}</span>`
+      : '';
+    return `<tr style="${rowStyle}">
+      <td>${i + 1}</td>
+      <td>${item.name} ${tag}</td>
+      ${hasType ? `<td>${cpill(item.category)}</td>` : ''}
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`;
+  }).join('');
+
+  const toolbar = table.previousElementSibling;
+  toolbar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+function sortRetailAll(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const all  = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+  const badge = cat => {
+    const isFd  = cat === 'Food';
+    const color = isFd ? '#4ECDC4' : '#C9A84C';
+    const bg    = isFd ? 'rgba(78,205,196,.1)'  : 'rgba(201,168,76,.1)';
+    const bdr   = isFd ? 'rgba(78,205,196,.25)' : 'rgba(201,168,76,.25)';
+    return `<span style="font-size:.65rem;font-weight:600;color:${color};background:${bg};border:1px solid ${bdr};padding:.1rem .4rem;border-radius:3px;white-space:nowrap">${cat}</span>`;
+  };
+  table.querySelector('tbody').innerHTML = data.map((item, i) => `
+    <tr class="${i % 2 === 0 ? 'even' : ''}">
+      <td>${i + 1}</td>
+      <td>${item.name}</td>
+      <td>${badge(item.category)}</td>
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`).join('');
+  const sortBar = document.getElementById('retail-sort-bar');
+  if (sortBar) sortBar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+</script>
+</body>
+</html>
