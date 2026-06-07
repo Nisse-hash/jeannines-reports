@@ -8,6 +8,13 @@ export default function middleware(req) {
     /^\/reports\/chart-.*\.png$/.test(pathname)
   ) return;
 
+  const url = new URL(req.url);
+  const validToken = process.env.AUTH_TOKEN || '';
+  const linkToken  = process.env.REPORT_LINK_TOKEN || '';
+
+  // Allow access via secret link token in query param
+  if (linkToken && url.searchParams.get('t') === linkToken) return;
+
   const cookieHeader = req.headers.get('cookie') || '';
   const authValue = cookieHeader
     .split(';')
@@ -15,12 +22,10 @@ export default function middleware(req) {
     .find(c => c.startsWith('jr_auth='))
     ?.slice('jr_auth='.length);
 
-  const validToken = process.env.AUTH_TOKEN || '';
-
   if (!authValue || authValue !== validToken) {
-    const url = new URL('/login.html', req.url);
-    if (pathname !== '/') url.searchParams.set('next', pathname);
-    return Response.redirect(url, 302);
+    const loginUrl = new URL('/login.html', req.url);
+    if (pathname !== '/') loginUrl.searchParams.set('next', pathname);
+    return Response.redirect(loginUrl, 302);
   }
 }
 
