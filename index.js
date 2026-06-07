@@ -113,15 +113,19 @@ async function main() {
   await writeReport(retailData, displayDate, reportUrl, 'Retail');
 
   console.log('Sending notifications...');
-  const timeSeries = locationData[0]?.timeSeries;
-  const chartBuffer = await generateChartGif(timeSeries);
-  let chartUrl = null;
-  if (chartBuffer) {
-    console.log('  Publishing chart image...');
-    chartUrl = await publishChartImage(chartBuffer, displayDate);
-    console.log(`  Chart URL: ${chartUrl}`);
+  const chartUrls = [];
+  for (let i = 0; i < locationData.length; i++) {
+    const buf = await generateChartGif(locationData[i]?.timeSeries);
+    if (buf) {
+      console.log(`  Publishing chart ${i + 1}/${locationData.length}...`);
+      const url = await publishChartImage(buf, displayDate, `-${i}`);
+      chartUrls.push(url);
+      console.log(`  Chart ${i + 1}: ${url}`);
+    } else {
+      chartUrls.push(null);
+    }
   }
-  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl, weather, process.env.REPORT_LINK_TOKEN || null);
+  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrls, weather, process.env.REPORT_LINK_TOKEN || null);
   await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
