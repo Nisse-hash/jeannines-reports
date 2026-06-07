@@ -11,9 +11,8 @@ import { fetchWeather, LOCATION_COORDS } from './lib/weather.js';
 function parseDate() {
   const arg = process.argv.find(a => a.startsWith('--date='))?.slice(7);
   if (arg) return arg; // expect YYYY-MM-DD
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return d.toISOString().slice(0, 10);
+  // Use today in LA timezone (routine runs at 5pm PT)
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
 }
 
 function toBusinessDate(isoDate) {
@@ -122,7 +121,7 @@ async function main() {
     chartUrl = await publishChartImage(chartBuffer, displayDate);
     console.log(`  Chart URL: ${chartUrl}`);
   }
-  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl, weather, process.env.SITE_PASSWORD || null);
+  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrl, weather, process.env.REPORT_LINK_TOKEN || null);
   await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
