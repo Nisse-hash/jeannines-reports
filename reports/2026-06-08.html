@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-08</div>
-      <div class="rpt-ts">Generated Jun 8, 2026, 7:09 AM PT</div>
+      <div class="rpt-ts">Generated Jun 8, 2026, 9:00 AM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-08" onchange="goToDate(this.value)">
@@ -146,23 +146,23 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$4,661.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$4,661.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">0</div>
+      <div class="metric-value">148</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$31.49</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$550.60</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
@@ -187,11 +187,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM"];
-    const revenue  = [0,0,0];
-    const headcount= [0,0,0];
-    const labor    = [0,0,0];
-    const staff    = [[],[],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM"];
+    const revenue  = [0,0,0,795.36,1019.81,1427.94,0];
+    const headcount= [0,0,0,0,0,0,0];
+    const labor    = [0,0,0,0,0,0,0];
+    const staff    = [[],[],[],[],[],[],[]];
     const panel    = document.getElementById('sp-chart-0');
     let lastIdx    = -1;
 
@@ -244,29 +244,29 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div class="weather-strip">
     <div class="weather-loc">Weather &mdash; 1 State St</div>
-    <table class="weather-table"><thead><tr><th title="Clear 59°F">7am</th><th title="Clear 62°F">8am</th><th title="Mostly Clear 65°F">9am</th><th title="Mostly Clear 66°F">10am</th><th title="Mostly Clear 66°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Overcast 68°F">1pm</th><th title="Partly Cloudy 68°F">2pm</th><th title="Clear 70°F">3pm</th></tr></thead><tbody><tr><td title="Clear 59°F">☀️</td><td title="Clear 62°F">☀️</td><td title="Mostly Clear 65°F">🌤️</td><td title="Mostly Clear 66°F">🌤️</td><td title="Mostly Clear 66°F">🌤️</td><td title="Overcast 67°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 68°F">🌥️</td><td title="Clear 70°F">☀️</td></tr></tbody></table>
+    <table class="weather-table"><thead><tr><th title="Mostly Clear 58°F">7am</th><th title="Mostly Clear 61°F">8am</th><th title="Partly Cloudy 64°F">9am</th><th title="Overcast 64°F">10am</th><th title="Overcast 66°F">11am</th><th title="Partly Cloudy 67°F">12pm</th><th title="Mostly Clear 68°F">1pm</th><th title="Overcast 68°F">2pm</th><th title="Partly Cloudy 69°F">3pm</th></tr></thead><tbody><tr><td title="Mostly Clear 58°F">🌤️</td><td title="Mostly Clear 61°F">🌤️</td><td title="Partly Cloudy 64°F">🌥️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Partly Cloudy 67°F">🌥️</td><td title="Mostly Clear 68°F">🌤️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 69°F">🌥️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$2,660.50</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$2,660.50</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">0</div>
+      <div class="metric-value">69</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$38.56</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$352.42</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
@@ -275,10 +275,179 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
 
     <h3>Top Sellers</h3>
-    <p class="empty">No item data available.</p>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-0">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Drip Coffee</td>
+      
+      <td>24</td>
+      <td>$167.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Scone</td>
+      
+      <td>20</td>
+      <td>$88.00</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Latte</td>
+      
+      <td>13</td>
+      <td>$109.25</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Orange Juice Small</td>
+      
+      <td>12</td>
+      <td>$78.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>American Breakfast</td>
+      
+      <td>10</td>
+      <td>$192.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>English Muffin Sandwich</td>
+      
+      <td>8</td>
+      <td>$168.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Drip Coffee Express</td>
+      
+      <td>7</td>
+      <td>$55.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>California Omelet</td>
+      
+      <td>7</td>
+      <td>$137.75</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Cinnamon Roll</td>
+      
+      <td>7</td>
+      <td>$42.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Breakfast Burrito</td>
+      
+      <td>6</td>
+      <td>$111.50</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Americano</td>
+      
+      <td>6</td>
+      <td>$30.75</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Lemon Poppyseed Pancake Breakfast</td>
+      
+      <td>5</td>
+      <td>$105.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Pancake Breakfast</td>
+      
+      <td>5</td>
+      <td>$103.00</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Chandon Mimosa for One</td>
+      
+      <td>5</td>
+      <td>$130.50</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Iced Tea</td>
+      
+      <td>5</td>
+      <td>$25.00</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Santa Barbara Scramble</td>
+      
+      <td>4</td>
+      <td>$81.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Classic Benedict</td>
+      
+      <td>4</td>
+      <td>$80.00</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Banana French Toast</td>
+      
+      <td>4</td>
+      <td>$72.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Breakfast Quesadilla</td>
+      
+      <td>4</td>
+      <td>$74.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Kid's Pancake Breakfast</td>
+      
+      <td>3</td>
+      <td>$36.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Drip Coffee","qty":24,"revenue":167,"category":""},{"name":"Scone","qty":20,"revenue":88,"category":""},{"name":"Latte","qty":13,"revenue":109.25,"category":""},{"name":"Orange Juice Small","qty":12,"revenue":78,"category":""},{"name":"American Breakfast","qty":10,"revenue":192,"category":""},{"name":"English Muffin Sandwich","qty":8,"revenue":168,"category":""},{"name":"Drip Coffee Express","qty":7,"revenue":55,"category":""},{"name":"California Omelet","qty":7,"revenue":137.75,"category":""},{"name":"Cinnamon Roll","qty":7,"revenue":42,"category":""},{"name":"Breakfast Burrito","qty":6,"revenue":111.5,"category":""},{"name":"Americano","qty":6,"revenue":30.75,"category":""},{"name":"Lemon Poppyseed Pancake Breakfast","qty":5,"revenue":105,"category":""},{"name":"Pancake Breakfast","qty":5,"revenue":103,"category":""},{"name":"Chandon Mimosa for One","qty":5,"revenue":130.5,"category":""},{"name":"Iced Tea","qty":5,"revenue":25,"category":""},{"name":"Santa Barbara Scramble","qty":4,"revenue":81,"category":""},{"name":"Classic Benedict","qty":4,"revenue":80,"category":""},{"name":"Banana French Toast","qty":4,"revenue":72,"category":""},{"name":"Breakfast Quesadilla","qty":4,"revenue":74,"category":""},{"name":"Kid's Pancake Breakfast","qty":3,"revenue":36,"category":""}];
+      window['items-0'] = raw;
+      setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
+    })();
+    </script>
 
     <h3>Discounts</h3>
-    <p class="empty">No discounts applied.</p>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Cash Reward</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#C9A84C;font-weight:600">$5.25</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$5.25</td>
+      </tr></tfoot>
+    </table>
 
     
   </div>
@@ -298,11 +467,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30"];
-    const revenue  = [0,0,0,0];
-    const headcount= [0,0,1,0];
-    const labor    = [0,0,0,0];
-    const staff    = [[],[],["Ruben Sanchez Ortiz"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM"];
+    const revenue  = [0,0,6.19,457.24,498.39,585.14,0];
+    const headcount= [0,0,1,0,0,0,0];
+    const labor    = [0,0,0,0,0,0,0];
+    const staff    = [[],[],["Ruben Sanchez Ortiz"],[],[],[],[]];
     const panel    = document.getElementById('sp-chart-1');
     let lastIdx    = -1;
 
@@ -355,29 +524,29 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div class="weather-strip">
     <div class="weather-loc">Weather &mdash; 1 State St</div>
-    <table class="weather-table"><thead><tr><th title="Clear 59°F">7am</th><th title="Clear 62°F">8am</th><th title="Mostly Clear 65°F">9am</th><th title="Mostly Clear 66°F">10am</th><th title="Mostly Clear 66°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Overcast 68°F">1pm</th><th title="Partly Cloudy 68°F">2pm</th><th title="Clear 70°F">3pm</th></tr></thead><tbody><tr><td title="Clear 59°F">☀️</td><td title="Clear 62°F">☀️</td><td title="Mostly Clear 65°F">🌤️</td><td title="Mostly Clear 66°F">🌤️</td><td title="Mostly Clear 66°F">🌤️</td><td title="Overcast 67°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 68°F">🌥️</td><td title="Clear 70°F">☀️</td></tr></tbody></table>
+    <table class="weather-table"><thead><tr><th title="Mostly Clear 58°F">7am</th><th title="Mostly Clear 61°F">8am</th><th title="Partly Cloudy 64°F">9am</th><th title="Overcast 64°F">10am</th><th title="Overcast 66°F">11am</th><th title="Partly Cloudy 67°F">12pm</th><th title="Mostly Clear 68°F">1pm</th><th title="Overcast 68°F">2pm</th><th title="Partly Cloudy 69°F">3pm</th></tr></thead><tbody><tr><td title="Mostly Clear 58°F">🌤️</td><td title="Mostly Clear 61°F">🌤️</td><td title="Partly Cloudy 64°F">🌥️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Partly Cloudy 67°F">🌥️</td><td title="Mostly Clear 68°F">🌤️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 69°F">🌥️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$1,337.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$1,337.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">0</div>
+      <div class="metric-value">52</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$25.71</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$138.09</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
@@ -386,10 +555,179 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
 
     <h3>Top Sellers</h3>
-    <p class="empty">No item data available.</p>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-1','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-1','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-1">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Scone</td>
+      
+      <td>35</td>
+      <td>$308.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Latte</td>
+      
+      <td>25</td>
+      <td>$166.50</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Cappuccino</td>
+      
+      <td>11</td>
+      <td>$64.75</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Drip Coffee</td>
+      
+      <td>11</td>
+      <td>$52.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Cinnamon Roll</td>
+      
+      <td>8</td>
+      <td>$48.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Americano</td>
+      
+      <td>6</td>
+      <td>$30.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Orange Juice Small</td>
+      
+      <td>6</td>
+      <td>$39.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>American Breakfast</td>
+      
+      <td>5</td>
+      <td>$92.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Chai Latte</td>
+      
+      <td>4</td>
+      <td>$26.75</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>GF Muffin</td>
+      
+      <td>4</td>
+      <td>$28.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Muffin</td>
+      
+      <td>4</td>
+      <td>$20.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Classic Benedict</td>
+      
+      <td>4</td>
+      <td>$81.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Chocolate Croissant</td>
+      
+      <td>3</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>English Muffin Sandwich</td>
+      
+      <td>3</td>
+      <td>$60.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Single Large Cookie</td>
+      
+      <td>3</td>
+      <td>$42.75</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Mocha</td>
+      
+      <td>3</td>
+      <td>$20.50</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Salmon Bagel Plate</td>
+      
+      <td>2</td>
+      <td>$36.00</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Santa Barbara Scramble</td>
+      
+      <td>2</td>
+      <td>$38.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Diet Coke Can</td>
+      
+      <td>2</td>
+      <td>$13.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Butter Croissant</td>
+      
+      <td>2</td>
+      <td>$10.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":35,"revenue":308,"category":""},{"name":"Latte","qty":25,"revenue":166.5,"category":""},{"name":"Cappuccino","qty":11,"revenue":64.75,"category":""},{"name":"Drip Coffee","qty":11,"revenue":52,"category":""},{"name":"Cinnamon Roll","qty":8,"revenue":48,"category":""},{"name":"Americano","qty":6,"revenue":30,"category":""},{"name":"Orange Juice Small","qty":6,"revenue":39,"category":""},{"name":"American Breakfast","qty":5,"revenue":92,"category":""},{"name":"Chai Latte","qty":4,"revenue":26.75,"category":""},{"name":"GF Muffin","qty":4,"revenue":28,"category":""},{"name":"Muffin","qty":4,"revenue":20,"category":""},{"name":"Classic Benedict","qty":4,"revenue":81,"category":""},{"name":"Chocolate Croissant","qty":3,"revenue":18,"category":""},{"name":"English Muffin Sandwich","qty":3,"revenue":60,"category":""},{"name":"Single Large Cookie","qty":3,"revenue":42.75,"category":""},{"name":"Mocha","qty":3,"revenue":20.5,"category":""},{"name":"Salmon Bagel Plate","qty":2,"revenue":36,"category":""},{"name":"Santa Barbara Scramble","qty":2,"revenue":38,"category":""},{"name":"Diet Coke Can","qty":2,"revenue":13,"category":""},{"name":"Butter Croissant","qty":2,"revenue":10,"category":""}];
+      window['items-1'] = raw;
+      setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
+    })();
+    </script>
 
     <h3>Discounts</h3>
-    <p class="empty">No discounts applied.</p>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Cash Reward</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#C9A84C;font-weight:600">$5.00</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$5.00</td>
+      </tr></tfoot>
+    </table>
 
     
   </div>
@@ -409,11 +747,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30"];
-    const revenue  = [0,0,0,0];
-    const headcount= [0,0,0,0];
-    const labor    = [0,0,0,0];
-    const staff    = [[],[],[],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM"];
+    const revenue  = [0,0,0,142.94,347.53,276.04,0];
+    const headcount= [0,0,0,0,0,0,0];
+    const labor    = [0,0,0,0,0,0,0];
+    const staff    = [[],[],[],[],[],[],[]];
     const panel    = document.getElementById('sp-chart-2');
     let lastIdx    = -1;
 
@@ -466,29 +804,29 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div class="weather-strip">
     <div class="weather-loc">Weather &mdash; 1 State St</div>
-    <table class="weather-table"><thead><tr><th title="Clear 59°F">7am</th><th title="Clear 62°F">8am</th><th title="Mostly Clear 65°F">9am</th><th title="Mostly Clear 66°F">10am</th><th title="Mostly Clear 66°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Overcast 68°F">1pm</th><th title="Partly Cloudy 68°F">2pm</th><th title="Clear 70°F">3pm</th></tr></thead><tbody><tr><td title="Clear 59°F">☀️</td><td title="Clear 62°F">☀️</td><td title="Mostly Clear 65°F">🌤️</td><td title="Mostly Clear 66°F">🌤️</td><td title="Mostly Clear 66°F">🌤️</td><td title="Overcast 67°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 68°F">🌥️</td><td title="Clear 70°F">☀️</td></tr></tbody></table>
+    <table class="weather-table"><thead><tr><th title="Mostly Clear 58°F">7am</th><th title="Mostly Clear 61°F">8am</th><th title="Partly Cloudy 64°F">9am</th><th title="Overcast 64°F">10am</th><th title="Overcast 66°F">11am</th><th title="Partly Cloudy 67°F">12pm</th><th title="Mostly Clear 68°F">1pm</th><th title="Overcast 68°F">2pm</th><th title="Partly Cloudy 69°F">3pm</th></tr></thead><tbody><tr><td title="Mostly Clear 58°F">🌤️</td><td title="Mostly Clear 61°F">🌤️</td><td title="Partly Cloudy 64°F">🌥️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Partly Cloudy 67°F">🌥️</td><td title="Mostly Clear 68°F">🌤️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 69°F">🌥️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$663.50</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$663.50</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">0</div>
+      <div class="metric-value">27</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$24.57</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$0.00</div>
+      <div class="metric-value">$60.09</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
@@ -497,7 +835,163 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
 
     <h3>Top Sellers</h3>
-    <p class="empty">No item data available.</p>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-2','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-2','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-2">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Scone</td>
+      
+      <td>24</td>
+      <td>$320.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Latte</td>
+      
+      <td>9</td>
+      <td>$53.50</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Drip Coffee</td>
+      
+      <td>7</td>
+      <td>$35.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Havana Latte</td>
+      
+      <td>5</td>
+      <td>$33.50</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Almond Croissant</td>
+      
+      <td>4</td>
+      <td>$48.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Santa Barbara Scramble</td>
+      
+      <td>4</td>
+      <td>$79.50</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>California Omelet</td>
+      
+      <td>3</td>
+      <td>$95.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Side of Berries Small</td>
+      
+      <td>2</td>
+      <td>$26.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Butter Croissant</td>
+      
+      <td>2</td>
+      <td>$10.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Breakfast Quesadilla</td>
+      
+      <td>2</td>
+      <td>$39.50</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Side 2 Eggs</td>
+      
+      <td>2</td>
+      <td>$14.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Cinnamon Roll</td>
+      
+      <td>2</td>
+      <td>$12.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Coke Can</td>
+      
+      <td>2</td>
+      <td>$6.50</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Hot Tea</td>
+      
+      <td>2</td>
+      <td>$19.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Mocha</td>
+      
+      <td>1</td>
+      <td>$6.75</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>American Breakfast</td>
+      
+      <td>1</td>
+      <td>$19.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Cappuccino</td>
+      
+      <td>1</td>
+      <td>$4.75</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>High Protein Scramble</td>
+      
+      <td>1</td>
+      <td>$19.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Lemon Poppyseed Pancake Breakfast</td>
+      
+      <td>1</td>
+      <td>$21.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Pancake Breakfast</td>
+      
+      <td>1</td>
+      <td>$20.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":24,"revenue":320,"category":""},{"name":"Latte","qty":9,"revenue":53.5,"category":""},{"name":"Drip Coffee","qty":7,"revenue":35,"category":""},{"name":"Havana Latte","qty":5,"revenue":33.5,"category":""},{"name":"Almond Croissant","qty":4,"revenue":48,"category":""},{"name":"Santa Barbara Scramble","qty":4,"revenue":79.5,"category":""},{"name":"California Omelet","qty":3,"revenue":95,"category":""},{"name":"Side of Berries Small","qty":2,"revenue":26,"category":""},{"name":"Butter Croissant","qty":2,"revenue":10,"category":""},{"name":"Breakfast Quesadilla","qty":2,"revenue":39.5,"category":""},{"name":"Side 2 Eggs","qty":2,"revenue":14,"category":""},{"name":"Cinnamon Roll","qty":2,"revenue":12,"category":""},{"name":"Coke Can","qty":2,"revenue":6.5,"category":""},{"name":"Hot Tea","qty":2,"revenue":19,"category":""},{"name":"Mocha","qty":1,"revenue":6.75,"category":""},{"name":"American Breakfast","qty":1,"revenue":19,"category":""},{"name":"Cappuccino","qty":1,"revenue":4.75,"category":""},{"name":"High Protein Scramble","qty":1,"revenue":19,"category":""},{"name":"Lemon Poppyseed Pancake Breakfast","qty":1,"revenue":21,"category":""},{"name":"Pancake Breakfast","qty":1,"revenue":20,"category":""}];
+      window['items-2'] = raw;
+      setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
+    })();
+    </script>
 
     <h3>Discounts</h3>
     <p class="empty">No discounts applied.</p>
@@ -505,6 +999,181 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
   </div>
   
+  <div id="retail-top-sellers" class="location-block" style="border:1px solid rgba(78,205,196,.2)">
+    <h2 class="loc-name" style="color:#4ECDC4;border-bottom-color:rgba(78,205,196,.15)">Retail Top Sellers</h2>
+
+    
+  <div class="retail-totals">
+    <div class="rt-card">
+      <div class="rt-label">Retail Food</div>
+      <div class="rt-value">$15.50</div>
+      <div class="rt-sub">1 items sold</div>
+    </div>
+    <div class="rt-card">
+      <div class="rt-label">Retail Non-Food</div>
+      <div class="rt-value">$34.25</div>
+      <div class="rt-sub">5 items sold</div>
+    </div>
+    <div class="rt-card rt-total">
+      <div class="rt-label">Total Retail</div>
+      <div class="rt-value">$49.75</div>
+      <div class="rt-sub">6 items sold</div>
+    </div>
+  </div>
+
+    <div class="retail-controls">
+      <div class="retail-toggle">
+        <button class="rtgl-btn" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
+        <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
+        <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
+        <button class="rtgl-btn active" data-view="all" onclick="setRetailView('all')">All</button>
+      </div>
+      <div id="retail-sort-bar" class="retail-sort-inline">
+        <span class="sort-label">Sort by</span>
+        <button class="sort-btn active" onclick="sortRetailAll('items-5','qty')">Quantity</button>
+        <button class="sort-btn" onclick="sortRetailAll('items-5','revenue')">Revenue</button>
+      </div>
+    </div>
+
+    <div id="retail-cols" class="retail-grid" style="display:none">
+      <div id="retail-col-food">
+        <h3 style="color:#4ECDC4">Retail Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-3','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-3','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-3">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>High Protein Granola</td>
+      
+      <td>1</td>
+      <td>$15.50</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"High Protein Granola","qty":1,"revenue":15.5}];
+      window['items-3'] = raw;
+      setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+      <div id="retail-col-nonfood">
+        <h3 style="color:#4ECDC4">Retail Non-Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-4','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-4','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-4">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Expression Design MD Card</td>
+      
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Paper Mirchi Card</td>
+      
+      <td>1</td>
+      <td>$5.25</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Multipet Highland Cow Dog Toy</td>
+      
+      <td>1</td>
+      <td>$14.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Hand Lotion Lemon Verbena</td>
+      
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Hand Cream French Lavender</td>
+      
+      <td>1</td>
+      <td>$4.50</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Expression Design MD Card","qty":1,"revenue":6},{"name":"Paper Mirchi Card","qty":1,"revenue":5.25},{"name":"Multipet Highland Cow Dog Toy","qty":1,"revenue":14},{"name":"Hand Lotion Lemon Verbena","qty":1,"revenue":4.5},{"name":"Hand Cream French Lavender","qty":1,"revenue":4.5}];
+      window['items-4'] = raw;
+      setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+    </div>
+
+    <div id="retail-all-view">
+      
+    <table class="data-table" id="items-5">
+      <thead><tr><th>#</th><th>Item</th><th>Type</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even" >
+      <td>1</td>
+      <td>High Protein Granola</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$15.50</td>
+    </tr>
+    <tr class="" >
+      <td>2</td>
+      <td>Expression Design MD Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even" >
+      <td>3</td>
+      <td>Paper Mirchi Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$5.25</td>
+    </tr>
+    <tr class="" >
+      <td>4</td>
+      <td>Multipet Highland Cow Dog Toy</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$14.00</td>
+    </tr>
+    <tr class="even" >
+      <td>5</td>
+      <td>Hand Lotion Lemon Verbena</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="" >
+      <td>6</td>
+      <td>Hand Cream French Lavender</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr></tbody>
+    </table>
+    
+    <script>
+    (function(){ window['items-5'] = [{"name":"High Protein Granola","qty":1,"revenue":15.5,"category":"Food"},{"name":"Expression Design MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Paper Mirchi Card","qty":1,"revenue":5.25,"category":"Non-Food"},{"name":"Multipet Highland Cow Dog Toy","qty":1,"revenue":14,"category":"Non-Food"},{"name":"Hand Lotion Lemon Verbena","qty":1,"revenue":4.5,"category":"Non-Food"},{"name":"Hand Cream French Lavender","qty":1,"revenue":4.5,"category":"Non-Food"}]; })();
+    </script>
+    </div>
+  </div>
 
   <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
 </div>
