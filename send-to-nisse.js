@@ -14,7 +14,13 @@ const reportUrl = `https://jeannines-reports.vercel.app/reports/${displayDate}.h
 await authenticate();
 const guids = getRestaurantGuids();
 const retailCategoryNames = (process.env.TOAST_RETAIL_CATEGORY_NAMES || 'Retail Non-Food,Retail Food').split(',').map(s => s.trim());
-const allCategories = await fetchSalesCategories(guids[0]);
+const allCategoriesRaw = await Promise.all(guids.map(g => fetchSalesCategories(g)));
+const seenCatGuids = new Set();
+const allCategories = allCategoriesRaw.flat().filter(c => {
+  if (seenCatGuids.has(c.guid)) return false;
+  seenCatGuids.add(c.guid);
+  return true;
+});
 const categoryGuidToName = new Map(allCategories.filter(c => retailCategoryNames.includes(c.name)).map(c => [c.guid, c.name]));
 const retailCategorySet = new Set(categoryGuidToName.keys());
 const businessDate = displayDate.replace(/-/g, '');
