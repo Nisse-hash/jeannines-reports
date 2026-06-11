@@ -5,7 +5,7 @@ export default function middleware(req) {
     pathname === '/login.html' ||
     pathname === '/api/auth' ||
     pathname.startsWith('/_vercel') ||
-    /^\/reports\/chart-.*\.png$/.test(pathname)
+    /^\/reports\/chart-.*\.(png|gif)$/.test(pathname)
   ) return;
 
   const url = new URL(req.url);
