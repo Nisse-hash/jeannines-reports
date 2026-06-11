@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-09</div>
-      <div class="rpt-ts">Generated Jun 10, 2026, 12:09 AM PT</div>
+      <div class="rpt-ts">Generated Jun 10, 2026, 6:13 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-09" onchange="goToDate(this.value)">
@@ -166,7 +166,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
-      <div class="metric-value">259.6h</div>
+      <div class="metric-value">259.1h</div>
     </div>
   </div>
   </div>
@@ -184,8 +184,8 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
         <tbody>
     <tr class="even">
       <td><span class="emp-name">Carmen Medina</span><br><span class="wage-tag">$19.00/h</span></td>
-      <td>10.2h &nbsp;<span class="ot ot-pill">+2.2h OT</span></td>
-      <td class="extra-cost">+$20.90</td>
+      <td>9.7h &nbsp;<span class="ot ot-pill">+1.7h OT</span></td>
+      <td class="extra-cost">+$16.15</td>
     </tr>
     <tr class="">
       <td><span class="emp-name">Yamilcen Morin</span><br><span class="wage-tag">$34.60/h</span></td>
@@ -201,31 +201,26 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     
     <div class="alert-card break-card">
-      <div class="alert-title">Missed Breaks — 5 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <div class="alert-title">Missed Breaks — 4 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td>Carmen Medina</td>
-      <td><strong>10.2h shift</strong></td>
-      <td class="missed">No break recorded</td>
-    </tr>
-    <tr class="">
       <td>Yamilcen Morin</td>
       <td><strong>8.6h shift</strong></td>
       <td class="missed">No break recorded</td>
     </tr>
-    <tr class="even">
+    <tr class="">
       <td>Juan Moran</td>
       <td><strong>8.3h shift</strong></td>
       <td class="missed">No break recorded</td>
     </tr>
-    <tr class="">
+    <tr class="even">
       <td>David Sanchez Esteban</td>
       <td><strong>7.7h shift</strong></td>
       <td class="missed">No break recorded</td>
     </tr>
-    <tr class="even">
+    <tr class="">
       <td>Mateo Romero</td>
       <td><strong>6h shift</strong></td>
       <td class="missed">No break recorded</td>
@@ -326,7 +321,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">124.6h</div>
+      <div class="metric-value">124.1h</div>
     </div>
   </div>
 
@@ -541,18 +536,6 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       </table>
     </div>
     
-    <div class="alert-card break-card">
-      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
-      <table class="data-table">
-        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
-        <tbody>
-    <tr class="even">
-      <td>Michael Beberino</td>
-      <td><strong>8.2h shift</strong></td>
-      <td class="missed">No break recorded</td>
-    </tr></tbody>
-      </table>
-    </div>
 
     
   <div class="chart-outer">
@@ -564,11 +547,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
-    const revenue  = [0,0,0,359,487.25,397.88,481.96,521.37,703.09,1369.42,939.91,847.77,579.33,705.42,622.71,413.75,184.95,148.75,55,0,12.9,0,0];
-    const headcount= [3,3,5,6,7,7,8,9,9,9,9,9,10,10,10,9,9,8,6,4,2,1,0];
-    const labor    = [13.34,29.75,40.1,54.42,64.59,64.65,72.91,74.24,81.55,81.55,81.55,81.55,89.61,90,81.71,81.55,74.58,63.66,44.59,21,15.53,0.95,0];
-    const staff    = [["Martin Montanez","Michael Beberino","Valerio Ascencion"],["Martin Montanez","Michael Beberino","Valerio Ascencion"],["Martin Montanez","Michael Beberino","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Martin Montanez","Michael Beberino","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Nanci Quinnear","Otoniel Vergara","Valerio Ascencion"],["Nanci Quinnear","Otoniel Vergara"],["Otoniel Vergara"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM","7:30","8PM","8:30","9PM","9:30","10PM","10:30","11PM","11:30","12AM","12:30","1AM","1:30","2AM","2:30","3AM","3:30","4AM","4:30"];
+    const revenue  = [0,0,0,359,487.25,397.88,446.36,521.37,703.09,1369.42,927.66,825.92,523.27,705.42,622.71,413.75,184.95,148.75,55,0,12.9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,125.76,0];
+    const headcount= [3,3,5,6,7,7,8,9,9,9,9,9,10,10,10,9,9,8,6,4,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    const labor    = [13.34,29.75,40.1,54.42,64.59,64.65,72.91,74.24,81.55,81.55,81.55,81.55,89.61,90,81.71,81.55,74.58,63.66,44.59,21,15.53,0.95,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    const staff    = [["Martin Montanez","Michael Beberino","Valerio Ascencion"],["Martin Montanez","Michael Beberino","Valerio Ascencion"],["Martin Montanez","Michael Beberino","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Martin Montanez","Michael Beberino","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez","Yvette Crespo Santos"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Michael Beberino","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Jorie Jorgensen","Martin Montanez","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Nanci Quinnear","Otoniel Vergara","Rutilo Mena Martinez","Valerio Ascencion","Victor Mendez"],["Eduardo Victoria","Nanci Quinnear","Otoniel Vergara","Valerio Ascencion"],["Nanci Quinnear","Otoniel Vergara"],["Otoniel Vergara"],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
     const panel    = document.getElementById('sp-chart-1');
     let lastIdx    = -1;
 
@@ -1346,24 +1329,24 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>8</td>
-      <td>Living Goods Random Cat Coaster</td>
-      
-      <td>1</td>
-      <td>$10.00</td>
-    </tr>
-    <tr class="even">
-      <td>9</td>
       <td>Living Goods Random Cats Mug</td>
       
       <td>1</td>
       <td>$20.00</td>
     </tr>
-    <tr class="">
-      <td>10</td>
-      <td>Eco Kids Beeswax Crayons</td>
+    <tr class="even">
+      <td>9</td>
+      <td>Living Goods Random Cat Coaster</td>
       
       <td>1</td>
       <td>$10.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Happy Ocean Coloring Book</td>
+      
+      <td>1</td>
+      <td>$8.00</td>
     </tr>
     <tr class="even">
       <td>11</td>
@@ -1381,10 +1364,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>13</td>
-      <td>Happy Ocean Coloring Book</td>
+      <td>Eco Kids Beeswax Crayons</td>
       
       <td>1</td>
-      <td>$8.00</td>
+      <td>$10.00</td>
     </tr>
     <tr class="">
       <td>14</td>
@@ -1423,22 +1406,22 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>19</td>
+      <td>Jeannine's Wo's Crewneck Sweatshirt - Sage S</td>
+      
+      <td>1</td>
+      <td>$50.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
       <td>Green Waves Small</td>
       
       <td>1</td>
       <td>$8.50</td>
-    </tr>
-    <tr class="">
-      <td>20</td>
-      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink S</td>
-      
-      <td>1</td>
-      <td>$50.00</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Large SB Card","qty":4,"revenue":26},{"name":"Elseware Watercolors Bamboo Box","qty":4,"revenue":100},{"name":"Expression Design MD Card","qty":3,"revenue":18},{"name":"Katie Doodle Mother's Day Card","qty":3,"revenue":18},{"name":"Elseware Colored Pencils - Tall","qty":2,"revenue":14},{"name":"Matchbox","qty":2,"revenue":16},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"Living Goods Random Cat Coaster","qty":1,"revenue":10},{"name":"Living Goods Random Cats Mug","qty":1,"revenue":20},{"name":"Eco Kids Beeswax Crayons","qty":1,"revenue":10},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8},{"name":"SoulByrd Cap","qty":1,"revenue":48},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Jeannine's Travel Mug 12 oz","qty":1,"revenue":40},{"name":"BluGift Blaire Blue","qty":1,"revenue":16},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16},{"name":"Green Waves Small","qty":1,"revenue":8.5},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50}];
+      const raw = [{"name":"Large SB Card","qty":4,"revenue":26},{"name":"Elseware Watercolors Bamboo Box","qty":4,"revenue":100},{"name":"Expression Design MD Card","qty":3,"revenue":18},{"name":"Katie Doodle Mother's Day Card","qty":3,"revenue":18},{"name":"Elseware Colored Pencils - Tall","qty":2,"revenue":14},{"name":"Matchbox","qty":2,"revenue":16},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"Living Goods Random Cats Mug","qty":1,"revenue":20},{"name":"Living Goods Random Cat Coaster","qty":1,"revenue":10},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5},{"name":"Eco Kids Beeswax Crayons","qty":1,"revenue":10},{"name":"SoulByrd Cap","qty":1,"revenue":48},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Jeannine's Travel Mug 12 oz","qty":1,"revenue":40},{"name":"BluGift Blaire Blue","qty":1,"revenue":16},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50},{"name":"Green Waves Small","qty":1,"revenue":8.5}];
       window['items-4'] = raw;
       setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
     })();
@@ -1579,24 +1562,24 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even" >
       <td>19</td>
-      <td>Living Goods Random Cat Coaster</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$10.00</td>
-    </tr>
-    <tr class="" >
-      <td>20</td>
       <td>Living Goods Random Cats Mug</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$20.00</td>
     </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>21</td>
-      <td>Eco Kids Beeswax Crayons</td>
+    <tr class="" >
+      <td>20</td>
+      <td>Living Goods Random Cat Coaster</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$10.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>21</td>
+      <td>Happy Ocean Coloring Book</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$8.00</td>
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>22</td>
@@ -1614,10 +1597,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>24</td>
-      <td>Happy Ocean Coloring Book</td>
+      <td>Eco Kids Beeswax Crayons</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
-      <td>$8.00</td>
+      <td>$10.00</td>
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>25</td>
@@ -1656,21 +1639,21 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>30</td>
+      <td>Jeannine's Wo's Crewneck Sweatshirt - Sage S</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$50.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>31</td>
       <td>Green Waves Small</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$8.50</td>
     </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>31</td>
-      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink S</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$50.00</td>
-    </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>32</td>
-      <td>Jeannine's Wo's Crewneck Sweatshirt - Sage S</td>
+      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink S</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$50.00</td>
@@ -1750,7 +1733,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       })()" style="background:transparent;border:1px solid #C9A84C44;color:#C9A84C;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 41 items ↓</button>
     </div>
     <script>
-    (function(){ window['items-5'] = [{"name":"Fruit","qty":6,"revenue":30,"category":"Food"},{"name":"High Protein Granola","qty":5,"revenue":77.5,"category":"Food"},{"name":"Large SB Card","qty":4,"revenue":26,"category":"Non-Food"},{"name":"Elseware Watercolors Bamboo Box","qty":4,"revenue":100,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":3,"revenue":13.5,"category":"Food"},{"name":"Expression Design MD Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Katie Doodle Mother's Day Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Naturally Colored Nonpareils","qty":2,"revenue":13.5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":2,"revenue":9,"category":"Food"},{"name":"Elseware Colored Pencils - Tall","qty":2,"revenue":14,"category":"Non-Food"},{"name":"Matchbox","qty":2,"revenue":16,"category":"Non-Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Wildflower Honey 6 oz","qty":1,"revenue":15,"category":"Food"},{"name":"Dog Bones (3)","qty":1,"revenue":6,"category":"Food"},{"name":"Side Cucumbers","qty":1,"revenue":1,"category":"Food"},{"name":"Bag of 8 Coconut Strawberry","qty":1,"revenue":12,"category":"Food"},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11,"category":"Non-Food"},{"name":"Living Goods Random Cat Coaster","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Living Goods Random Cats Mug","qty":1,"revenue":20,"category":"Non-Food"},{"name":"Eco Kids Beeswax Crayons","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5,"category":"Non-Food"},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"SoulByrd Cap","qty":1,"revenue":48,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Jeannine's Travel Mug 12 oz","qty":1,"revenue":40,"category":"Non-Food"},{"name":"BluGift Blaire Blue","qty":1,"revenue":16,"category":"Non-Food"},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Green Waves Small","qty":1,"revenue":8.5,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"BluGift Camellia","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":1,"revenue":40,"category":"Non-Food"},{"name":"Elseware Paintbrushes","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28,"category":"Non-Food"},{"name":"Hand Cream French Lavender","qty":1,"revenue":4.5,"category":"Non-Food"},{"name":"Jeannine's Hoodie - Peach L","qty":1,"revenue":55,"category":"Non-Food"},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Random Dogs Pet Bowl","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Delivery","qty":1,"revenue":27.59,"category":"Non-Food"}]; })();
+    (function(){ window['items-5'] = [{"name":"Fruit","qty":6,"revenue":30,"category":"Food"},{"name":"High Protein Granola","qty":5,"revenue":77.5,"category":"Food"},{"name":"Large SB Card","qty":4,"revenue":26,"category":"Non-Food"},{"name":"Elseware Watercolors Bamboo Box","qty":4,"revenue":100,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":3,"revenue":13.5,"category":"Food"},{"name":"Expression Design MD Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Katie Doodle Mother's Day Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Naturally Colored Nonpareils","qty":2,"revenue":13.5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":2,"revenue":9,"category":"Food"},{"name":"Elseware Colored Pencils - Tall","qty":2,"revenue":14,"category":"Non-Food"},{"name":"Matchbox","qty":2,"revenue":16,"category":"Non-Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Wildflower Honey 6 oz","qty":1,"revenue":15,"category":"Food"},{"name":"Dog Bones (3)","qty":1,"revenue":6,"category":"Food"},{"name":"Side Cucumbers","qty":1,"revenue":1,"category":"Food"},{"name":"Bag of 8 Coconut Strawberry","qty":1,"revenue":12,"category":"Food"},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11,"category":"Non-Food"},{"name":"Living Goods Random Cats Mug","qty":1,"revenue":20,"category":"Non-Food"},{"name":"Living Goods Random Cat Coaster","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5,"category":"Non-Food"},{"name":"Eco Kids Beeswax Crayons","qty":1,"revenue":10,"category":"Non-Food"},{"name":"SoulByrd Cap","qty":1,"revenue":48,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Jeannine's Travel Mug 12 oz","qty":1,"revenue":40,"category":"Non-Food"},{"name":"BluGift Blaire Blue","qty":1,"revenue":16,"category":"Non-Food"},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Green Waves Small","qty":1,"revenue":8.5,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"BluGift Camellia","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":1,"revenue":40,"category":"Non-Food"},{"name":"Elseware Paintbrushes","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28,"category":"Non-Food"},{"name":"Hand Cream French Lavender","qty":1,"revenue":4.5,"category":"Non-Food"},{"name":"Jeannine's Hoodie - Peach L","qty":1,"revenue":55,"category":"Non-Food"},{"name":"Calypso FD Card - GOAT","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Random Dogs Pet Bowl","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Delivery","qty":1,"revenue":27.59,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
