@@ -5,6 +5,7 @@ import { generateEmailHtml } from './lib/email-report.js';
 import { generateChartGif } from './lib/chart-gif.js';
 import { publishChartImage } from './lib/publish.js';
 import { fetchWeather, LOCATION_COORDS } from './lib/weather.js';
+import { fetchSpecialEvents } from './lib/events.js';
 import nodemailer from 'nodemailer';
 
 const displayDate = process.argv.find(a => a.startsWith('--date='))?.slice(7)
@@ -43,6 +44,12 @@ for (const loc of locationData) {
   if (coords) loc.weather = await fetchWeather(displayDate, coords.lat, coords.lon, coords.addr);
 }
 
+const specialEvents = await fetchSpecialEvents(displayDate);
+if (specialEvents) {
+  const allEvents = [...(specialEvents.national || []), ...(specialEvents.local || [])];
+  if (allEvents.length) console.log(`  Events today: ${allEvents.join(', ')}`);
+}
+
 // Generate and publish a chart per location
 const chartUrls = [];
 for (let i = 0; i < locationData.length; i++) {
@@ -60,7 +67,7 @@ for (let i = 0; i < locationData.length; i++) {
 const { html: emailHtml } = generateEmailHtml(
   { locations: locationData, retailLocations: retailData },
   displayDate, reportUrl, chartUrls, locationData[0]?.weather ?? null,
-  process.env.REPORT_LINK_TOKEN || null
+  process.env.REPORT_LINK_TOKEN || null, specialEvents
 );
 
 const transporter = nodemailer.createTransport({
