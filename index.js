@@ -7,6 +7,7 @@ import { publishReport, publishChartImage } from './lib/publish.js';
 import { writeReport } from './lib/airtable.js';
 import { sendEmail, sendSms } from './lib/notify.js';
 import { fetchWeather, LOCATION_COORDS } from './lib/weather.js';
+import { fetchSpecialEvents } from './lib/events.js';
 
 function parseDate() {
   const arg = process.argv.find(a => a.startsWith('--date='))?.slice(7);
@@ -107,6 +108,12 @@ async function main() {
   // Global weather = Shore's weather (used by HTML report and single-location fallback)
   const weather = locationData[0]?.weather ?? null;
 
+  const specialEvents = await fetchSpecialEvents(displayDate);
+  if (specialEvents) {
+    const allEvents = [...(specialEvents.national || []), ...(specialEvents.local || [])];
+    if (allEvents.length) console.log(`  Events today: ${allEvents.join(', ')}`);
+  }
+
   console.log('\nBuilding report...');
   const html = render({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, weather);
 
@@ -131,7 +138,7 @@ async function main() {
       chartUrls.push(null);
     }
   }
-  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrls, weather, process.env.REPORT_LINK_TOKEN || null);
+  const { html: emailHtml } = generateEmailHtml({ locations: locationData, totals, eightySixedItems, retailLocations: retailData }, displayDate, reportUrl, chartUrls, weather, process.env.REPORT_LINK_TOKEN || null, specialEvents);
   await sendEmail(emailHtml, displayDate);
   await sendSms(displayDate, reportUrl);
 
