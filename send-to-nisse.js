@@ -70,8 +70,8 @@ const transporter = nodemailer.createTransport({
 });
 await transporter.sendMail({
   from: `"Jeannine's Reports" <${process.env.GMAIL_EMAIL_NISSE}>`,
-  to: 'nisse@theautomatedguy.com',
+  to: 'nisse@jeannines.com',
   subject: `Today's Report — Jeannine's (${displayDate})`,
   html: emailHtml,
 });
-console.log('Sent to nisse@theautomatedguy.com');
+console.log('Sent to nisse@jeannines.com');
