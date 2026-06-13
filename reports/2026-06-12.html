@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-12</div>
-      <div class="rpt-ts">Generated Jun 12, 2026, 5:04 PM PT</div>
+      <div class="rpt-ts">Generated Jun 12, 2026, 5:53 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-12" onchange="goToDate(this.value)">
@@ -166,7 +166,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
-      <div class="metric-value">290.9h</div>
+      <div class="metric-value">343.1h</div>
     </div>
   </div>
   </div>
@@ -178,10 +178,30 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     
     <div class="alert-card ot-card">
-      <div class="alert-title">Overtime — 5 employees</div>
+      <div class="alert-title">Overtime — 9 employees</div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
         <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Lalo Mendoza</span><br><span class="wage-tag">$25.00/h</span></td>
+      <td>11h &nbsp;<span class="ot ot-pill">+3.03h OT</span></td>
+      <td class="extra-cost">+$37.88</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Carmen Medina</span><br><span class="wage-tag">$19.00/h</span></td>
+      <td>10.2h &nbsp;<span class="ot ot-pill">+2.19h OT</span></td>
+      <td class="extra-cost">+$20.81</td>
+    </tr>
+    <tr class="even">
+      <td><span class="emp-name">Yamilcen Morin</span><br><span class="wage-tag">$34.60/h</span></td>
+      <td>8.9h &nbsp;<span class="ot ot-pill">+52min OT</span></td>
+      <td class="extra-cost">+$15.05</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Jacob Howard</span></td>
+      <td>8.4h &nbsp;<span class="ot ot-pill">+22min OT</span></td>
+      <td class="extra-cost"></td>
+    </tr>
     <tr class="even">
       <td><span class="emp-name">Cecilia Martinez Machorro</span><br><span class="wage-tag">$16.90/h</span></td>
       <td>8.3h &nbsp;<span class="ot ot-pill">+18min OT</span></td>
@@ -211,10 +231,30 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     
     <div class="alert-card break-card">
-      <div class="alert-title">Missed Breaks — 2 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <div class="alert-title">Missed Breaks — 6 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
         <tbody>
+    <tr class="even">
+      <td>Jacob Howard</td>
+      <td><strong>11.1h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>Lalo Mendoza</td>
+      <td><strong>11h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="even">
+      <td>Carmen Medina</td>
+      <td><strong>10.2h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>Yamilcen Morin</td>
+      <td><strong>8.9h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
     <tr class="even">
       <td>Cecilia Martinez Machorro</td>
       <td><strong>8.8h shift</strong></td>
@@ -238,11 +278,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
-    const revenue  = [0,0,33.85,1303.75,1398.45,1740.95,1998.73,2113.18,1858.45,1825.37,1817.72,1660,1825.42,1421.1,1281.15,799.59,0,0,16.33,0,0,0,0];
-    const headcount= [3,7,8,11,15,16,16,16,16,16,17,16,16,16,15,15,14,11,11,4,3,3,0];
-    const labor    = [10.71,39.62,73.66,86.58,134.89,145.85,146.15,146.15,146.15,146.15,141.18,142.31,146.15,145.8,137.7,137.62,108.79,103.35,68.99,30.72,28.9,8.98,0];
-    const staff    = [["Adrian Perez Avalos","Jose Martinez","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Fabian Ascencion","Jose Martinez","Olivia Chain","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Fabian Ascencion","Heron Victoria Medina","Jose Martinez","Olivia Chain","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Javier Valenzo","Jose Martinez","Olivia Chain","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Javier Valenzo","Jose Martinez","Maria Gonzalez","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Javier Valenzo","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Javier Valenzo","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Cecilia Martinez Machorro","Heron Victoria Medina","Patricia Villalas","Roberto Munoz"],["Cecilia Martinez Machorro","Patricia Villalas","Roberto Munoz"],["Cecilia Martinez Machorro","Patricia Villalas","Roberto Munoz"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM"];
+    const revenue  = [0,0,33.85,1303.75,1398.45,1740.95,1998.73,2113.18,1858.45,1825.37,1817.72,1660,1825.42,1421.1,1281.15,799.59,0,0,16.33,0,0,0,0,0,0];
+    const headcount= [4,9,10,14,18,20,20,20,20,20,21,20,20,20,19,19,18,15,15,8,7,7,4,2,0];
+    const labor    = [21.67,52.12,86.16,108.3,156.89,184.01,185.45,185.45,185.45,185.45,180.48,181.61,185.45,185.1,177,176.92,148.09,142.65,108.29,70.02,68.2,48.28,25.85,3.94,0];
+    const staff    = [["Adrian Perez Avalos","Jose Martinez","Lalo Mendoza","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Fabian Ascencion","Jacob Howard","Jose Martinez","Lalo Mendoza","Olivia Chain","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Fabian Ascencion","Heron Victoria Medina","Jacob Howard","Jose Martinez","Lalo Mendoza","Olivia Chain","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Olivia Chain","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Olivia Chain","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Anazario Gallardo","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Lalo Mendoza","Maria Gonzalez","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Jacob Howard","Javier Valenzo","Lalo Mendoza","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Carmen Medina","Cecilia Martinez Machorro","Cesar Chuluc Navichoc","Fabian Ascencion","Heron Victoria Medina","Jacob Howard","Javier Valenzo","Lalo Mendoza","Patricia Villalas","Roberto Munoz","Roberto Rendon","Rutilo Mena Martinez","Yamilcen Morin"],["Carmen Medina","Cecilia Martinez Machorro","Heron Victoria Medina","Jacob Howard","Lalo Mendoza","Patricia Villalas","Roberto Munoz","Yamilcen Morin"],["Carmen Medina","Cecilia Martinez Machorro","Jacob Howard","Lalo Mendoza","Patricia Villalas","Roberto Munoz","Yamilcen Morin"],["Carmen Medina","Cecilia Martinez Machorro","Jacob Howard","Lalo Mendoza","Patricia Villalas","Roberto Munoz","Yamilcen Morin"],["Carmen Medina","Jacob Howard","Lalo Mendoza","Yamilcen Morin"],["Carmen Medina","Jacob Howard"],[]];
     const panel    = document.getElementById('sp-chart-0');
     let lastIdx    = -1;
 
@@ -321,7 +361,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">117.7h</div>
+      <div class="metric-value">156.1h</div>
     </div>
   </div>
 
@@ -614,11 +654,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
-    const revenue  = [0,0,0,839.46,1037.34,830.65,1402.14,1084.52,1009.64,1187.04,1461.98,779.05,881.33,449.59,1022.16,698.33,48.72,21.85,0,0,0,0,0];
-    const headcount= [3,4,6,8,9,10,11,11,11,11,11,11,11,11,11,10,9,9,7,6,2,1,0];
-    const labor    = [13.92,30.8,51.34,65.18,81.62,83.79,99.59,100.5,100.5,100.5,100.5,100.5,100.5,100.5,97.42,91.98,83.6,78.77,58.84,33.7,14.75,1.72,0];
-    const staff    = [["Martin Montanez","Michael Beberino","Valerio Ascencion"],["Martin Montanez","Michael Beberino","Ruben Sanchez Ortiz","Valerio Ascencion"],["Fernando Castro","Julia Quinnear","Martin Montanez","Michael Beberino","Ruben Sanchez Ortiz","Valerio Ascencion"],["Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Donna Mudge","Otoniel Vergara"],["Otoniel Vergara"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM"];
+    const revenue  = [0,0,0,839.46,1037.34,830.65,1402.14,1084.52,1009.64,1187.04,1461.98,779.05,881.33,449.59,1022.16,698.33,48.72,21.85,0,0,0,0,0,0,0];
+    const headcount= [3,4,6,8,9,10,11,11,11,11,11,11,12,12,12,11,10,10,8,7,3,2,1,1,0];
+    const labor    = [13.92,30.8,51.34,65.18,81.62,83.79,99.59,100.5,100.5,100.5,100.5,100.5,108.56,108.95,105.87,100.43,92.05,87.22,67.29,42.15,23.2,10.17,8.45,6.06,0];
+    const staff    = [["Martin Montanez","Michael Beberino","Valerio Ascencion"],["Martin Montanez","Michael Beberino","Ruben Sanchez Ortiz","Valerio Ascencion"],["Fernando Castro","Julia Quinnear","Martin Montanez","Michael Beberino","Ruben Sanchez Ortiz","Valerio Ascencion"],["Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Julia Quinnear","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Brayan Gonzalez","Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Michael Beberino","Otoniel Vergara","Ruben Sanchez Ortiz","Ruth Delgado","Valerio Ascencion"],["Donna Mudge","Otoniel Vergara","Ruth Delgado"],["Otoniel Vergara","Ruth Delgado"],["Ruth Delgado"],["Ruth Delgado"],[]];
     const panel    = document.getElementById('sp-chart-1');
     let lastIdx    = -1;
 
@@ -697,7 +737,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">82.3h</div>
+      <div class="metric-value">88.2h</div>
     </div>
   </div>
 
@@ -970,11 +1010,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30"];
-    const revenue  = [0,0,0,514.71,609.17,1228.42,1148.28,821.87,1167.57,1667.41,1657.18,1683.93,1413.5,1027.35,1404.12,26.59,0,0,0,0,0,0];
-    const headcount= [2,5,7,9,9,10,12,12,13,13,13,13,13,13,12,12,11,10,10,6,1,0];
-    const labor    = [3.87,25.46,64.14,78.22,85.9,94.34,109.51,111.25,119.14,119.7,119.7,119.7,119.7,119.41,103.3,102.69,95.02,94.35,77.25,14.19,6.18,0];
-    const staff    = [["Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Henry Martinez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Henry Martinez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Juan Moran","Sabrielle Saucedo","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Juan Moran","Sabrielle Saucedo","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Carlos Hernandez","Eduardo Vargas","Henry Martinez","Juan Moran","Wilson Pelaez Garcia"],["Eduardo Vargas"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30"];
+    const revenue  = [0,0,0,514.71,609.17,1228.42,1148.28,821.87,1167.57,1667.41,1657.18,1683.93,1413.5,1027.35,1404.12,26.59,0,0,0,0,0,0,0,0];
+    const headcount= [2,5,7,9,9,11,13,13,14,14,14,14,14,14,13,13,12,11,11,7,2,1,1,0];
+    const labor    = [3.87,25.46,64.14,78.22,85.9,97.92,118.01,119.75,127.64,128.2,128.2,128.2,128.2,127.91,111.8,111.19,103.52,102.85,85.75,22.69,14.68,8.5,2.71,0];
+    const staff    = [["Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Henry Martinez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Henry Martinez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Juan Moran","Sabrielle Saucedo","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Juan Moran","Sabrielle Saucedo","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Sabrielle Saucedo","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","William Davis","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Kyle Rivas","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Apolinar Alcoser Diaz","Benito Gantes","Carlos Hernandez","Eduardo Paredes","Eduardo Vargas","Henry Martinez","Jaymie Froelicher","Jesus Perez","Juan Moran","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Carlos Hernandez","Eduardo Vargas","Henry Martinez","Juan Moran","Wilson Pelaez Garcia"],["Benito Gantes","Eduardo Vargas"],["Benito Gantes"],["Benito Gantes"],[]];
     const panel    = document.getElementById('sp-chart-2');
     let lastIdx    = -1;
 
@@ -1053,7 +1093,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">90.9h</div>
+      <div class="metric-value">98.8h</div>
     </div>
   </div>
 
@@ -1459,17 +1499,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>8</td>
-      <td>Santa Barbara Cap - Denim</td>
-      
-      <td>2</td>
-      <td>$70.00</td>
-    </tr>
-    <tr class="even">
-      <td>9</td>
       <td>Jeannine's Wo's Crewneck Sweatshirt - Pink XL</td>
       
       <td>2</td>
       <td>$100.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Santa Barbara Cap - Denim</td>
+      
+      <td>2</td>
+      <td>$70.00</td>
     </tr>
     <tr class="">
       <td>10</td>
@@ -1508,17 +1548,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>15</td>
-      <td>Elseware Colored Pencils</td>
-      
-      <td>1</td>
-      <td>$5.50</td>
-    </tr>
-    <tr class="">
-      <td>16</td>
       <td>Happy Ocean Coloring Book</td>
       
       <td>1</td>
       <td>$8.00</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Elseware Colored Pencils</td>
+      
+      <td>1</td>
+      <td>$5.50</td>
     </tr>
     <tr class="even">
       <td>17</td>
@@ -1551,7 +1591,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Picnic Bag","qty":7,"revenue":140},{"name":"Skel & Co Card","qty":6,"revenue":36},{"name":"Greeting Card","qty":4,"revenue":24},{"name":"Toasty Morning Mug","qty":4,"revenue":160},{"name":"Sweet Bippy Press Card","qty":3,"revenue":18},{"name":"Katie Doodle Card","qty":3,"revenue":18},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54},{"name":"Santa Barbara Cap - Denim","qty":2,"revenue":70},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":2,"revenue":100},{"name":"World Buyers Tube Matchbox","qty":2,"revenue":8},{"name":"Expression Design MD Card","qty":2,"revenue":12},{"name":"Elseware Paintbrushes","qty":2,"revenue":20},{"name":"Mini Card","qty":2,"revenue":8},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8},{"name":"Card","qty":1,"revenue":5.49},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28},{"name":"Crooked Halo Card","qty":1,"revenue":6},{"name":"Lamb Chop Plush Dog Toy","qty":1,"revenue":14}];
+      const raw = [{"name":"Picnic Bag","qty":7,"revenue":140},{"name":"Skel & Co Card","qty":6,"revenue":36},{"name":"Greeting Card","qty":4,"revenue":24},{"name":"Toasty Morning Mug","qty":4,"revenue":160},{"name":"Sweet Bippy Press Card","qty":3,"revenue":18},{"name":"Katie Doodle Card","qty":3,"revenue":18},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":2,"revenue":100},{"name":"Santa Barbara Cap - Denim","qty":2,"revenue":70},{"name":"World Buyers Tube Matchbox","qty":2,"revenue":8},{"name":"Expression Design MD Card","qty":2,"revenue":12},{"name":"Elseware Paintbrushes","qty":2,"revenue":20},{"name":"Mini Card","qty":2,"revenue":8},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5},{"name":"Card","qty":1,"revenue":5.49},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28},{"name":"Crooked Halo Card","qty":1,"revenue":6},{"name":"Lamb Chop Plush Dog Toy","qty":1,"revenue":14}];
       window['items-4'] = raw;
       setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
     })();
@@ -1657,17 +1697,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="" >
       <td>14</td>
-      <td>Santa Barbara Cap - Denim</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>2</td>
-      <td>$70.00</td>
-    </tr>
-    <tr class="even" >
-      <td>15</td>
       <td>Jeannine's Wo's Crewneck Sweatshirt - Pink XL</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>2</td>
       <td>$100.00</td>
+    </tr>
+    <tr class="even" >
+      <td>15</td>
+      <td>Santa Barbara Cap - Denim</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$70.00</td>
     </tr>
     <tr class="" >
       <td>16</td>
@@ -1769,17 +1809,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>30</td>
-      <td>Elseware Colored Pencils</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$5.50</td>
-    </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>31</td>
       <td>Happy Ocean Coloring Book</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$8.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>31</td>
+      <td>Elseware Colored Pencils</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$5.50</td>
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>32</td>
@@ -1825,31 +1865,31 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>38</td>
-      <td>10,000 Villages Tape Measure Mouse</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$12.99</td>
-    </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>39</td>
-      <td>Wooven Tape Measure - Owl</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$13.00</td>
-    </tr>
-    <tr class=" ra-hidden" style="display:none">
-      <td>40</td>
       <td>Calypso Card</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even ra-hidden" style="display:none">
-      <td>41</td>
+      <td>39</td>
       <td>Wooven Tape Measure - Mouse</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$13.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>40</td>
+      <td>Wooven Tape Measure - Owl</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$13.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>41</td>
+      <td>10,000 Villages Tape Measure Mouse</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$12.99</td>
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>42</td>
@@ -1954,7 +1994,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       })()" style="background:transparent;border:1px solid #C9A84C44;color:#C9A84C;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 54 items ↓</button>
     </div>
     <script>
-    (function(){ window['items-5'] = [{"name":"Picnic Bag","qty":7,"revenue":140,"category":"Non-Food"},{"name":"Dog Bones (3)","qty":6,"revenue":36,"category":"Food"},{"name":"Skel & Co Card","qty":6,"revenue":36,"category":"Non-Food"},{"name":"Banana","qty":5,"revenue":10,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":5,"revenue":77.5,"category":"Food"},{"name":"Greeting Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":4,"revenue":160,"category":"Non-Food"},{"name":"High Protein Granola","qty":3,"revenue":46.5,"category":"Food"},{"name":"Mint Chocolate Cookie Bites","qty":3,"revenue":16.5,"category":"Food"},{"name":"Sweet Bippy Press Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54,"category":"Non-Food"},{"name":"Bag of 8 Coconut Strawberry","qty":2,"revenue":24,"category":"Food"},{"name":"Santa Barbara Cap - Denim","qty":2,"revenue":70,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":2,"revenue":100,"category":"Non-Food"},{"name":"World Buyers Tube Matchbox","qty":2,"revenue":8,"category":"Non-Food"},{"name":"Expression Design MD Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Elseware Paintbrushes","qty":2,"revenue":20,"category":"Non-Food"},{"name":"Mini Card","qty":2,"revenue":8,"category":"Non-Food"},{"name":"F","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Pickle","qty":1,"revenue":4.5,"category":"Food"},{"name":"Apple","qty":1,"revenue":2,"category":"Food"},{"name":"Jeannine's Wildflower Honey 6 oz","qty":1,"revenue":15,"category":"Food"},{"name":"Beecher's Gluten Free Crackers - Serious Cheddar","qty":1,"revenue":15,"category":"Food"},{"name":"Whittard Hot Chocolate","qty":1,"revenue":20,"category":"Food"},{"name":"Chocolate Malt Balls","qty":1,"revenue":5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5,"category":"Non-Food"},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Card","qty":1,"revenue":5.49,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28,"category":"Non-Food"},{"name":"Crooked Halo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lamb Chop Plush Dog Toy","qty":1,"revenue":14,"category":"Non-Food"},{"name":"Living Goods Random Dog Coaster","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Living Goods Camp Coaster Dog","qty":1,"revenue":9,"category":"Non-Food"},{"name":"10,000 Villages Tape Measure Mouse","qty":1,"revenue":12.99,"category":"Non-Food"},{"name":"Wooven Tape Measure - Owl","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Calypso Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Wooven Tape Measure - Mouse","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Wooven Tape Measure - Deer","qty":1,"revenue":18,"category":"Non-Food"},{"name":"Wooven Tape Measure - Elephant","qty":1,"revenue":14,"category":"Non-Food"},{"name":"Bougie Bottle Water Bottle - Equestri II","qty":1,"revenue":48,"category":"Non-Food"},{"name":"Random Dogs Pet Bowl","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Wellspring - Activity Book - 365 Quizzes for Curious Kids","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Small Blue White Pitcher","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Paper Mirchi Card","qty":1,"revenue":5.25,"category":"Non-Food"},{"name":"Emily Lex Watercolor Paint Set","qty":1,"revenue":18,"category":"Non-Food"},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Jeannine's 16 oz Travel Mug","qty":1,"revenue":45,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Elseware Colored Pencils - Tall","qty":1,"revenue":7,"category":"Non-Food"},{"name":"Wild Friends Activity Book","qty":1,"revenue":8,"category":"Non-Food"}]; })();
+    (function(){ window['items-5'] = [{"name":"Picnic Bag","qty":7,"revenue":140,"category":"Non-Food"},{"name":"Dog Bones (3)","qty":6,"revenue":36,"category":"Food"},{"name":"Skel & Co Card","qty":6,"revenue":36,"category":"Non-Food"},{"name":"Banana","qty":5,"revenue":10,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":5,"revenue":77.5,"category":"Food"},{"name":"Greeting Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":4,"revenue":160,"category":"Non-Food"},{"name":"High Protein Granola","qty":3,"revenue":46.5,"category":"Food"},{"name":"Mint Chocolate Cookie Bites","qty":3,"revenue":16.5,"category":"Food"},{"name":"Sweet Bippy Press Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54,"category":"Non-Food"},{"name":"Bag of 8 Coconut Strawberry","qty":2,"revenue":24,"category":"Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":2,"revenue":100,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":2,"revenue":70,"category":"Non-Food"},{"name":"World Buyers Tube Matchbox","qty":2,"revenue":8,"category":"Non-Food"},{"name":"Expression Design MD Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Elseware Paintbrushes","qty":2,"revenue":20,"category":"Non-Food"},{"name":"Mini Card","qty":2,"revenue":8,"category":"Non-Food"},{"name":"F","qty":1,"revenue":2,"category":"Food"},{"name":"Torres Chips Pickle","qty":1,"revenue":4.5,"category":"Food"},{"name":"Apple","qty":1,"revenue":2,"category":"Food"},{"name":"Jeannine's Wildflower Honey 6 oz","qty":1,"revenue":15,"category":"Food"},{"name":"Beecher's Gluten Free Crackers - Serious Cheddar","qty":1,"revenue":15,"category":"Food"},{"name":"Whittard Hot Chocolate","qty":1,"revenue":20,"category":"Food"},{"name":"Chocolate Malt Balls","qty":1,"revenue":5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Smoked Paprika (50g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Sage S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5,"category":"Non-Food"},{"name":"Card","qty":1,"revenue":5.49,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28,"category":"Non-Food"},{"name":"Crooked Halo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Lamb Chop Plush Dog Toy","qty":1,"revenue":14,"category":"Non-Food"},{"name":"Living Goods Random Dog Coaster","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Living Goods Camp Coaster Dog","qty":1,"revenue":9,"category":"Non-Food"},{"name":"Calypso Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Wooven Tape Measure - Mouse","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Wooven Tape Measure - Owl","qty":1,"revenue":13,"category":"Non-Food"},{"name":"10,000 Villages Tape Measure Mouse","qty":1,"revenue":12.99,"category":"Non-Food"},{"name":"Wooven Tape Measure - Deer","qty":1,"revenue":18,"category":"Non-Food"},{"name":"Wooven Tape Measure - Elephant","qty":1,"revenue":14,"category":"Non-Food"},{"name":"Bougie Bottle Water Bottle - Equestri II","qty":1,"revenue":48,"category":"Non-Food"},{"name":"Random Dogs Pet Bowl","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Wellspring - Activity Book - 365 Quizzes for Curious Kids","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Small Blue White Pitcher","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Paper Mirchi Card","qty":1,"revenue":5.25,"category":"Non-Food"},{"name":"Emily Lex Watercolor Paint Set","qty":1,"revenue":18,"category":"Non-Food"},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Jeannine's 16 oz Travel Mug","qty":1,"revenue":45,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Elseware Colored Pencils - Tall","qty":1,"revenue":7,"category":"Non-Food"},{"name":"Wild Friends Activity Book","qty":1,"revenue":8,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
