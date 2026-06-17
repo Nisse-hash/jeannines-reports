@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-16</div>
-      <div class="rpt-ts">Generated Jun 16, 2026, 5:15 PM PT</div>
+      <div class="rpt-ts">Generated Jun 16, 2026, 10:30 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-16" onchange="goToDate(this.value)">
@@ -166,7 +166,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
-      <div class="metric-value">219.5h</div>
+      <div class="metric-value">233.4h</div>
     </div>
   </div>
   </div>
@@ -813,11 +813,16 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     
     <div class="alert-card ot-card">
-      <div class="alert-title">Overtime — 1 employee</div>
+      <div class="alert-title">Overtime — 2 employees</div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
         <tbody>
     <tr class="even">
+      <td><span class="emp-name">Carmen Medina</span><br><span class="wage-tag">$19.00/h</span></td>
+      <td>9.8h &nbsp;<span class="ot ot-pill">+1.85h OT</span></td>
+      <td class="extra-cost">+$17.58</td>
+    </tr>
+    <tr class="">
       <td><span class="emp-name">Fabian Ascencion</span><br><span class="wage-tag">$19.00/h</span></td>
       <td>8h &nbsp;<span class="ot ot-pill">+1min OT</span></td>
       <td class="extra-cost">+$0.19</td>
@@ -826,11 +831,16 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     
     <div class="alert-card break-card">
-      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <div class="alert-title">Missed Breaks — 2 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
         <tbody>
     <tr class="even">
+      <td>Carmen Medina</td>
+      <td><strong>9.8h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
       <td>Mateo Romero</td>
       <td><strong>6h shift</strong></td>
       <td class="missed">No break recorded</td>
@@ -848,11 +858,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
-    const revenue  = [0,0,0,942.23,960.52,1559.11,1896.54,1733.32,2223.73,1432.44,1495.71,1385.28,1457.62,1311.07,324.35,25.97,0,0,114.9,0,0,0,0];
-    const headcount= [4,5,9,11,14,14,14,14,14,14,14,14,14,14,13,12,10,6,5,3,1,1,0];
-    const labor    = [4.02,43.2,72.21,101.57,125.22,128.2,128.2,128.2,128.2,128.2,128.2,128.2,128.2,119.8,115.55,105.27,85.06,52.37,26.08,21.44,8.45,0.19,0];
-    const staff    = [["Adrian Perez Avalos","Fabian Ascencion","Juan Moran","Lalo Mendoza"],["Adrian Perez Avalos","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Leidi Gantes"],["Adrian Perez Avalos","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Leidi Gantes","Mateo Romero","Nadia De Leon Carranza"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Mateo Romero","Nadia De Leon Carranza"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Cornelio Aquino","Fabian Ascencion","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Cornelio Aquino","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Cornelio Aquino","Patricia Villalas"],["Patricia Villalas"],["Patricia Villalas"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM"];
+    const revenue  = [0,0,0,942.23,960.52,1559.11,1896.54,1733.32,2223.73,1432.44,1495.71,1385.28,1457.62,1311.07,324.35,25.97,0,0,114.9,0,0,0,0,0,0,0,0];
+    const headcount= [4,5,9,12,15,15,15,15,15,15,15,15,15,15,14,13,11,8,7,5,3,3,2,1,1,1,0];
+    const labor    = [4.02,43.2,72.21,110.1,134.72,137.7,137.7,137.7,137.7,137.7,137.7,137.7,137.7,129.3,125.05,114.77,94.56,69.45,44.03,39.39,26.4,18.14,15.97,8.45,8.45,1.58,0];
+    const staff    = [["Adrian Perez Avalos","Fabian Ascencion","Juan Moran","Lalo Mendoza"],["Adrian Perez Avalos","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Leidi Gantes"],["Adrian Perez Avalos","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Leidi Gantes","Mateo Romero","Nadia De Leon Carranza"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Mateo Romero","Nadia De Leon Carranza"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Nadia De Leon Carranza","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Mateo Romero","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Javier Valenzo","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Patricia Villalas"],["Adrian Perez Avalos","Brayan Gonzalez","Carmen Medina","Cornelio Aquino","David Sanchez Esteban","Fabian Ascencion","Jose Murillo Aguirre","Juan Moran","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Carmen Medina","Cesar Cruz Morales","Cornelio Aquino","Fabian Ascencion","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Carmen Medina","Cesar Cruz Morales","Cornelio Aquino","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Carmen Medina","Cesar Cruz Morales","Cornelio Aquino","Patricia Villalas"],["Carmen Medina","Cesar Cruz Morales","Patricia Villalas"],["Carmen Medina","Cesar Cruz Morales","Patricia Villalas"],["Carmen Medina","Cesar Cruz Morales"],["Cesar Cruz Morales"],["Cesar Cruz Morales"],["Cesar Cruz Morales"],[]];
     const panel    = document.getElementById('sp-chart-2');
     let lastIdx    = -1;
 
@@ -931,7 +941,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">98.2h</div>
+      <div class="metric-value">112.1h</div>
     </div>
   </div>
 
@@ -1347,17 +1357,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>14</td>
-      <td>Katie Doodle Mother's Day Card</td>
-      
-      <td>1</td>
-      <td>$6.00</td>
-    </tr>
-    <tr class="even">
-      <td>15</td>
       <td>Multipet Mr. Bill Dog Toy</td>
       
       <td>1</td>
       <td>$13.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Katie Doodle Mother's Day Card</td>
+      
+      <td>1</td>
+      <td>$6.00</td>
     </tr>
     <tr class="">
       <td>16</td>
@@ -1389,15 +1399,15 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>20</td>
-      <td>Santa Barbara Cap - Denim</td>
+      <td>CA Poppies Zippered Pouch</td>
       
       <td>1</td>
-      <td>$35.00</td>
+      <td>$16.00</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Wooven Tape Measure - Bee","qty":3,"revenue":39},{"name":"Skel & Co Card","qty":2,"revenue":12},{"name":"Crooked Halo Card","qty":2,"revenue":12},{"name":"Living Goods Random Dogs Mug","qty":2,"revenue":40},{"name":"Living Goods Random Dog Coaster","qty":2,"revenue":20},{"name":"Abigail Jayne Card","qty":1,"revenue":6},{"name":"Talking Tables - Happy Birthday Candle","qty":1,"revenue":9.5},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28},{"name":"Wooven Tape Measure General","qty":1,"revenue":13},{"name":"Heart in CA Mug","qty":1,"revenue":24},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6},{"name":"Expression Design MD Card","qty":1,"revenue":6},{"name":"Greeting Card","qty":1,"revenue":6},{"name":"Katie Doodle Mother's Day Card","qty":1,"revenue":6},{"name":"Multipet Mr. Bill Dog Toy","qty":1,"revenue":13},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"SB Cap - Pink","qty":1,"revenue":35},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35}];
+      const raw = [{"name":"Wooven Tape Measure - Bee","qty":3,"revenue":39},{"name":"Skel & Co Card","qty":2,"revenue":12},{"name":"Crooked Halo Card","qty":2,"revenue":12},{"name":"Living Goods Random Dogs Mug","qty":2,"revenue":40},{"name":"Living Goods Random Dog Coaster","qty":2,"revenue":20},{"name":"Abigail Jayne Card","qty":1,"revenue":6},{"name":"Talking Tables - Happy Birthday Candle","qty":1,"revenue":9.5},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28},{"name":"Wooven Tape Measure General","qty":1,"revenue":13},{"name":"Heart in CA Mug","qty":1,"revenue":24},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6},{"name":"Expression Design MD Card","qty":1,"revenue":6},{"name":"Greeting Card","qty":1,"revenue":6},{"name":"Multipet Mr. Bill Dog Toy","qty":1,"revenue":13},{"name":"Katie Doodle Mother's Day Card","qty":1,"revenue":6},{"name":"Trucker Hat - Navy","qty":1,"revenue":35},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"SB Cap - Pink","qty":1,"revenue":35},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16}];
       window['items-4'] = raw;
       setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
     })();
@@ -1566,17 +1576,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>23</td>
-      <td>Katie Doodle Mother's Day Card</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$6.00</td>
-    </tr>
-    <tr class=" ra-hidden" style="display:none">
-      <td>24</td>
       <td>Multipet Mr. Bill Dog Toy</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$13.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>24</td>
+      <td>Katie Doodle Mother's Day Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$6.00</td>
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>25</td>
@@ -1608,17 +1618,17 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>29</td>
-      <td>Santa Barbara Cap - Denim</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$35.00</td>
-    </tr>
-    <tr class=" ra-hidden" style="display:none">
-      <td>30</td>
       <td>CA Poppies Zippered Pouch</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$16.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>30</td>
+      <td>Santa Barbara Cap - Denim</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$35.00</td>
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>31</td>
@@ -1667,7 +1677,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       })()" style="background:transparent;border:1px solid #C9A84C44;color:#C9A84C;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 35 items ↓</button>
     </div>
     <script>
-    (function(){ window['items-5'] = [{"name":"Jeannine's Granola Bag LG","qty":7,"revenue":108.5,"category":"Food"},{"name":"Dog Bones (3)","qty":6,"revenue":36,"category":"Food"},{"name":"High Protein Granola","qty":3,"revenue":46.5,"category":"Food"},{"name":"Wooven Tape Measure - Bee","qty":3,"revenue":39,"category":"Non-Food"},{"name":"Ojai Jam","qty":2,"revenue":36,"category":"Food"},{"name":"Skel & Co Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Crooked Halo Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Living Goods Random Dogs Mug","qty":2,"revenue":40,"category":"Non-Food"},{"name":"Living Goods Random Dog Coaster","qty":2,"revenue":20,"category":"Non-Food"},{"name":"Beecher's Gluten Free Crackers - Sea Salt","qty":1,"revenue":15,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Wildflower Honey 6 oz","qty":1,"revenue":15,"category":"Food"},{"name":"Chocolate Malt Balls","qty":1,"revenue":5,"category":"Food"},{"name":"Abigail Jayne Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Talking Tables - Happy Birthday Candle","qty":1,"revenue":9.5,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28,"category":"Non-Food"},{"name":"Wooven Tape Measure General","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Heart in CA Mug","qty":1,"revenue":24,"category":"Non-Food"},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Expression Design MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Greeting Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Katie Doodle Mother's Day Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Multipet Mr. Bill Dog Toy","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11,"category":"Non-Food"},{"name":"SB Cap - Pink","qty":1,"revenue":35,"category":"Non-Food"},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35,"category":"Non-Food"},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16,"category":"Non-Food"},{"name":"BluGift Poppies","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Calypso Card - Middle age Sleep","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Eco Kids Beeswax Crayons","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"}]; })();
+    (function(){ window['items-5'] = [{"name":"Jeannine's Granola Bag LG","qty":7,"revenue":108.5,"category":"Food"},{"name":"Dog Bones (3)","qty":6,"revenue":36,"category":"Food"},{"name":"High Protein Granola","qty":3,"revenue":46.5,"category":"Food"},{"name":"Wooven Tape Measure - Bee","qty":3,"revenue":39,"category":"Non-Food"},{"name":"Ojai Jam","qty":2,"revenue":36,"category":"Food"},{"name":"Skel & Co Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Crooked Halo Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Living Goods Random Dogs Mug","qty":2,"revenue":40,"category":"Non-Food"},{"name":"Living Goods Random Dog Coaster","qty":2,"revenue":20,"category":"Non-Food"},{"name":"Beecher's Gluten Free Crackers - Sea Salt","qty":1,"revenue":15,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Jeannine's Wildflower Honey 6 oz","qty":1,"revenue":15,"category":"Food"},{"name":"Chocolate Malt Balls","qty":1,"revenue":5,"category":"Food"},{"name":"Abigail Jayne Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Talking Tables - Happy Birthday Candle","qty":1,"revenue":9.5,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":1,"revenue":28,"category":"Non-Food"},{"name":"Wooven Tape Measure General","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Heart in CA Mug","qty":1,"revenue":24,"category":"Non-Food"},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Expression Design MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Greeting Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Multipet Mr. Bill Dog Toy","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Katie Doodle Mother's Day Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Trucker Hat - Navy","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11,"category":"Non-Food"},{"name":"SB Cap - Pink","qty":1,"revenue":35,"category":"Non-Food"},{"name":"World Buyers Tube Matchbox","qty":1,"revenue":4,"category":"Non-Food"},{"name":"CA Poppies Zippered Pouch","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35,"category":"Non-Food"},{"name":"BluGift Poppies","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Calypso Card - Middle age Sleep","qty":1,"revenue":6,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Eco Kids Beeswax Crayons","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
