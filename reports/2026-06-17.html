@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-17</div>
-      <div class="rpt-ts">Generated Jun 17, 2026, 5:00 PM PT</div>
+      <div class="rpt-ts">Generated Jun 17, 2026, 10:30 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-17" onchange="goToDate(this.value)">
@@ -166,7 +166,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
-      <div class="metric-value">256h</div>
+      <div class="metric-value">268.6h</div>
     </div>
   </div>
   </div>
@@ -273,7 +273,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   })();
   </script>
 
-    
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 62°F">7am</th><th title="Overcast 63°F">8am</th><th title="Overcast 63°F">9am</th><th title="Overcast 64°F">10am</th><th title="Overcast 65°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Overcast 68°F">1pm</th><th title="Partly Cloudy 68°F">2pm</th><th title="Overcast 70°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 62°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 67°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 68°F">🌥️</td><td title="Overcast 70°F">☁️</td></tr></tbody></table>
+  </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
@@ -566,11 +569,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
-    const revenue  = [0,0,0,394.89,466.68,615.17,802.41,802.56,1718.54,784.44,904.46,724.39,890.74,883.88,998.55,445.75,10.15,9.83,0,0,0,0,0];
-    const headcount= [2,3,7,9,9,10,10,10,11,11,11,11,11,10,10,8,8,8,7,5,3,1,0];
-    const labor    = [1.49,27.13,49.16,65.81,80.3,87.38,90.55,90.55,96.85,99,99,99,98.27,90.75,75.28,73.85,73.85,69.63,58.19,34.78,19.21,6.06,0];
-    const staff    = [["Kevin Camacho Jimenez","Martin Montanez"],["Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Roberto Munoz"],["Donna Mudge","Jorge Ortiz Victoria","Roberto Munoz"],["Donna Mudge"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM","7:30","8PM","8:30","9PM","9:30","10PM","10:30"];
+    const revenue  = [0,0,0,394.89,466.68,615.17,802.41,802.56,1718.54,784.44,904.46,724.39,890.74,883.88,998.55,445.75,10.15,9.83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    const headcount= [2,3,7,9,9,10,10,10,11,11,11,11,11,10,10,8,8,8,7,5,3,2,2,2,2,2,2,2,2,2,1,1,1,0];
+    const labor    = [1.49,27.13,49.16,65.81,80.3,87.38,90.55,90.55,96.85,99,99,99,98.27,90.75,75.28,73.85,73.85,69.63,58.19,34.78,19.21,6.06,7.71,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,8.45,7.04,0];
+    const staff    = [["Kevin Camacho Jimenez","Martin Montanez"],["Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["David Lino de Jesus","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Kevin Camacho Jimenez","Leonardo Garcia","Roberto Munoz"],["Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Roberto Munoz"],["Donna Mudge","Jorge Ortiz Victoria","Roberto Munoz"],["Donna Mudge","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano","Nicolas Chopin"],["Alejandro Segoviano"],["Alejandro Segoviano"],["Alejandro Segoviano"],[]];
     const panel    = document.getElementById('sp-chart-1');
     let lastIdx    = -1;
 
@@ -621,7 +624,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   })();
   </script>
 
-    
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 62°F">7am</th><th title="Overcast 63°F">8am</th><th title="Overcast 63°F">9am</th><th title="Overcast 64°F">10am</th><th title="Overcast 65°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Overcast 68°F">1pm</th><th title="Partly Cloudy 68°F">2pm</th><th title="Overcast 70°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 62°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 67°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 68°F">🌥️</td><td title="Overcast 70°F">☁️</td></tr></tbody></table>
+  </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
@@ -646,7 +652,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">78h</div>
+      <div class="metric-value">87h</div>
     </div>
   </div>
 
@@ -884,11 +890,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
-    const revenue  = [0,0,0,1107.71,1086.03,929.52,1465.93,1674.74,1637.48,1764.33,1656.79,1573.28,1659.08,937.05,574.89,180.99,10.11,9.83,0,10.38,0,0,0];
-    const headcount= [3,7,9,12,18,19,18,18,18,18,18,18,18,16,15,15,12,9,6,5,3,2,0];
-    const labor    = [13.5,60.74,74.21,89.45,130.91,158.46,159.45,159.45,159.45,159.45,159.45,159.45,142.81,134.39,134.1,120.14,98.63,59.78,43.35,37.41,25.75,6.82,0];
-    const staff    = [["Adrian Perez Avalos","Fernando Amaro Lozano","Jose Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Fernando Amaro Lozano","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","David Sanchez Esteban","Fernando Amaro Lozano","Jacob Howard","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Roberto Rendon"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Maria Gonzalez","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Maria Gonzalez","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Maria Gonzalez","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","Jacob Howard","Leidi Gantes","Roberto Rendon","Yamilcen Morin"],["Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","Jacob Howard","Roberto Rendon","Yamilcen Morin"],["Cecilia Martinez Machorro","Claudio Victoria","Jacob Howard","Roberto Rendon","Yamilcen Morin"],["Cecilia Martinez Machorro","Jacob Howard","Yamilcen Morin"],["Cecilia Martinez Machorro","Yamilcen Morin"],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30"];
+    const revenue  = [0,0,0,1107.71,1086.03,929.52,1465.93,1674.74,1637.48,1764.33,1656.79,1573.28,1659.08,937.05,574.89,180.99,10.11,9.83,0,10.38,0,0,0,0,0,0];
+    const headcount= [3,7,9,12,18,19,18,18,18,18,18,18,18,16,15,15,12,10,7,6,4,3,1,1,1,0];
+    const labor    = [13.5,60.74,74.21,89.45,130.91,158.46,159.45,159.45,159.45,159.45,159.45,159.45,142.81,134.39,134.1,120.14,98.63,67.51,51.8,45.86,34.2,15.27,8.45,8.45,3.43,0];
+    const staff    = [["Adrian Perez Avalos","Fernando Amaro Lozano","Jose Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Fernando Amaro Lozano","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","David Sanchez Esteban","Fernando Amaro Lozano","Jacob Howard","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Roberto Rendon"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Maria Gonzalez","Nanci Quinnear","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Maria Gonzalez","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Fernando Amaro Lozano","Isael Ramirez","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Maria Gonzalez","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Claudio Victoria","David Sanchez Esteban","Jacob Howard","Javier Valenzo","Jose Martinez","Leidi Gantes","Roberto Rendon","Yamilcen Morin"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Cecilia Martinez Machorro","Cesar Cruz Morales","Claudio Victoria","Jacob Howard","Leidi Gantes","Roberto Rendon","Yamilcen Morin"],["Brayan Gonzalez","Cecilia Martinez Machorro","Cesar Cruz Morales","Claudio Victoria","Jacob Howard","Roberto Rendon","Yamilcen Morin"],["Cecilia Martinez Machorro","Cesar Cruz Morales","Claudio Victoria","Jacob Howard","Roberto Rendon","Yamilcen Morin"],["Cecilia Martinez Machorro","Cesar Cruz Morales","Jacob Howard","Yamilcen Morin"],["Cecilia Martinez Machorro","Cesar Cruz Morales","Yamilcen Morin"],["Cesar Cruz Morales"],["Cesar Cruz Morales"],["Cesar Cruz Morales"],[]];
     const panel    = document.getElementById('sp-chart-2');
     let lastIdx    = -1;
 
@@ -939,7 +945,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   })();
   </script>
 
-    
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 62°F">7am</th><th title="Overcast 63°F">8am</th><th title="Overcast 63°F">9am</th><th title="Overcast 64°F">10am</th><th title="Overcast 65°F">11am</th><th title="Overcast 67°F">12pm</th><th title="Overcast 68°F">1pm</th><th title="Partly Cloudy 68°F">2pm</th><th title="Overcast 70°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 62°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 63°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 67°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Partly Cloudy 68°F">🌥️</td><td title="Overcast 70°F">☁️</td></tr></tbody></table>
+  </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
@@ -964,7 +973,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">122.5h</div>
+      <div class="metric-value">126.1h</div>
     </div>
   </div>
 
@@ -1355,14 +1364,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>11</td>
-      <td>Mac & Mo Card</td>
+      <td>Katie Doodle Card - Bad Influence</td>
       
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="">
       <td>12</td>
-      <td>Katie Doodle Card - Bad Influence</td>
+      <td>Mac & Mo Card</td>
       
       <td>1</td>
       <td>$6.00</td>
@@ -1411,14 +1420,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>19</td>
-      <td>Skel & Co Card</td>
+      <td>Calypso Card - Bath Bar</td>
       
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="">
       <td>20</td>
-      <td>Calypso Card - Bath Bar</td>
+      <td>Skel & Co Card</td>
       
       <td>1</td>
       <td>$6.00</td>
@@ -1426,7 +1435,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Katie Doodle Mother's Day Card","qty":4,"revenue":24},{"name":"Emily Lex Watercolor Workbook","qty":3,"revenue":84},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54},{"name":"Calypso FD Card - GOAT","qty":2,"revenue":12},{"name":"Mini Card","qty":2,"revenue":8},{"name":"Large SB Card","qty":2,"revenue":13},{"name":"Elseware Paintbrushes","qty":1,"revenue":10},{"name":"Matchbox","qty":1,"revenue":8},{"name":"Calypso Card - Man Legend","qty":1,"revenue":6},{"name":"Crooked Halo Card","qty":1,"revenue":6},{"name":"Mac & Mo Card","qty":1,"revenue":6},{"name":"Katie Doodle Card - Bad Influence","qty":1,"revenue":6},{"name":"Wellspring - My Sticker Paintings - Horses","qty":1,"revenue":10},{"name":"Small Blue White Pitcher","qty":1,"revenue":15},{"name":"Toasty Morning Mug","qty":1,"revenue":40},{"name":"Jeannine's Quarter Zip - Carbon Blue S","qty":1,"revenue":65},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Snap Attack Toy","qty":1,"revenue":7.32},{"name":"Skel & Co Card","qty":1,"revenue":6},{"name":"Calypso Card - Bath Bar","qty":1,"revenue":6}];
+      const raw = [{"name":"Katie Doodle Mother's Day Card","qty":4,"revenue":24},{"name":"Emily Lex Watercolor Workbook","qty":3,"revenue":84},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54},{"name":"Calypso FD Card - GOAT","qty":2,"revenue":12},{"name":"Mini Card","qty":2,"revenue":8},{"name":"Large SB Card","qty":2,"revenue":13},{"name":"Elseware Paintbrushes","qty":1,"revenue":10},{"name":"Matchbox","qty":1,"revenue":8},{"name":"Calypso Card - Man Legend","qty":1,"revenue":6},{"name":"Crooked Halo Card","qty":1,"revenue":6},{"name":"Katie Doodle Card - Bad Influence","qty":1,"revenue":6},{"name":"Mac & Mo Card","qty":1,"revenue":6},{"name":"Wellspring - My Sticker Paintings - Horses","qty":1,"revenue":10},{"name":"Small Blue White Pitcher","qty":1,"revenue":15},{"name":"Toasty Morning Mug","qty":1,"revenue":40},{"name":"Jeannine's Quarter Zip - Carbon Blue S","qty":1,"revenue":65},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30},{"name":"Snap Attack Toy","qty":1,"revenue":7.32},{"name":"Calypso Card - Bath Bar","qty":1,"revenue":6},{"name":"Skel & Co Card","qty":1,"revenue":6}];
       window['items-4'] = raw;
       setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
     })();
@@ -1560,14 +1569,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="" >
       <td>18</td>
-      <td>Mac & Mo Card</td>
+      <td>Katie Doodle Card - Bad Influence</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even" >
       <td>19</td>
-      <td>Katie Doodle Card - Bad Influence</td>
+      <td>Mac & Mo Card</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
@@ -1616,14 +1625,14 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>26</td>
-      <td>Skel & Co Card</td>
+      <td>Calypso Card - Bath Bar</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>27</td>
-      <td>Calypso Card - Bath Bar</td>
+      <td>Skel & Co Card</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$6.00</td>
@@ -1675,7 +1684,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       })()" style="background:transparent;border:1px solid #C9A84C44;color:#C9A84C;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 32 items ↓</button>
     </div>
     <script>
-    (function(){ window['items-5'] = [{"name":"Ojai Jam","qty":4,"revenue":72,"category":"Food"},{"name":"Dog Bones (3)","qty":4,"revenue":24,"category":"Food"},{"name":"Katie Doodle Mother's Day Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Emily Lex Watercolor Workbook","qty":3,"revenue":84,"category":"Non-Food"},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54,"category":"Non-Food"},{"name":"Calypso FD Card - GOAT","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Mini Card","qty":2,"revenue":8,"category":"Non-Food"},{"name":"Large SB Card","qty":2,"revenue":13,"category":"Non-Food"},{"name":"Beecher's Gluten Free Crackers - Sea Salt","qty":1,"revenue":15,"category":"Food"},{"name":"Chocolate Malt Balls","qty":1,"revenue":5,"category":"Food"},{"name":"Mint Chocolate Cookie Bites","qty":1,"revenue":5.5,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Elseware Paintbrushes","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Matchbox","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Calypso Card - Man Legend","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Crooked Halo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Mac & Mo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Katie Doodle Card - Bad Influence","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Wellspring - My Sticker Paintings - Horses","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Small Blue White Pitcher","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":1,"revenue":40,"category":"Non-Food"},{"name":"Jeannine's Quarter Zip - Carbon Blue S","qty":1,"revenue":65,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Snap Attack Toy","qty":1,"revenue":7.32,"category":"Non-Food"},{"name":"Skel & Co Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Calypso Card - Bath Bar","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Bana","qty":1,"revenue":1.83,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Jeannine's Crewneck Sweatshirt - Dk Navy L","qty":1,"revenue":50,"category":"Non-Food"}]; })();
+    (function(){ window['items-5'] = [{"name":"Ojai Jam","qty":4,"revenue":72,"category":"Food"},{"name":"Dog Bones (3)","qty":4,"revenue":24,"category":"Food"},{"name":"Katie Doodle Mother's Day Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Emily Lex Watercolor Workbook","qty":3,"revenue":84,"category":"Non-Food"},{"name":"Grabie 12 Watercolor Set","qty":3,"revenue":54,"category":"Non-Food"},{"name":"Calypso FD Card - GOAT","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Mini Card","qty":2,"revenue":8,"category":"Non-Food"},{"name":"Large SB Card","qty":2,"revenue":13,"category":"Non-Food"},{"name":"Beecher's Gluten Free Crackers - Sea Salt","qty":1,"revenue":15,"category":"Food"},{"name":"Chocolate Malt Balls","qty":1,"revenue":5,"category":"Food"},{"name":"Mint Chocolate Cookie Bites","qty":1,"revenue":5.5,"category":"Food"},{"name":"Banana","qty":1,"revenue":2,"category":"Food"},{"name":"Elseware Paintbrushes","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Matchbox","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Calypso Card - Man Legend","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Crooked Halo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Katie Doodle Card - Bad Influence","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Mac & Mo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Wellspring - My Sticker Paintings - Horses","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Small Blue White Pitcher","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":1,"revenue":40,"category":"Non-Food"},{"name":"Jeannine's Quarter Zip - Carbon Blue S","qty":1,"revenue":65,"category":"Non-Food"},{"name":"9 Bear Jumbo Tote","qty":1,"revenue":30,"category":"Non-Food"},{"name":"Snap Attack Toy","qty":1,"revenue":7.32,"category":"Non-Food"},{"name":"Calypso Card - Bath Bar","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Skel & Co Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Bana","qty":1,"revenue":1.83,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Sweet Bippy MD Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Jeannine's Crewneck Sweatshirt - Dk Navy L","qty":1,"revenue":50,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
