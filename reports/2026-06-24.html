@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-24</div>
-      <div class="rpt-ts">Generated Jun 24, 2026, 12:18 PM PT</div>
+      <div class="rpt-ts">Generated Jun 24, 2026, 7:12 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-24" onchange="goToDate(this.value)">
@@ -146,27 +146,27 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$23,173.62</div>
+      <div class="metric-value">$27,552.45</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$23,173.62</div>
+      <div class="metric-value">$27,552.45</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">622</div>
+      <div class="metric-value">773</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$37.26</div>
+      <div class="metric-value">$35.64</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$2,368.78</div>
+      <div class="metric-value">$2,855.37</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
-      <div class="metric-value">0h</div>
+      <div class="metric-value">278.7h</div>
     </div>
   </div>
   </div>
@@ -175,7 +175,38 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="location-block">
     <h2 class="loc-name">Goleta</h2>
 
-    <div class="all-clear">✓ No overtime &nbsp;·&nbsp; ✓ All breaks taken</div>
+    
+    
+    <div class="alert-card ot-card">
+      <div class="alert-title">Overtime — 2 employees</div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Alfonso Martinez</span><br><span class="wage-tag">$19.00/h</span></td>
+      <td>8.6h &nbsp;<span class="ot ot-pill">+35min OT</span></td>
+      <td class="extra-cost">+$5.51</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Wilson Pelaez Garcia</span><br><span class="wage-tag">$19.00/h</span></td>
+      <td>8.4h &nbsp;<span class="ot ot-pill">+24min OT</span></td>
+      <td class="extra-cost">+$3.80</td>
+    </tr></tbody>
+      </table>
+    </div>
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Jaymie Froelicher</td>
+      <td><strong>6h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
 
     
   <div class="chart-outer">
@@ -187,11 +218,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30"];
-    const revenue  = [0,0,0,105.7,345.18,1495.37,343.18,185.43,161.62,220.06,758.54,588.9,132.12,0];
-    const headcount= [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    const labor    = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    const staff    = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM"];
+    const revenue  = [0,0,0,105.7,345.18,385.48,290.87,185.43,161.62,188.19,745.49,517.37,258.19,429.62,170.01,74.05,0,1259.62,0,0,0,0,0];
+    const headcount= [2,3,4,5,6,7,8,8,8,8,8,8,8,7,7,7,7,6,4,1,1,1,0];
+    const labor    = [10.48,27.75,35.83,38.24,54.1,57.66,68.98,71.35,71.35,71.35,71.35,71.35,70.57,62.9,62.9,62.9,55.05,51.04,19.48,8.5,8.5,2.29,0];
+    const staff    = [["Alfonso Martinez","Wilson Pelaez Garcia"],["Alfonso Martinez","Eduardo Paredes","Wilson Pelaez Garcia"],["Alfonso Martinez","Eduardo Paredes","Kyle Rivas","Wilson Pelaez Garcia"],["Alfonso Martinez","Eduardo Paredes","Kyle Rivas","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Kyle Rivas","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Eduardo Paredes","Maximiliano Hernandez","Oscar Zamora","Wilson Pelaez Garcia"],["Alfonso Martinez","Benito Gantes","Maximiliano Hernandez","Wilson Pelaez Garcia"],["Benito Gantes"],["Benito Gantes"],["Benito Gantes"],[]];
     const panel    = document.getElementById('sp-chart-0');
     let lastIdx    = -1;
 
@@ -244,33 +275,33 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div class="weather-strip">
     <div class="weather-loc">Weather &mdash; 1 State St</div>
-    <table class="weather-table"><thead><tr><th title="Overcast 60°F">7am</th><th title="Overcast 64°F">8am</th><th title="Overcast 66°F">9am</th><th title="Overcast 69°F">10am</th><th title="Partly Cloudy 69°F">11am</th><th title="Partly Cloudy 71°F">12pm</th><th title="Mostly Clear 71°F">1pm</th><th title="Mostly Clear 70°F">2pm</th><th title="Mostly Clear 71°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 60°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 69°F">☁️</td><td title="Partly Cloudy 69°F">🌥️</td><td title="Partly Cloudy 71°F">🌥️</td><td title="Mostly Clear 71°F">🌤️</td><td title="Mostly Clear 70°F">🌤️</td><td title="Mostly Clear 71°F">🌤️</td></tr></tbody></table>
+    <table class="weather-table"><thead><tr><th title="Overcast 60°F">7am</th><th title="Overcast 64°F">8am</th><th title="Overcast 66°F">9am</th><th title="Overcast 69°F">10am</th><th title="Partly Cloudy 71°F">11am</th><th title="Overcast 73°F">12pm</th><th title="Overcast 73°F">1pm</th><th title="Overcast 72°F">2pm</th><th title="Clear 72°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 60°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 69°F">☁️</td><td title="Partly Cloudy 71°F">🌥️</td><td title="Overcast 73°F">☁️</td><td title="Overcast 73°F">☁️</td><td title="Overcast 72°F">☁️</td><td title="Clear 72°F">☀️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$3,817.69</div>
+      <div class="metric-value">$4,480.94</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$3,817.69</div>
+      <div class="metric-value">$4,480.94</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">117</div>
+      <div class="metric-value">139</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$32.63</div>
+      <div class="metric-value">$32.24</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$269.99</div>
+      <div class="metric-value">$335.80</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">0h</div>
+      <div class="metric-value">55.9h</div>
     </div>
   </div>
 
@@ -288,36 +319,36 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>1</td>
       <td>Scone</td>
       
-      <td>79</td>
-      <td>$316.00</td>
+      <td>81</td>
+      <td>$324.00</td>
     </tr>
     <tr class="">
       <td>2</td>
       <td>Breakfast Burrito</td>
       
-      <td>51</td>
-      <td>$954.75</td>
+      <td>53</td>
+      <td>$990.75</td>
     </tr>
     <tr class="even">
       <td>3</td>
+      <td>Drip Coffee</td>
+      
+      <td>18</td>
+      <td>$82.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
       <td>Latte</td>
       
       <td>16</td>
       <td>$98.50</td>
     </tr>
-    <tr class="">
-      <td>4</td>
-      <td>Drip Coffee</td>
-      
-      <td>15</td>
-      <td>$72.00</td>
-    </tr>
     <tr class="even">
       <td>5</td>
       <td>Cinnamon Roll</td>
       
-      <td>10</td>
-      <td>$60.00</td>
+      <td>11</td>
+      <td>$66.00</td>
     </tr>
     <tr class="">
       <td>6</td>
@@ -342,99 +373,117 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even">
       <td>9</td>
-      <td>Side Pork Sausage Links</td>
+      <td>Fruit</td>
       
       <td>8</td>
       <td>$40.00</td>
     </tr>
     <tr class="">
       <td>10</td>
-      <td>Fruit</td>
+      <td>Side Pork Sausage Links</td>
       
       <td>8</td>
       <td>$40.00</td>
     </tr>
     <tr class="even">
       <td>11</td>
+      <td>Orange Juice Small</td>
+      
+      <td>7</td>
+      <td>$45.50</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
       <td>Pancake Breakfast</td>
       
       <td>7</td>
       <td>$143.00</td>
     </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Iced Tea</td>
+      
+      <td>7</td>
+      <td>$35.00</td>
+    </tr>
     <tr class="">
-      <td>12</td>
+      <td>14</td>
       <td>American Breakfast</td>
       
       <td>6</td>
       <td>$115.75</td>
     </tr>
     <tr class="even">
-      <td>13</td>
+      <td>15</td>
       <td>Citrus Olive Oil Cake</td>
       
       <td>6</td>
       <td>$30.00</td>
     </tr>
     <tr class="">
-      <td>14</td>
-      <td>Orange Juice Small</td>
+      <td>16</td>
+      <td>Chilaquiles</td>
       
       <td>6</td>
-      <td>$39.00</td>
+      <td>$114.50</td>
     </tr>
     <tr class="even">
-      <td>15</td>
+      <td>17</td>
       <td>Chai Latte</td>
       
       <td>6</td>
       <td>$41.75</td>
     </tr>
     <tr class="">
-      <td>16</td>
+      <td>18</td>
       <td>GF Muffin</td>
       
       <td>6</td>
       <td>$42.00</td>
     </tr>
     <tr class="even">
-      <td>17</td>
-      <td>Lemon Poppyseed Pancake Breakfast</td>
-      
-      <td>5</td>
-      <td>$105.00</td>
-    </tr>
-    <tr class="">
-      <td>18</td>
-      <td>Matcha Latte</td>
-      
-      <td>5</td>
-      <td>$36.50</td>
-    </tr>
-    <tr class="even">
       <td>19</td>
-      <td>Havana Latte</td>
+      <td>Santa Barbara Scramble</td>
       
       <td>5</td>
-      <td>$35.50</td>
+      <td>$96.75</td>
     </tr>
     <tr class="">
       <td>20</td>
-      <td>Butter Croissant</td>
+      <td>Challah French Toast Breakfast</td>
       
-      <td>4</td>
-      <td>$20.00</td>
+      <td>5</td>
+      <td>$102.00</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Scone","qty":79,"revenue":316,"category":""},{"name":"Breakfast Burrito","qty":51,"revenue":954.75,"category":""},{"name":"Latte","qty":16,"revenue":98.5,"category":""},{"name":"Drip Coffee","qty":15,"revenue":72,"category":""},{"name":"Cinnamon Roll","qty":10,"revenue":60,"category":""},{"name":"Side 2 Eggs","qty":9,"revenue":63,"category":""},{"name":"Waffle Breakfast","qty":9,"revenue":187,"category":""},{"name":"Avocado Toast","qty":9,"revenue":75,"category":""},{"name":"Side Pork Sausage Links","qty":8,"revenue":40,"category":""},{"name":"Fruit","qty":8,"revenue":40,"category":""},{"name":"Pancake Breakfast","qty":7,"revenue":143,"category":""},{"name":"American Breakfast","qty":6,"revenue":115.75,"category":""},{"name":"Citrus Olive Oil Cake","qty":6,"revenue":30,"category":""},{"name":"Orange Juice Small","qty":6,"revenue":39,"category":""},{"name":"Chai Latte","qty":6,"revenue":41.75,"category":""},{"name":"GF Muffin","qty":6,"revenue":42,"category":""},{"name":"Lemon Poppyseed Pancake Breakfast","qty":5,"revenue":105,"category":""},{"name":"Matcha Latte","qty":5,"revenue":36.5,"category":""},{"name":"Havana Latte","qty":5,"revenue":35.5,"category":""},{"name":"Butter Croissant","qty":4,"revenue":20,"category":""}];
+      const raw = [{"name":"Scone","qty":81,"revenue":324,"category":""},{"name":"Breakfast Burrito","qty":53,"revenue":990.75,"category":""},{"name":"Drip Coffee","qty":18,"revenue":82,"category":""},{"name":"Latte","qty":16,"revenue":98.5,"category":""},{"name":"Cinnamon Roll","qty":11,"revenue":66,"category":""},{"name":"Side 2 Eggs","qty":9,"revenue":63,"category":""},{"name":"Waffle Breakfast","qty":9,"revenue":187,"category":""},{"name":"Avocado Toast","qty":9,"revenue":75,"category":""},{"name":"Fruit","qty":8,"revenue":40,"category":""},{"name":"Side Pork Sausage Links","qty":8,"revenue":40,"category":""},{"name":"Orange Juice Small","qty":7,"revenue":45.5,"category":""},{"name":"Pancake Breakfast","qty":7,"revenue":143,"category":""},{"name":"Iced Tea","qty":7,"revenue":35,"category":""},{"name":"American Breakfast","qty":6,"revenue":115.75,"category":""},{"name":"Citrus Olive Oil Cake","qty":6,"revenue":30,"category":""},{"name":"Chilaquiles","qty":6,"revenue":114.5,"category":""},{"name":"Chai Latte","qty":6,"revenue":41.75,"category":""},{"name":"GF Muffin","qty":6,"revenue":42,"category":""},{"name":"Santa Barbara Scramble","qty":5,"revenue":96.75,"category":""},{"name":"Challah French Toast Breakfast","qty":5,"revenue":102,"category":""}];
       window['items-0'] = raw;
       setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
     })();
     </script>
 
     <h3>Discounts</h3>
-    <p class="empty">No discounts applied.</p>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Manager Discount</td>
+      <td style="text-align:center">2</td>
+      <td style="color:#C9A84C;font-weight:600">$77.00</td>
+    </tr>
+    <tr class="">
+      <td>Employee Discount</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#C9A84C;font-weight:600">$9.50</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$86.50</td>
+      </tr></tfoot>
+    </table>
 
     
   </div>
@@ -442,7 +491,43 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="location-block">
     <h2 class="loc-name">Montecito</h2>
 
-    <div class="all-clear">✓ No overtime &nbsp;·&nbsp; ✓ All breaks taken</div>
+    
+    
+    <div class="alert-card ot-card">
+      <div class="alert-title">Overtime — 2 employees</div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Roberto Munoz</span><br><span class="wage-tag">$24.00/h</span></td>
+      <td>8.3h &nbsp;<span class="ot ot-pill">+16min OT</span></td>
+      <td class="extra-cost">+$3.24</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Donna Mudge</span><br><span class="wage-tag">$20.00/h</span></td>
+      <td>8.3h &nbsp;<span class="ot ot-pill">+19min OT</span></td>
+      <td class="extra-cost">+$3.20</td>
+    </tr></tbody>
+      </table>
+    </div>
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 2 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Martin Montanez</td>
+      <td><strong>6.1h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>Leonardo Garcia</td>
+      <td><strong>6h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
 
     
   <div class="chart-outer">
@@ -454,11 +539,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30"];
-    const revenue  = [0,0,0,349.09,295.65,952.48,718.93,745.39,547.2,642.99,980,1274.13,461.89,0];
-    const headcount= [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    const labor    = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    const staff    = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30"];
+    const revenue  = [0,0,0,349.09,295.65,952.48,704.68,745.39,547.2,621.14,980,1274.13,675.8,370.43,428.72,309.6,188.23,10.92,0,0,0,0];
+    const headcount= [2,3,6,7,9,9,10,10,11,11,11,11,11,11,10,9,9,8,7,3,3,0];
+    const labor    = [1.33,26.1,47.57,65.15,80.18,82.1,89.79,90.55,98.75,99,99,99,99,90.83,83.43,82.3,74.98,73.83,46.55,20.21,9.32,0];
+    const staff    = [["Carlos Hernandez","Martin Montanez"],["Carlos Hernandez","Martin Montanez","Roberto Munoz"],["Carlos Hernandez","Eduardo Victoria","Fernando Castro","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Martin Montanez","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Roberto Munoz","Yvette Crespo Santos"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Roberto Munoz"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Leonardo Garcia","Roberto Munoz"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Josue Castro","Julia Quinnear","Roberto Munoz"],["Carlos Hernandez","Donna Mudge","Eduardo Victoria","Fernando Castro","Jorge Ortiz Victoria","Julia Quinnear","Roberto Munoz"],["Donna Mudge","Fernando Castro","Jorge Ortiz Victoria"],["Donna Mudge","Jorge Ortiz Victoria"],[]];
     const panel    = document.getElementById('sp-chart-1');
     let lastIdx    = -1;
 
@@ -511,33 +596,33 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div class="weather-strip">
     <div class="weather-loc">Weather &mdash; 1 State St</div>
-    <table class="weather-table"><thead><tr><th title="Overcast 60°F">7am</th><th title="Overcast 64°F">8am</th><th title="Overcast 66°F">9am</th><th title="Overcast 69°F">10am</th><th title="Partly Cloudy 69°F">11am</th><th title="Partly Cloudy 71°F">12pm</th><th title="Mostly Clear 71°F">1pm</th><th title="Mostly Clear 70°F">2pm</th><th title="Mostly Clear 71°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 60°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 69°F">☁️</td><td title="Partly Cloudy 69°F">🌥️</td><td title="Partly Cloudy 71°F">🌥️</td><td title="Mostly Clear 71°F">🌤️</td><td title="Mostly Clear 70°F">🌤️</td><td title="Mostly Clear 71°F">🌤️</td></tr></tbody></table>
+    <table class="weather-table"><thead><tr><th title="Overcast 60°F">7am</th><th title="Overcast 64°F">8am</th><th title="Overcast 66°F">9am</th><th title="Overcast 69°F">10am</th><th title="Partly Cloudy 71°F">11am</th><th title="Overcast 73°F">12pm</th><th title="Overcast 73°F">1pm</th><th title="Overcast 72°F">2pm</th><th title="Clear 72°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 60°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 69°F">☁️</td><td title="Partly Cloudy 71°F">🌥️</td><td title="Overcast 73°F">☁️</td><td title="Overcast 73°F">☁️</td><td title="Overcast 72°F">☁️</td><td title="Clear 72°F">☀️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$5,863.65</div>
+      <div class="metric-value">$7,116.33</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$5,863.65</div>
+      <div class="metric-value">$7,116.33</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">204</div>
+      <div class="metric-value">263</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$28.74</div>
+      <div class="metric-value">$27.06</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$660.06</div>
+      <div class="metric-value">$813.04</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">0h</div>
+      <div class="metric-value">76.9h</div>
     </div>
   </div>
 
@@ -555,71 +640,71 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>1</td>
       <td>Scone</td>
       
-      <td>67</td>
-      <td>$268.00</td>
+      <td>83</td>
+      <td>$332.00</td>
     </tr>
     <tr class="">
       <td>2</td>
       <td>Latte</td>
       
-      <td>59</td>
-      <td>$377.75</td>
+      <td>67</td>
+      <td>$423.90</td>
     </tr>
     <tr class="even">
       <td>3</td>
       <td>Drip Coffee</td>
       
-      <td>53</td>
-      <td>$251.75</td>
+      <td>56</td>
+      <td>$266.00</td>
     </tr>
     <tr class="">
       <td>4</td>
+      <td>Orange Juice Small</td>
+      
+      <td>26</td>
+      <td>$169.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
       <td>Cappuccino</td>
       
       <td>23</td>
       <td>$111.25</td>
     </tr>
-    <tr class="even">
-      <td>5</td>
-      <td>Orange Juice Small</td>
-      
-      <td>23</td>
-      <td>$149.50</td>
-    </tr>
     <tr class="">
       <td>6</td>
       <td>Breakfast Burrito</td>
       
-      <td>18</td>
-      <td>$334.75</td>
+      <td>19</td>
+      <td>$352.75</td>
     </tr>
     <tr class="even">
       <td>7</td>
       <td>American Breakfast</td>
       
-      <td>15</td>
-      <td>$286.50</td>
+      <td>16</td>
+      <td>$305.50</td>
     </tr>
     <tr class="">
       <td>8</td>
+      <td>Iced Tea</td>
+      
+      <td>15</td>
+      <td>$75.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
       <td>Cinnamon Roll</td>
       
       <td>13</td>
       <td>$78.00</td>
     </tr>
-    <tr class="even">
-      <td>9</td>
-      <td>Americano</td>
-      
-      <td>12</td>
-      <td>$61.50</td>
-    </tr>
     <tr class="">
       <td>10</td>
-      <td>Iced Tea</td>
+      <td>Americano</td>
       
-      <td>12</td>
-      <td>$60.00</td>
+      <td>13</td>
+      <td>$66.00</td>
     </tr>
     <tr class="even">
       <td>11</td>
@@ -644,57 +729,57 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>14</td>
+      <td>Dessert Bar</td>
+      
+      <td>10</td>
+      <td>$60.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Arnold Palmer</td>
+      
+      <td>10</td>
+      <td>$52.50</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Chai Latte</td>
+      
+      <td>9</td>
+      <td>$57.25</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Farmer's Egg White Omelet</td>
+      
+      <td>9</td>
+      <td>$177.50</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
       <td>California Omelet</td>
       
       <td>9</td>
       <td>$180.50</td>
     </tr>
     <tr class="even">
-      <td>15</td>
+      <td>19</td>
       <td>Challah French Toast Breakfast</td>
       
       <td>9</td>
       <td>$180.00</td>
     </tr>
     <tr class="">
-      <td>16</td>
-      <td>Chai Latte</td>
+      <td>20</td>
+      <td>Matcha Latte</td>
       
       <td>8</td>
-      <td>$50.25</td>
-    </tr>
-    <tr class="even">
-      <td>17</td>
-      <td>Farmer's Egg White Omelet</td>
-      
-      <td>7</td>
-      <td>$137.75</td>
-    </tr>
-    <tr class="">
-      <td>18</td>
-      <td>Santa Barbara Scramble</td>
-      
-      <td>7</td>
-      <td>$136.00</td>
-    </tr>
-    <tr class="even">
-      <td>19</td>
-      <td>Butter Croissant</td>
-      
-      <td>7</td>
-      <td>$35.00</td>
-    </tr>
-    <tr class="">
-      <td>20</td>
-      <td>Side Bacon</td>
-      
-      <td>7</td>
-      <td>$35.00</td>
+      <td>$59.75</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Scone","qty":67,"revenue":268,"category":""},{"name":"Latte","qty":59,"revenue":377.75,"category":""},{"name":"Drip Coffee","qty":53,"revenue":251.75,"category":""},{"name":"Cappuccino","qty":23,"revenue":111.25,"category":""},{"name":"Orange Juice Small","qty":23,"revenue":149.5,"category":""},{"name":"Breakfast Burrito","qty":18,"revenue":334.75,"category":""},{"name":"American Breakfast","qty":15,"revenue":286.5,"category":""},{"name":"Cinnamon Roll","qty":13,"revenue":78,"category":""},{"name":"Americano","qty":12,"revenue":61.5,"category":""},{"name":"Iced Tea","qty":12,"revenue":60,"category":""},{"name":"Side 2 Eggs","qty":11,"revenue":87,"category":""},{"name":"Smoothie","qty":11,"revenue":106,"category":""},{"name":"Pancake Breakfast","qty":10,"revenue":206,"category":""},{"name":"California Omelet","qty":9,"revenue":180.5,"category":""},{"name":"Challah French Toast Breakfast","qty":9,"revenue":180,"category":""},{"name":"Chai Latte","qty":8,"revenue":50.25,"category":""},{"name":"Farmer's Egg White Omelet","qty":7,"revenue":137.75,"category":""},{"name":"Santa Barbara Scramble","qty":7,"revenue":136,"category":""},{"name":"Butter Croissant","qty":7,"revenue":35,"category":""},{"name":"Side Bacon","qty":7,"revenue":35,"category":""}];
+      const raw = [{"name":"Scone","qty":83,"revenue":332,"category":""},{"name":"Latte","qty":67,"revenue":423.9,"category":""},{"name":"Drip Coffee","qty":56,"revenue":266,"category":""},{"name":"Orange Juice Small","qty":26,"revenue":169,"category":""},{"name":"Cappuccino","qty":23,"revenue":111.25,"category":""},{"name":"Breakfast Burrito","qty":19,"revenue":352.75,"category":""},{"name":"American Breakfast","qty":16,"revenue":305.5,"category":""},{"name":"Iced Tea","qty":15,"revenue":75,"category":""},{"name":"Cinnamon Roll","qty":13,"revenue":78,"category":""},{"name":"Americano","qty":13,"revenue":66,"category":""},{"name":"Side 2 Eggs","qty":11,"revenue":87,"category":""},{"name":"Smoothie","qty":11,"revenue":106,"category":""},{"name":"Pancake Breakfast","qty":10,"revenue":206,"category":""},{"name":"Dessert Bar","qty":10,"revenue":60,"category":""},{"name":"Arnold Palmer","qty":10,"revenue":52.5,"category":""},{"name":"Chai Latte","qty":9,"revenue":57.25,"category":""},{"name":"Farmer's Egg White Omelet","qty":9,"revenue":177.5,"category":""},{"name":"California Omelet","qty":9,"revenue":180.5,"category":""},{"name":"Challah French Toast Breakfast","qty":9,"revenue":180,"category":""},{"name":"Matcha Latte","qty":8,"revenue":59.75,"category":""}];
       window['items-1'] = raw;
       setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
     })();
@@ -711,13 +796,23 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td style="color:#C9A84C;font-weight:600">$75.00</td>
     </tr>
     <tr class="">
+      <td>Manager Comp</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#C9A84C;font-weight:600">$12.00</td>
+    </tr>
+    <tr class="even">
+      <td>Employee 50%</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#C9A84C;font-weight:600">$10.00</td>
+    </tr>
+    <tr class="">
       <td>Cash Reward</td>
       <td style="text-align:center">1</td>
       <td style="color:#C9A84C;font-weight:600">$4.25</td>
     </tr></tbody>
       <tfoot><tr>
         <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
-        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$79.25</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$101.25</td>
       </tr></tfoot>
     </table>
 
@@ -727,7 +822,38 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="location-block">
     <h2 class="loc-name">At the Shore</h2>
 
-    <div class="all-clear">✓ No overtime &nbsp;·&nbsp; ✓ All breaks taken</div>
+    
+    
+    <div class="alert-card ot-card">
+      <div class="alert-title">Overtime — 2 employees</div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Carmen Medina</span><br><span class="wage-tag">$19.00/h</span></td>
+      <td>11.2h &nbsp;<span class="ot ot-pill">+3.17h OT</span></td>
+      <td class="extra-cost">+$30.12</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Patricia Villalas</span><br><span class="wage-tag">$16.90/h</span></td>
+      <td>8h &nbsp;<span class="ot ot-pill">+2min OT</span></td>
+      <td class="extra-cost">+$0.25</td>
+    </tr></tbody>
+      </table>
+    </div>
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Carmen Medina</td>
+      <td><strong>11.2h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
 
     
   <div class="chart-outer">
@@ -739,11 +865,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   </div>
   <script>
   (function(){
-    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30"];
-    const revenue  = [0,0,5.75,832.68,1504.31,1469.36,1823.87,1755.65,1587.25,1646.53,1982.83,2163.78,1285.58,0];
-    const headcount= [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    const labor    = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    const staff    = [[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30"];
+    const revenue  = [0,0,5.75,832.68,1504.31,1450.36,1823.87,1699.37,1587.25,1646.53,1982.83,2038.02,1830.77,1512.29,716.3,335.21,0,0,25.06,0,0,0,0,0,0,0];
+    const headcount= [4,7,11,14,18,20,20,20,20,20,20,20,20,20,20,18,14,13,7,6,4,4,2,2,2,0];
+    const labor    = [18.54,60.6,92.2,115.35,157.82,168.57,176.45,176.45,176.45,176.45,176.45,176.45,176.45,176.45,156.17,130.14,116.3,81.88,54.03,50.74,34.85,20.9,17.95,17.95,8.45,0];
+    const staff    = [["Adrian Perez Avalos","Alejo Gastelum","Fernando Amaro Lozano","Jose Martinez"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Fernando Amaro Lozano","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Fernando Amaro Lozano","Javier Valenzo","Jorge Alba","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Claudio Victoria","Fernando Amaro Lozano","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Olivia Chain"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Olivia Chain","Patricia Villalas"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alba","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Nanci Quinnear","Olivia Chain","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Eduardo Vergara Juarez","Fernando Amaro Lozano","Isael Ramirez","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nanci Quinnear","Patricia Villalas","Sarah Quosig"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Claudio Victoria","Fernando Amaro Lozano","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Adrian Perez Avalos","Alejo Gastelum","Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Cesar Cruz Morales","Claudio Victoria","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Patricia Villalas"],["Brayan Gonzalez","Carmen Medina","Cecilia Martinez Machorro","Cesar Cruz Morales","Claudio Victoria","Jorge Alberto Garcia Perez","Patricia Villalas"],["Carmen Medina","Cecilia Martinez Machorro","Cesar Cruz Morales","Claudio Victoria","Jorge Alberto Garcia Perez","Patricia Villalas"],["Carmen Medina","Cecilia Martinez Machorro","Cesar Cruz Morales","Patricia Villalas"],["Carmen Medina","Cecilia Martinez Machorro","Cesar Cruz Morales","Patricia Villalas"],["Carmen Medina","Cesar Cruz Morales"],["Carmen Medina","Cesar Cruz Morales"],["Carmen Medina","Cesar Cruz Morales"],[]];
     const panel    = document.getElementById('sp-chart-2');
     let lastIdx    = -1;
 
@@ -796,33 +922,33 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
 
     <div class="weather-strip">
     <div class="weather-loc">Weather &mdash; 1 State St</div>
-    <table class="weather-table"><thead><tr><th title="Overcast 60°F">7am</th><th title="Overcast 64°F">8am</th><th title="Overcast 66°F">9am</th><th title="Overcast 69°F">10am</th><th title="Partly Cloudy 69°F">11am</th><th title="Partly Cloudy 71°F">12pm</th><th title="Mostly Clear 71°F">1pm</th><th title="Mostly Clear 70°F">2pm</th><th title="Mostly Clear 71°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 60°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 69°F">☁️</td><td title="Partly Cloudy 69°F">🌥️</td><td title="Partly Cloudy 71°F">🌥️</td><td title="Mostly Clear 71°F">🌤️</td><td title="Mostly Clear 70°F">🌤️</td><td title="Mostly Clear 71°F">🌤️</td></tr></tbody></table>
+    <table class="weather-table"><thead><tr><th title="Overcast 60°F">7am</th><th title="Overcast 64°F">8am</th><th title="Overcast 66°F">9am</th><th title="Overcast 69°F">10am</th><th title="Partly Cloudy 71°F">11am</th><th title="Overcast 73°F">12pm</th><th title="Overcast 73°F">1pm</th><th title="Overcast 72°F">2pm</th><th title="Clear 72°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 60°F">☁️</td><td title="Overcast 64°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 69°F">☁️</td><td title="Partly Cloudy 71°F">🌥️</td><td title="Overcast 73°F">☁️</td><td title="Overcast 73°F">☁️</td><td title="Overcast 72°F">☁️</td><td title="Clear 72°F">☀️</td></tr></tbody></table>
   </div>
 
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$13,492.28</div>
+      <div class="metric-value">$15,955.18</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$13,492.28</div>
+      <div class="metric-value">$15,955.18</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">301</div>
+      <div class="metric-value">371</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$44.82</div>
+      <div class="metric-value">$43.01</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$1,438.73</div>
+      <div class="metric-value">$1,706.53</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">0h</div>
+      <div class="metric-value">145.9h</div>
     </div>
   </div>
 
@@ -840,153 +966,171 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>1</td>
       <td>Scone</td>
       
-      <td>88</td>
-      <td>$352.00</td>
+      <td>91</td>
+      <td>$356.00</td>
     </tr>
     <tr class="">
       <td>2</td>
       <td>Latte</td>
       
-      <td>65</td>
-      <td>$413.25</td>
+      <td>73</td>
+      <td>$463.75</td>
     </tr>
     <tr class="even">
       <td>3</td>
       <td>Drip Coffee</td>
       
-      <td>61</td>
-      <td>$299.00</td>
+      <td>68</td>
+      <td>$332.50</td>
     </tr>
     <tr class="">
       <td>4</td>
       <td>Orange Juice Small</td>
       
-      <td>55</td>
-      <td>$357.50</td>
+      <td>64</td>
+      <td>$416.00</td>
     </tr>
     <tr class="even">
       <td>5</td>
       <td>Pancake Breakfast</td>
       
-      <td>36</td>
-      <td>$726.00</td>
+      <td>40</td>
+      <td>$816.50</td>
     </tr>
     <tr class="">
       <td>6</td>
       <td>American Breakfast</td>
       
-      <td>33</td>
-      <td>$638.50</td>
+      <td>36</td>
+      <td>$697.25</td>
     </tr>
     <tr class="even">
       <td>7</td>
       <td>Santa Barbara Scramble</td>
       
-      <td>30</td>
-      <td>$616.25</td>
+      <td>35</td>
+      <td>$718.75</td>
     </tr>
     <tr class="">
       <td>8</td>
       <td>Latte Express</td>
       
-      <td>25</td>
-      <td>$158.40</td>
+      <td>30</td>
+      <td>$192.90</td>
     </tr>
     <tr class="even">
       <td>9</td>
+      <td>Challah French Toast Breakfast</td>
+      
+      <td>29</td>
+      <td>$587.50</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Breakfast Burrito</td>
+      
+      <td>25</td>
+      <td>$465.50</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Fruit Smoothie Express</td>
+      
+      <td>24</td>
+      <td>$223.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Classic Benedict</td>
+      
+      <td>23</td>
+      <td>$460.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
       <td>Havana Latte</td>
       
       <td>22</td>
       <td>$147.50</td>
     </tr>
     <tr class="">
-      <td>10</td>
-      <td>Challah French Toast Breakfast</td>
+      <td>14</td>
+      <td>Single Large Cookie</td>
       
       <td>22</td>
-      <td>$444.50</td>
+      <td>$104.50</td>
     </tr>
     <tr class="even">
-      <td>11</td>
+      <td>15</td>
       <td>Cappuccino Express</td>
       
       <td>21</td>
       <td>$120.15</td>
     </tr>
     <tr class="">
-      <td>12</td>
-      <td>Americano</td>
-      
-      <td>19</td>
-      <td>$98.25</td>
-    </tr>
-    <tr class="even">
-      <td>13</td>
-      <td>Eduardo's Omelet</td>
-      
-      <td>19</td>
-      <td>$366.00</td>
-    </tr>
-    <tr class="">
-      <td>14</td>
-      <td>Breakfast Burrito</td>
-      
-      <td>19</td>
-      <td>$352.50</td>
-    </tr>
-    <tr class="even">
-      <td>15</td>
+      <td>16</td>
       <td>Avocado Toast</td>
       
-      <td>18</td>
-      <td>$268.50</td>
-    </tr>
-    <tr class="">
-      <td>16</td>
-      <td>Classic Benedict</td>
-      
-      <td>18</td>
-      <td>$360.00</td>
+      <td>20</td>
+      <td>$299.50</td>
     </tr>
     <tr class="even">
       <td>17</td>
-      <td>Lemon Poppyseed Pancake Breakfast</td>
+      <td>Huevos Rancheros</td>
       
-      <td>18</td>
-      <td>$385.00</td>
+      <td>20</td>
+      <td>$388.00</td>
     </tr>
     <tr class="">
       <td>18</td>
-      <td>Huevos Rancheros</td>
+      <td>Chilaquiles</td>
       
-      <td>17</td>
-      <td>$324.00</td>
+      <td>20</td>
+      <td>$375.00</td>
     </tr>
     <tr class="even">
       <td>19</td>
-      <td>Banana French Toast</td>
+      <td>Americano</td>
       
-      <td>17</td>
-      <td>$306.00</td>
+      <td>20</td>
+      <td>$103.50</td>
     </tr>
     <tr class="">
       <td>20</td>
-      <td>Fruit Smoothie Express</td>
+      <td>Lemon Poppyseed Pancake Breakfast</td>
       
-      <td>17</td>
-      <td>$160.00</td>
+      <td>19</td>
+      <td>$406.00</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Scone","qty":88,"revenue":352,"category":""},{"name":"Latte","qty":65,"revenue":413.25,"category":""},{"name":"Drip Coffee","qty":61,"revenue":299,"category":""},{"name":"Orange Juice Small","qty":55,"revenue":357.5,"category":""},{"name":"Pancake Breakfast","qty":36,"revenue":726,"category":""},{"name":"American Breakfast","qty":33,"revenue":638.5,"category":""},{"name":"Santa Barbara Scramble","qty":30,"revenue":616.25,"category":""},{"name":"Latte Express","qty":25,"revenue":158.4,"category":""},{"name":"Havana Latte","qty":22,"revenue":147.5,"category":""},{"name":"Challah French Toast Breakfast","qty":22,"revenue":444.5,"category":""},{"name":"Cappuccino Express","qty":21,"revenue":120.15,"category":""},{"name":"Americano","qty":19,"revenue":98.25,"category":""},{"name":"Eduardo's Omelet","qty":19,"revenue":366,"category":""},{"name":"Breakfast Burrito","qty":19,"revenue":352.5,"category":""},{"name":"Avocado Toast","qty":18,"revenue":268.5,"category":""},{"name":"Classic Benedict","qty":18,"revenue":360,"category":""},{"name":"Lemon Poppyseed Pancake Breakfast","qty":18,"revenue":385,"category":""},{"name":"Huevos Rancheros","qty":17,"revenue":324,"category":""},{"name":"Banana French Toast","qty":17,"revenue":306,"category":""},{"name":"Fruit Smoothie Express","qty":17,"revenue":160,"category":""}];
+      const raw = [{"name":"Scone","qty":91,"revenue":356,"category":""},{"name":"Latte","qty":73,"revenue":463.75,"category":""},{"name":"Drip Coffee","qty":68,"revenue":332.5,"category":""},{"name":"Orange Juice Small","qty":64,"revenue":416,"category":""},{"name":"Pancake Breakfast","qty":40,"revenue":816.5,"category":""},{"name":"American Breakfast","qty":36,"revenue":697.25,"category":""},{"name":"Santa Barbara Scramble","qty":35,"revenue":718.75,"category":""},{"name":"Latte Express","qty":30,"revenue":192.9,"category":""},{"name":"Challah French Toast Breakfast","qty":29,"revenue":587.5,"category":""},{"name":"Breakfast Burrito","qty":25,"revenue":465.5,"category":""},{"name":"Fruit Smoothie Express","qty":24,"revenue":223,"category":""},{"name":"Classic Benedict","qty":23,"revenue":460,"category":""},{"name":"Havana Latte","qty":22,"revenue":147.5,"category":""},{"name":"Single Large Cookie","qty":22,"revenue":104.5,"category":""},{"name":"Cappuccino Express","qty":21,"revenue":120.15,"category":""},{"name":"Avocado Toast","qty":20,"revenue":299.5,"category":""},{"name":"Huevos Rancheros","qty":20,"revenue":388,"category":""},{"name":"Chilaquiles","qty":20,"revenue":375,"category":""},{"name":"Americano","qty":20,"revenue":103.5,"category":""},{"name":"Lemon Poppyseed Pancake Breakfast","qty":19,"revenue":406,"category":""}];
       window['items-2'] = raw;
       setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
     })();
     </script>
 
     <h3>Discounts</h3>
-    <p class="empty">No discounts applied.</p>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Manager Discount</td>
+      <td style="text-align:center">3</td>
+      <td style="color:#C9A84C;font-weight:600">$156.25</td>
+    </tr>
+    <tr class="">
+      <td>Employee Discount</td>
+      <td style="text-align:center">3</td>
+      <td style="color:#C9A84C;font-weight:600">$23.75</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$180.00</td>
+      </tr></tfoot>
+    </table>
 
     
   </div>
@@ -998,18 +1142,18 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="retail-totals">
     <div class="rt-card">
       <div class="rt-label">Retail Food</div>
-      <div class="rt-value">$268.50</div>
-      <div class="rt-sub">32 items sold</div>
+      <div class="rt-value">$295.50</div>
+      <div class="rt-sub">34 items sold</div>
     </div>
     <div class="rt-card">
       <div class="rt-label">Retail Non-Food</div>
-      <div class="rt-value">$492.27</div>
-      <div class="rt-sub">26 items sold</div>
+      <div class="rt-value">$763.95</div>
+      <div class="rt-sub">43 items sold</div>
     </div>
     <div class="rt-card rt-total">
       <div class="rt-label">Total Retail</div>
-      <div class="rt-value">$760.77</div>
-      <div class="rt-sub">58 items sold</div>
+      <div class="rt-value">$1,059.45</div>
+      <div class="rt-sub">77 items sold</div>
     </div>
   </div>
 
@@ -1094,11 +1238,25 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       
       <td>1</td>
       <td>$10.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Beecher's Gluten Free Crackers - Sea Salt</td>
+      
+      <td>1</td>
+      <td>$15.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Bag of 8 Coconut Strawberry</td>
+      
+      <td>1</td>
+      <td>$12.00</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Fruit","qty":8,"revenue":40},{"name":"Avocado Toast","qty":8,"revenue":56},{"name":"Jeannine's Granola Bag LG","qty":6,"revenue":93},{"name":"Dog Bones (3)","qty":5,"revenue":30},{"name":"Apple Galette","qty":2,"revenue":20},{"name":"Delivery","qty":1,"revenue":15},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5},{"name":"Tequila Shot","qty":1,"revenue":10}];
+      const raw = [{"name":"Fruit","qty":8,"revenue":40},{"name":"Avocado Toast","qty":8,"revenue":56},{"name":"Jeannine's Granola Bag LG","qty":6,"revenue":93},{"name":"Dog Bones (3)","qty":5,"revenue":30},{"name":"Apple Galette","qty":2,"revenue":20},{"name":"Delivery","qty":1,"revenue":15},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5},{"name":"Tequila Shot","qty":1,"revenue":10},{"name":"Beecher's Gluten Free Crackers - Sea Salt","qty":1,"revenue":15},{"name":"Bag of 8 Coconut Strawberry","qty":1,"revenue":12}];
       window['items-3'] = raw;
       setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
     })();
@@ -1117,148 +1275,148 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>1</td>
+      <td>Galet</td>
+      
+      <td>3</td>
+      <td>$25.63</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Katie Doodle Card</td>
+      
+      <td>3</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Elseware Paintbrushes</td>
+      
+      <td>2</td>
+      <td>$20.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
       <td>Grabie 12 Watercolor Set</td>
       
       <td>2</td>
       <td>$36.00</td>
     </tr>
-    <tr class="">
-      <td>2</td>
+    <tr class="even">
+      <td>5</td>
       <td>Emily Lex Watercolor Workbook</td>
       
       <td>2</td>
       <td>$56.00</td>
     </tr>
-    <tr class="even">
-      <td>3</td>
-      <td>Galet</td>
+    <tr class="">
+      <td>6</td>
+      <td>Trucker Hat - Navy</td>
       
       <td>2</td>
-      <td>$16.48</td>
+      <td>$70.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Deluxe Beach Set</td>
+      
+      <td>2</td>
+      <td>$40.00</td>
     </tr>
     <tr class="">
-      <td>4</td>
-      <td>Katie Doodle Card</td>
-      
-      <td>2</td>
-      <td>$12.00</td>
-    </tr>
-    <tr class="even">
-      <td>5</td>
+      <td>8</td>
       <td>Delivery</td>
       
       <td>1</td>
       <td>$13.79</td>
     </tr>
-    <tr class="">
-      <td>6</td>
-      <td>Small Blue White Pitcher</td>
-      
-      <td>1</td>
-      <td>$15.00</td>
-    </tr>
     <tr class="even">
-      <td>7</td>
+      <td>9</td>
       <td>Toasty Morning Mug</td>
       
       <td>1</td>
       <td>$40.00</td>
     </tr>
     <tr class="">
-      <td>8</td>
+      <td>10</td>
+      <td>Small Blue White Pitcher</td>
+      
+      <td>1</td>
+      <td>$15.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
       <td>Talking Tables HB Candles</td>
       
       <td>1</td>
       <td>$7.50</td>
     </tr>
-    <tr class="even">
-      <td>9</td>
-      <td>Elseware Colored Pencils - Tall</td>
-      
-      <td>1</td>
-      <td>$7.00</td>
-    </tr>
     <tr class="">
-      <td>10</td>
+      <td>12</td>
       <td>Elseware Coloring Scroll - Solar System</td>
       
       <td>1</td>
       <td>$10.00</td>
     </tr>
     <tr class="even">
-      <td>11</td>
+      <td>13</td>
+      <td>Elseware Colored Pencils - Tall</td>
+      
+      <td>1</td>
+      <td>$7.00</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Elseware Watercolors Bamboo Box</td>
+      
+      <td>1</td>
+      <td>$25.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Elseware Watercolor Paper SM</td>
+      
+      <td>1</td>
+      <td>$12.00</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Card</td>
+      
+      <td>1</td>
+      <td>$5.03</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
       <td>Happy Ocean Coloring Book</td>
       
       <td>1</td>
       <td>$8.00</td>
     </tr>
     <tr class="">
-      <td>12</td>
+      <td>18</td>
       <td>Poppies SB Coin Purse</td>
       
       <td>1</td>
       <td>$11.00</td>
     </tr>
     <tr class="even">
-      <td>13</td>
+      <td>19</td>
       <td>Jeannine's Wo's Crewneck Sweatshirt - Pink S</td>
       
       <td>1</td>
       <td>$50.00</td>
     </tr>
     <tr class="">
-      <td>14</td>
-      <td>Elseware Paintbrushes</td>
-      
-      <td>1</td>
-      <td>$10.00</td>
-    </tr>
-    <tr class="even">
-      <td>15</td>
-      <td>Hand Puppet</td>
-      
-      <td>1</td>
-      <td>$9.00</td>
-    </tr>
-    <tr class="">
-      <td>16</td>
+      <td>20</td>
       <td>Emily Lex Watercolor Paint Set</td>
       
       <td>1</td>
       <td>$18.00</td>
-    </tr>
-    <tr class="even">
-      <td>17</td>
-      <td>Santa Barbara Cap - Denim</td>
-      
-      <td>1</td>
-      <td>$35.00</td>
-    </tr>
-    <tr class="">
-      <td>18</td>
-      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink XL</td>
-      
-      <td>1</td>
-      <td>$50.00</td>
-    </tr>
-    <tr class="even">
-      <td>19</td>
-      <td>SoulByrd Cap</td>
-      
-      <td>1</td>
-      <td>$48.00</td>
-    </tr>
-    <tr class="">
-      <td>20</td>
-      <td>Multipet Gumby Dog Toy</td>
-      
-      <td>1</td>
-      <td>$9.50</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36},{"name":"Emily Lex Watercolor Workbook","qty":2,"revenue":56},{"name":"Galet","qty":2,"revenue":16.48},{"name":"Katie Doodle Card","qty":2,"revenue":12},{"name":"Delivery","qty":1,"revenue":13.79},{"name":"Small Blue White Pitcher","qty":1,"revenue":15},{"name":"Toasty Morning Mug","qty":1,"revenue":40},{"name":"Talking Tables HB Candles","qty":1,"revenue":7.5},{"name":"Elseware Colored Pencils - Tall","qty":1,"revenue":7},{"name":"Elseware Coloring Scroll - Solar System","qty":1,"revenue":10},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50},{"name":"Elseware Paintbrushes","qty":1,"revenue":10},{"name":"Hand Puppet","qty":1,"revenue":9},{"name":"Emily Lex Watercolor Paint Set","qty":1,"revenue":18},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":1,"revenue":50},{"name":"SoulByrd Cap","qty":1,"revenue":48},{"name":"Multipet Gumby Dog Toy","qty":1,"revenue":9.5}];
+      const raw = [{"name":"Galet","qty":3,"revenue":25.630000000000003},{"name":"Katie Doodle Card","qty":3,"revenue":18},{"name":"Elseware Paintbrushes","qty":2,"revenue":20},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36},{"name":"Emily Lex Watercolor Workbook","qty":2,"revenue":56},{"name":"Trucker Hat - Navy","qty":2,"revenue":70},{"name":"Deluxe Beach Set","qty":2,"revenue":40},{"name":"Delivery","qty":1,"revenue":13.79},{"name":"Toasty Morning Mug","qty":1,"revenue":40},{"name":"Small Blue White Pitcher","qty":1,"revenue":15},{"name":"Talking Tables HB Candles","qty":1,"revenue":7.5},{"name":"Elseware Coloring Scroll - Solar System","qty":1,"revenue":10},{"name":"Elseware Colored Pencils - Tall","qty":1,"revenue":7},{"name":"Elseware Watercolors Bamboo Box","qty":1,"revenue":25},{"name":"Elseware Watercolor Paper SM","qty":1,"revenue":12},{"name":"Card","qty":1,"revenue":5.03},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50},{"name":"Emily Lex Watercolor Paint Set","qty":1,"revenue":18}];
       window['items-4'] = raw;
       setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
     })();
@@ -1301,178 +1459,241 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="even" >
       <td>5</td>
+      <td>Galet</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>3</td>
+      <td>$25.63</td>
+    </tr>
+    <tr class="" >
+      <td>6</td>
+      <td>Katie Doodle Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>3</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="even" >
+      <td>7</td>
       <td>Apple Galette</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>2</td>
       <td>$20.00</td>
     </tr>
     <tr class="" >
-      <td>6</td>
+      <td>8</td>
       <td>Delivery</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>2</td>
       <td>$28.79</td>
     </tr>
     <tr class="even" >
-      <td>7</td>
+      <td>9</td>
+      <td>Elseware Paintbrushes</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$20.00</td>
+    </tr>
+    <tr class="" >
+      <td>10</td>
       <td>Grabie 12 Watercolor Set</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>2</td>
       <td>$36.00</td>
     </tr>
-    <tr class="" >
-      <td>8</td>
+    <tr class="even" >
+      <td>11</td>
       <td>Emily Lex Watercolor Workbook</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>2</td>
       <td>$56.00</td>
     </tr>
-    <tr class="even" >
-      <td>9</td>
-      <td>Galet</td>
+    <tr class="" >
+      <td>12</td>
+      <td>Trucker Hat - Navy</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>2</td>
-      <td>$16.48</td>
+      <td>$70.00</td>
+    </tr>
+    <tr class="even" >
+      <td>13</td>
+      <td>Deluxe Beach Set</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$40.00</td>
     </tr>
     <tr class="" >
-      <td>10</td>
-      <td>Katie Doodle Card</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>2</td>
-      <td>$12.00</td>
-    </tr>
-    <tr class="even" >
-      <td>11</td>
+      <td>14</td>
       <td>Torres Chips Black Truffle (40g bag)</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$4.50</td>
     </tr>
-    <tr class="" >
-      <td>12</td>
+    <tr class="even" >
+      <td>15</td>
       <td>Tequila Shot</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$10.00</td>
     </tr>
-    <tr class="even" >
-      <td>13</td>
-      <td>Small Blue White Pitcher</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+    <tr class="" >
+      <td>16</td>
+      <td>Beecher's Gluten Free Crackers - Sea Salt</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>1</td>
       <td>$15.00</td>
     </tr>
+    <tr class="even" >
+      <td>17</td>
+      <td>Bag of 8 Coconut Strawberry</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$12.00</td>
+    </tr>
     <tr class="" >
-      <td>14</td>
+      <td>18</td>
       <td>Toasty Morning Mug</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$40.00</td>
     </tr>
     <tr class="even" >
-      <td>15</td>
+      <td>19</td>
+      <td>Small Blue White Pitcher</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$15.00</td>
+    </tr>
+    <tr class="" >
+      <td>20</td>
       <td>Talking Tables HB Candles</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$7.50</td>
     </tr>
-    <tr class="" >
-      <td>16</td>
-      <td>Elseware Colored Pencils - Tall</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$7.00</td>
-    </tr>
-    <tr class="even" >
-      <td>17</td>
-      <td>Elseware Coloring Scroll - Solar System</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$10.00</td>
-    </tr>
-    <tr class="" >
-      <td>18</td>
-      <td>Happy Ocean Coloring Book</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$8.00</td>
-    </tr>
-    <tr class="even" >
-      <td>19</td>
-      <td>Poppies SB Coin Purse</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$11.00</td>
-    </tr>
-    <tr class="" >
-      <td>20</td>
-      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink S</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>1</td>
-      <td>$50.00</td>
-    </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>21</td>
-      <td>Elseware Paintbrushes</td>
+      <td>Elseware Coloring Scroll - Solar System</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$10.00</td>
     </tr>
     <tr class=" ra-hidden" style="display:none">
       <td>22</td>
-      <td>Hand Puppet</td>
+      <td>Elseware Colored Pencils - Tall</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
-      <td>$9.00</td>
+      <td>$7.00</td>
     </tr>
     <tr class="even ra-hidden" style="display:none">
       <td>23</td>
+      <td>Elseware Watercolors Bamboo Box</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$25.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>24</td>
+      <td>Elseware Watercolor Paper SM</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$12.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>25</td>
+      <td>Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$5.03</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>26</td>
+      <td>Happy Ocean Coloring Book</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$8.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>27</td>
+      <td>Poppies SB Coin Purse</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$11.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>28</td>
+      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink S</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$50.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>29</td>
       <td>Emily Lex Watercolor Paint Set</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$18.00</td>
     </tr>
     <tr class=" ra-hidden" style="display:none">
-      <td>24</td>
+      <td>30</td>
+      <td>Hand Puppet</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$9.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>31</td>
       <td>Santa Barbara Cap - Denim</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$35.00</td>
     </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>25</td>
+    <tr class=" ra-hidden" style="display:none">
+      <td>32</td>
       <td>Jeannine's Wo's Crewneck Sweatshirt - Pink XL</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$50.00</td>
     </tr>
-    <tr class=" ra-hidden" style="display:none">
-      <td>26</td>
+    <tr class="even ra-hidden" style="display:none">
+      <td>33</td>
       <td>SoulByrd Cap</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$48.00</td>
     </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>27</td>
+    <tr class=" ra-hidden" style="display:none">
+      <td>34</td>
       <td>Multipet Gumby Dog Toy</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$9.50</td>
     </tr>
-    <tr class=" ra-hidden" style="display:none">
-      <td>28</td>
+    <tr class="even ra-hidden" style="display:none">
+      <td>35</td>
       <td>Wellspring - My Sticker Paintings - Ocean Animals</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
       <td>$10.00</td>
     </tr>
-    <tr class="even ra-hidden" style="display:none">
-      <td>29</td>
+    <tr class=" ra-hidden" style="display:none">
+      <td>36</td>
       <td>Picnic Bag</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>1</td>
-      <td>$20.00</td>
+      <td>$0.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>37</td>
+      <td>Elseware Colored Pencils</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$5.50</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>38</td>
+      <td>Wellspring - Sharks & Ocean Creatures Coloring Book</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$8.00</td>
     </tr></tbody>
     </table>
     
@@ -1482,11 +1703,11 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
         var btn = document.getElementById('items-5-toggle');
         var hidden = rows[0] && rows[0].style.display === 'none';
         for(var i=0;i<rows.length;i++) rows[i].style.display = hidden ? '' : 'none';
-        btn.textContent = hidden ? 'Show less' : 'See all 29 items ↓';
-      })()" style="background:transparent;border:1px solid #C9A84C44;color:#C9A84C;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 29 items ↓</button>
+        btn.textContent = hidden ? 'Show less' : 'See all 38 items ↓';
+      })()" style="background:transparent;border:1px solid #C9A84C44;color:#C9A84C;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 38 items ↓</button>
     </div>
     <script>
-    (function(){ window['items-5'] = [{"name":"Fruit","qty":8,"revenue":40,"category":"Food"},{"name":"Avocado Toast","qty":8,"revenue":56,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":6,"revenue":93,"category":"Food"},{"name":"Dog Bones (3)","qty":5,"revenue":30,"category":"Food"},{"name":"Apple Galette","qty":2,"revenue":20,"category":"Food"},{"name":"Delivery","qty":2,"revenue":28.79,"category":"Food"},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":2,"revenue":56,"category":"Non-Food"},{"name":"Galet","qty":2,"revenue":16.48,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":2,"revenue":12,"category":"Non-Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Tequila Shot","qty":1,"revenue":10,"category":"Food"},{"name":"Small Blue White Pitcher","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Toasty Morning Mug","qty":1,"revenue":40,"category":"Non-Food"},{"name":"Talking Tables HB Candles","qty":1,"revenue":7.5,"category":"Non-Food"},{"name":"Elseware Colored Pencils - Tall","qty":1,"revenue":7,"category":"Non-Food"},{"name":"Elseware Coloring Scroll - Solar System","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Elseware Paintbrushes","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Hand Puppet","qty":1,"revenue":9,"category":"Non-Food"},{"name":"Emily Lex Watercolor Paint Set","qty":1,"revenue":18,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":1,"revenue":50,"category":"Non-Food"},{"name":"SoulByrd Cap","qty":1,"revenue":48,"category":"Non-Food"},{"name":"Multipet Gumby Dog Toy","qty":1,"revenue":9.5,"category":"Non-Food"},{"name":"Wellspring - My Sticker Paintings - Ocean Animals","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Picnic Bag","qty":1,"revenue":20,"category":"Non-Food"}]; })();
+    (function(){ window['items-5'] = [{"name":"Fruit","qty":8,"revenue":40,"category":"Food"},{"name":"Avocado Toast","qty":8,"revenue":56,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":6,"revenue":93,"category":"Food"},{"name":"Dog Bones (3)","qty":5,"revenue":30,"category":"Food"},{"name":"Galet","qty":3,"revenue":25.630000000000003,"category":"Non-Food"},{"name":"Katie Doodle Card","qty":3,"revenue":18,"category":"Non-Food"},{"name":"Apple Galette","qty":2,"revenue":20,"category":"Food"},{"name":"Delivery","qty":2,"revenue":28.79,"category":"Food"},{"name":"Elseware Paintbrushes","qty":2,"revenue":20,"category":"Non-Food"},{"name":"Grabie 12 Watercolor Set","qty":2,"revenue":36,"category":"Non-Food"},{"name":"Emily Lex Watercolor Workbook","qty":2,"revenue":56,"category":"Non-Food"},{"name":"Trucker Hat - Navy","qty":2,"revenue":70,"category":"Non-Food"},{"name":"Deluxe Beach Set","qty":2,"revenue":40,"category":"Non-Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Tequila Shot","qty":1,"revenue":10,"category":"Food"},{"name":"Beecher's Gluten Free Crackers - Sea Salt","qty":1,"revenue":15,"category":"Food"},{"name":"Bag of 8 Coconut Strawberry","qty":1,"revenue":12,"category":"Food"},{"name":"Toasty Morning Mug","qty":1,"revenue":40,"category":"Non-Food"},{"name":"Small Blue White Pitcher","qty":1,"revenue":15,"category":"Non-Food"},{"name":"Talking Tables HB Candles","qty":1,"revenue":7.5,"category":"Non-Food"},{"name":"Elseware Coloring Scroll - Solar System","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Elseware Colored Pencils - Tall","qty":1,"revenue":7,"category":"Non-Food"},{"name":"Elseware Watercolors Bamboo Box","qty":1,"revenue":25,"category":"Non-Food"},{"name":"Elseware Watercolor Paper SM","qty":1,"revenue":12,"category":"Non-Food"},{"name":"Card","qty":1,"revenue":5.03,"category":"Non-Food"},{"name":"Happy Ocean Coloring Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Poppies SB Coin Purse","qty":1,"revenue":11,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink S","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Emily Lex Watercolor Paint Set","qty":1,"revenue":18,"category":"Non-Food"},{"name":"Hand Puppet","qty":1,"revenue":9,"category":"Non-Food"},{"name":"Santa Barbara Cap - Denim","qty":1,"revenue":35,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":1,"revenue":50,"category":"Non-Food"},{"name":"SoulByrd Cap","qty":1,"revenue":48,"category":"Non-Food"},{"name":"Multipet Gumby Dog Toy","qty":1,"revenue":9.5,"category":"Non-Food"},{"name":"Wellspring - My Sticker Paintings - Ocean Animals","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Picnic Bag","qty":1,"revenue":0,"category":"Non-Food"},{"name":"Elseware Colored Pencils","qty":1,"revenue":5.5,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":1,"revenue":8,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
