@@ -130,7 +130,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="rpt-left">
       <div class="rpt-title">Jeannine's Daily Report</div>
       <div class="rpt-date">2026-06-20</div>
-      <div class="rpt-ts">Generated Jun 29, 2026, 12:53 PM PT</div>
+      <div class="rpt-ts">Generated Jun 29, 2026, 1:26 PM PT</div>
       <div class="day-nav">
       <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
       <input type="date" class="nav-date" value="2026-06-20" onchange="goToDate(this.value)">
@@ -146,27 +146,27 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$37,174.00</div>
+      <div class="metric-value">$37,878.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$34,262.00</div>
+      <div class="metric-value">$34,911.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">2,296</div>
+      <div class="metric-value">2,460</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$14.92</div>
+      <div class="metric-value">$14.19</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$3,768.82</div>
+      <div class="metric-value">$3,840.21</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Total Hours</div>
-      <div class="metric-value">150.5h</div>
+      <div class="metric-value">168.5h</div>
     </div>
   </div>
   </div>
@@ -178,14 +178,19 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     
     <div class="alert-card ot-card">
-      <div class="alert-title">Overtime — 1 employee</div>
+      <div class="alert-title">Overtime — 2 employees</div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td><span class="emp-name">Elliot Hayes</span><br><span class="wage-tag">$21.83/h</span></td>
-      <td>12.1h &nbsp;<span class="dt ot-pill">+4.1h OT</span></td>
-      <td class="extra-cost">+$45.84</td>
+      <td><span class="emp-name">Elliot Hayes</span><br><span class="wage-tag">$16.84/h</span></td>
+      <td>11.6h &nbsp;<span class="ot ot-pill">+3.6h OT</span></td>
+      <td class="extra-cost">+$30.31</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Harper Park</span><br><span class="wage-tag">$20.39/h</span></td>
+      <td>11.9h &nbsp;<span class="ot ot-pill">+3.9h OT</span></td>
+      <td class="extra-cost">+$39.76</td>
     </tr></tbody>
       </table>
     </div>
@@ -197,7 +202,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
         <tbody>
     <tr class="even">
       <td>Riley Moore</td>
-      <td><strong>7.7h shift</strong></td>
+      <td><strong>7.4h shift</strong></td>
       <td class="missed">No break recorded</td>
     </tr></tbody>
       </table>
@@ -214,10 +219,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <script>
   (function(){
     const labels   = ["6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM","7:30","8PM"];
-    const revenue  = [176,347,525,758,888,1033,971,913,646,534,544,617,599,676,588,472,374,302,192,135,104,67,51,52,43,47,42,45];
-    const headcount= [4,4,4,5,5,5,6,6,6,5,5,4,4,3,4,3,2,3,2,2,2,2,2,2,2,2,2,2];
-    const labor    = [37,37,37,46.25,46.25,46.25,55.5,55.5,55.5,46.25,46.25,37,37,27.75,37,27.75,18.5,27.75,18.5,18.5,18.5,18.5,18.5,18.5,18.5,18.5,18.5,18.5];
-    const staff    = [["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"]];
+    const revenue  = [181,341,524,750,895,1020,965,886,659,552,549,605,604,660,589,486,386,303,199,138,102,69,53,51,44,47,43,46];
+    const headcount= [2,3,4,4,5,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,4,4,4,3,3,3,2,2];
+    const labor    = [18.5,27.75,37,37,46.25,55.5,55.5,55.5,55.5,55.5,55.5,55.5,55.5,55.5,55.5,55.5,55.5,46.25,46.25,46.25,37,37,37,27.75,27.75,27.75,18.5,18.5];
+    const staff    = [["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"]];
     const panel    = document.getElementById('sp-chart-0');
     let lastIdx    = -1;
 
@@ -273,27 +278,27 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$12,739.00</div>
+      <div class="metric-value">$12,745.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$11,741.00</div>
+      <div class="metric-value">$11,747.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">872</div>
+      <div class="metric-value">761</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$13.46</div>
+      <div class="metric-value">$15.44</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$1,291.51</div>
+      <div class="metric-value">$1,292.17</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">49h</div>
+      <div class="metric-value">65h</div>
     </div>
   </div>
 
@@ -309,129 +314,129 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>1</td>
-      <td>Morning Blend Coffee</td>
+      <td>Signature Croissant</td>
       
-      <td>104</td>
-      <td>$364.00</td>
+      <td>100</td>
+      <td>$490.00</td>
     </tr>
     <tr class="">
       <td>2</td>
       <td>Avocado Toast</td>
       
-      <td>97</td>
-      <td>$611.10</td>
+      <td>100</td>
+      <td>$630.00</td>
     </tr>
     <tr class="even">
       <td>3</td>
+      <td>Morning Blend Coffee</td>
+      
+      <td>95</td>
+      <td>$332.50</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
       <td>Berry Muffin</td>
       
       <td>88</td>
       <td>$677.60</td>
     </tr>
-    <tr class="">
-      <td>4</td>
-      <td>Signature Croissant</td>
-      
-      <td>82</td>
-      <td>$401.80</td>
-    </tr>
     <tr class="even">
       <td>5</td>
       <td>Café Latte</td>
       
-      <td>82</td>
-      <td>$746.20</td>
+      <td>70</td>
+      <td>$637.00</td>
     </tr>
     <tr class="">
       <td>6</td>
-      <td>Breakfast Sandwich</td>
+      <td>House Granola Bowl</td>
       
-      <td>80</td>
-      <td>$280.00</td>
+      <td>68</td>
+      <td>$714.00</td>
     </tr>
     <tr class="even">
       <td>7</td>
-      <td>House Granola Bowl</td>
+      <td>Almond Danish</td>
       
-      <td>75</td>
-      <td>$787.50</td>
+      <td>68</td>
+      <td>$333.20</td>
     </tr>
     <tr class="">
       <td>8</td>
-      <td>Almond Danish</td>
+      <td>Breakfast Sandwich</td>
       
-      <td>65</td>
-      <td>$318.50</td>
+      <td>64</td>
+      <td>$224.00</td>
     </tr>
     <tr class="even">
       <td>9</td>
-      <td>Cold Brew</td>
+      <td>Vanilla Scone</td>
       
-      <td>59</td>
-      <td>$371.70</td>
+      <td>62</td>
+      <td>$477.40</td>
     </tr>
     <tr class="">
       <td>10</td>
-      <td>Vanilla Scone</td>
+      <td>Cold Brew</td>
       
       <td>54</td>
-      <td>$415.80</td>
+      <td>$340.20</td>
     </tr>
     <tr class="even">
       <td>11</td>
-      <td>Iced Matcha</td>
+      <td>Banana Bread</td>
       
-      <td>54</td>
-      <td>$567.00</td>
+      <td>49</td>
+      <td>$445.90</td>
     </tr>
     <tr class="">
       <td>12</td>
-      <td>Banana Bread</td>
+      <td>Cinnamon Roll</td>
       
-      <td>53</td>
-      <td>$482.30</td>
+      <td>49</td>
+      <td>$240.10</td>
     </tr>
     <tr class="even">
       <td>13</td>
-      <td>Seasonal Quiche</td>
+      <td>Iced Matcha</td>
       
-      <td>49</td>
-      <td>$171.50</td>
+      <td>47</td>
+      <td>$493.50</td>
     </tr>
     <tr class="">
       <td>14</td>
-      <td>Cinnamon Roll</td>
+      <td>Seasonal Quiche</td>
       
-      <td>38</td>
-      <td>$186.20</td>
+      <td>41</td>
+      <td>$143.50</td>
     </tr>
     <tr class="even">
       <td>15</td>
-      <td>Chicken Panini</td>
+      <td>Veggie Wrap</td>
       
       <td>38</td>
-      <td>$292.60</td>
+      <td>$239.40</td>
     </tr>
     <tr class="">
       <td>16</td>
-      <td>Veggie Wrap</td>
+      <td>Tomato Soup</td>
       
-      <td>35</td>
-      <td>$220.50</td>
+      <td>33</td>
+      <td>$300.30</td>
     </tr>
     <tr class="even">
       <td>17</td>
-      <td>Garden Salad</td>
+      <td>Chicken Panini</td>
       
-      <td>29</td>
-      <td>$304.50</td>
+      <td>31</td>
+      <td>$238.70</td>
     </tr>
     <tr class="">
       <td>18</td>
-      <td>Tomato Soup</td>
+      <td>Garden Salad</td>
       
-      <td>27</td>
-      <td>$245.70</td>
+      <td>26</td>
+      <td>$273.00</td>
     </tr>
     <tr class="even">
       <td>19</td>
@@ -444,13 +449,13 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>20</td>
       <td>Espresso</td>
       
-      <td>19</td>
-      <td>$93.10</td>
+      <td>17</td>
+      <td>$83.30</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Morning Blend Coffee","qty":104,"revenue":364},{"name":"Avocado Toast","qty":97,"revenue":611.1},{"name":"Berry Muffin","qty":88,"revenue":677.6},{"name":"Signature Croissant","qty":82,"revenue":401.8},{"name":"Café Latte","qty":82,"revenue":746.2},{"name":"Breakfast Sandwich","qty":80,"revenue":280},{"name":"House Granola Bowl","qty":75,"revenue":787.5},{"name":"Almond Danish","qty":65,"revenue":318.5},{"name":"Cold Brew","qty":59,"revenue":371.7},{"name":"Vanilla Scone","qty":54,"revenue":415.8},{"name":"Iced Matcha","qty":54,"revenue":567},{"name":"Banana Bread","qty":53,"revenue":482.3},{"name":"Seasonal Quiche","qty":49,"revenue":171.5},{"name":"Cinnamon Roll","qty":38,"revenue":186.2},{"name":"Chicken Panini","qty":38,"revenue":292.6},{"name":"Veggie Wrap","qty":35,"revenue":220.5},{"name":"Garden Salad","qty":29,"revenue":304.5},{"name":"Tomato Soup","qty":27,"revenue":245.7},{"name":"Blueberry Tart","qty":24,"revenue":84},{"name":"Espresso","qty":19,"revenue":93.1}];
+      const raw = [{"name":"Signature Croissant","qty":100,"revenue":490},{"name":"Avocado Toast","qty":100,"revenue":630},{"name":"Morning Blend Coffee","qty":95,"revenue":332.5},{"name":"Berry Muffin","qty":88,"revenue":677.6},{"name":"Café Latte","qty":70,"revenue":637},{"name":"House Granola Bowl","qty":68,"revenue":714},{"name":"Almond Danish","qty":68,"revenue":333.2},{"name":"Breakfast Sandwich","qty":64,"revenue":224},{"name":"Vanilla Scone","qty":62,"revenue":477.4},{"name":"Cold Brew","qty":54,"revenue":340.2},{"name":"Banana Bread","qty":49,"revenue":445.9},{"name":"Cinnamon Roll","qty":49,"revenue":240.1},{"name":"Iced Matcha","qty":47,"revenue":493.5},{"name":"Seasonal Quiche","qty":41,"revenue":143.5},{"name":"Veggie Wrap","qty":38,"revenue":239.4},{"name":"Tomato Soup","qty":33,"revenue":300.3},{"name":"Chicken Panini","qty":31,"revenue":238.7},{"name":"Garden Salad","qty":26,"revenue":273},{"name":"Blueberry Tart","qty":24,"revenue":84},{"name":"Espresso","qty":17,"revenue":83.3}];
       window['items-0'] = raw;
       setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
     })();
@@ -463,41 +468,53 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>Owner Comp</td>
-      <td style="text-align:center">4</td>
-      <td style="color:#C9A84C;font-weight:600">$54.73</td>
+      <td style="text-align:center">6</td>
+      <td style="color:#C9A84C;font-weight:600">$36.12</td>
     </tr>
     <tr class="">
       <td>Staff Discount</td>
-      <td style="text-align:center">5</td>
-      <td style="color:#C9A84C;font-weight:600">$78.32</td>
+      <td style="text-align:center">2</td>
+      <td style="color:#C9A84C;font-weight:600">$24.93</td>
+    </tr>
+    <tr class="even">
+      <td>Loyalty Reward</td>
+      <td style="text-align:center">6</td>
+      <td style="color:#C9A84C;font-weight:600">$60.64</td>
     </tr></tbody>
       <tfoot><tr>
         <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
-        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$133.05</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$121.69</td>
       </tr></tfoot>
     </table>
 
     <h3>Voids</h3>
     <div class="alert-card" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.35)">
       <div class="alert-title" style="color:#FF6B6B">
-        Voided Orders — 2 orders &nbsp;·&nbsp; $16.82 total
+        Voided Orders — 3 orders &nbsp;·&nbsp; $41.97 total
       </div>
       <table class="data-table">
         <thead><tr><th>Opened</th><th>Voided At</th><th>Voided By</th><th>Reason</th><th>Amount</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td>9:20 AM</td>
-      <td>9:29 AM</td>
-      <td><strong>Noel Evans</strong></td>
-      <td style="color:#999">Register correction</td>
-      <td style="color:#FF6B6B;font-weight:600">$8.38</td>
+      <td>11:12 AM</td>
+      <td>11:09 AM</td>
+      <td><strong>Riley Moore</strong></td>
+      <td style="color:#999">Made in error</td>
+      <td style="color:#FF6B6B;font-weight:600">$12.75</td>
     </tr>
     <tr class="">
-      <td>3:32 PM</td>
-      <td>3:09 PM</td>
+      <td>8:06 AM</td>
+      <td>8:45 AM</td>
+      <td><strong>Uma Stone</strong></td>
+      <td style="color:#999">Made in error</td>
+      <td style="color:#FF6B6B;font-weight:600">$7.24</td>
+    </tr>
+    <tr class="even">
+      <td>1:14 PM</td>
+      <td>1:35 PM</td>
       <td><strong>Uma Stone</strong></td>
       <td style="color:#999">Register correction</td>
-      <td style="color:#FF6B6B;font-weight:600">$8.44</td>
+      <td style="color:#FF6B6B;font-weight:600">$21.98</td>
     </tr></tbody>
       </table>
     </div>
@@ -509,24 +526,19 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     
     <div class="alert-card ot-card">
-      <div class="alert-title">Overtime — 3 employees</div>
+      <div class="alert-title">Overtime — 2 employees</div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td><span class="emp-name">Elliot Hayes</span><br><span class="wage-tag">$17.64/h</span></td>
-      <td>8.6h &nbsp;<span class="ot ot-pill">+36min OT</span></td>
-      <td class="extra-cost">+$5.29</td>
+      <td><span class="emp-name">Elliot Hayes</span><br><span class="wage-tag">$18.78/h</span></td>
+      <td>9.7h &nbsp;<span class="ot ot-pill">+1.7h OT</span></td>
+      <td class="extra-cost">+$15.96</td>
     </tr>
     <tr class="">
-      <td><span class="emp-name">Harper Park</span><br><span class="wage-tag">$17.13/h</span></td>
-      <td>9.3h &nbsp;<span class="ot ot-pill">+1.3h OT</span></td>
-      <td class="extra-cost">+$11.13</td>
-    </tr>
-    <tr class="even">
-      <td><span class="emp-name">Kai Walsh</span><br><span class="wage-tag">$20.61/h</span></td>
-      <td>10.1h &nbsp;<span class="ot ot-pill">+2.1h OT</span></td>
-      <td class="extra-cost">+$21.64</td>
+      <td><span class="emp-name">Harper Park</span><br><span class="wage-tag">$19.08/h</span></td>
+      <td>11.8h &nbsp;<span class="ot ot-pill">+3.8h OT</span></td>
+      <td class="extra-cost">+$36.25</td>
     </tr></tbody>
       </table>
     </div>
@@ -538,7 +550,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
         <tbody>
     <tr class="even">
       <td>Riley Moore</td>
-      <td><strong>6.9h shift</strong></td>
+      <td><strong>7.3h shift</strong></td>
       <td class="missed">No break recorded</td>
     </tr></tbody>
       </table>
@@ -555,10 +567,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <script>
   (function(){
     const labels   = ["6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM","7:30","8PM"];
-    const revenue  = [149,307,414,622,750,803,805,681,554,456,442,509,534,552,484,487,482,494,485,483,491,481,487,486,490,481,493,492];
-    const headcount= [3,4,4,5,5,6,6,6,6,6,6,5,4,4,3,2,3,2,3,3,2,2,2,2,2,2,2,2];
-    const labor    = [27.75,37,37,46.25,46.25,55.5,55.5,55.5,55.5,55.5,55.5,46.25,37,37,27.75,18.5,27.75,18.5,27.75,27.75,18.5,18.5,18.5,18.5,18.5,18.5,18.5,18.5];
-    const staff    = [["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"]];
+    const revenue  = [153,298,423,622,757,815,806,688,563,470,452,504,530,531,528,529,526,533,528,527,532,526,529,529,531,526,533,532];
+    const headcount= [2,3,3,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,3,3,3,3,2,2];
+    const labor    = [18.5,27.75,27.75,37,37,46.25,46.25,46.25,46.25,46.25,46.25,46.25,46.25,46.25,46.25,46.25,46.25,46.25,37,37,37,37,27.75,27.75,27.75,27.75,18.5,18.5];
+    const staff    = [["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"]];
     const panel    = document.getElementById('sp-chart-1');
     let lastIdx    = -1;
 
@@ -614,27 +626,27 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$15,617.00</div>
+      <div class="metric-value">$16,298.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$14,394.00</div>
+      <div class="metric-value">$15,021.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">904</div>
+      <div class="metric-value">1,031</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$15.92</div>
+      <div class="metric-value">$14.57</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$1,583.34</div>
+      <div class="metric-value">$1,652.31</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">51h</div>
+      <div class="metric-value">56.5h</div>
     </div>
   </div>
 
@@ -652,146 +664,146 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>1</td>
       <td>Morning Blend Coffee</td>
       
-      <td>89</td>
-      <td>$311.50</td>
+      <td>91</td>
+      <td>$318.50</td>
     </tr>
     <tr class="">
       <td>2</td>
-      <td>Signature Croissant</td>
+      <td>Café Latte</td>
       
-      <td>81</td>
-      <td>$396.90</td>
+      <td>78</td>
+      <td>$709.80</td>
     </tr>
     <tr class="even">
       <td>3</td>
-      <td>Café Latte</td>
+      <td>Avocado Toast</td>
       
-      <td>75</td>
-      <td>$682.50</td>
+      <td>76</td>
+      <td>$478.80</td>
     </tr>
     <tr class="">
       <td>4</td>
-      <td>Avocado Toast</td>
+      <td>Signature Croissant</td>
       
       <td>71</td>
-      <td>$447.30</td>
+      <td>$347.90</td>
     </tr>
     <tr class="even">
       <td>5</td>
       <td>Berry Muffin</td>
       
-      <td>69</td>
-      <td>$531.30</td>
+      <td>67</td>
+      <td>$515.90</td>
     </tr>
     <tr class="">
       <td>6</td>
-      <td>Breakfast Sandwich</td>
+      <td>Cold Brew</td>
       
-      <td>68</td>
-      <td>$238.00</td>
+      <td>62</td>
+      <td>$390.60</td>
     </tr>
     <tr class="even">
       <td>7</td>
-      <td>House Granola Bowl</td>
+      <td>Breakfast Sandwich</td>
       
-      <td>64</td>
-      <td>$672.00</td>
+      <td>58</td>
+      <td>$203.00</td>
     </tr>
     <tr class="">
       <td>8</td>
-      <td>Cold Brew</td>
+      <td>House Granola Bowl</td>
       
-      <td>60</td>
-      <td>$378.00</td>
+      <td>57</td>
+      <td>$598.50</td>
     </tr>
     <tr class="even">
       <td>9</td>
       <td>Almond Danish</td>
       
-      <td>56</td>
-      <td>$274.40</td>
+      <td>55</td>
+      <td>$269.50</td>
     </tr>
     <tr class="">
       <td>10</td>
       <td>Vanilla Scone</td>
       
-      <td>53</td>
-      <td>$408.10</td>
+      <td>55</td>
+      <td>$423.50</td>
     </tr>
     <tr class="even">
       <td>11</td>
       <td>Banana Bread</td>
       
-      <td>52</td>
-      <td>$473.20</td>
+      <td>49</td>
+      <td>$445.90</td>
     </tr>
     <tr class="">
       <td>12</td>
       <td>Iced Matcha</td>
       
-      <td>47</td>
-      <td>$493.50</td>
+      <td>48</td>
+      <td>$504.00</td>
     </tr>
     <tr class="even">
       <td>13</td>
       <td>Seasonal Quiche</td>
       
-      <td>42</td>
-      <td>$147.00</td>
+      <td>40</td>
+      <td>$140.00</td>
     </tr>
     <tr class="">
       <td>14</td>
       <td>Cinnamon Roll</td>
       
-      <td>41</td>
-      <td>$200.90</td>
+      <td>34</td>
+      <td>$166.60</td>
     </tr>
     <tr class="even">
       <td>15</td>
-      <td>Veggie Wrap</td>
-      
-      <td>36</td>
-      <td>$226.80</td>
-    </tr>
-    <tr class="">
-      <td>16</td>
       <td>Chicken Panini</td>
       
       <td>31</td>
       <td>$238.70</td>
     </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Veggie Wrap</td>
+      
+      <td>29</td>
+      <td>$182.70</td>
+    </tr>
     <tr class="even">
       <td>17</td>
       <td>Tomato Soup</td>
       
-      <td>23</td>
-      <td>$209.30</td>
+      <td>27</td>
+      <td>$245.70</td>
     </tr>
     <tr class="">
       <td>18</td>
       <td>Garden Salad</td>
       
-      <td>23</td>
-      <td>$241.50</td>
+      <td>26</td>
+      <td>$273.00</td>
     </tr>
     <tr class="even">
       <td>19</td>
       <td>Blueberry Tart</td>
       
-      <td>20</td>
-      <td>$70.00</td>
+      <td>22</td>
+      <td>$77.00</td>
     </tr>
     <tr class="">
       <td>20</td>
       <td>Espresso</td>
       
-      <td>18</td>
-      <td>$88.20</td>
+      <td>14</td>
+      <td>$68.60</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Morning Blend Coffee","qty":89,"revenue":311.5},{"name":"Signature Croissant","qty":81,"revenue":396.9},{"name":"Café Latte","qty":75,"revenue":682.5},{"name":"Avocado Toast","qty":71,"revenue":447.3},{"name":"Berry Muffin","qty":69,"revenue":531.3},{"name":"Breakfast Sandwich","qty":68,"revenue":238},{"name":"House Granola Bowl","qty":64,"revenue":672},{"name":"Cold Brew","qty":60,"revenue":378},{"name":"Almond Danish","qty":56,"revenue":274.4},{"name":"Vanilla Scone","qty":53,"revenue":408.1},{"name":"Banana Bread","qty":52,"revenue":473.2},{"name":"Iced Matcha","qty":47,"revenue":493.5},{"name":"Seasonal Quiche","qty":42,"revenue":147},{"name":"Cinnamon Roll","qty":41,"revenue":200.9},{"name":"Veggie Wrap","qty":36,"revenue":226.8},{"name":"Chicken Panini","qty":31,"revenue":238.7},{"name":"Tomato Soup","qty":23,"revenue":209.3},{"name":"Garden Salad","qty":23,"revenue":241.5},{"name":"Blueberry Tart","qty":20,"revenue":70},{"name":"Espresso","qty":18,"revenue":88.2}];
+      const raw = [{"name":"Morning Blend Coffee","qty":91,"revenue":318.5},{"name":"Café Latte","qty":78,"revenue":709.8},{"name":"Avocado Toast","qty":76,"revenue":478.8},{"name":"Signature Croissant","qty":71,"revenue":347.9},{"name":"Berry Muffin","qty":67,"revenue":515.9},{"name":"Cold Brew","qty":62,"revenue":390.6},{"name":"Breakfast Sandwich","qty":58,"revenue":203},{"name":"House Granola Bowl","qty":57,"revenue":598.5},{"name":"Almond Danish","qty":55,"revenue":269.5},{"name":"Vanilla Scone","qty":55,"revenue":423.5},{"name":"Banana Bread","qty":49,"revenue":445.9},{"name":"Iced Matcha","qty":48,"revenue":504},{"name":"Seasonal Quiche","qty":40,"revenue":140},{"name":"Cinnamon Roll","qty":34,"revenue":166.6},{"name":"Chicken Panini","qty":31,"revenue":238.7},{"name":"Veggie Wrap","qty":29,"revenue":182.7},{"name":"Tomato Soup","qty":27,"revenue":245.7},{"name":"Garden Salad","qty":26,"revenue":273},{"name":"Blueberry Tart","qty":22,"revenue":77},{"name":"Espresso","qty":14,"revenue":68.6}];
       window['items-1'] = raw;
       setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
     })();
@@ -804,46 +816,58 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>Owner Comp</td>
-      <td style="text-align:center">6</td>
-      <td style="color:#C9A84C;font-weight:600">$47.57</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#C9A84C;font-weight:600">$17.20</td>
     </tr>
     <tr class="">
       <td>Staff Discount</td>
-      <td style="text-align:center">5</td>
-      <td style="color:#C9A84C;font-weight:600">$87.51</td>
+      <td style="text-align:center">4</td>
+      <td style="color:#C9A84C;font-weight:600">$37.20</td>
     </tr>
     <tr class="even">
       <td>Loyalty Reward</td>
-      <td style="text-align:center">5</td>
-      <td style="color:#C9A84C;font-weight:600">$38.55</td>
+      <td style="text-align:center">4</td>
+      <td style="color:#C9A84C;font-weight:600">$67.46</td>
+    </tr>
+    <tr class="">
+      <td>Happy Hour</td>
+      <td style="text-align:center">6</td>
+      <td style="color:#C9A84C;font-weight:600">$89.21</td>
     </tr></tbody>
       <tfoot><tr>
         <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
-        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$173.63</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$211.07</td>
       </tr></tfoot>
     </table>
 
     <h3>Voids</h3>
     <div class="alert-card" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.35)">
       <div class="alert-title" style="color:#FF6B6B">
-        Voided Orders — 2 orders &nbsp;·&nbsp; $26.40 total
+        Voided Orders — 3 orders &nbsp;·&nbsp; $70.30 total
       </div>
       <table class="data-table">
         <thead><tr><th>Opened</th><th>Voided At</th><th>Voided By</th><th>Reason</th><th>Amount</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td>11:25 AM</td>
-      <td>11:01 AM</td>
-      <td><strong>Riley Moore</strong></td>
+      <td>1:48 PM</td>
+      <td>1:45 PM</td>
+      <td><strong>Avery Brooks</strong></td>
       <td style="color:#999">Made in error</td>
-      <td style="color:#FF6B6B;font-weight:600">$9.27</td>
+      <td style="color:#FF6B6B;font-weight:600">$21.36</td>
     </tr>
     <tr class="">
-      <td>11:42 AM</td>
-      <td>11:20 AM</td>
-      <td><strong>Harper Park</strong></td>
-      <td style="color:#999">Made in error</td>
-      <td style="color:#FF6B6B;font-weight:600">$17.13</td>
+      <td>2:05 PM</td>
+      <td>2:29 PM</td>
+      <td><strong>Frankie Grant</strong></td>
+      <td style="color:#999">Customer changed mind</td>
+      <td style="color:#FF6B6B;font-weight:600">$19.87</td>
+    </tr>
+    <tr class="even">
+      <td>4:16 PM</td>
+      <td>4:43 PM</td>
+      <td><strong>Uma Stone</strong></td>
+      <td style="color:#999">Customer changed mind</td>
+      <td style="color:#FF6B6B;font-weight:600">$29.07</td>
     </tr></tbody>
       </table>
     </div>
@@ -855,28 +879,35 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     
     
     <div class="alert-card ot-card">
-      <div class="alert-title">Overtime — 3 employees</div>
+      <div class="alert-title">Overtime — 2 employees</div>
       <table class="data-table">
         <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td><span class="emp-name">Elliot Hayes</span><br><span class="wage-tag">$21.35/h</span></td>
-      <td>9.5h &nbsp;<span class="ot ot-pill">+1.5h OT</span></td>
-      <td class="extra-cost">+$16.01</td>
+      <td><span class="emp-name">Elliot Hayes</span><br><span class="wage-tag">$22.37/h</span></td>
+      <td>11.1h &nbsp;<span class="ot ot-pill">+3.1h OT</span></td>
+      <td class="extra-cost">+$34.67</td>
     </tr>
     <tr class="">
-      <td><span class="emp-name">Harper Park</span><br><span class="wage-tag">$22.84/h</span></td>
-      <td>12.1h &nbsp;<span class="dt ot-pill">+4.1h OT</span></td>
-      <td class="extra-cost">+$47.96</td>
-    </tr>
-    <tr class="even">
-      <td><span class="emp-name">Kai Walsh</span><br><span class="wage-tag">$16.54/h</span></td>
-      <td>10.3h &nbsp;<span class="ot ot-pill">+2.3h OT</span></td>
-      <td class="extra-cost">+$19.02</td>
+      <td><span class="emp-name">Harper Park</span><br><span class="wage-tag">$22.40/h</span></td>
+      <td>10.9h &nbsp;<span class="ot ot-pill">+2.9h OT</span></td>
+      <td class="extra-cost">+$32.48</td>
     </tr></tbody>
       </table>
     </div>
     
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Riley Moore</td>
+      <td><strong>6.8h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
 
     
   <div class="chart-outer">
@@ -889,10 +920,10 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <script>
   (function(){
     const labels   = ["6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30","5PM","5:30","6PM","6:30","7PM","7:30","8PM"];
-    const revenue  = [145,244,350,512,614,713,636,559,444,406,395,403,443,434,387,393,257,216,152,99,67,52,39,39,31,31,34,32];
-    const headcount= [3,3,4,5,5,6,6,6,6,6,6,5,4,3,3,3,3,2,3,2,3,2,2,2,2,2,2,2];
-    const labor    = [27.75,27.75,37,46.25,46.25,55.5,55.5,55.5,55.5,55.5,55.5,46.25,37,27.75,27.75,27.75,27.75,18.5,27.75,18.5,27.75,18.5,18.5,18.5,18.5,18.5,18.5,18.5];
-    const staff    = [["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans","Riley Moore"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh","Noel Evans"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"]];
+    const revenue  = [141,239,354,512,620,706,645,564,455,407,393,403,438,434,395,382,267,215,151,100,67,51,39,37,32,31,33,32];
+    const headcount= [2,2,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,2,2,2];
+    const labor    = [18.5,18.5,27.75,27.75,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,27.75,27.75,27.75,27.75,27.75,27.75,18.5,18.5,18.5];
+    const staff    = [["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park","Kai Walsh"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes","Harper Park"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"],["Blake Clarke","Elliot Hayes"]];
     const panel    = document.getElementById('sp-chart-2');
     let lastIdx    = -1;
 
@@ -948,27 +979,27 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Gross Sales</div>
-      <div class="metric-value">$8,818.00</div>
+      <div class="metric-value">$8,835.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Net Sales</div>
-      <div class="metric-value">$8,127.00</div>
+      <div class="metric-value">$8,143.00</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Orders</div>
-      <div class="metric-value">520</div>
+      <div class="metric-value">668</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Avg Check</div>
-      <div class="metric-value">$15.63</div>
+      <div class="metric-value">$12.19</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Tips</div>
-      <div class="metric-value">$893.97</div>
+      <div class="metric-value">$895.73</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">Hours Worked</div>
-      <div class="metric-value">50.5h</div>
+      <div class="metric-value">47h</div>
     </div>
   </div>
 
@@ -984,59 +1015,59 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>1</td>
-      <td>Signature Croissant</td>
+      <td>Avocado Toast</td>
       
-      <td>73</td>
-      <td>$357.70</td>
+      <td>66</td>
+      <td>$415.80</td>
     </tr>
     <tr class="">
       <td>2</td>
-      <td>Avocado Toast</td>
+      <td>Signature Croissant</td>
       
-      <td>71</td>
-      <td>$447.30</td>
+      <td>65</td>
+      <td>$318.50</td>
     </tr>
     <tr class="even">
       <td>3</td>
-      <td>Morning Blend Coffee</td>
+      <td>Café Latte</td>
       
-      <td>69</td>
-      <td>$241.50</td>
+      <td>64</td>
+      <td>$582.40</td>
     </tr>
     <tr class="">
       <td>4</td>
-      <td>House Granola Bowl</td>
+      <td>Berry Muffin</td>
       
-      <td>59</td>
-      <td>$619.50</td>
+      <td>63</td>
+      <td>$485.10</td>
     </tr>
     <tr class="even">
       <td>5</td>
-      <td>Café Latte</td>
+      <td>Morning Blend Coffee</td>
       
       <td>58</td>
-      <td>$527.80</td>
+      <td>$203.00</td>
     </tr>
     <tr class="">
       <td>6</td>
-      <td>Berry Muffin</td>
+      <td>House Granola Bowl</td>
       
-      <td>53</td>
-      <td>$408.10</td>
+      <td>55</td>
+      <td>$577.50</td>
     </tr>
     <tr class="even">
       <td>7</td>
       <td>Breakfast Sandwich</td>
       
-      <td>51</td>
-      <td>$178.50</td>
+      <td>49</td>
+      <td>$171.50</td>
     </tr>
     <tr class="">
       <td>8</td>
-      <td>Cold Brew</td>
+      <td>Vanilla Scone</td>
       
-      <td>48</td>
-      <td>$302.40</td>
+      <td>47</td>
+      <td>$361.90</td>
     </tr>
     <tr class="even">
       <td>9</td>
@@ -1047,85 +1078,85 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </tr>
     <tr class="">
       <td>10</td>
-      <td>Banana Bread</td>
+      <td>Cold Brew</td>
       
-      <td>42</td>
-      <td>$382.20</td>
+      <td>44</td>
+      <td>$277.20</td>
     </tr>
     <tr class="even">
       <td>11</td>
-      <td>Vanilla Scone</td>
+      <td>Banana Bread</td>
       
-      <td>40</td>
-      <td>$308.00</td>
+      <td>43</td>
+      <td>$391.30</td>
     </tr>
     <tr class="">
       <td>12</td>
       <td>Iced Matcha</td>
       
-      <td>38</td>
-      <td>$399.00</td>
+      <td>32</td>
+      <td>$336.00</td>
     </tr>
     <tr class="even">
       <td>13</td>
-      <td>Seasonal Quiche</td>
+      <td>Veggie Wrap</td>
       
-      <td>37</td>
-      <td>$129.50</td>
+      <td>30</td>
+      <td>$189.00</td>
     </tr>
     <tr class="">
       <td>14</td>
-      <td>Veggie Wrap</td>
+      <td>Seasonal Quiche</td>
       
-      <td>31</td>
-      <td>$195.30</td>
+      <td>29</td>
+      <td>$101.50</td>
     </tr>
     <tr class="even">
       <td>15</td>
       <td>Cinnamon Roll</td>
       
-      <td>26</td>
-      <td>$127.40</td>
+      <td>27</td>
+      <td>$132.30</td>
     </tr>
     <tr class="">
       <td>16</td>
       <td>Chicken Panini</td>
       
-      <td>25</td>
-      <td>$192.50</td>
+      <td>27</td>
+      <td>$207.90</td>
     </tr>
     <tr class="even">
       <td>17</td>
       <td>Tomato Soup</td>
       
-      <td>19</td>
-      <td>$172.90</td>
+      <td>21</td>
+      <td>$191.10</td>
     </tr>
     <tr class="">
       <td>18</td>
       <td>Garden Salad</td>
       
-      <td>18</td>
-      <td>$189.00</td>
+      <td>21</td>
+      <td>$220.50</td>
     </tr>
     <tr class="even">
       <td>19</td>
       <td>Blueberry Tart</td>
       
-      <td>14</td>
-      <td>$49.00</td>
+      <td>17</td>
+      <td>$59.50</td>
     </tr>
     <tr class="">
       <td>20</td>
       <td>Espresso</td>
       
-      <td>13</td>
-      <td>$63.70</td>
+      <td>15</td>
+      <td>$73.50</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Signature Croissant","qty":73,"revenue":357.7},{"name":"Avocado Toast","qty":71,"revenue":447.3},{"name":"Morning Blend Coffee","qty":69,"revenue":241.5},{"name":"House Granola Bowl","qty":59,"revenue":619.5},{"name":"Café Latte","qty":58,"revenue":527.8},{"name":"Berry Muffin","qty":53,"revenue":408.1},{"name":"Breakfast Sandwich","qty":51,"revenue":178.5},{"name":"Cold Brew","qty":48,"revenue":302.4},{"name":"Almond Danish","qty":44,"revenue":215.6},{"name":"Banana Bread","qty":42,"revenue":382.2},{"name":"Vanilla Scone","qty":40,"revenue":308},{"name":"Iced Matcha","qty":38,"revenue":399},{"name":"Seasonal Quiche","qty":37,"revenue":129.5},{"name":"Veggie Wrap","qty":31,"revenue":195.3},{"name":"Cinnamon Roll","qty":26,"revenue":127.4},{"name":"Chicken Panini","qty":25,"revenue":192.5},{"name":"Tomato Soup","qty":19,"revenue":172.9},{"name":"Garden Salad","qty":18,"revenue":189},{"name":"Blueberry Tart","qty":14,"revenue":49},{"name":"Espresso","qty":13,"revenue":63.7}];
+      const raw = [{"name":"Avocado Toast","qty":66,"revenue":415.8},{"name":"Signature Croissant","qty":65,"revenue":318.5},{"name":"Café Latte","qty":64,"revenue":582.4},{"name":"Berry Muffin","qty":63,"revenue":485.1},{"name":"Morning Blend Coffee","qty":58,"revenue":203},{"name":"House Granola Bowl","qty":55,"revenue":577.5},{"name":"Breakfast Sandwich","qty":49,"revenue":171.5},{"name":"Vanilla Scone","qty":47,"revenue":361.9},{"name":"Almond Danish","qty":44,"revenue":215.6},{"name":"Cold Brew","qty":44,"revenue":277.2},{"name":"Banana Bread","qty":43,"revenue":391.3},{"name":"Iced Matcha","qty":32,"revenue":336},{"name":"Veggie Wrap","qty":30,"revenue":189},{"name":"Seasonal Quiche","qty":29,"revenue":101.5},{"name":"Cinnamon Roll","qty":27,"revenue":132.3},{"name":"Chicken Panini","qty":27,"revenue":207.9},{"name":"Tomato Soup","qty":21,"revenue":191.1},{"name":"Garden Salad","qty":21,"revenue":220.5},{"name":"Blueberry Tart","qty":17,"revenue":59.5},{"name":"Espresso","qty":15,"revenue":73.5}];
       window['items-2'] = raw;
       setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
     })();
@@ -1138,48 +1169,41 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>Owner Comp</td>
-      <td style="text-align:center">5</td>
-      <td style="color:#C9A84C;font-weight:600">$86.40</td>
+      <td style="text-align:center">4</td>
+      <td style="color:#C9A84C;font-weight:600">$36.90</td>
     </tr>
     <tr class="">
       <td>Staff Discount</td>
-      <td style="text-align:center">3</td>
-      <td style="color:#C9A84C;font-weight:600">$28.84</td>
+      <td style="text-align:center">4</td>
+      <td style="color:#C9A84C;font-weight:600">$56.37</td>
     </tr></tbody>
       <tfoot><tr>
         <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
-        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$115.24</td>
+        <td style="color:#C9A84C;font-weight:700;padding:.5rem .75rem">$93.27</td>
       </tr></tfoot>
     </table>
 
     <h3>Voids</h3>
     <div class="alert-card" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.35)">
       <div class="alert-title" style="color:#FF6B6B">
-        Voided Orders — 3 orders &nbsp;·&nbsp; $36.45 total
+        Voided Orders — 2 orders &nbsp;·&nbsp; $53.60 total
       </div>
       <table class="data-table">
         <thead><tr><th>Opened</th><th>Voided At</th><th>Voided By</th><th>Reason</th><th>Amount</th></tr></thead>
         <tbody>
     <tr class="even">
-      <td>12:58 PM</td>
-      <td>12:30 PM</td>
-      <td><strong>Uma Stone</strong></td>
-      <td style="color:#999">Wrong item</td>
-      <td style="color:#FF6B6B;font-weight:600">$4.40</td>
+      <td>3:32 PM</td>
+      <td>3:15 PM</td>
+      <td><strong>Kai Walsh</strong></td>
+      <td style="color:#999">Register correction</td>
+      <td style="color:#FF6B6B;font-weight:600">$24.61</td>
     </tr>
     <tr class="">
-      <td>8:16 AM</td>
-      <td>8:14 AM</td>
-      <td><strong>Uma Stone</strong></td>
-      <td style="color:#999">Made in error</td>
-      <td style="color:#FF6B6B;font-weight:600">$18.68</td>
-    </tr>
-    <tr class="even">
-      <td>11:21 AM</td>
-      <td>11:15 AM</td>
-      <td><strong>Kai Walsh</strong></td>
-      <td style="color:#999">Customer changed mind</td>
-      <td style="color:#FF6B6B;font-weight:600">$13.37</td>
+      <td>2:52 PM</td>
+      <td>2:03 PM</td>
+      <td><strong>Noel Evans</strong></td>
+      <td style="color:#999">Wrong item</td>
+      <td style="color:#FF6B6B;font-weight:600">$28.99</td>
     </tr></tbody>
       </table>
     </div>
@@ -1192,18 +1216,18 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
   <div class="retail-totals">
     <div class="rt-card">
       <div class="rt-label">Retail Food</div>
-      <div class="rt-value">$2,151.00</div>
-      <div class="rt-sub">205 items sold</div>
+      <div class="rt-value">$2,184.00</div>
+      <div class="rt-sub">208 items sold</div>
     </div>
     <div class="rt-card">
       <div class="rt-label">Retail Non-Food</div>
-      <div class="rt-value">$1,389.00</div>
-      <div class="rt-sub">135 items sold</div>
+      <div class="rt-value">$1,452.00</div>
+      <div class="rt-sub">136 items sold</div>
     </div>
     <div class="rt-card rt-total">
       <div class="rt-label">Total Retail</div>
-      <div class="rt-value">$3,540.00</div>
-      <div class="rt-sub">340 items sold</div>
+      <div class="rt-value">$3,636.00</div>
+      <div class="rt-sub">344 items sold</div>
     </div>
   </div>
 
@@ -1235,45 +1259,45 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even">
       <td>1</td>
-      <td>Signature Granola Bag</td>
+      <td>House Blend Tea Box</td>
       
-      <td>41</td>
-      <td>$369.00</td>
+      <td>45</td>
+      <td>$270.00</td>
     </tr>
     <tr class="">
       <td>2</td>
-      <td>Artisan Jam Jar</td>
+      <td>Signature Granola Bag</td>
       
-      <td>40</td>
-      <td>$480.00</td>
+      <td>37</td>
+      <td>$333.00</td>
     </tr>
     <tr class="even">
       <td>3</td>
-      <td>House Blend Tea Box</td>
+      <td>Artisan Jam Jar</td>
       
-      <td>38</td>
-      <td>$228.00</td>
+      <td>37</td>
+      <td>$444.00</td>
     </tr>
     <tr class="">
       <td>4</td>
       <td>Local Honey 8oz</td>
       
-      <td>30</td>
-      <td>$450.00</td>
+      <td>25</td>
+      <td>$375.00</td>
     </tr>
     <tr class="even">
       <td>5</td>
+      <td>Coffee Bean Bag 12oz</td>
+      
+      <td>25</td>
+      <td>$450.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
       <td>Cookie Tin</td>
       
       <td>20</td>
       <td>$120.00</td>
-    </tr>
-    <tr class="">
-      <td>6</td>
-      <td>Coffee Bean Bag 12oz</td>
-      
-      <td>18</td>
-      <td>$324.00</td>
     </tr>
     <tr class="even">
       <td>7</td>
@@ -1286,13 +1310,13 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>8</td>
       <td>Dried Fruit Mix</td>
       
-      <td>6</td>
-      <td>$72.00</td>
+      <td>7</td>
+      <td>$84.00</td>
     </tr></tbody>
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Signature Granola Bag","qty":41,"revenue":369},{"name":"Artisan Jam Jar","qty":40,"revenue":480},{"name":"House Blend Tea Box","qty":38,"revenue":228},{"name":"Local Honey 8oz","qty":30,"revenue":450},{"name":"Cookie Tin","qty":20,"revenue":120},{"name":"Coffee Bean Bag 12oz","qty":18,"revenue":324},{"name":"Olive Oil Tin","qty":12,"revenue":108},{"name":"Dried Fruit Mix","qty":6,"revenue":72}];
+      const raw = [{"name":"House Blend Tea Box","qty":45,"revenue":270},{"name":"Signature Granola Bag","qty":37,"revenue":333},{"name":"Artisan Jam Jar","qty":37,"revenue":444},{"name":"Local Honey 8oz","qty":25,"revenue":375},{"name":"Coffee Bean Bag 12oz","qty":25,"revenue":450},{"name":"Cookie Tin","qty":20,"revenue":120},{"name":"Olive Oil Tin","qty":12,"revenue":108},{"name":"Dried Fruit Mix","qty":7,"revenue":84}];
       window['items-3'] = raw;
       setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
     })();
@@ -1313,8 +1337,8 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>1</td>
       <td>Ceramic Mug</td>
       
-      <td>41</td>
-      <td>$246.00</td>
+      <td>35</td>
+      <td>$210.00</td>
     </tr>
     <tr class="">
       <td>2</td>
@@ -1327,22 +1351,22 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <td>3</td>
       <td>Travel Tumbler</td>
       
-      <td>22</td>
-      <td>$264.00</td>
+      <td>25</td>
+      <td>$300.00</td>
     </tr>
     <tr class="">
       <td>4</td>
       <td>Gift Card $25</td>
       
-      <td>19</td>
-      <td>$285.00</td>
+      <td>22</td>
+      <td>$330.00</td>
     </tr>
     <tr class="even">
       <td>5</td>
       <td>Branded Cap</td>
       
-      <td>12</td>
-      <td>$216.00</td>
+      <td>13</td>
+      <td>$234.00</td>
     </tr>
     <tr class="">
       <td>6</td>
@@ -1375,7 +1399,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     <script>
     (function(){
-      const raw = [{"name":"Ceramic Mug","qty":41,"revenue":246},{"name":"Tote Bag","qty":26,"revenue":234},{"name":"Travel Tumbler","qty":22,"revenue":264},{"name":"Gift Card $25","qty":19,"revenue":285},{"name":"Branded Cap","qty":12,"revenue":216},{"name":"Canvas Apron","qty":6,"revenue":36},{"name":"Enamel Pin","qty":3,"revenue":27},{"name":"Beeswax Candle","qty":3,"revenue":36},{"name":"Reusable Cup","qty":3,"revenue":45}];
+      const raw = [{"name":"Ceramic Mug","qty":35,"revenue":210},{"name":"Tote Bag","qty":26,"revenue":234},{"name":"Travel Tumbler","qty":25,"revenue":300},{"name":"Gift Card $25","qty":22,"revenue":330},{"name":"Branded Cap","qty":13,"revenue":234},{"name":"Canvas Apron","qty":6,"revenue":36},{"name":"Enamel Pin","qty":3,"revenue":27},{"name":"Beeswax Candle","qty":3,"revenue":36},{"name":"Reusable Cup","qty":3,"revenue":45}];
       window['items-4'] = raw;
       setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
     })();
@@ -1390,94 +1414,94 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
       <tbody>
     <tr class="even" >
       <td>1</td>
-      <td>Signature Granola Bag</td>
+      <td>House Blend Tea Box</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
-      <td>41</td>
-      <td>$369.00</td>
+      <td>45</td>
+      <td>$270.00</td>
     </tr>
     <tr class="" >
       <td>2</td>
-      <td>Ceramic Mug</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>41</td>
-      <td>$246.00</td>
+      <td>Signature Granola Bag</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>37</td>
+      <td>$333.00</td>
     </tr>
     <tr class="even" >
       <td>3</td>
       <td>Artisan Jam Jar</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
-      <td>40</td>
-      <td>$480.00</td>
+      <td>37</td>
+      <td>$444.00</td>
     </tr>
     <tr class="" >
       <td>4</td>
-      <td>House Blend Tea Box</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
-      <td>38</td>
-      <td>$228.00</td>
+      <td>Ceramic Mug</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>35</td>
+      <td>$210.00</td>
     </tr>
     <tr class="even" >
       <td>5</td>
-      <td>Local Honey 8oz</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
-      <td>30</td>
-      <td>$450.00</td>
-    </tr>
-    <tr class="" >
-      <td>6</td>
       <td>Tote Bag</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
       <td>26</td>
       <td>$234.00</td>
     </tr>
+    <tr class="" >
+      <td>6</td>
+      <td>Local Honey 8oz</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>25</td>
+      <td>$375.00</td>
+    </tr>
     <tr class="even" >
       <td>7</td>
-      <td>Travel Tumbler</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>22</td>
-      <td>$264.00</td>
+      <td>Coffee Bean Bag 12oz</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>25</td>
+      <td>$450.00</td>
     </tr>
     <tr class="" >
       <td>8</td>
+      <td>Travel Tumbler</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>25</td>
+      <td>$300.00</td>
+    </tr>
+    <tr class="even" >
+      <td>9</td>
+      <td>Gift Card $25</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>22</td>
+      <td>$330.00</td>
+    </tr>
+    <tr class="" >
+      <td>10</td>
       <td>Cookie Tin</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>20</td>
       <td>$120.00</td>
     </tr>
     <tr class="even" >
-      <td>9</td>
-      <td>Gift Card $25</td>
+      <td>11</td>
+      <td>Branded Cap</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>19</td>
-      <td>$285.00</td>
+      <td>13</td>
+      <td>$234.00</td>
     </tr>
     <tr class="" >
-      <td>10</td>
-      <td>Coffee Bean Bag 12oz</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
-      <td>18</td>
-      <td>$324.00</td>
-    </tr>
-    <tr class="even" >
-      <td>11</td>
+      <td>12</td>
       <td>Olive Oil Tin</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
       <td>12</td>
       <td>$108.00</td>
     </tr>
-    <tr class="" >
-      <td>12</td>
-      <td>Branded Cap</td>
-      <td><span style="font-size:.65rem;font-weight:600;color:#C9A84C;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
-      <td>12</td>
-      <td>$216.00</td>
-    </tr>
     <tr class="even" >
       <td>13</td>
       <td>Dried Fruit Mix</td>
       <td><span style="font-size:.65rem;font-weight:600;color:#4ECDC4;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
-      <td>6</td>
-      <td>$72.00</td>
+      <td>7</td>
+      <td>$84.00</td>
     </tr>
     <tr class="" >
       <td>14</td>
@@ -1510,7 +1534,7 @@ footer{text-align:center;color:#2A2A2A;font-size:.7rem;margin-top:2rem;padding-t
     </table>
     
     <script>
-    (function(){ window['items-5'] = [{"name":"Signature Granola Bag","qty":41,"revenue":369,"category":"Food"},{"name":"Ceramic Mug","qty":41,"revenue":246,"category":"Non-Food"},{"name":"Artisan Jam Jar","qty":40,"revenue":480,"category":"Food"},{"name":"House Blend Tea Box","qty":38,"revenue":228,"category":"Food"},{"name":"Local Honey 8oz","qty":30,"revenue":450,"category":"Food"},{"name":"Tote Bag","qty":26,"revenue":234,"category":"Non-Food"},{"name":"Travel Tumbler","qty":22,"revenue":264,"category":"Non-Food"},{"name":"Cookie Tin","qty":20,"revenue":120,"category":"Food"},{"name":"Gift Card $25","qty":19,"revenue":285,"category":"Non-Food"},{"name":"Coffee Bean Bag 12oz","qty":18,"revenue":324,"category":"Food"},{"name":"Olive Oil Tin","qty":12,"revenue":108,"category":"Food"},{"name":"Branded Cap","qty":12,"revenue":216,"category":"Non-Food"},{"name":"Dried Fruit Mix","qty":6,"revenue":72,"category":"Food"},{"name":"Canvas Apron","qty":6,"revenue":36,"category":"Non-Food"},{"name":"Enamel Pin","qty":3,"revenue":27,"category":"Non-Food"},{"name":"Beeswax Candle","qty":3,"revenue":36,"category":"Non-Food"},{"name":"Reusable Cup","qty":3,"revenue":45,"category":"Non-Food"}]; })();
+    (function(){ window['items-5'] = [{"name":"House Blend Tea Box","qty":45,"revenue":270,"category":"Food"},{"name":"Signature Granola Bag","qty":37,"revenue":333,"category":"Food"},{"name":"Artisan Jam Jar","qty":37,"revenue":444,"category":"Food"},{"name":"Ceramic Mug","qty":35,"revenue":210,"category":"Non-Food"},{"name":"Tote Bag","qty":26,"revenue":234,"category":"Non-Food"},{"name":"Local Honey 8oz","qty":25,"revenue":375,"category":"Food"},{"name":"Coffee Bean Bag 12oz","qty":25,"revenue":450,"category":"Food"},{"name":"Travel Tumbler","qty":25,"revenue":300,"category":"Non-Food"},{"name":"Gift Card $25","qty":22,"revenue":330,"category":"Non-Food"},{"name":"Cookie Tin","qty":20,"revenue":120,"category":"Food"},{"name":"Branded Cap","qty":13,"revenue":234,"category":"Non-Food"},{"name":"Olive Oil Tin","qty":12,"revenue":108,"category":"Food"},{"name":"Dried Fruit Mix","qty":7,"revenue":84,"category":"Food"},{"name":"Canvas Apron","qty":6,"revenue":36,"category":"Non-Food"},{"name":"Enamel Pin","qty":3,"revenue":27,"category":"Non-Food"},{"name":"Beeswax Candle","qty":3,"revenue":36,"category":"Non-Food"},{"name":"Reusable Cup","qty":3,"revenue":45,"category":"Non-Food"}]; })();
     </script>
     </div>
   </div>
