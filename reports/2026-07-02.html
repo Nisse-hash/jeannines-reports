@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>Jeannine's Daily Report — 2026-07-02</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',sans-serif;background:#FFFFFF;color:#1A1A1A;padding:2rem 1rem;min-height:100vh}
+.wrap{max-width:900px;margin:0 auto}
+
+/* Header */
+.rpt-header{border-bottom:2px solid #A9842F;padding-bottom:1.5rem;margin-bottom:2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.rpt-left{flex:1}
+.rpt-title{font-size:2.6rem;font-weight:800;color:#141414;letter-spacing:-0.5px}
+.rpt-date{font-size:1.05rem;color:#777;margin-top:.25rem}
+.rpt-ts{font-size:.72rem;color:#aaa;margin-top:.4rem}
+.day-badge{flex-shrink:0;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.35rem .85rem;border-radius:9999px;margin-top:.25rem}
+.day-badge.weekend{color:#A9842F;background:rgba(169,132,47,.1);border:1px solid rgba(169,132,47,.3)}
+.day-badge.weekday{color:#888;background:#F5F2EC;border:1px solid #E6E1D8}
+
+/* Totals banner */
+.totals-banner{background:#FFFFFF;border:1px solid #E6E1D8;border-radius:8px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.banner-label{font-size:.74rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:1rem;font-weight:700}
+
+/* Weather strip */
+.weather-strip{background:#FAF8F4;border:1px solid #ECE7DE;border-radius:8px;padding:.75rem 1rem;margin-bottom:1.25rem}
+.weather-loc{font-size:.6rem;color:#999;text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:.35rem}
+.weather-table{width:100%;border-collapse:collapse;text-align:center}
+.weather-table th{color:#888;font-size:.75rem;font-weight:700;padding:.4rem .2rem;white-space:nowrap}
+.weather-table td{font-size:1.4rem;padding:.2rem .2rem .5rem;line-height:1.2;cursor:default}
+
+/* Metric grid */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+.metric-card{background:#FAF8F4;border-radius:8px;padding:.95rem;text-align:center;border:1px solid #ECE7DE}
+.metric-label{font-size:.66rem;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem;font-weight:600}
+.metric-value{font-size:1.5rem;font-weight:800;color:#1A1A1A}
+
+/* Location block */
+.location-block{background:#FFFFFF;border:1px solid #E6E1D8;border-radius:8px;padding:1.5rem;margin-bottom:1.75rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.loc-name{font-size:1.7rem;font-weight:800;color:#141414;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid rgba(169,132,47,.3);letter-spacing:-0.3px}
+
+h3{font-size:.74rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin:1.5rem 0 .75rem;font-weight:700}
+h3.ot-heading{color:#A9842F}
+
+/* Tables */
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.data-table th{text-align:left;padding:.55rem .75rem;font-size:.66rem;text-transform:uppercase;letter-spacing:.5px;color:#999;border-bottom:2px solid #E0DAD0}
+.data-table td{padding:.55rem .75rem;color:#333}
+.data-table tr.even td{background:#F7F4EE}
+
+.ot{color:#B26B00;font-weight:600}
+.dt{color:#E0524D;font-weight:700}
+.missed{color:#E0524D;font-weight:600}
+.ot-pill{display:inline-block;padding:.15rem .5rem;border-radius:3px;font-size:.85rem;font-weight:700;vertical-align:middle}
+.ot .ot-pill{background:rgba(178,107,0,.12)}
+.dt .ot-pill{background:rgba(224,82,77,.12)}
+.wage-tag{font-size:.7rem;color:#999;margin-left:.4rem;font-weight:400}
+.extra-cost{font-size:.8rem;color:#E0524D;font-weight:600;margin-left:.5rem}
+
+/* Alert cards */
+.alert-card{border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.ot-card{background:rgba(178,107,0,.06);border:1px solid rgba(178,107,0,.28)}
+.break-card{background:rgba(224,82,77,.06);border:1px solid rgba(224,82,77,.3)}
+.alert-title{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.875rem}
+.ot-card .alert-title{color:#B26B00}
+.break-card .alert-title{color:#E0524D}
+.legal-note{font-size:.7rem;font-weight:400;color:#999;text-transform:none;letter-spacing:0}
+.all-clear{font-size:.85rem;color:#2E9E5B;padding:.75rem 0 1.25rem;letter-spacing:.3px;font-weight:600}
+
+.ok{font-size:.875rem;color:#2E9E5B;padding:.25rem 0}
+.empty{font-size:.875rem;color:#aaa;padding:.25rem 0}
+
+/* Chart */
+.chart-outer{margin-bottom:1.75rem}
+.chart-wrap{background:#FFFFFF;border:1px solid #E6E1D8;border-radius:8px;overflow:hidden;height:280px;display:flex;padding:0}
+.chart-canvas-col{flex:1;min-width:0;padding:1rem;position:relative;height:280px}
+.chart-canvas-col canvas{max-height:248px}
+.staff-panel-col{width:180px;flex-shrink:0;border-left:1px solid #E6E1D8;padding:.75rem;overflow:hidden;display:flex;flex-direction:column;background:#FAF8F4}
+.sp-time{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#0F9488;padding-bottom:.35rem;margin-bottom:.4rem;border-bottom:1px solid #E6E1D8}
+.sp-name{font-size:.78rem;color:#444;padding:.18rem 0;line-height:1.3}
+
+/* Sort toolbar */
+.table-toolbar{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
+.sort-label{font-size:.7rem;color:#999;text-transform:uppercase;letter-spacing:.5px}
+.sort-btn{background:#F5F2EC;border:1px solid #E0DAD0;color:#888;font-size:.75rem;padding:.3rem .75rem;border-radius:4px;cursor:pointer;transition:all .15s}
+.sort-btn:hover{border-color:#A9842F;color:#A9842F}
+.sort-btn.active{background:rgba(169,132,47,.1);border-color:#A9842F;color:#A9842F;font-weight:600}
+.cross-highlight td{background:rgba(15,148,136,.06)!important;border-left:2px solid #14B8A6}
+.cross-tag{font-size:.65rem;color:#0F9488;background:rgba(15,148,136,.1);border:1px solid rgba(15,148,136,.3);padding:.1rem .35rem;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+
+/* Retail totals */
+.retail-totals{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem}
+.rt-card{background:#FAF8F4;border:1px solid #ECE7DE;border-radius:8px;padding:.75rem;text-align:center}
+.rt-total{border-color:rgba(15,148,136,.35)}
+.rt-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;color:#999;margin-bottom:.3rem;font-weight:600}
+.rt-value{font-size:1.2rem;font-weight:800;color:#0F9488}
+.rt-sub{font-size:.7rem;color:#999;margin-top:.2rem}
+
+/* Retail controls */
+.retail-controls{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.retail-toggle{display:flex;align-items:center;gap:.375rem;flex-wrap:wrap}
+.rtgl-btn{background:transparent;border:1px solid rgba(15,148,136,.3);color:#0F9488;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500}
+.rtgl-btn:hover,.rtgl-btn.active{background:rgba(15,148,136,.1);border-color:#14B8A6}
+.retail-sort-inline{display:flex;align-items:center;gap:.5rem}
+.retail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:700px){.retail-grid{grid-template-columns:1fr}}
+
+/* Day navigation */
+.day-nav{display:flex;align-items:center;gap:.375rem;margin-top:1.1rem}
+.nav-btn{background:transparent;border:1px solid rgba(169,132,47,.3);color:#A9842F;font-size:.75rem;padding:.3rem .85rem;border-radius:9999px;cursor:pointer;transition:all .15s;font-weight:500;letter-spacing:.2px}
+.nav-btn:hover{background:rgba(169,132,47,.1);border-color:#A9842F}
+.nav-date{background:transparent;border:1px solid rgba(169,132,47,.3);color:#666;font-size:.75rem;padding:.3rem .65rem;border-radius:9999px;cursor:pointer;outline:none;color-scheme:light;transition:all .15s}
+.nav-date:hover,.nav-date:focus{border-color:#A9842F;color:#1A1A1A}
+
+/* Footer */
+footer{text-align:center;color:#bbb;font-size:.7rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #E6E1D8}
+
+@media(max-width:600px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .rpt-title{font-size:2rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="rpt-header">
+    <div class="rpt-left">
+      <div class="rpt-title">Jeannine's Daily Report</div>
+      <div class="rpt-date">2026-07-02</div>
+      <div class="rpt-ts">Generated Jul 2, 2026, 4:30 PM PT</div>
+      <div class="day-nav">
+      <button class="nav-btn" onclick="goDay(-1)">← Prev</button>
+      <input type="date" class="nav-date" value="2026-07-02" onchange="goToDate(this.value)">
+      <button class="nav-btn" onclick="goDay(1)">Next →</button>
+    </div>
+    </div>
+    <div class="day-badge weekday">Thursday</div>
+  </div>
+
+  
+  <div class="totals-banner">
+    <div class="banner-label">All Locations Combined</div>
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$30,602.78</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$30,602.78</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">768</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$39.85</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$3,235.94</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Total Hours</div>
+      <div class="metric-value">226.8h</div>
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="location-block">
+    <h2 class="loc-name">Goleta</h2>
+
+    
+    
+    <div class="alert-card ot-card">
+      <div class="alert-title">Overtime — 1 employee</div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Lalo Mendoza</span><br><span class="wage-tag">$25.00/h</span></td>
+      <td>8.4h &nbsp;<span class="ot ot-pill">+23min OT</span></td>
+      <td class="extra-cost">+$4.75</td>
+    </tr></tbody>
+      </table>
+    </div>
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 1 employee &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Jaymie Froelicher</td>
+      <td><strong>6h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap">
+      <div class="chart-canvas-col"><canvas id="chart-0"></canvas></div>
+      <div id="sp-chart-0" class="staff-panel-col"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30"];
+    const revenue  = [0,0,0,199.75,399.19,246.7,627.44,388.34,583.54,541,699.28,637.41,703.83,337.52,248.33,138,0,0,0,0,0,0];
+    const headcount= [2,6,5,6,6,8,8,8,8,8,8,8,7,7,7,7,6,5,2,2,1,0];
+    const labor    = [6.69,27.97,50.95,51.3,59.4,63.64,76.35,76.35,76.35,76.35,76.35,70.95,67.9,67.9,67.9,67.74,58.3,40.11,21,15.25,8.33,0];
+    const staff    = [["Juan Moran","Lalo Mendoza"],["Apolinar Alcoser Diaz","Carlos Hernandez","Eduardo Paredes","Juan Moran","Kyle Rivas","Lalo Mendoza"],["Apolinar Alcoser Diaz","Eduardo Paredes","Juan Moran","Kyle Rivas","Lalo Mendoza"],["Apolinar Alcoser Diaz","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza"],["Apolinar Alcoser Diaz","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Kyle Rivas","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Jaymie Froelicher","Juan Moran","Lalo Mendoza","Maximiliano Hernandez"],["Apolinar Alcoser Diaz","Benito Gantes","Eduardo Paredes","Juan Moran","Lalo Mendoza","Maximiliano Hernandez"],["Benito Gantes","Eduardo Paredes","Juan Moran","Lalo Mendoza","Maximiliano Hernandez"],["Benito Gantes","Lalo Mendoza"],["Benito Gantes","Lalo Mendoza"],["Benito Gantes"],[]];
+    const panel    = document.getElementById('sp-chart-0');
+    let lastIdx    = -1;
+
+    function updatePanel(idx) {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+      if (!panel) return;
+      if (idx < 0) { panel.innerHTML = ''; return; }
+      const names = staff[idx] || [];
+      const panelH   = panel.clientHeight || 256;
+      const labelH   = 26;
+      const avail    = panelH - labelH - 8;
+      const raw      = names.length > 0 ? Math.floor(avail / names.length / 1.45) : 13;
+      const fs       = Math.min(13, Math.max(7, raw));
+      panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
+        + names.map(n => '<div class="sp-name" style="font-size:' + fs + 'px;padding:' + Math.max(1, fs * 0.12) + 'px 0">· ' + n + '</div>').join('');
+    }
+
+    new Chart(document.getElementById('chart-0'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(176,141,46,0.45)', borderColor:'#A9842F', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#14B8A6', backgroundColor:'rgba(20,184,166,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#E0524D', backgroundColor:'rgba(224,82,77,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#999', maxRotation:45, font:{size:10} }, grid:{ color:'#ECE7DE' } },
+          yRev:{ position:'left',  ticks:{ color:'#A9842F', callback:v=>'$'+v }, grid:{ color:'#ECE7DE' } },
+          yPpl:{ position:'right', ticks:{ color:'#0F9488', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#555', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#fff', borderColor:'#ddd', borderWidth:1, titleColor:'#111', bodyColor:'#333',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 57°F">7am</th><th title="Overcast 62°F">8am</th><th title="Overcast 65°F">9am</th><th title="Overcast 65°F">10am</th><th title="Overcast 66°F">11am</th><th title="Overcast 66°F">12pm</th><th title="Overcast 66°F">1pm</th><th title="Overcast 68°F">2pm</th><th title="Overcast 67°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 57°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Overcast 67°F">☁️</td></tr></tbody></table>
+  </div>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$4,931.55</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$4,931.55</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">158</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$31.21</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$483.04</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">54.3h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-0','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-0','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-0">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Scone</td>
+      
+      <td>91</td>
+      <td>$364.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Latte</td>
+      
+      <td>24</td>
+      <td>$144.05</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Drip Coffee</td>
+      
+      <td>20</td>
+      <td>$97.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Orange Juice Small</td>
+      
+      <td>18</td>
+      <td>$117.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>American Breakfast</td>
+      
+      <td>17</td>
+      <td>$317.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Havana Latte</td>
+      
+      <td>15</td>
+      <td>$95.75</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Challah French Toast Breakfast</td>
+      
+      <td>14</td>
+      <td>$281.50</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Santa Barbara Scramble</td>
+      
+      <td>11</td>
+      <td>$213.50</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Muffin</td>
+      
+      <td>9</td>
+      <td>$45.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Cinnamon Roll</td>
+      
+      <td>9</td>
+      <td>$54.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Pancake Breakfast</td>
+      
+      <td>9</td>
+      <td>$180.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>English Muffin Sandwich</td>
+      
+      <td>7</td>
+      <td>$84.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Classic Benedict</td>
+      
+      <td>7</td>
+      <td>$140.00</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Hot Tea</td>
+      
+      <td>7</td>
+      <td>$33.25</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Chai Latte</td>
+      
+      <td>7</td>
+      <td>$45.00</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Breakfast Burrito</td>
+      
+      <td>7</td>
+      <td>$126.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Rajas Burrito</td>
+      
+      <td>6</td>
+      <td>$112.50</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Mocha</td>
+      
+      <td>6</td>
+      <td>$42.50</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Banana French Toast</td>
+      
+      <td>6</td>
+      <td>$108.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Waffle Breakfast</td>
+      
+      <td>6</td>
+      <td>$123.50</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":91,"revenue":364,"category":""},{"name":"Latte","qty":24,"revenue":144.05,"category":""},{"name":"Drip Coffee","qty":20,"revenue":97,"category":""},{"name":"Orange Juice Small","qty":18,"revenue":117,"category":""},{"name":"American Breakfast","qty":17,"revenue":317,"category":""},{"name":"Havana Latte","qty":15,"revenue":95.75,"category":""},{"name":"Challah French Toast Breakfast","qty":14,"revenue":281.5,"category":""},{"name":"Santa Barbara Scramble","qty":11,"revenue":213.5,"category":""},{"name":"Muffin","qty":9,"revenue":45,"category":""},{"name":"Cinnamon Roll","qty":9,"revenue":54,"category":""},{"name":"Pancake Breakfast","qty":9,"revenue":180,"category":""},{"name":"English Muffin Sandwich","qty":7,"revenue":84,"category":""},{"name":"Classic Benedict","qty":7,"revenue":140,"category":""},{"name":"Hot Tea","qty":7,"revenue":33.25,"category":""},{"name":"Chai Latte","qty":7,"revenue":45,"category":""},{"name":"Breakfast Burrito","qty":7,"revenue":126,"category":""},{"name":"Rajas Burrito","qty":6,"revenue":112.5,"category":""},{"name":"Mocha","qty":6,"revenue":42.5,"category":""},{"name":"Banana French Toast","qty":6,"revenue":108,"category":""},{"name":"Waffle Breakfast","qty":6,"revenue":123.5,"category":""}];
+      window['items-0'] = raw;
+      setTimeout(function(){ sortItems('items-0', 'qty'); }, 0);
+    })();
+    </script>
+
+    <h3>Discounts</h3>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Cash Reward</td>
+      <td style="text-align:center">2</td>
+      <td style="color:#A9842F;font-weight:600">$10.20</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#A9842F;font-weight:700;padding:.5rem .75rem">$10.20</td>
+      </tr></tfoot>
+    </table>
+
+    
+  </div>
+
+  <div class="location-block">
+    <h2 class="loc-name">Montecito</h2>
+
+    
+    
+    <div class="alert-card ot-card">
+      <div class="alert-title">Overtime — 2 employees</div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift &amp; OT</th><th>Extra cost</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td><span class="emp-name">Valerio Ascencion</span><br><span class="wage-tag">$22.00/h</span></td>
+      <td>8.6h &nbsp;<span class="ot ot-pill">+34min OT</span></td>
+      <td class="extra-cost">+$6.27</td>
+    </tr>
+    <tr class="">
+      <td><span class="emp-name">Fernando Castro</span><br><span class="wage-tag">$18.00/h</span></td>
+      <td>8h &nbsp;<span class="ot ot-pill">+2min OT</span></td>
+      <td class="extra-cost">+$0.27</td>
+    </tr></tbody>
+      </table>
+    </div>
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 4 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Fernando Castro</td>
+      <td><strong>8.6h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>Donna Mudge</td>
+      <td><strong>8.5h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="even">
+      <td>Kevin Camacho Jimenez</td>
+      <td><strong>6.1h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>Yvette Crespo Santos</td>
+      <td><strong>6h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap">
+      <div class="chart-canvas-col"><canvas id="chart-1"></canvas></div>
+      <div id="sp-chart-1" class="staff-panel-col"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30"];
+    const revenue  = [0,0,0,823.98,872.59,1240.52,1222.41,1105.97,1195.06,1003.15,1233.63,1038.11,641.99,891.47,774.5,218.57,28,3.82,0,0,0,0];
+    const headcount= [2,2,5,7,8,10,9,9,10,10,10,10,10,10,9,8,7,7,5,4,1,0];
+    const labor    = [2.28,19.45,44,57.17,72.37,80.81,81.55,81.55,89.82,90,90,90,90,82.64,73.47,65.09,64.65,53.59,44.15,14.4,0.51,0];
+    const staff    = [["Kevin Camacho Jimenez","Valerio Ascencion"],["Kevin Camacho Jimenez","Valerio Ascencion"],["Fernando Castro","Kevin Camacho Jimenez","Ruben Sanchez Ortiz","Sabrielle Saucedo","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Ruben Sanchez Ortiz","Sabrielle Saucedo","Valerio Ascencion"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Ruben Sanchez Ortiz","Sabrielle Saucedo","Valerio Ascencion"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Ruben Sanchez Ortiz","Sabrielle Saucedo","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Kevin Camacho Jimenez","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Charlie Brand","Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Ty Cohen TRAINEE","Valerio Ascencion","Yvette Crespo Santos"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Valerio Ascencion","Yvette Crespo Santos"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Martin Montanez","Ruben Sanchez Ortiz","Valerio Ascencion","Yvette Crespo Santos"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Ruben Sanchez Ortiz","Valerio Ascencion"],["Donna Mudge","Fernando Castro","Leonardo Garcia","Valerio Ascencion"],["Donna Mudge"],[]];
+    const panel    = document.getElementById('sp-chart-1');
+    let lastIdx    = -1;
+
+    function updatePanel(idx) {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+      if (!panel) return;
+      if (idx < 0) { panel.innerHTML = ''; return; }
+      const names = staff[idx] || [];
+      const panelH   = panel.clientHeight || 256;
+      const labelH   = 26;
+      const avail    = panelH - labelH - 8;
+      const raw      = names.length > 0 ? Math.floor(avail / names.length / 1.45) : 13;
+      const fs       = Math.min(13, Math.max(7, raw));
+      panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
+        + names.map(n => '<div class="sp-name" style="font-size:' + fs + 'px;padding:' + Math.max(1, fs * 0.12) + 'px 0">· ' + n + '</div>').join('');
+    }
+
+    new Chart(document.getElementById('chart-1'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(176,141,46,0.45)', borderColor:'#A9842F', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#14B8A6', backgroundColor:'rgba(20,184,166,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#E0524D', backgroundColor:'rgba(224,82,77,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#999', maxRotation:45, font:{size:10} }, grid:{ color:'#ECE7DE' } },
+          yRev:{ position:'left',  ticks:{ color:'#A9842F', callback:v=>'$'+v }, grid:{ color:'#ECE7DE' } },
+          yPpl:{ position:'right', ticks:{ color:'#0F9488', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#555', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#fff', borderColor:'#ddd', borderWidth:1, titleColor:'#111', bodyColor:'#333',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 57°F">7am</th><th title="Overcast 62°F">8am</th><th title="Overcast 65°F">9am</th><th title="Overcast 65°F">10am</th><th title="Overcast 66°F">11am</th><th title="Overcast 66°F">12pm</th><th title="Overcast 66°F">1pm</th><th title="Overcast 68°F">2pm</th><th title="Overcast 67°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 57°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Overcast 67°F">☁️</td></tr></tbody></table>
+  </div>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$10,379.85</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$10,379.85</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">291</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$35.67</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$1,150.39</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">67.8h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-1','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-1','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-1">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Scone</td>
+      
+      <td>105</td>
+      <td>$420.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Latte</td>
+      
+      <td>88</td>
+      <td>$536.03</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Drip Coffee</td>
+      
+      <td>65</td>
+      <td>$316.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Orange Juice Small</td>
+      
+      <td>46</td>
+      <td>$299.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>American Breakfast</td>
+      
+      <td>41</td>
+      <td>$791.50</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Cappuccino</td>
+      
+      <td>27</td>
+      <td>$130.67</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Breakfast Burrito</td>
+      
+      <td>23</td>
+      <td>$414.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Iced Tea</td>
+      
+      <td>19</td>
+      <td>$95.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Americano</td>
+      
+      <td>17</td>
+      <td>$82.50</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Cinnamon Roll</td>
+      
+      <td>16</td>
+      <td>$96.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Hot Tea</td>
+      
+      <td>15</td>
+      <td>$66.50</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Santa Barbara Scramble</td>
+      
+      <td>15</td>
+      <td>$291.50</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Side Bacon</td>
+      
+      <td>13</td>
+      <td>$65.00</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Side 2 Eggs</td>
+      
+      <td>13</td>
+      <td>$93.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Chai Latte</td>
+      
+      <td>13</td>
+      <td>$87.50</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Avocado Toast</td>
+      
+      <td>13</td>
+      <td>$177.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Classic Benedict</td>
+      
+      <td>12</td>
+      <td>$240.00</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Waffle alone</td>
+      
+      <td>11</td>
+      <td>$144.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Farmer's Egg White Omelet</td>
+      
+      <td>11</td>
+      <td>$213.25</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Dessert Bar</td>
+      
+      <td>11</td>
+      <td>$66.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":105,"revenue":420,"category":""},{"name":"Latte","qty":88,"revenue":536.03,"category":""},{"name":"Drip Coffee","qty":65,"revenue":316,"category":""},{"name":"Orange Juice Small","qty":46,"revenue":299,"category":""},{"name":"American Breakfast","qty":41,"revenue":791.5,"category":""},{"name":"Cappuccino","qty":27,"revenue":130.67000000000002,"category":""},{"name":"Breakfast Burrito","qty":23,"revenue":414,"category":""},{"name":"Iced Tea","qty":19,"revenue":95,"category":""},{"name":"Americano","qty":17,"revenue":82.5,"category":""},{"name":"Cinnamon Roll","qty":16,"revenue":96,"category":""},{"name":"Hot Tea","qty":15,"revenue":66.5,"category":""},{"name":"Santa Barbara Scramble","qty":15,"revenue":291.5,"category":""},{"name":"Side Bacon","qty":13,"revenue":65,"category":""},{"name":"Side 2 Eggs","qty":13,"revenue":93,"category":""},{"name":"Chai Latte","qty":13,"revenue":87.5,"category":""},{"name":"Avocado Toast","qty":13,"revenue":177,"category":""},{"name":"Classic Benedict","qty":12,"revenue":240,"category":""},{"name":"Waffle alone","qty":11,"revenue":144,"category":""},{"name":"Farmer's Egg White Omelet","qty":11,"revenue":213.25,"category":""},{"name":"Dessert Bar","qty":11,"revenue":66,"category":""}];
+      window['items-1'] = raw;
+      setTimeout(function(){ sortItems('items-1', 'qty'); }, 0);
+    })();
+    </script>
+
+    <h3>Discounts</h3>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Cash Reward</td>
+      <td style="text-align:center">5</td>
+      <td style="color:#A9842F;font-weight:600">$32.45</td>
+    </tr>
+    <tr class="">
+      <td>Manager Discount</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#A9842F;font-weight:600">$19.00</td>
+    </tr>
+    <tr class="even">
+      <td>Employee 50%</td>
+      <td style="text-align:center">1</td>
+      <td style="color:#A9842F;font-weight:600">$3.50</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#A9842F;font-weight:700;padding:.5rem .75rem">$54.95</td>
+      </tr></tfoot>
+    </table>
+
+    
+  </div>
+
+  <div class="location-block">
+    <h2 class="loc-name">At the Shore</h2>
+
+    
+    
+    
+    <div class="alert-card break-card">
+      <div class="alert-title">Missed Breaks — 2 employees &nbsp;<span class="legal-note">(CA law: break before 5th hour)</span></div>
+      <table class="data-table">
+        <thead><tr><th>Employee</th><th>Shift</th><th>Status</th></tr></thead>
+        <tbody>
+    <tr class="even">
+      <td>Roberto Munoz</td>
+      <td><strong>8.5h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr>
+    <tr class="">
+      <td>David Sanchez Esteban</td>
+      <td><strong>8h shift</strong></td>
+      <td class="missed">No break recorded</td>
+    </tr></tbody>
+      </table>
+    </div>
+
+    
+  <div class="chart-outer">
+    <h3>Day at a Glance</h3>
+    <div class="chart-wrap">
+      <div class="chart-canvas-col"><canvas id="chart-2"></canvas></div>
+      <div id="sp-chart-2" class="staff-panel-col"></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const labels   = ["6AM","6:30","7AM","7:30","8AM","8:30","9AM","9:30","10AM","10:30","11AM","11:30","12PM","12:30","1PM","1:30","2PM","2:30","3PM","3:30","4PM","4:30"];
+    const revenue  = [0,0,0,826.2,779.79,1306.49,1589.61,2290.48,1689.38,1809.74,1806.19,1755.52,1562.42,1510.65,743.75,444.89,0,72.85,19.01,0,0,0];
+    const headcount= [1,6,8,11,15,15,15,15,15,15,15,15,15,15,15,12,10,8,7,2,2,0];
+    const labor    = [8.88,52.18,73.41,96.53,126.5,133.65,133.65,133.65,133.65,133.65,133.65,133.65,133.65,132.94,115.91,106.96,75.7,73.8,21.65,16.95,2.86,0];
+    const staff    = [["Jose Martinez"],["Alejo Gastelum","Anazario Gallardo","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Roberto Munoz"],["Alejo Gastelum","Anazario Gallardo","David Sanchez Esteban","Jose Martinez","Jose Murillo Aguirre","Leidi Gantes","Nadia De Leon Carranza","Roberto Munoz"],["Alejo Gastelum","Anazario Gallardo","Claudio Victoria","David Sanchez Esteban","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Nadia De Leon Carranza","Roberto Munoz"],["Abigail Britzke","Aidan Aguilar","Alejo Gastelum","Anazario Gallardo","Bella Perez","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Claudio Victoria","David Sanchez Esteban","Javier Valenzo","Jorge Alberto Garcia Perez","Jose Martinez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Roberto Munoz"],["Aidan Aguilar","Alejo Gastelum","Claudio Victoria","David Sanchez Esteban","Jorge Alberto Garcia Perez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Maria Gonzalez","Roberto Munoz"],["Alejo Gastelum","Claudio Victoria","David Sanchez Esteban","Jorge Alberto Garcia Perez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Roberto Munoz"],["Alejo Gastelum","Claudio Victoria","Jorge Alberto Garcia Perez","Jose Murillo Aguirre","Juan Ortiz","Leidi Gantes","Roberto Munoz"],["Claudio Victoria","Jorge Alberto Garcia Perez"],["Claudio Victoria","Jorge Alberto Garcia Perez"],[]];
+    const panel    = document.getElementById('sp-chart-2');
+    let lastIdx    = -1;
+
+    function updatePanel(idx) {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+      if (!panel) return;
+      if (idx < 0) { panel.innerHTML = ''; return; }
+      const names = staff[idx] || [];
+      const panelH   = panel.clientHeight || 256;
+      const labelH   = 26;
+      const avail    = panelH - labelH - 8;
+      const raw      = names.length > 0 ? Math.floor(avail / names.length / 1.45) : 13;
+      const fs       = Math.min(13, Math.max(7, raw));
+      panel.innerHTML = '<div class="sp-time">' + labels[idx] + '</div>'
+        + names.map(n => '<div class="sp-name" style="font-size:' + fs + 'px;padding:' + Math.max(1, fs * 0.12) + 'px 0">· ' + n + '</div>').join('');
+    }
+
+    new Chart(document.getElementById('chart-2'), {
+      data: {
+        labels,
+        datasets: [
+          { type:'bar',  label:'Revenue ($)',    data:revenue,   backgroundColor:'rgba(176,141,46,0.45)', borderColor:'#A9842F', borderWidth:1, yAxisID:'yRev', order:3 },
+          { type:'line', label:'Staff on floor', data:headcount, borderColor:'#14B8A6', backgroundColor:'rgba(20,184,166,0.08)', tension:0.4, pointRadius:2, yAxisID:'yPpl', order:1 },
+          { type:'line', label:'Labor cost ($)', data:labor,     borderColor:'#E0524D', backgroundColor:'rgba(224,82,77,0.05)', tension:0.4, pointRadius:2, borderDash:[4,2], yAxisID:'yRev', order:2 },
+        ]
+      },
+      options: {
+        responsive:true,
+        onHover: (evt, activeEls) => updatePanel(activeEls.length ? activeEls[0].index : -1),
+        interaction:{ mode:'index', intersect:false },
+        scales:{
+          x:{ ticks:{ color:'#999', maxRotation:45, font:{size:10} }, grid:{ color:'#ECE7DE' } },
+          yRev:{ position:'left',  ticks:{ color:'#A9842F', callback:v=>'$'+v }, grid:{ color:'#ECE7DE' } },
+          yPpl:{ position:'right', ticks:{ color:'#0F9488', stepSize:1, callback:v=>v+'ppl' }, grid:{ display:false } },
+        },
+        plugins:{
+          legend:{ labels:{ color:'#555', boxWidth:12, font:{size:11} } },
+          tooltip:{ backgroundColor:'#fff', borderColor:'#ddd', borderWidth:1, titleColor:'#111', bodyColor:'#333',
+            callbacks:{ label: ctx => {
+              if(ctx.dataset.label.startsWith('Staff')) return ' '+ctx.parsed.y+' people';
+              return ' $'+ctx.parsed.y.toFixed(2);
+            }}
+          },
+        }
+      }
+    });
+  })();
+  </script>
+
+    <div class="weather-strip">
+    <div class="weather-loc">Weather &mdash; 1 State St</div>
+    <table class="weather-table"><thead><tr><th title="Overcast 57°F">7am</th><th title="Overcast 62°F">8am</th><th title="Overcast 65°F">9am</th><th title="Overcast 65°F">10am</th><th title="Overcast 66°F">11am</th><th title="Overcast 66°F">12pm</th><th title="Overcast 66°F">1pm</th><th title="Overcast 68°F">2pm</th><th title="Overcast 67°F">3pm</th></tr></thead><tbody><tr><td title="Overcast 57°F">☁️</td><td title="Overcast 62°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 65°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 66°F">☁️</td><td title="Overcast 68°F">☁️</td><td title="Overcast 67°F">☁️</td></tr></tbody></table>
+  </div>
+
+    <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Gross Sales</div>
+      <div class="metric-value">$15,291.38</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Net Sales</div>
+      <div class="metric-value">$15,291.38</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Orders</div>
+      <div class="metric-value">319</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Check</div>
+      <div class="metric-value">$47.94</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Tips</div>
+      <div class="metric-value">$1,602.51</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hours Worked</div>
+      <div class="metric-value">104.7h</div>
+    </div>
+  </div>
+
+    <h3>Top Sellers</h3>
+    
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-2','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-2','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-2">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Scone</td>
+      
+      <td>88</td>
+      <td>$352.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Latte</td>
+      
+      <td>77</td>
+      <td>$476.00</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Orange Juice Small</td>
+      
+      <td>63</td>
+      <td>$409.50</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Drip Coffee</td>
+      
+      <td>54</td>
+      <td>$267.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>American Breakfast</td>
+      
+      <td>38</td>
+      <td>$736.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Cappuccino</td>
+      
+      <td>32</td>
+      <td>$160.65</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Santa Barbara Scramble</td>
+      
+      <td>31</td>
+      <td>$628.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Chilaquiles</td>
+      
+      <td>30</td>
+      <td>$565.50</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Fruit Smoothie Express</td>
+      
+      <td>29</td>
+      <td>$278.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Challah French Toast Breakfast</td>
+      
+      <td>24</td>
+      <td>$480.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Havana Latte</td>
+      
+      <td>22</td>
+      <td>$148.75</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Pancake Breakfast</td>
+      
+      <td>20</td>
+      <td>$405.50</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>California Omelet</td>
+      
+      <td>20</td>
+      <td>$389.50</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Breakfast Burrito</td>
+      
+      <td>19</td>
+      <td>$343.75</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Latte Express</td>
+      
+      <td>19</td>
+      <td>$116.95</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Huevos Rancheros</td>
+      
+      <td>19</td>
+      <td>$361.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Eduardo's Omelet</td>
+      
+      <td>19</td>
+      <td>$368.25</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Classic Benedict</td>
+      
+      <td>17</td>
+      <td>$346.50</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Waffle Breakfast</td>
+      
+      <td>17</td>
+      <td>$341.50</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Banana French Toast</td>
+      
+      <td>17</td>
+      <td>$306.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Scone","qty":88,"revenue":352,"category":""},{"name":"Latte","qty":77,"revenue":476,"category":""},{"name":"Orange Juice Small","qty":63,"revenue":409.5,"category":""},{"name":"Drip Coffee","qty":54,"revenue":267,"category":""},{"name":"American Breakfast","qty":38,"revenue":736,"category":""},{"name":"Cappuccino","qty":32,"revenue":160.65,"category":""},{"name":"Santa Barbara Scramble","qty":31,"revenue":628,"category":""},{"name":"Chilaquiles","qty":30,"revenue":565.5,"category":""},{"name":"Fruit Smoothie Express","qty":29,"revenue":278,"category":""},{"name":"Challah French Toast Breakfast","qty":24,"revenue":480,"category":""},{"name":"Havana Latte","qty":22,"revenue":148.75,"category":""},{"name":"Pancake Breakfast","qty":20,"revenue":405.5,"category":""},{"name":"California Omelet","qty":20,"revenue":389.5,"category":""},{"name":"Breakfast Burrito","qty":19,"revenue":343.75,"category":""},{"name":"Latte Express","qty":19,"revenue":116.95,"category":""},{"name":"Huevos Rancheros","qty":19,"revenue":361,"category":""},{"name":"Eduardo's Omelet","qty":19,"revenue":368.25,"category":""},{"name":"Classic Benedict","qty":17,"revenue":346.5,"category":""},{"name":"Waffle Breakfast","qty":17,"revenue":341.5,"category":""},{"name":"Banana French Toast","qty":17,"revenue":306,"category":""}];
+      window['items-2'] = raw;
+      setTimeout(function(){ sortItems('items-2', 'qty'); }, 0);
+    })();
+    </script>
+
+    <h3>Discounts</h3>
+    
+    <table class="data-table">
+      <thead><tr><th>Discount Program</th><th style="text-align:center">Times Applied</th><th>Amount Off</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>Employee Discount</td>
+      <td style="text-align:center">5</td>
+      <td style="color:#A9842F;font-weight:600">$46.00</td>
+    </tr></tbody>
+      <tfoot><tr>
+        <td colspan="2" style="color:#999;font-size:.8rem;padding:.5rem .75rem">Total discounted</td>
+        <td style="color:#A9842F;font-weight:700;padding:.5rem .75rem">$46.00</td>
+      </tr></tfoot>
+    </table>
+
+    
+  </div>
+  
+  <div id="retail-top-sellers" class="location-block" style="border:1px solid rgba(78,205,196,.2)">
+    <h2 class="loc-name" style="color:#0F9488;border-bottom-color:rgba(15,148,136,.3)">Retail Top Sellers</h2>
+
+    
+  <div class="retail-totals">
+    <div class="rt-card">
+      <div class="rt-label">Retail Food</div>
+      <div class="rt-value">$336.50</div>
+      <div class="rt-sub">33 items sold</div>
+    </div>
+    <div class="rt-card">
+      <div class="rt-label">Retail Non-Food</div>
+      <div class="rt-value">$916.63</div>
+      <div class="rt-sub">59 items sold</div>
+    </div>
+    <div class="rt-card rt-total">
+      <div class="rt-label">Total Retail</div>
+      <div class="rt-value">$1,253.13</div>
+      <div class="rt-sub">92 items sold</div>
+    </div>
+  </div>
+
+    <div class="retail-controls">
+      <div class="retail-toggle">
+        <button class="rtgl-btn" data-view="split" onclick="setRetailView('split')">Food &amp; Non-Food</button>
+        <button class="rtgl-btn" data-view="food" onclick="setRetailView('food')">Food</button>
+        <button class="rtgl-btn" data-view="nonfood" onclick="setRetailView('nonfood')">Non-Food</button>
+        <button class="rtgl-btn active" data-view="all" onclick="setRetailView('all')">All</button>
+      </div>
+      <div id="retail-sort-bar" class="retail-sort-inline">
+        <span class="sort-label">Sort by</span>
+        <button class="sort-btn active" onclick="sortRetailAll('items-5','qty')">Quantity</button>
+        <button class="sort-btn" onclick="sortRetailAll('items-5','revenue')">Revenue</button>
+      </div>
+    </div>
+
+    <div id="retail-cols" class="retail-grid" style="display:none">
+      <div id="retail-col-food">
+        <h3 style="color:#0F9488">Retail Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-3','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-3','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-3">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Dog Bones (3)</td>
+      
+      <td>9</td>
+      <td>$54.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>High Protein Granola</td>
+      
+      <td>5</td>
+      <td>$77.50</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Bag of 8 Coconut Strawberry</td>
+      
+      <td>4</td>
+      <td>$48.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Jeannine's Wildflower Honey 9 oz</td>
+      
+      <td>3</td>
+      <td>$60.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Jeannine's Granola Bag LG</td>
+      
+      <td>3</td>
+      <td>$46.50</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>Banana</td>
+      
+      <td>3</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>Flying Bird Jasmine Green</td>
+      
+      <td>1</td>
+      <td>$10.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Mint Chocolate Cookie Bites</td>
+      
+      <td>1</td>
+      <td>$5.50</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Bana</td>
+      
+      <td>1</td>
+      <td>$2.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Torres Chips Mediterranean Salt</td>
+      
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>Torres Chips Black Truffle (40g bag)</td>
+      
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Ojai Jam</td>
+      
+      <td>1</td>
+      <td>$18.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Dog Bones (3)","qty":9,"revenue":54},{"name":"High Protein Granola","qty":5,"revenue":77.5},{"name":"Bag of 8 Coconut Strawberry","qty":4,"revenue":48},{"name":"Jeannine's Wildflower Honey 9 oz","qty":3,"revenue":60},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5},{"name":"Banana","qty":3,"revenue":6},{"name":"Flying Bird Jasmine Green","qty":1,"revenue":10},{"name":"Mint Chocolate Cookie Bites","qty":1,"revenue":5.5},{"name":"Bana","qty":1,"revenue":2},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5},{"name":"Ojai Jam","qty":1,"revenue":18}];
+      window['items-3'] = raw;
+      setTimeout(function(){ sortItems('items-3', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+      <div id="retail-col-nonfood">
+        <h3 style="color:#0F9488">Retail Non-Food</h3>
+        
+    <div class="table-toolbar">
+      <span class="sort-label">Sort by</span>
+      <button class="sort-btn active" onclick="sortItems('items-4','qty')">Quantity</button>
+      <button class="sort-btn" onclick="sortItems('items-4','revenue')">Revenue</button>
+    </div>
+    <table class="data-table" id="items-4">
+      <thead><tr><th>#</th><th>Item</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even">
+      <td>1</td>
+      <td>Mini Card</td>
+      
+      <td>7</td>
+      <td>$28.00</td>
+    </tr>
+    <tr class="">
+      <td>2</td>
+      <td>Emily Lex Watercolor Workbook</td>
+      
+      <td>5</td>
+      <td>$140.00</td>
+    </tr>
+    <tr class="even">
+      <td>3</td>
+      <td>Hand Puppet</td>
+      
+      <td>5</td>
+      <td>$45.00</td>
+    </tr>
+    <tr class="">
+      <td>4</td>
+      <td>Emily Lex Watercolor Paint Set</td>
+      
+      <td>4</td>
+      <td>$72.00</td>
+    </tr>
+    <tr class="even">
+      <td>5</td>
+      <td>Skel & Co Card</td>
+      
+      <td>4</td>
+      <td>$24.00</td>
+    </tr>
+    <tr class="">
+      <td>6</td>
+      <td>9 Bear Jumbo Tote</td>
+      
+      <td>3</td>
+      <td>$90.00</td>
+    </tr>
+    <tr class="even">
+      <td>7</td>
+      <td>BluGift Camellia</td>
+      
+      <td>2</td>
+      <td>$32.00</td>
+    </tr>
+    <tr class="">
+      <td>8</td>
+      <td>Elseware Colored Pencils - Tall</td>
+      
+      <td>2</td>
+      <td>$14.00</td>
+    </tr>
+    <tr class="even">
+      <td>9</td>
+      <td>Wellspring - Sharks & Ocean Creatures Coloring Book</td>
+      
+      <td>2</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="">
+      <td>10</td>
+      <td>Matchbox</td>
+      
+      <td>2</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="even">
+      <td>11</td>
+      <td>SoulByrd Cap</td>
+      
+      <td>2</td>
+      <td>$96.00</td>
+    </tr>
+    <tr class="">
+      <td>12</td>
+      <td>Large SB Card</td>
+      
+      <td>2</td>
+      <td>$13.00</td>
+    </tr>
+    <tr class="even">
+      <td>13</td>
+      <td>Bana</td>
+      
+      <td>2</td>
+      <td>$3.66</td>
+    </tr>
+    <tr class="">
+      <td>14</td>
+      <td>Mac & Mo Card</td>
+      
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even">
+      <td>15</td>
+      <td>Talking Tables - HB Candle Rainbow</td>
+      
+      <td>1</td>
+      <td>$7.50</td>
+    </tr>
+    <tr class="">
+      <td>16</td>
+      <td>Eco Kids XL Beeswax Crayons</td>
+      
+      <td>1</td>
+      <td>$13.00</td>
+    </tr>
+    <tr class="even">
+      <td>17</td>
+      <td>Hand Cream Peony</td>
+      
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="">
+      <td>18</td>
+      <td>Talking Tables 16 Candles</td>
+      
+      <td>1</td>
+      <td>$7.00</td>
+    </tr>
+    <tr class="even">
+      <td>19</td>
+      <td>Talking Tables Twirl Candles 8</td>
+      
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="">
+      <td>20</td>
+      <td>Elseware Paintbrushes</td>
+      
+      <td>1</td>
+      <td>$10.00</td>
+    </tr></tbody>
+    </table>
+    <script>
+    (function(){
+      const raw = [{"name":"Mini Card","qty":7,"revenue":28},{"name":"Emily Lex Watercolor Workbook","qty":5,"revenue":140},{"name":"Hand Puppet","qty":5,"revenue":45},{"name":"Emily Lex Watercolor Paint Set","qty":4,"revenue":72},{"name":"Skel & Co Card","qty":4,"revenue":24},{"name":"9 Bear Jumbo Tote","qty":3,"revenue":90},{"name":"BluGift Camellia","qty":2,"revenue":32},{"name":"Elseware Colored Pencils - Tall","qty":2,"revenue":14},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":2,"revenue":16},{"name":"Matchbox","qty":2,"revenue":16},{"name":"SoulByrd Cap","qty":2,"revenue":96},{"name":"Large SB Card","qty":2,"revenue":13},{"name":"Bana","qty":2,"revenue":3.66},{"name":"Mac & Mo Card","qty":1,"revenue":6},{"name":"Talking Tables - HB Candle Rainbow","qty":1,"revenue":7.5},{"name":"Eco Kids XL Beeswax Crayons","qty":1,"revenue":13},{"name":"Hand Cream Peony","qty":1,"revenue":4.5},{"name":"Talking Tables 16 Candles","qty":1,"revenue":7},{"name":"Talking Tables Twirl Candles 8","qty":1,"revenue":6},{"name":"Elseware Paintbrushes","qty":1,"revenue":10}];
+      window['items-4'] = raw;
+      setTimeout(function(){ sortItems('items-4', 'qty'); }, 0);
+    })();
+    </script>
+      </div>
+    </div>
+
+    <div id="retail-all-view">
+      
+    <table class="data-table" id="items-5">
+      <thead><tr><th>#</th><th>Item</th><th>Type</th><th class="col-qty">Qty</th><th>Revenue</th></tr></thead>
+      <tbody>
+    <tr class="even" >
+      <td>1</td>
+      <td>Dog Bones (3)</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>9</td>
+      <td>$54.00</td>
+    </tr>
+    <tr class="" >
+      <td>2</td>
+      <td>Mini Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>7</td>
+      <td>$28.00</td>
+    </tr>
+    <tr class="even" >
+      <td>3</td>
+      <td>High Protein Granola</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>5</td>
+      <td>$77.50</td>
+    </tr>
+    <tr class="" >
+      <td>4</td>
+      <td>Emily Lex Watercolor Workbook</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>5</td>
+      <td>$140.00</td>
+    </tr>
+    <tr class="even" >
+      <td>5</td>
+      <td>Hand Puppet</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>5</td>
+      <td>$45.00</td>
+    </tr>
+    <tr class="" >
+      <td>6</td>
+      <td>Bag of 8 Coconut Strawberry</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>4</td>
+      <td>$48.00</td>
+    </tr>
+    <tr class="even" >
+      <td>7</td>
+      <td>Emily Lex Watercolor Paint Set</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>4</td>
+      <td>$72.00</td>
+    </tr>
+    <tr class="" >
+      <td>8</td>
+      <td>Skel & Co Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>4</td>
+      <td>$24.00</td>
+    </tr>
+    <tr class="even" >
+      <td>9</td>
+      <td>Jeannine's Wildflower Honey 9 oz</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>3</td>
+      <td>$60.00</td>
+    </tr>
+    <tr class="" >
+      <td>10</td>
+      <td>Jeannine's Granola Bag LG</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>3</td>
+      <td>$46.50</td>
+    </tr>
+    <tr class="even" >
+      <td>11</td>
+      <td>Banana</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>3</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="" >
+      <td>12</td>
+      <td>Bana</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>3</td>
+      <td>$5.66</td>
+    </tr>
+    <tr class="even" >
+      <td>13</td>
+      <td>9 Bear Jumbo Tote</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>3</td>
+      <td>$90.00</td>
+    </tr>
+    <tr class="" >
+      <td>14</td>
+      <td>BluGift Camellia</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$32.00</td>
+    </tr>
+    <tr class="even" >
+      <td>15</td>
+      <td>Elseware Colored Pencils - Tall</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$14.00</td>
+    </tr>
+    <tr class="" >
+      <td>16</td>
+      <td>Wellspring - Sharks & Ocean Creatures Coloring Book</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="even" >
+      <td>17</td>
+      <td>Matchbox</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="" >
+      <td>18</td>
+      <td>SoulByrd Cap</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$96.00</td>
+    </tr>
+    <tr class="even" >
+      <td>19</td>
+      <td>Large SB Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>2</td>
+      <td>$13.00</td>
+    </tr>
+    <tr class="" >
+      <td>20</td>
+      <td>Flying Bird Jasmine Green</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$10.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>21</td>
+      <td>Mint Chocolate Cookie Bites</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$5.50</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>22</td>
+      <td>Torres Chips Mediterranean Salt</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>23</td>
+      <td>Torres Chips Black Truffle (40g bag)</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>24</td>
+      <td>Ojai Jam</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#0F9488;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Food</span></td>
+      <td>1</td>
+      <td>$18.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>25</td>
+      <td>Mac & Mo Card</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>26</td>
+      <td>Talking Tables - HB Candle Rainbow</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$7.50</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>27</td>
+      <td>Eco Kids XL Beeswax Crayons</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$13.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>28</td>
+      <td>Hand Cream Peony</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$4.50</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>29</td>
+      <td>Talking Tables 16 Candles</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$7.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>30</td>
+      <td>Talking Tables Twirl Candles 8</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$6.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>31</td>
+      <td>Elseware Paintbrushes</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$10.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>32</td>
+      <td>Elseware Watercolors Bamboo Box</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$25.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>33</td>
+      <td>Beach Towel</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$60.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>34</td>
+      <td>Wild Friends Activity Book</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$8.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>35</td>
+      <td>Living Goods Random Cats Mug</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$20.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>36</td>
+      <td>Jeannine's Wo's Crewneck Sweatshirt - Pink XL</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$50.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>37</td>
+      <td>Multipet Highland Cow Dog Toy</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$14.00</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>38</td>
+      <td>BluGift Lemon Blossoms</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$16.00</td>
+    </tr>
+    <tr class="even ra-hidden" style="display:none">
+      <td>39</td>
+      <td>Coffeee Mug</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$21.97</td>
+    </tr>
+    <tr class=" ra-hidden" style="display:none">
+      <td>40</td>
+      <td>Bougie Bottle Water Bottle - Enchanting</td>
+      <td><span style="font-size:.65rem;font-weight:600;color:#A9842F;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.1rem .4rem;border-radius:3px;white-space:nowrap">Non-Food</span></td>
+      <td>1</td>
+      <td>$48.00</td>
+    </tr></tbody>
+    </table>
+    
+    <div style="text-align:center;margin-top:14px;">
+      <button id="items-5-toggle" onclick="(function(){
+        var rows = document.querySelectorAll('#items-5 .ra-hidden, #items-5 tr.ra-hidden');
+        var btn = document.getElementById('items-5-toggle');
+        var hidden = rows[0] && rows[0].style.display === 'none';
+        for(var i=0;i<rows.length;i++) rows[i].style.display = hidden ? '' : 'none';
+        btn.textContent = hidden ? 'Show less' : 'See all 40 items ↓';
+      })()" style="background:transparent;border:1px solid #A9842F44;color:#A9842F;padding:8px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;">See all 40 items ↓</button>
+    </div>
+    <script>
+    (function(){ window['items-5'] = [{"name":"Dog Bones (3)","qty":9,"revenue":54,"category":"Food"},{"name":"Mini Card","qty":7,"revenue":28,"category":"Non-Food"},{"name":"High Protein Granola","qty":5,"revenue":77.5,"category":"Food"},{"name":"Emily Lex Watercolor Workbook","qty":5,"revenue":140,"category":"Non-Food"},{"name":"Hand Puppet","qty":5,"revenue":45,"category":"Non-Food"},{"name":"Bag of 8 Coconut Strawberry","qty":4,"revenue":48,"category":"Food"},{"name":"Emily Lex Watercolor Paint Set","qty":4,"revenue":72,"category":"Non-Food"},{"name":"Skel & Co Card","qty":4,"revenue":24,"category":"Non-Food"},{"name":"Jeannine's Wildflower Honey 9 oz","qty":3,"revenue":60,"category":"Food"},{"name":"Jeannine's Granola Bag LG","qty":3,"revenue":46.5,"category":"Food"},{"name":"Banana","qty":3,"revenue":6,"category":"Food"},{"name":"Bana","qty":3,"revenue":5.66,"category":"Food"},{"name":"9 Bear Jumbo Tote","qty":3,"revenue":90,"category":"Non-Food"},{"name":"BluGift Camellia","qty":2,"revenue":32,"category":"Non-Food"},{"name":"Elseware Colored Pencils - Tall","qty":2,"revenue":14,"category":"Non-Food"},{"name":"Wellspring - Sharks & Ocean Creatures Coloring Book","qty":2,"revenue":16,"category":"Non-Food"},{"name":"Matchbox","qty":2,"revenue":16,"category":"Non-Food"},{"name":"SoulByrd Cap","qty":2,"revenue":96,"category":"Non-Food"},{"name":"Large SB Card","qty":2,"revenue":13,"category":"Non-Food"},{"name":"Flying Bird Jasmine Green","qty":1,"revenue":10,"category":"Food"},{"name":"Mint Chocolate Cookie Bites","qty":1,"revenue":5.5,"category":"Food"},{"name":"Torres Chips Mediterranean Salt","qty":1,"revenue":4.5,"category":"Food"},{"name":"Torres Chips Black Truffle (40g bag)","qty":1,"revenue":4.5,"category":"Food"},{"name":"Ojai Jam","qty":1,"revenue":18,"category":"Food"},{"name":"Mac & Mo Card","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Talking Tables - HB Candle Rainbow","qty":1,"revenue":7.5,"category":"Non-Food"},{"name":"Eco Kids XL Beeswax Crayons","qty":1,"revenue":13,"category":"Non-Food"},{"name":"Hand Cream Peony","qty":1,"revenue":4.5,"category":"Non-Food"},{"name":"Talking Tables 16 Candles","qty":1,"revenue":7,"category":"Non-Food"},{"name":"Talking Tables Twirl Candles 8","qty":1,"revenue":6,"category":"Non-Food"},{"name":"Elseware Paintbrushes","qty":1,"revenue":10,"category":"Non-Food"},{"name":"Elseware Watercolors Bamboo Box","qty":1,"revenue":25,"category":"Non-Food"},{"name":"Beach Towel","qty":1,"revenue":60,"category":"Non-Food"},{"name":"Wild Friends Activity Book","qty":1,"revenue":8,"category":"Non-Food"},{"name":"Living Goods Random Cats Mug","qty":1,"revenue":20,"category":"Non-Food"},{"name":"Jeannine's Wo's Crewneck Sweatshirt - Pink XL","qty":1,"revenue":50,"category":"Non-Food"},{"name":"Multipet Highland Cow Dog Toy","qty":1,"revenue":14,"category":"Non-Food"},{"name":"BluGift Lemon Blossoms","qty":1,"revenue":16,"category":"Non-Food"},{"name":"Coffeee Mug","qty":1,"revenue":21.97,"category":"Non-Food"},{"name":"Bougie Bottle Water Bottle - Enchanting","qty":1,"revenue":48,"category":"Non-Food"}]; })();
+    </script>
+    </div>
+  </div>
+
+  <footer>Jeannine's Restaurant &amp; Bakery · Santa Barbara, CA · Powered by Toast POS</footer>
+</div>
+<script>
+function setRetailView(view) {
+  const cols     = document.getElementById('retail-cols');
+  const allView  = document.getElementById('retail-all-view');
+  const foodCol  = document.getElementById('retail-col-food');
+  const nonfoodCol = document.getElementById('retail-col-nonfood');
+  const sortBar  = document.getElementById('retail-sort-bar');
+  if (!cols) return;
+  cols.style.display     = view === 'all' ? 'none' : '';
+  if (allView)   allView.style.display   = view === 'all'     ? ''     : 'none';
+  if (foodCol)   foodCol.style.display   = view === 'nonfood' ? 'none' : '';
+  if (nonfoodCol) nonfoodCol.style.display = view === 'food'  ? 'none' : '';
+  if (sortBar)   sortBar.style.display   = view === 'all'     ? ''     : 'none';
+  document.querySelectorAll('.rtgl-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === view)
+  );
+}
+const _reportDate = '2026-07-02';
+function goDay(delta) {
+  const d = new Date(_reportDate + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  window.location.href = '/api/report?date=' + y + '-' + m + '-' + day;
+}
+function goToDate(val) {
+  if (val) window.location.href = '/api/report?date=' + val;
+}
+function sortItems(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const all = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+
+  // Rank each item in the OTHER dimension (1 = best)
+  const otherBy = by === 'qty' ? 'revenue' : 'qty';
+  const otherLabel = by === 'qty' ? 'rev' : 'qty';
+  const ranked = [...all].sort((a, b) => b[otherBy] - a[otherBy]);
+  const rankMap = {};
+  ranked.forEach((item, i) => { if (i < 5) rankMap[item.name] = i + 1; });
+
+  // Gradient: rank 1 most vivid → rank 5 faintest
+  const bgOpacity   = [0, 0.22, 0.15, 0.10, 0.06, 0.03];
+  const bdrOpacity  = [0, 1.00, 0.72, 0.50, 0.32, 0.18];
+  const tagOpacity  = [0, 1.00, 0.80, 0.62, 0.45, 0.30];
+
+  const hasType = all.some(it => it.category);
+  function cpill(cat) {
+    if (!cat) return '';
+    const lower = cat.toLowerCase();
+    const color = lower.includes('non-food') || lower.includes('nonfood') ? '#A9842F'
+                : lower.includes('food') ? '#0F9488' : '#666';
+    const bg = lower.includes('non-food') || lower.includes('nonfood') ? 'rgba(201,168,76,.12)'
+             : lower.includes('food') ? 'rgba(78,205,196,.12)' : 'rgba(0,0,0,.05)';
+    const label = cat.replace(/^Retails+/i, '');
+    return `<span style="display:inline-block;font-size:.65rem;font-weight:600;padding:.2rem .55rem;border-radius:4px;color:${color};background:${bg};border:1px solid ${color}33;white-space:nowrap">${label}</span>`;
+  }
+  table.querySelector('tbody').innerHTML = data.map((item, i) => {
+    const rank = rankMap[item.name];
+    const bg   = rank ? `rgba(78,205,196,${bgOpacity[rank]})`  : '';
+    const bdr  = rank ? `2px solid rgba(78,205,196,${bdrOpacity[rank]})` : '';
+    const rowStyle = rank ? `background:${bg}!important;border-left:${bdr}` : '';
+    const tag  = rank
+      ? `<span class="cross-tag" style="opacity:${tagOpacity[rank]}">#${rank} ${otherLabel}</span>`
+      : '';
+    return `<tr style="${rowStyle}">
+      <td>${i + 1}</td>
+      <td>${item.name} ${tag}</td>
+      ${hasType ? `<td>${cpill(item.category)}</td>` : ''}
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`;
+  }).join('');
+
+  const toolbar = table.previousElementSibling;
+  toolbar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+function sortRetailAll(id, by) {
+  const table = document.getElementById(id);
+  if (!table) return;
+  const all  = window[id];
+  const data = [...all].sort((a, b) => by === 'revenue' ? b.revenue - a.revenue : b.qty - a.qty);
+  const fmt  = n => '$' + n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g, ',');
+  const badge = cat => {
+    const isFd  = cat === 'Food';
+    const color = isFd ? '#0F9488' : '#A9842F';
+    const bg    = isFd ? 'rgba(78,205,196,.1)'  : 'rgba(201,168,76,.1)';
+    const bdr   = isFd ? 'rgba(78,205,196,.25)' : 'rgba(201,168,76,.25)';
+    return `<span style="font-size:.65rem;font-weight:600;color:${color};background:${bg};border:1px solid ${bdr};padding:.1rem .4rem;border-radius:3px;white-space:nowrap">${cat}</span>`;
+  };
+  table.querySelector('tbody').innerHTML = data.map((item, i) => `
+    <tr class="${i % 2 === 0 ? 'even' : ''}">
+      <td>${i + 1}</td>
+      <td>${item.name}</td>
+      <td>${badge(item.category)}</td>
+      <td>${item.qty}</td>
+      <td>${fmt(item.revenue)}</td>
+    </tr>`).join('');
+  const sortBar = document.getElementById('retail-sort-bar');
+  if (sortBar) sortBar.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(by === 'qty' ? 'q' : 'r'));
+  });
+}
+</script>
+</body>
+</html>
